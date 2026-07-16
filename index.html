@@ -1,0 +1,3027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de Projeto de Qualificação Profissional</title>
+  <style>
+    /* ======================================================================
+       1. FUNDAÇÕES: variáveis, reset e tipografia
+       ====================================================================== */
+    :root {
+      --primary: #1351b4;
+      --primary-dark: #0c326f;
+      --primary-light: #e7f0ff;
+      --surface: #ffffff;
+      --background: #f5f6f8;
+      --text: #1f2937;
+      --muted: #667085;
+      --border: #d0d5dd;
+      --danger: #b42318;
+      --danger-bg: #fef3f2;
+      --success: #067647;
+      --success-bg: #ecfdf3;
+      --warning: #b54708;
+      --warning-bg: #fffaeb;
+      --shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--background);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    button, input, select { font: inherit; }
+
+    /* ======================================================================
+       2. ESTRUTURA PRINCIPAL: cabeçalho, conteúdo e navegação por etapas
+       ====================================================================== */
+    .app-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      padding: 28px 20px;
+    }
+
+    .app-header__inner,
+    .app-shell {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .app-header h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      line-height: 1.2;
+    }
+
+    .app-header p {
+      max-width: 780px;
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.86);
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0 48px;
+    }
+
+    .stepper {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .stepper__title {
+      margin: 4px 8px 12px;
+      font-size: .82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .stepper button {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      align-items: center;
+      width: 100%;
+      border: 0;
+      border-radius: 9px;
+      padding: 9px 8px;
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .stepper button:hover { background: #f2f4f7; }
+    .stepper button[aria-current="step"] { background: var(--primary-light); color: var(--primary-dark); }
+    .stepper button[hidden] { display: none; }
+
+    .step-index {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-size: .82rem;
+      font-weight: 700;
+      background: #fff;
+    }
+
+    .stepper button[aria-current="step"] .step-index {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .stepper button.is-complete .step-index {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--success);
+    }
+
+    .step-label { font-size: .9rem; font-weight: 650; }
+
+    main { min-width: 0; }
+
+    /* ======================================================================
+       3. PAINÉIS, CAMPOS E CONTROLES DE FORMULÁRIO
+       ====================================================================== */
+    .panel {
+      padding: clamp(20px, 4vw, 34px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .wizard-section[hidden] { display: none; }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--primary);
+      font-size: .83rem;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+      line-height: 1.25;
+    }
+
+    .section-description {
+      max-width: 900px;
+      margin: 12px 0 24px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .field { grid-column: span 6; min-width: 0; }
+    .field--full { grid-column: 1 / -1; }
+    .field--third { grid-column: span 4; }
+
+    label, .field-label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: .91rem;
+      font-weight: 650;
+    }
+
+    .required::after { content: " *"; color: var(--danger); }
+
+    .label-with-help { display: flex; align-items: center; gap: 6px; width: fit-content; }
+    .help-tooltip {
+      position: relative; display: inline-flex; align-items: center; justify-content: center;
+      width: 19px; height: 19px; padding: 0; border: 1px solid var(--border);
+      border-radius: 50%; background: #fff; color: var(--primary); font: inherit;
+      font-size: .75rem; font-weight: 750; line-height: 1; cursor: help;
+    }
+    .help-tooltip__content {
+      position: absolute; z-index: 10; bottom: calc(100% + 9px); left: 50%;
+      width: min(340px, 80vw); padding: 10px 12px; border-radius: 7px;
+      background: #101828; color: #fff; font-size: .78rem; font-weight: 400;
+      line-height: 1.4; opacity: 0; pointer-events: none;
+      transform: translate(-50%, 4px); transition: opacity .15s, transform .15s;
+    }
+    .help-tooltip:hover .help-tooltip__content,
+    .help-tooltip:focus .help-tooltip__content,
+    .help-tooltip:focus-visible .help-tooltip__content {
+      opacity: 1; transform: translate(-50%, 0);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(19, 81, 180, .14);
+    }
+
+    input[readonly] { background: #f2f4f7; color: #475467; }
+    select:disabled { background: #f2f4f7; color: #667085; }
+
+    .input-with-suffix { position: relative; }
+    .input-with-suffix input { padding-right: 70px; }
+    .input-suffix {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: .87rem;
+      pointer-events: none;
+    }
+
+    .hint, .error-message {
+      display: block;
+      margin-top: 6px;
+      font-size: .8rem;
+    }
+
+    .hint { color: var(--muted); }
+    .error-message { min-height: 1.1em; color: var(--danger); }
+    .is-invalid { border-color: var(--danger) !important; box-shadow: 0 0 0 3px rgba(180,35,24,.1) !important; }
+
+    .check-card {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f9fafb;
+    }
+
+    .check-card input {
+      width: 20px;
+      height: 20px;
+      margin: 2px 0 0;
+      accent-color: var(--primary);
+    }
+
+    .check-card label { margin: 0; cursor: pointer; }
+    .check-card small { display: block; margin-top: 3px; color: var(--muted); font-weight: 400; }
+
+    /* ======================================================================
+       4. CURSOS, TABELAS DE DESPESAS E AÇÕES
+       ====================================================================== */
+    .course-card {
+      margin-top: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .course-card__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 15px 18px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .course-card__header h3 { margin: 0; font-size: 1.05rem; }
+    .course-card__body { padding: 20px; }
+
+    .subsection-title {
+      margin: 0 0 16px;
+      font-size: 1rem;
+    }
+
+    .divider { height: 1px; margin: 24px 0; background: var(--border); }
+
+    .table-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin: 16px 0 10px;
+    }
+
+    .table-toolbar h3 { margin: 0; font-size: 1rem; }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1080px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #475467;
+      font-size: .78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+    td input, td select { min-width: 125px; min-height: 40px; padding: 7px 9px; font-size: .86rem; }
+    td .error-message { max-width: 180px; }
+
+    .empty-state {
+      padding: 26px 16px;
+      color: var(--muted);
+      text-align: center;
+      background: #fff;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 9px 15px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 680;
+      cursor: pointer;
+      transition: transform .08s, background .15s, border-color .15s;
+    }
+
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary { border-color: var(--primary); background: #fff; color: var(--primary); }
+    .btn-secondary:hover { background: var(--primary-light); }
+    .btn-ghost { border-color: var(--border); background: #fff; color: #344054; }
+    .btn-ghost:hover { background: #f2f4f7; }
+    .btn-danger { border-color: #fecdca; background: #fff; color: var(--danger); }
+    .btn-danger:hover { background: var(--danger-bg); }
+    .btn-sm { min-height: 35px; padding: 6px 10px; font-size: .84rem; }
+
+    .wizard-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .wizard-actions__right { display: flex; gap: 10px; }
+
+    /* ======================================================================
+       5. RESUMOS, MENSAGENS E DIÁLOGO DE EXPORTAÇÃO
+       ====================================================================== */
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 22px;
+    }
+
+    .summary-card {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f9fafb;
+    }
+
+    .summary-card span { display: block; color: var(--muted); font-size: .78rem; }
+    .summary-card strong { display: block; margin-top: 3px; font-size: 1.05rem; }
+
+    /* RESUMO FINANCEIRO INDIVIDUAL DE CADA CURSO */
+    .summary-strip--course {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-bottom: 12px;
+    }
+
+    .status-banner {
+      display: none;
+      margin-bottom: 18px;
+      padding: 13px 15px;
+      border-radius: 9px;
+      font-size: .9rem;
+    }
+
+    .status-banner.is-error { display: block; color: var(--danger); background: var(--danger-bg); border: 1px solid #fecdca; }
+    .status-banner.is-success { display: block; color: var(--success); background: var(--success-bg); border: 1px solid #abefc6; }
+
+    dialog {
+      width: min(800px, calc(100% - 32px));
+      max-height: 85vh;
+      padding: 0;
+      border: 0;
+      border-radius: 14px;
+      box-shadow: 0 24px 48px rgba(16,24,40,.25);
+    }
+
+    dialog::backdrop { background: rgba(16,24,40,.55); }
+    .dialog-header, .dialog-footer { padding: 18px 22px; }
+    .dialog-header { border-bottom: 1px solid var(--border); }
+    .dialog-header h2 { margin: 0; font-size: 1.25rem; }
+    .dialog-body { padding: 18px 22px; overflow: auto; }
+    .dialog-footer { display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border); }
+    pre {
+      margin: 0;
+      padding: 16px;
+      overflow: auto;
+      border-radius: 9px;
+      background: #101828;
+      color: #e6edf3;
+      font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .noscript {
+      margin: 20px auto;
+      width: min(900px, calc(100% - 32px));
+      padding: 16px;
+      color: var(--danger);
+      background: var(--danger-bg);
+      border: 1px solid #fecdca;
+      border-radius: 10px;
+    }
+
+    /* ======================================================================
+       6. RESPONSIVIDADE
+       ====================================================================== */
+    @media (max-width: 900px) {
+      .app-shell { grid-template-columns: 1fr; }
+      .stepper { position: static; display: flex; overflow-x: auto; }
+      .stepper__title { display: none; }
+      .stepper button { min-width: 185px; }
+      .field, .field--third { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 620px) {
+      .app-shell, .app-header__inner { width: min(100% - 20px, 1240px); }
+      .app-header { padding: 22px 10px; }
+      .panel { padding: 18px 14px; }
+      .summary-strip,
+      .summary-strip--course { grid-template-columns: 1fr; }
+      .wizard-actions { align-items: stretch; }
+      .wizard-actions, .wizard-actions__right { flex-direction: column-reverse; }
+      .wizard-actions .btn { width: 100%; }
+      .course-card__header { align-items: flex-start; flex-direction: column; }
+    }
+
+    /* =========================================================
+       AJUSTE DE LARGURA E TABELAS SEM ROLAGEM HORIZONTAL
+       Alteração solicitada em 13/07/2026
+       ========================================================= */
+
+    /* Amplia o formulário para aproveitar quase toda a tela. */
+    .app-header__inner,
+    .app-shell {
+      width: min(1800px, calc(100% - 24px));
+    }
+
+    .app-shell {
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .panel {
+      padding: clamp(18px, 2vw, 28px);
+    }
+
+    main,
+    .panel,
+    .course-card,
+    .course-card__body,
+    .table-wrap {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    /* Remove a largura mínima fixa que provocava a rolagem horizontal. */
+    .table-wrap {
+      width: 100%;
+      overflow-x: visible;
+    }
+
+    table {
+      width: 100%;
+      min-width: 0;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      padding: 8px 6px;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      white-space: normal;
+      line-height: 1.2;
+    }
+
+    td input,
+    td select {
+      width: 100%;
+      min-width: 0;
+      padding: 7px 6px;
+      font-size: .82rem;
+    }
+
+    td .error-message {
+      max-width: none;
+      overflow-wrap: anywhere;
+    }
+
+    td:last-child .btn {
+      width: 100%;
+      min-width: 0;
+      padding-inline: 4px;
+      font-size: .76rem;
+    }
+
+    /* Distribuição proporcional das oito colunas das despesas dos cursos. */
+    [data-course-expenses] th:nth-child(1),
+    [data-course-expenses] td:nth-child(1) { width: 14%; }
+    [data-course-expenses] th:nth-child(2),
+    [data-course-expenses] td:nth-child(2) { width: 20%; }
+    [data-course-expenses] th:nth-child(3),
+    [data-course-expenses] td:nth-child(3) { width: 14%; }
+    [data-course-expenses] th:nth-child(4),
+    [data-course-expenses] td:nth-child(4) { width: 12%; }
+    [data-course-expenses] th:nth-child(5),
+    [data-course-expenses] td:nth-child(5) { width: 8%; }
+    [data-course-expenses] th:nth-child(6),
+    [data-course-expenses] td:nth-child(6) { width: 12%; }
+    [data-course-expenses] th:nth-child(7),
+    [data-course-expenses] td:nth-child(7) { width: 12%; }
+    [data-course-expenses] th:nth-child(8),
+    [data-course-expenses] td:nth-child(8) { width: 8%; }
+
+    /* Distribuição proporcional das onze colunas das despesas das etapas. */
+    #stage11-table th:nth-child(1), #stage11-table td:nth-child(1),
+    #stage12-table th:nth-child(1), #stage12-table td:nth-child(1),
+    #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 15%; }
+
+    #stage11-table th:nth-child(2), #stage11-table td:nth-child(2),
+    #stage12-table th:nth-child(2), #stage12-table td:nth-child(2),
+    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 10%; }
+
+    #stage11-table th:nth-child(3), #stage11-table td:nth-child(3),
+    #stage12-table th:nth-child(3), #stage12-table td:nth-child(3),
+    #event-table th:nth-child(3), #event-table td:nth-child(3) { width: 8%; }
+
+    #stage11-table th:nth-child(4), #stage11-table td:nth-child(4),
+    #stage12-table th:nth-child(4), #stage12-table td:nth-child(4),
+    #event-table th:nth-child(4), #event-table td:nth-child(4) { width: 6%; }
+
+    #stage11-table th:nth-child(5), #stage11-table td:nth-child(5),
+    #stage12-table th:nth-child(5), #stage12-table td:nth-child(5),
+    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 10%; }
+
+    #stage11-table th:nth-child(6), #stage11-table td:nth-child(6),
+    #stage12-table th:nth-child(6), #stage12-table td:nth-child(6),
+    #event-table th:nth-child(6), #event-table td:nth-child(6) { width: 10%; }
+
+    #stage11-table th:nth-child(7), #stage11-table td:nth-child(7),
+    #stage12-table th:nth-child(7), #stage12-table td:nth-child(7),
+    #event-table th:nth-child(7), #event-table td:nth-child(7) { width: 10%; }
+
+    #stage11-table th:nth-child(8), #stage11-table td:nth-child(8),
+    #stage12-table th:nth-child(8), #stage12-table td:nth-child(8),
+    #event-table th:nth-child(8), #event-table td:nth-child(8) { width: 8%; }
+
+    #stage11-table th:nth-child(9), #stage11-table td:nth-child(9),
+    #stage12-table th:nth-child(9), #stage12-table td:nth-child(9),
+    #event-table th:nth-child(9), #event-table td:nth-child(9) { width: 8%; }
+
+    #stage11-table th:nth-child(10), #stage11-table td:nth-child(10),
+    #stage12-table th:nth-child(10), #stage12-table td:nth-child(10),
+    #event-table th:nth-child(10), #event-table td:nth-child(10) { width: 7%; }
+
+    #stage11-table th:nth-child(11), #stage11-table td:nth-child(11),
+    #stage12-table th:nth-child(11), #stage12-table td:nth-child(11),
+    #event-table th:nth-child(11), #event-table td:nth-child(11) { width: 8%; }
+
+    /* Em telas intermediárias, o menu fica acima para liberar a largura inteira. */
+    @media (max-width: 1180px) {
+      .app-shell { grid-template-columns: 1fr; }
+      .stepper {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-x: visible;
+      }
+      .stepper__title { display: none; }
+      .stepper button {
+        flex: 1 1 180px;
+        min-width: 0;
+      }
+    }
+
+    /* Em telas pequenas, cada linha vira um cartão vertical, sem scroll lateral. */
+    @media (max-width: 760px) {
+      .table-wrap {
+        border: 0;
+        overflow: visible;
+      }
+
+      .table-wrap table,
+      .table-wrap tbody,
+      .table-wrap tr,
+      .table-wrap td {
+        display: block;
+        width: 100% !important;
+      }
+
+      .table-wrap thead { display: none; }
+
+      .table-wrap tbody tr {
+        margin-bottom: 14px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      .table-wrap td {
+        display: grid;
+        grid-template-columns: minmax(105px, 34%) minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .table-wrap td:last-child { border-bottom: 0; }
+
+      .table-wrap td::before {
+        color: #475467;
+        font-size: .78rem;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      [data-course-expenses] td:nth-child(1)::before { content: "Tipo do item"; }
+      [data-course-expenses] td:nth-child(2)::before { content: "Item"; }
+      [data-course-expenses] td:nth-child(3)::before { content: "Elemento"; }
+      [data-course-expenses] td:nth-child(4)::before { content: "Unidade"; }
+      [data-course-expenses] td:nth-child(5)::before { content: "Quantidade"; }
+      [data-course-expenses] td:nth-child(6)::before { content: "Valor unitário"; }
+      [data-course-expenses] td:nth-child(7)::before { content: "Valor total"; }
+      [data-course-expenses] td:nth-child(8)::before { content: "Ações"; }
+
+      #stage11-table td:nth-child(1)::before,
+      #stage12-table td:nth-child(1)::before,
+      #event-table td:nth-child(1)::before { content: "Item"; }
+      #stage11-table td:nth-child(2)::before,
+      #stage12-table td:nth-child(2)::before,
+      #event-table td:nth-child(2)::before { content: "Elemento"; }
+      #stage11-table td:nth-child(3)::before,
+      #stage12-table td:nth-child(3)::before,
+      #event-table td:nth-child(3)::before { content: "Unidade"; }
+      #stage11-table td:nth-child(4)::before,
+      #stage12-table td:nth-child(4)::before,
+      #event-table td:nth-child(4)::before { content: "Quantidade"; }
+      #stage11-table td:nth-child(5)::before,
+      #stage12-table td:nth-child(5)::before,
+      #event-table td:nth-child(5)::before { content: "Valor unitário"; }
+      #stage11-table td:nth-child(6)::before,
+      #stage12-table td:nth-child(6)::before,
+      #event-table td:nth-child(6)::before { content: "Valor total"; }
+      #stage11-table td:nth-child(7)::before,
+      #stage12-table td:nth-child(7)::before,
+      #event-table td:nth-child(7)::before { content: "Fonte"; }
+      #stage11-table td:nth-child(8)::before,
+      #stage12-table td:nth-child(8)::before,
+      #event-table td:nth-child(8)::before { content: "Início"; }
+      #stage11-table td:nth-child(9)::before,
+      #stage12-table td:nth-child(9)::before,
+      #event-table td:nth-child(9)::before { content: "Fim"; }
+      #stage11-table td:nth-child(10)::before,
+      #stage12-table td:nth-child(10)::before,
+      #event-table td:nth-child(10)::before { content: "Tipo"; }
+      #stage11-table td:nth-child(11)::before,
+      #stage12-table td:nth-child(11)::before,
+      #event-table td:nth-child(11)::before { content: "Ações"; }
+
+      td:last-child .btn { width: auto; }
+    }
+
+    @media (max-width: 620px) {
+      .app-shell,
+      .app-header__inner {
+        width: calc(100% - 12px);
+      }
+    }
+
+    /* ====================== FIM DO AJUSTE ====================== */
+
+  </style>
+</head>
+<body>
+  <noscript><div class="noscript">Este formulário precisa de JavaScript habilitado para funcionar.</div></noscript>
+
+  <!-- Cabeçalho da aplicação -->
+  <header class="app-header">
+    <div class="app-header__inner">
+      <h1>Formulário de Projeto de Qualificação Profissional</h1>
+      <p>Preencha as etapas do projeto. Os campos são validados em tempo real e, ao final, os dados poderão ser exportados em JSON e planilha.</p>
+    </div>
+  </header>
+
+  <!-- Navegação e formulário principal -->
+  <div class="app-shell">
+    <nav class="stepper" aria-label="Etapas do formulário">
+      <p class="stepper__title">Etapas</p>
+      <button type="button" data-step-target="dados_gerais_projeto" aria-current="step">
+        <span class="step-index">1</span><span class="step-label">Dados gerais</span>
+      </button>
+      <button type="button" data-step-target="detalhamento_cursos">
+        <span class="step-index">2</span><span class="step-label">Cursos</span>
+      </button>
+      <button type="button" data-step-target="despesas_etapa_1_1">
+        <span class="step-index">3</span><span class="step-label">Planejamento e execução</span>
+      </button>
+      <button type="button" data-step-target="despesas_etapa_1_2">
+        <span class="step-index">4</span><span class="step-label">Estruturação e Equipamento</span>
+      </button>
+      <button type="button" data-step-target="despesas_evento_final" hidden>
+        <span class="step-index">5</span><span class="step-label">Evento de lançamento e encerramento</span>
+      </button>
+    </nav>
+
+    <main>
+      <div id="form-status" class="status-banner" role="alert" aria-live="polite"></div>
+
+      <form id="project-form" novalidate>
+        <section class="panel wizard-section" id="dados_gerais_projeto" data-section>
+          <p class="eyebrow">Etapa 1 de 5</p>
+          <h2 class="section-title">Dados gerais do projeto</h2>
+          <p class="section-description">Informe o orçamento total, a quantidade de cursos e se haverá evento de certificação.</p>
+
+          <div class="grid">
+            <div class="field">
+              <label class="required" for="custo_total_projeto">Custo total do projeto</label>
+              <input id="custo_total_projeto" name="custo_total_projeto" type="text" inputmode="numeric" class="currency-input" autocomplete="off" placeholder="R$ 0,00" data-required="true" />
+              <small class="hint">Formato monetário brasileiro.</small>
+              <small class="error-message" data-error-for="custo_total_projeto"></small>
+            </div>
+
+            <div class="field">
+              <label class="required" for="quantidade_cursos">Quantidade de cursos</label>
+              <input id="quantidade_cursos" name="quantidade_cursos" type="number" min="1" step="1" inputmode="numeric" data-required="true" value="1" />
+              <small class="hint">A seção de cursos será criada conforme esta quantidade.</small>
+              <small class="error-message" data-error-for="quantidade_cursos"></small>
+            </div>
+
+            <div class="field field--full">
+              <div class="check-card">
+                <input id="possui_evento_certificacao" name="possui_evento_certificacao" type="checkbox" />
+                <label for="possui_evento_certificacao">
+                  Projeto irá possuir evento de entrega de certificado?
+                  <small>Ao marcar, a etapa de despesas do evento final será exibida e passará a ser validada.</small>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-actions">
+            <span></span>
+            <div class="wizard-actions__right">
+              <button class="btn btn-primary" type="button" data-next>Próxima etapa</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wizard-section" id="detalhamento_cursos" data-section hidden>
+          <p class="eyebrow">Etapa 2 de 5</p>
+          <h2 class="section-title">Detalhamento dos cursos</h2>
+          <p class="section-description">Preencha os dados gerais e, quando necessário, adicione despesas específicas de cada curso.</p>
+          <div id="courses-container"></div>
+
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
+            <div class="wizard-actions__right">
+              <button class="btn btn-primary" type="button" data-next>Próxima etapa</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wizard-section" id="despesas_etapa_1_1" data-section hidden>
+          <p class="eyebrow">Etapa 3 de 5</p>
+          <h2 class="section-title">Planejamento, Mobilização, Execução e Monitoramento — Etapa 1.1</h2>
+          <p class="section-description">Detalhe as despesas para planejar, executar, monitorar, mobilizar, sensibilizar e divulgar as ações do projeto, incluindo contratações, bens e insumos.</p>
+          <div class="summary-strip">
+            <div class="summary-card"><span>Itens adicionados</span><strong id="stage11-count">0</strong></div>
+            <div class="summary-card"><span>Total da etapa</span><strong id="stage11-total">R$ 0,00</strong></div>
+            <div class="summary-card"><span>Fonte disponível</span><strong>SISEC / Contrapartida</strong></div>
+          </div>
+          <div class="table-toolbar">
+            <h3>Despesas da Etapa 1.1</h3>
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage11">+ Adicionar despesa</button>
+          </div>
+          <div id="stage11-table"></div>
+
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
+            <div class="wizard-actions__right">
+              <button class="btn btn-primary" type="button" data-next>Próxima etapa</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wizard-section" id="despesas_etapa_1_2" data-section hidden>
+          <p class="eyebrow">Etapa 4 de 5</p>
+          <h2 class="section-title">Estruturação e Equipamento dos Espaços — Etapa 1.2</h2>
+          <p class="section-description">Detalhe as despesas para estruturar os espaços de capacitação e adquirir os equipamentos necessários às ações de qualificação profissional.</p>
+          <div class="summary-strip">
+            <div class="summary-card"><span>Itens adicionados</span><strong id="stage12-count">0</strong></div>
+            <div class="summary-card"><span>Total da etapa</span><strong id="stage12-total">R$ 0,00</strong></div>
+            <div class="summary-card"><span>Tipo predominante</span><strong>Estruturação</strong></div>
+          </div>
+          <div class="table-toolbar">
+            <h3>Despesas da Etapa 1.2</h3>
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage12">+ Adicionar despesa</button>
+          </div>
+          <div id="stage12-table"></div>
+
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
+            <div class="wizard-actions__right">
+              <button class="btn btn-primary" type="button" data-next>Próxima etapa</button>
+              <button class="btn btn-primary" type="button" data-finish hidden>Finalizar e gerar arquivos</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wizard-section" id="despesas_evento_final" data-section hidden>
+          <p class="eyebrow">Etapa 5 de 5</p>
+          <h2 class="section-title">Celebração, Certificação e Encerramento — Etapa Final</h2>
+          <p class="section-description">Detalhe as despesas dos eventos de celebração do termo, certificação, avaliação dos avanços e encerramento com entrega de certificados.</p>
+          <div class="summary-strip">
+            <div class="summary-card"><span>Itens adicionados</span><strong id="event-count">0</strong></div>
+            <div class="summary-card"><span>Total da etapa</span><strong id="event-total">R$ 0,00</strong></div>
+            <div class="summary-card"><span>Aplicação</span><strong>Evento final</strong></div>
+          </div>
+          <div class="table-toolbar">
+            <h3>Despesas do evento final</h3>
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="event">+ Adicionar despesa</button>
+          </div>
+          <div id="event-table"></div>
+
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
+            <div class="wizard-actions__right">
+              <button class="btn btn-primary" type="button" data-finish>Finalizar e gerar arquivos</button>
+            </div>
+          </div>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <!-- Previa e download do resultado -->
+  <dialog id="json-dialog">
+    <div class="dialog-header"><h2>Dados preparados com sucesso</h2></div>
+    <div class="dialog-body">
+      <p>Revise a previa abaixo e escolha o formato que deseja baixar.</p>
+      <pre id="json-preview"></pre>
+    </div>
+    <div class="dialog-footer">
+      <button type="button" class="btn btn-ghost" id="close-dialog">Fechar</button>
+      <button type="button" class="btn btn-primary" id="download-json">Baixar JSON</button>
+      <button type="button" class="btn btn-primary" id="download-xlsx">Baixar planilha</button>
+    </div>
+  </dialog>
+
+  <!-- ExcelJS 4.4.0: bundle local para funcionamento sem CDN. -->
+  <script src="./assets/exceljs.min.js"></script>
+  <script>
+    "use strict";
+
+    /*
+     * Organização deste script
+     * 1. Configuração e catálogos
+     * 2. Estado e referências da interface
+     * 3. Utilitários de formatação
+     * 4. Navegação do formulário
+     * 5. Componentes de cursos e despesas
+     * 6. Cálculos e resumos financeiros
+     * 7. Validação
+     * 8. Coleta e exportação
+     * 9. Controladores de eventos
+     * 10. Inicialização
+     */
+
+    /* =========================================================
+       CATÁLOGO NEGOCIAL ATUALIZADO
+       Fonte: arquivo catalogo.html fornecido pelo usuário.
+       ========================================================= */
+    const catalogs = {
+          fontesRecurso: ["SISEC", "Contrapartida"],
+          tiposItemCurso: [
+            {
+              id: "kit_participante", label: "Kit participante", tipo: "Finalistica", itens: [
+                { id: "estojo_escolar_simples_nylon_preto", label: "Estojo Escolar Simples Nylon Preto", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "caderno_a4_100_paginas", label: "Caderno a4 100 paginas", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "lapis_preto_hb2", label: "Lápis preto HB2", codigo: "33.90.39", unidades: ["kit 4 unidades"] },
+                { id: "apontador_de_lapis_de_grafiti", label: "Apontador de lapis de grafiti", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "borracha_para_lapis_grafiti", label: "Borracha para lápis grafiti", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "caneta_esferografica_azul", label: "Caneta esferográfica azul", codigo: "33.90.39", unidades: ["kit 3 unidades"] },
+                { id: "mochila_poliester_42cm_x_48cm_x_33cm", label: "Mochila poliester 42cm x 48cm x 33cm", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "ecobag_tecido", label: "Ecobag de tecido 22cm x 28cm x 13cm", codigo: "33.90.39", unidades: ["unidade"] }
+              ]
+            },
+            {
+              id: "insumos_gerais", label: "Insumos gerais", tipo: "Finalistica", itens: [
+                { id: "material_escritorio", label: "Material de escritório", codigo: "33.90.30", unidades: ["pacote", "unidade"] },
+                { id: "material_consumo", label: "Material de consumo", codigo: "33.90.30", unidades: ["unidade", "litro", "metro"] },
+                { id: "cimento_50kg", label: "Cimento (50 kg)", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "areia_media_m3", label: "Areia média (m³)", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "blocos_tijolos", label: "Blocos/tijolos", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "brita_fina_m3", label: "Brita fina (m³)", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "cal_hidratada_saco_padrao", label: "Cal hidratada (saco padrão)", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "colher_de_pedreiro", label: "Colher de pedreiro", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "desempenadeira_lisa", label: "Desempenadeira lisa", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "desempenadeira_dentada", label: "Desempenadeira dentada", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "prumo", label: "Prumo", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "nivel", label: "Nível", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "trena", label: "Trena", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "esquadro", label: "Esquadro", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "regua_de_aluminio", label: "Régua de alumínio", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "enxada", label: "Enxada", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "pa", label: "Pá", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "balde_reforcado", label: "Balde reforçado", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "martelo", label: "Martelo", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "serra_manual", label: "Serra manual", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "serrote", label: "Serrote", codigo: "33.90.40", unidades: ["unidade"] },
+                { id: "formao_kit_c_4", label: "Formão (kit c/ 4)", codigo: "33.90.41", unidades: ["unidade"] },
+                { id: "plaina_manual", label: "Plaina manual", codigo: "33.90.42", unidades: ["unidade"] },
+                { id: "esquadro_carpinteiro", label: "Esquadro carpinteiro", codigo: "33.90.43", unidades: ["unidade"] },
+                { id: "grampo_sargento", label: "Grampo/sargento", codigo: "33.90.44", unidades: ["unidade"] },
+                { id: "furadeira_eletrica", label: "Furadeira elétrica", codigo: "33.90.45", unidades: ["unidade"] },
+                { id: "brocas_para_madeira_kit_c_5", label: "Brocas para madeira (kit c/ 5)", codigo: "33.90.46", unidades: ["unidade"] },
+                { id: "bancada_de_trabalho", label: "Bancada de trabalho", codigo: "33.90.46", unidades: ["unidade"] },
+                { id: "are_de_pratica", label: "Áre de prática", codigo: "33.90.46", unidades: ["unidade"] },
+                { id: "masseira", label: "Masseira", codigo: "33.90.46", unidades: ["unidade"] },
+                { id: "formas_de_madeira", label: "Formas de madeira", codigo: "33.90.46", unidades: ["unidade"] },
+                { id: "tabuas_de_madeira", label: "Tábuas de madeira", codigo: "33.90.47", unidades: ["unidade"] },
+                { id: "sarrafos", label: "Sarrafos", codigo: "33.90.48", unidades: ["unidade"] },
+                { id: "compensado_chapa", label: "Compensado (chapa)", codigo: "33.90.49", unidades: ["unidade"] },
+                { id: "pregos_kg", label: "Pregos (Kg)", codigo: "33.90.50", unidades: ["unidade"] },
+                { id: "parafusos_kg", label: "Parafusos (Kg)", codigo: "33.90.51", unidades: ["unidade"] },
+                { id: "buchas_caixa", label: "Buchas (caixa)", codigo: "33.90.52", unidades: ["unidade"] },
+                { id: "cola_para_madeira_litro", label: "Cola para madeira (litro)", codigo: "33.90.53", unidades: ["unidade"] },
+                { id: "desempenadeira_acabamento", label: "Desempenadeira acabamento", codigo: "33.90.54", unidades: ["unidade"] },
+                { id: "lixas_kit", label: "Lixas (kit)", codigo: "33.90.55", unidades: ["unidade"] },
+                { id: "espatula", label: "Espátula", codigo: "33.90.56", unidades: ["unidade"] },
+                { id: "rolo_de_pintura", label: "Rolo de pintura", codigo: "33.90.57", unidades: ["unidade"] },
+                { id: "bandeja_de_pintura", label: "Bandeja de pintura", codigo: "33.90.58", unidades: ["unidade"] },
+                { id: "massa_corrida_kg", label: "Massa corrida (kg)", codigo: "33.90.59", unidades: ["unidade"] },
+                { id: "baldes", label: "Baldes", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "carrinho_de_mao", label: "Carrinho de mão", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "mangueira_20_m", label: "Mangueira (20 m)", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "lona_plastica", label: "Lona plástica", codigo: "33.90.40", unidades: ["unidade"] },
+                { id: "pregos_adicionais", label: "Pregos adicionais", codigo: "33.90.41", unidades: ["unidade"] }
+              ]
+            },
+            {
+              id: "epi", label: "EPI", tipo: "Finalistica", itens: [
+                { id: "luva_protecao", label: "Luva de proteção", codigo: "33.90.30", unidades: ["unidade", "par"] },
+                { id: "oculos_protecao", label: "Óculos de proteção", codigo: "33.90.30", unidades: ["unidade"] },
+                { id: "capacete_seguranca", label: "Capacete de segurança", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "oculos_seguranca", label: "Óculos de segurança", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "luvas_protecao_tabela", label: "Luvas de proteção (Tabela)", codigo: "33.90.39", unidades: ["unidade", "par"] },
+                { id: "botina_seguranca", label: "Botina de segurança", codigo: "33.90.40", unidades: ["unidade"] },
+                { id: "mascara_respiratoria_pf2", label: "Máscara respiratória (PF2)", codigo: "33.90.41", unidades: ["unidade", "kit"] },
+                { id: "protetor_auricular", label: "Protetor auricular", codigo: "33.90.42", unidades: ["unidade", "kit"] }
+              ]
+            },
+            {
+              id: "kit_trabalho", label: "Kit Trabalho", tipo: "Kit", itens: [
+                { id: "ferramentas_basicas", label: "Ferramentas básicas", codigo: "33.90.30", unidades: ["kit"] },
+                { id: "uniforme_trabalho", label: "Uniforme de trabalho", codigo: "33.90.30", unidades: ["kit", "unidade"] }
+              ]
+            },
+            {
+              id: "Outros", label: "Outros", tipo: "Finalistica", itens: [
+                { id: "apostila_impressa", label: "Apostila impressa", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "uniforme_camiseta", label: "Uniforme (camiseta)", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "certificados", label: "Certificados", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "instrutor", label: "Instrutor", codigo: "33.90.39", unidades: ["hora"] },
+                { id: "monitor", label: "Monitor", codigo: "33.90.39", unidades: ["hora"] },
+                { id: "lanche_participantes", label: "Lanche para os participantes do curso", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "transporte_participantes", label: "Transporte para os participantes do curso", codigo: "33.90.39", unidades: ["unidade"] }
+              ]
+            }
+          ],
+          stage11: [
+            { id: "servico_planejamento", label: "Serviço de planejamento", codigo: "33.90.39", unidades: ["servico", "hora"], tipo: "Gestao" },
+            { id: "mobilizacao_divulgacao", label: "Mobilização e divulgação", codigo: "33.90.39", unidades: ["servico", "unidade"], tipo: "Finalistica" },
+            { id: "monitoramento_projeto", label: "Monitoramento do projeto", codigo: "33.90.39", unidades: ["servico", "hora"], tipo: "Gestao" },
+            { id: "material_apoio_execucao", label: "Material de apoio à execução", codigo: "33.90.30", unidades: ["unidade", "kit"], tipo: "Finalistica" },
+            { id: "servicos_administrativos_financeiros", label: "Serviços administrativos e financeiros do projeto (Taxa de Administração)", codigo: "33.90.39", unidades: ["unidade"], tipo: "Gestao" },
+            { id: "coordenador_geral", label: "Contratação de Coordenador geral", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "coordenador_executivo", label: "Contratação de Coordenador Executivo", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "assessor_tecnico", label: "Contratação de Assessor Técnico", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "assessor_operacional", label: "Contratação de Assessor Operacional", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "apoio_administrativo", label: "Contratação de Apoio Administrativo", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "diarias_equipe_gestao", label: "Diárias para equipe de gestão", codigo: "33.90.39", unidades: ["diaria", "unidade"], tipo: "Finalistica" },
+            { id: "material_consumo_gestao", label: "Material de Consumo (pasta, lápis, caneta, papel, etc.)", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
+            { id: "producao_banners", label: "Serviço de Produção de banners", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
+            { id: "desenvolvimento_website", label: "Serviço de desenvolvimento de website", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
+            { id: "webmaster_social_media", label: "Serviço de webmaster e social mídia do Projeto", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
+            { id: "coordenador_regional", label: "Contratação de Coordenador Regional", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "mobilizador_social", label: "Contratação de Mobilizadores Sociais", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "assistente_academico", label: "Contratação de Assistente Acadêmico", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
+            { id: "servico_comunicacao", label: "Serviço de comunicação", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" }
+          ],
+          stage12: [
+            { id: "notebook", label: "Aquisição de notebook", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "smartphone", label: "Aquisição de smartphone", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "power_bank", label: "Aquisição de power bank", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "tela_projecao", label: "Aquisição de tela de projeção", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "mesa_som", label: "Aquisição de mesa de som", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "caixa_som_amplificada", label: "Aquisição de caixa de som amplificada", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "microfone_sem_fio", label: "Aquisição de microfone sem fio", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "camera_dslr_mirrorless", label: "Aquisição de câmera DSLR/Mirrorless", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "camera_360", label: "Aquisição de câmera 360°", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "extensao_filtro_linha", label: "Aquisição de extensão/filtro de linha profissional", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "kit_portatil_som", label: "Aquisição de kit portátil de som", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
+            { id: "locacao_espaco_capacitacao", label: "Locação de espaço para as capacitações", codigo: "33.90.39", unidades: ["unidade", "servico"], tipo: "Estruturacao" }
+          ],
+          event: [
+            { id: "locacao_espaco", label: "Locação de espaço para evento", codigo: "33.90.39", unidades: ["servico", "diaria"], tipo: "Finalistica" },
+            { id: "impressao_certificados", label: "Impressão de certificados", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
+            { id: "servico_organizacao_evento", label: "Serviço de organização do evento", codigo: "33.90.39", unidades: ["servico"], tipo: "Gestao" },
+            { id: "kit_evento", label: "Kit para participantes do evento", codigo: "33.90.30", unidades: ["kit"], tipo: "Kit" },
+            { id: "contratacao", label: "Contratação de Pessoa jurídica para realizar os Eventos de celebração do Termo de Execução Descentralizada e certificação e Avaliação dos avanços do projeto.", codigo: "33.90.39", unidades: ["unidade"], tipo: "Gestao" }
+          ]
+        };
+
+    /* =========================================================
+       ITENS PADRÃO DAS TABELAS DE DESPESAS DOS CURSOS
+       Cada novo curso é iniciado com estas 15 despesas:
+       - 8 itens de "Kit participante";
+       - 7 itens de "Outros".
+       Quantidade e valor unitário permanecem para preenchimento.
+       ========================================================= */
+    const defaultCourseExpenseItems = [
+      { tipoId: "kit_participante", itemId: "estojo_escolar_simples_nylon_preto" },
+      { tipoId: "kit_participante", itemId: "caderno_a4_100_paginas" },
+      { tipoId: "kit_participante", itemId: "lapis_preto_hb2" },
+      { tipoId: "kit_participante", itemId: "apontador_de_lapis_de_grafiti" },
+      { tipoId: "kit_participante", itemId: "borracha_para_lapis_grafiti" },
+      { tipoId: "kit_participante", itemId: "caneta_esferografica_azul" },
+      { tipoId: "kit_participante", itemId: "mochila_poliester_42cm_x_48cm_x_33cm" },
+      { tipoId: "kit_participante", itemId: "ecobag_tecido" },
+      { tipoId: "Outros", itemId: "apostila_impressa" },
+      { tipoId: "Outros", itemId: "uniforme_camiseta" },
+      { tipoId: "Outros", itemId: "certificados" },
+      { tipoId: "Outros", itemId: "instrutor" },
+      { tipoId: "Outros", itemId: "monitor" },
+      { tipoId: "Outros", itemId: "lanche_participantes" },
+      { tipoId: "Outros", itemId: "transporte_participantes" }
+    ];
+
+    /* ======================================================================
+       2. ESTADO E REFERÊNCIAS DA INTERFACE
+       ====================================================================== */
+    const state = {
+      currentStep: "dados_gerais_projeto",
+      completedSteps: new Set(),
+      json: null,
+      rowCounter: 0
+    };
+
+    let valorTotalGestao = 0;
+    let valorTotalFinalistica = 0;
+    let valorTotalEstruturacao = 0;
+    let valorTotalKit = 0;
+    let valorTotalGestaoFinalistica = 0;
+    let valorTotalProjetoCalculado = 0;
+    let valorTotalSISEC = 0;
+    let valorTotalContrapartida = 0;
+
+    const form = document.getElementById("project-form");
+    const eventCheckbox = document.getElementById("possui_evento_certificacao");
+    const quantityCourses = document.getElementById("quantidade_cursos");
+    const statusBanner = document.getElementById("form-status");
+    const jsonDialog = document.getElementById("json-dialog");
+
+    /* ======================================================================
+       3. UTILITÁRIOS DE FORMATAÇÃO E CONVERSÃO
+       ====================================================================== */
+
+    function escapeHtml(value = "") {
+      return String(value).replace(/[&<>'"]/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#039;", '"': "&quot;"
+      })[char]);
+    }
+
+    function formatBRL(value) {
+      const number = Number(value) || 0;
+      return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(number);
+    }
+
+    function currencyValue(input) {
+      return Number(input.dataset.value || 0);
+    }
+
+    function setCurrencyFromDigits(input) {
+      const digits = input.value.replace(/\D/g, "");
+      if (!digits) {
+        input.value = "";
+        input.dataset.value = "";
+        return;
+      }
+      const value = Number(digits) / 100;
+      input.dataset.value = String(value);
+      input.value = formatBRL(value);
+    }
+
+    function maskMonthYear(input) {
+      const digits = input.value.replace(/\D/g, "").slice(0, 6);
+      input.value = digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits;
+    }
+
+    function monthYearToComparable(value) {
+      const match = /^(0[1-9]|1[0-2])\/(\d{4})$/.exec(value || "");
+      if (!match) return null;
+      return Number(match[2]) * 12 + Number(match[1]);
+    }
+
+    function optionList(items, placeholder = "Selecione") {
+      return `<option value="">${placeholder}</option>` + items.map(item => {
+        const value = typeof item === "string" ? item : item.id;
+        const label = typeof item === "string" ? item : item.label;
+        return `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`;
+      }).join("");
+    }
+
+    function setStatus(message = "", type = "") {
+      statusBanner.className = "status-banner";
+      statusBanner.textContent = message;
+      if (message && type) statusBanner.classList.add(`is-${type}`);
+    }
+
+    /* ======================================================================
+       4. NAVEGAÇÃO DO FORMULÁRIO
+       ====================================================================== */
+    function visibleSteps() {
+      return [...document.querySelectorAll("[data-step-target]")]
+        .filter(button => !button.hidden)
+        .map(button => button.dataset.stepTarget);
+    }
+
+    function updateNavigation() {
+      const visible = visibleSteps();
+      document.querySelectorAll("[data-step-target]").forEach(button => {
+        const target = button.dataset.stepTarget;
+        button.hidden = !visible.includes(target);
+        button.toggleAttribute("aria-current", target === state.currentStep);
+        if (target === state.currentStep) button.setAttribute("aria-current", "step");
+        else button.removeAttribute("aria-current");
+        button.classList.toggle("is-complete", state.completedSteps.has(target));
+      });
+
+      const currentIndex = visible.indexOf(state.currentStep);
+      document.querySelectorAll("[data-section] .eyebrow").forEach(eyebrow => {
+        const section = eyebrow.closest("[data-section]");
+        const index = visible.indexOf(section.id);
+        if (index >= 0) eyebrow.textContent = `Etapa ${index + 1} de ${visible.length}`;
+      });
+
+      const stage12 = document.getElementById("despesas_etapa_1_2");
+      const nextButton = stage12.querySelector("[data-next]");
+      const finishButton = stage12.querySelector("[data-finish]");
+      const stage12IsLast = visible.at(-1) === "despesas_etapa_1_2";
+      nextButton.hidden = stage12IsLast;
+      finishButton.hidden = !stage12IsLast;
+
+      return currentIndex;
+    }
+
+    function showStep(stepId, options = {}) {
+      const target = document.getElementById(stepId);
+      const navButton = document.querySelector(`[data-step-target="${stepId}"]`);
+      if (!target || !navButton || navButton.hidden) return;
+      document.querySelectorAll("[data-section]").forEach(section => {
+        section.hidden = section.id !== stepId;
+      });
+      state.currentStep = stepId;
+      updateNavigation();
+      setStatus();
+      if (options.scroll !== false) window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* ======================================================================
+       5. COMPONENTES DINÂMICOS: CURSOS E DESPESAS
+       ====================================================================== */
+    function buildCourseCard(index) {
+      const courseNumber = index + 1;
+      const card = document.createElement("article");
+      card.className = "course-card";
+      card.dataset.courseIndex = String(index);
+      card.innerHTML = `
+        <div class="course-card__header">
+          <h3>Curso ${courseNumber}</h3>
+          <span class="hint">Campos obrigatórios marcados com *</span>
+        </div>
+        <div class="course-card__body">
+          <h4 class="subsection-title">2.1 — Dados gerais do curso</h4>
+          <div class="grid">
+            ${courseField(index, "nome_curso", "Nome do Curso", "text", { full: true, max: 255 })}
+            ${courseField(index, "inicio_curso", "Início do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
+            <div class="field">
+              <label for="curso_${index}_fim_curso">Fim do curso</label>
+              <input id="curso_${index}_fim_curso" name="curso_${index}_fim_curso" type="text" class="month-year-input" data-field="fim_curso" placeholder="MM/AAAA" readonly />
+              <small class="hint">Calculado automaticamente: 12 meses após o início.</small>
+              <small class="error-message" data-error-for="curso_${index}_fim_curso"></small>
+            </div>
+            ${courseField(index, "carga_horaria_total", "Carga horária total", "number", { min: 1, suffix: "horas" })}
+            ${courseField(index, "quantidade_participantes", "Quantidade de participantes", "number", { min: 1 })}
+            ${courseField(index, "margem_reserva", "Margem de Reserva", "number", {
+              min: 5, max: 10, value: 5, suffix: "%",
+              tooltip: "Percentual de segurança (entre 5% e 10%) adicionado à quantidade de participantes para o cálculo de insumos extras (como estojos, apostilas, etc.) em caso de perda ou danos. Exemplo: Para 100 participantes com margem de 5%, o sistema planejará 105 itens.",
+              hintAttribute: "data-reserve-impact",
+              hint: "Informe a quantidade de participantes para visualizar o impacto da margem.",
+              rangeError: "A margem de reserva deve ser um valor entre 5% e 10%."
+            })}
+            ${courseField(index, "carga_horaria_diaria", "Carga horária diária", "number", { min: 2, max: 8, suffix: "horas" })}
+            <div class="field">
+              <label for="curso_${index}_duracao_dias">Dias de duração do curso</label>
+              <div class="input-with-suffix">
+                <input id="curso_${index}_duracao_dias" type="number" data-field="duracao_dias" readonly />
+                <span class="input-suffix">dias</span>
+              </div>
+            </div>
+            ${courseField(index, "quantidade_encontros_semanais", "Quantidade de encontros semanais", "number", { min: 1, max: 5 })}
+            <div class="field">
+              <label for="curso_${index}_quantidade_turmas">Quantidade mínima de turmas</label>
+              <input id="curso_${index}_quantidade_turmas" type="number" data-field="quantidade_turmas" readonly />
+              <small class="hint">Calculada considerando o limite de 30 participantes.</small>
+              <small class="error-message" data-error-for="curso_${index}_quantidade_turmas"></small>
+            </div>
+            <div class="field">
+              <label for="curso_${index}_participantes_por_turma">Máximo de participantes em uma turma</label>
+              <input id="curso_${index}_participantes_por_turma" type="number" data-field="participantes_por_turma" readonly />
+              <small class="hint" data-class-distribution>Informe a quantidade de participantes.</small>
+              <small class="error-message" data-error-for="curso_${index}_participantes_por_turma"></small>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <!-- RESUMO FINANCEIRO INDIVIDUAL DO CURSO -->
+          <div class="summary-strip summary-strip--course" data-course-summary="${index}">
+            <div class="summary-card">
+              <span>Total de itens</span>
+              <strong data-course-count>0</strong>
+            </div>
+            <div class="summary-card">
+              <span>Valor total</span>
+              <strong data-course-total>R$ 0,00</strong>
+            </div>
+            <div class="summary-card">
+              <span>Valor Kit Participante por Aluno</span>
+              <strong data-course-kit-per-student>R$ 0,00</strong>
+            </div>
+            <!-- Cards condicionais: aparecem apenas quando há despesas do respectivo tipo -->
+            <div class="summary-card" data-course-type-card="epi" hidden>
+              <span>Valor EPI por Aluno</span>
+              <strong data-course-epi-per-student>R$ 0,00</strong>
+            </div>
+            <div class="summary-card" data-course-type-card="insumos_gerais" hidden>
+              <span>Valor Insumo por Aluno</span>
+              <strong data-course-insumos-per-student>R$ 0,00</strong>
+            </div>
+            <div class="summary-card" data-course-type-card="kit_trabalho" hidden>
+              <span>Valor Kit Trabalho por Aluno</span>
+              <strong data-course-kit-trabalho-per-student>R$ 0,00</strong>
+            </div>
+          </div>
+          <div class="table-toolbar">
+            <h4 class="subsection-title">2.2 — Detalhamento de gastos do curso</h4>
+            <button class="btn btn-secondary btn-sm" type="button" data-add-course-expense="${index}">+ Adicionar despesa</button>
+          </div>
+          <div data-course-expenses="${index}">${emptyState("Nenhuma despesa adicionada a este curso.")}</div>
+        </div>`;
+      return card;
+    }
+
+    function courseField(index, id, label, type, options = {}) {
+      const fieldId = `curso_${index}_${id}`;
+      const attrs = [
+        `id="${fieldId}"`, `name="${fieldId}"`, `type="${type}"`, `data-field="${id}"`, `data-required="true"`
+      ];
+      if (type === "number") attrs.push(`step="1"`, `inputmode="numeric"`);
+      if (options.monthYear) attrs.push(`class="month-year-input"`, `inputmode="numeric"`, `maxlength="7"`);
+      if (options.min != null) attrs.push(`min="${options.min}"`);
+      if (options.max != null) attrs.push(`max="${options.max}"`);
+      if (options.max && type === "text") attrs.push(`maxlength="${options.max}"`);
+      if (options.value != null) attrs.push(`value="${escapeHtml(options.value)}"`);
+      if (options.placeholder) attrs.push(`placeholder="${escapeHtml(options.placeholder)}"`);
+      if (options.rangeError) attrs.push(`data-range-error="${escapeHtml(options.rangeError)}"`);
+      const wrapper = options.suffix ? "input-with-suffix" : "";
+      const tooltipId = `${fieldId}_tooltip`;
+      return `
+        <div class="field ${options.full ? "field--full" : ""}">
+          <label class="required${options.tooltip ? " label-with-help" : ""}" for="${fieldId}">
+            ${escapeHtml(label)}
+            ${options.tooltip ? `<span class="help-tooltip" tabindex="0" role="button" aria-label="Ajuda sobre ${escapeHtml(label)}" aria-describedby="${tooltipId}">?<span id="${tooltipId}" class="help-tooltip__content" role="tooltip">${escapeHtml(options.tooltip)}</span></span>` : ""}
+          </label>
+          <div class="${wrapper}">
+            <input ${attrs.join(" ")} />
+            ${options.suffix ? `<span class="input-suffix">${escapeHtml(options.suffix)}</span>` : ""}
+          </div>
+          ${options.hint ? `<small class="hint" ${options.hintAttribute || ""}>${escapeHtml(options.hint)}</small>` : ""}
+          <small class="error-message" data-error-for="${fieldId}"></small>
+        </div>`;
+    }
+
+    function updateCourseDuration(card) {
+      const total = Number(card.querySelector('[data-field="carga_horaria_total"]')?.value);
+      const daily = Number(card.querySelector('[data-field="carga_horaria_diaria"]')?.value);
+      const duration = card.querySelector('[data-field="duracao_dias"]');
+      if (duration) duration.value = total > 0 && daily > 0 ? Math.ceil(total / daily) : "";
+    }
+
+    function calculateClassDistribution(participantCount, capacity = 30) {
+      if (!Number.isInteger(participantCount) || participantCount < 1) return [];
+      const fullClasses = Math.floor(participantCount / capacity);
+      const remainder = participantCount % capacity;
+      return [
+        ...Array(fullClasses).fill(capacity),
+        ...(remainder ? [remainder] : [])
+      ];
+    }
+
+    function updateClassDistribution(card) {
+      const participantInput = card.querySelector('[data-field="quantidade_participantes"]');
+      const classCountInput = card.querySelector('[data-field="quantidade_turmas"]');
+      const maxPerClassInput = card.querySelector('[data-field="participantes_por_turma"]');
+      const distributionHint = card.querySelector("[data-class-distribution]");
+      const distribution = calculateClassDistribution(Number(participantInput?.value));
+
+      classCountInput.value = distribution.length || "";
+      maxPerClassInput.value = distribution.length ? Math.max(...distribution) : "";
+      distributionHint.textContent = distribution.length
+        ? `Distribuição: ${distribution.join(" + ")} = ${distribution.reduce((sum, value) => sum + value, 0)} participantes.`
+        : "Informe a quantidade de participantes.";
+    }
+
+    function updateReserveImpact(card) {
+      const participantCount = Number(card.querySelector('[data-field="quantidade_participantes"]')?.value);
+      const reserveMargin = Number(card.querySelector('[data-field="margem_reserva"]')?.value);
+      const impactHint = card.querySelector("[data-reserve-impact]");
+      if (!impactHint) return;
+
+      if (Number.isInteger(participantCount) && participantCount > 0 &&
+          Number.isInteger(reserveMargin) && reserveMargin >= 5 && reserveMargin <= 10) {
+        const itemCount = Math.ceil(participantCount * (1 + reserveMargin / 100));
+        impactHint.textContent = `Com esta margem, o sistema calculará a compra de ${itemCount} itens para ${participantCount} participantes.`;
+      } else {
+        impactHint.textContent = "Informe valores válidos de participantes e margem para visualizar o cálculo.";
+      }
+    }
+
+    function syncCourseExpenseQuantities(card) {
+      if (!card) return;
+
+      const participantCount = Number(card.querySelector('[data-field="quantidade_participantes"]')?.value);
+      const reserveMargin = Number(card.querySelector('[data-field="margem_reserva"]')?.value);
+      const itemCount = Number.isFinite(participantCount) && Number.isFinite(reserveMargin)
+        ? Math.ceil(participantCount * (1 + reserveMargin / 100))
+        : 0;
+
+      card.querySelectorAll('[data-course-expenses] tbody tr').forEach(row => {
+        const typeId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+        const quantityInput = row.querySelector('[data-field="quantidade_itens"]');
+        if (!quantityInput) return;
+
+        const usesReserve = ["kit_participante", "epi"].includes(typeId);
+        const usesParticipantCount = typeId === "kit_trabalho";
+        quantityInput.readOnly = usesReserve || usesParticipantCount;
+
+        if (usesReserve) quantityInput.value = itemCount > 0 ? itemCount : "";
+        if (usesParticipantCount) quantityInput.value = participantCount > 0 ? participantCount : "";
+        if (usesReserve || usesParticipantCount) recalculateRow(row);
+      });
+    }
+
+    function syncCourses() {
+      const container = document.getElementById("courses-container");
+      const desired = Math.max(1, Number.parseInt(quantityCourses.value, 10) || 1);
+      const existing = [...container.querySelectorAll(".course-card")];
+      if (existing.length < desired) {
+        for (let index = existing.length; index < desired; index += 1) {
+          const card = buildCourseCard(index);
+          container.appendChild(card);
+          populateDefaultCourseExpenses(card, index);
+        }
+      } else if (existing.length > desired) {
+        existing.slice(desired).forEach(card => card.remove());
+      }
+    }
+
+    function emptyState(message) {
+      return `<div class="empty-state">${escapeHtml(message)}</div>`;
+    }
+
+    function courseExpenseRow(courseIndex, preset = null) {
+      const rowId = `course-${courseIndex}-${++state.rowCounter}`;
+      const tr = document.createElement("tr");
+      tr.dataset.rowId = rowId;
+      tr.innerHTML = `
+        ${tableCellSelect("tipo_item_despesa", optionList(catalogs.tiposItemCurso), rowId, "Tipo do item")}
+        ${tableCellSelect("item_despesa", optionList([], "Selecione o tipo primeiro"), rowId, "Item", true)}
+        ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
+        ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
+        ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
+        ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
+        ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
+        <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
+
+      if (preset) {
+        const typeSelect = tr.querySelector('[data-field="tipo_item_despesa"]');
+        const itemSelect = tr.querySelector('[data-field="item_despesa"]');
+        const unitSelect = tr.querySelector('[data-field="unidade"]');
+
+        typeSelect.value = preset.tipoId;
+        updateCourseDependencies(tr);
+        itemSelect.value = preset.itemId;
+        updateCourseItemDependencies(tr);
+
+        const type = catalogs.tiposItemCurso.find(entry => entry.id === preset.tipoId);
+        const item = type?.itens.find(entry => entry.id === preset.itemId);
+        if (item?.unidades?.length) unitSelect.value = item.unidades[0];
+
+        tr.dataset.defaultCourseItem = preset.itemId;
+      }
+
+      return tr;
+    }
+
+    function stageExpenseRow(kind) {
+      const rowId = `${kind}-${++state.rowCounter}`;
+      const tr = document.createElement("tr");
+      tr.dataset.rowId = rowId;
+      tr.dataset.stageKind = kind;
+      tr.innerHTML = `
+        ${tableCellSelect("item_despesa", optionList(catalogs[kind]), rowId, "Item")}
+        ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
+        ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
+        ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
+        ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
+        ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
+        ${tableCellSelect("fonte_recurso", optionList(catalogs.fontesRecurso), rowId, "Fonte")}
+        ${tableCellInput("inicio_etapa", "text", rowId, { monthYear: true, placeholder: "MM/AAAA" })}
+        ${tableCellInput("fim_etapa", "text", rowId, { monthYear: true, placeholder: "MM/AAAA" })}
+        ${tableCellInput("tipo_despesa", "text", rowId, { readonly: true })}
+        <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
+      return tr;
+    }
+
+    function tableCellSelect(field, options, rowId, label, disabled = false) {
+      const id = `${rowId}_${field}`;
+      return `<td><select id="${id}" data-field="${field}" data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""}>${options}</select><small class="error-message" data-error-for="${id}"></small></td>`;
+    }
+
+    function tableCellInput(field, type, rowId, options = {}) {
+      const id = `${rowId}_${field}`;
+      const classes = [options.currency ? "currency-input" : "", options.monthYear ? "month-year-input" : ""].filter(Boolean).join(" ");
+      const attributes = [
+        `id="${id}"`, `type="${type}"`, `data-field="${field}"`, `aria-label="${field.replaceAll("_", " ")}"`
+      ];
+      if (!options.readonly) attributes.push(`data-required="true"`);
+      if (options.readonly) attributes.push("readonly");
+      if (options.min != null) attributes.push(`min="${options.min}"`, `step="1"`, `inputmode="numeric"`);
+      if (options.currency) attributes.push(`inputmode="numeric"`, `autocomplete="off"`, `placeholder="R$ 0,00"`);
+      if (options.monthYear) attributes.push(`inputmode="numeric"`, `maxlength="7"`);
+      if (options.placeholder) attributes.push(`placeholder="${escapeHtml(options.placeholder)}"`);
+      if (options.value != null) attributes.push(`value="${escapeHtml(options.value)}"`);
+      return `<td><input class="${classes}" ${attributes.join(" ")} /><small class="error-message" data-error-for="${id}"></small></td>`;
+    }
+
+    /* =========================================================
+       CORREÇÃO: CABEÇALHO DUPLICADO NAS TABELAS DE DESPESAS
+       Obtém somente as linhas de dados do <tbody>, ignorando o
+       <tr> existente no <thead> da tabela já renderizada.
+       ========================================================= */
+    function getExpenseDataRows(container) {
+      const tbody = container.querySelector(".table-wrap table tbody");
+      if (tbody) return [...tbody.children].filter(child => child.tagName === "TR");
+      return [...container.children].filter(child => child.tagName === "TR");
+    }
+
+    function renderCourseExpenseTable(container) {
+      const rows = getExpenseDataRows(container);
+      if (!rows.length) {
+        container.innerHTML = emptyState("Nenhuma despesa adicionada a este curso.");
+        updateCourseSummary(container);
+        return;
+      }
+      const table = document.createElement("div");
+      table.className = "table-wrap";
+      table.innerHTML = `<table>
+        <thead><tr>
+          <th>Tipo do item *</th><th>Item *</th><th>Elemento *</th><th>Unidade *</th>
+          <th>Qtd. *</th><th>Valor unitário *</th><th>Valor total</th><th>Ações</th>
+        </tr></thead><tbody></tbody></table>`;
+      rows.forEach(row => table.querySelector("tbody").appendChild(row));
+      container.replaceChildren(table);
+      updateCourseSummary(container);
+    }
+
+    function renderStageTable(kind) {
+      const container = document.getElementById(`${kind}-table`);
+      const rows = getExpenseDataRows(container);
+      if (!rows.length) {
+        container.innerHTML = emptyState("Nenhuma despesa adicionada nesta etapa.");
+      } else {
+        const wrapper = document.createElement("div");
+        wrapper.className = "table-wrap";
+        wrapper.innerHTML = `<table>
+          <thead><tr>
+            <th>Item *</th><th>Elemento *</th><th>Unidade *</th><th>Qtd. *</th>
+            <th>Valor unitário *</th><th>Valor total</th><th>Fonte *</th>
+            <th>Início *</th><th>Fim *</th><th>Tipo</th><th>Ações</th>
+          </tr></thead><tbody></tbody></table>`;
+        rows.forEach(row => wrapper.querySelector("tbody").appendChild(row));
+        container.replaceChildren(wrapper);
+      }
+      updateStageSummary(kind);
+    }
+
+    /* =========================================================
+       PREENCHIMENTO INICIAL DAS DESPESAS DE CADA NOVO CURSO
+       O preenchimento ocorre somente na criação do card, evitando
+       recriar itens que o usuário tenha removido posteriormente.
+       ========================================================= */
+    function populateDefaultCourseExpenses(card, courseIndex) {
+      const container = card.querySelector(`[data-course-expenses="${courseIndex}"]`);
+      if (!container || container.dataset.defaultsLoaded === "true") return;
+
+      const rows = defaultCourseExpenseItems.map(preset =>
+        courseExpenseRow(courseIndex, preset)
+      );
+
+      container.dataset.defaultsLoaded = "true";
+      container.replaceChildren(...rows);
+      renderCourseExpenseTable(container);
+      syncCourseExpenseQuantities(card);
+    }
+
+    function addCourseExpense(courseIndex) {
+      const container = document.querySelector(`[data-course-expenses="${courseIndex}"]`);
+      const existingRows = getExpenseDataRows(container);
+      existingRows.push(courseExpenseRow(courseIndex));
+      container.replaceChildren(...existingRows);
+      renderCourseExpenseTable(container);
+    }
+
+    function addStageRow(kind) {
+      const container = document.getElementById(`${kind}-table`);
+      const rows = getExpenseDataRows(container);
+      rows.push(stageExpenseRow(kind));
+      container.replaceChildren(...rows);
+      renderStageTable(kind);
+    }
+
+    function updateCourseDependencies(row) {
+      const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+      const itemSelect = row.querySelector('[data-field="item_despesa"]');
+      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
+      const unitSelect = row.querySelector('[data-field="unidade"]');
+      const type = catalogs.tiposItemCurso.find(item => item.id === typeSelect.value);
+      itemSelect.disabled = !type;
+      itemSelect.innerHTML = type ? optionList(type.itens) : optionList([], "Selecione o tipo primeiro");
+      codeSelect.disabled = true;
+      codeSelect.innerHTML = optionList([], "Selecione o item primeiro");
+      unitSelect.disabled = true;
+      unitSelect.innerHTML = optionList([], "Selecione o item primeiro");
+      syncCourseExpenseQuantities(row.closest(".course-card"));
+    }
+
+    function updateCourseItemDependencies(row) {
+      const type = catalogs.tiposItemCurso.find(item => item.id === row.querySelector('[data-field="tipo_item_despesa"]').value);
+      const selected = type?.itens.find(item => item.id === row.querySelector('[data-field="item_despesa"]').value);
+      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
+      const unitSelect = row.querySelector('[data-field="unidade"]');
+      codeSelect.disabled = !selected;
+      codeSelect.innerHTML = selected ? optionList([selected.codigo], "Selecione") : optionList([], "Selecione o item primeiro");
+      unitSelect.disabled = !selected;
+      unitSelect.innerHTML = selected ? optionList(selected.unidades, "Selecione") : optionList([], "Selecione o item primeiro");
+      if (selected) codeSelect.value = selected.codigo;
+      syncCourseExpenseQuantities(row.closest(".course-card"));
+    }
+
+    function updateStageDependencies(row) {
+      const kind = row.dataset.stageKind;
+      const item = catalogs[kind].find(entry => entry.id === row.querySelector('[data-field="item_despesa"]').value);
+      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
+      const unitSelect = row.querySelector('[data-field="unidade"]');
+      const typeInput = row.querySelector('[data-field="tipo_despesa"]');
+      codeSelect.disabled = !item;
+      codeSelect.innerHTML = item ? optionList([item.codigo]) : optionList([], "Selecione o item primeiro");
+      unitSelect.disabled = !item;
+      unitSelect.innerHTML = item ? optionList(item.unidades) : optionList([], "Selecione o item primeiro");
+      typeInput.value = item?.tipo || "";
+      if (item) codeSelect.value = item.codigo;
+      updateExpenseTotalsByType();
+    }
+
+    /* ======================================================================
+       6. CÁLCULOS E RESUMOS FINANCEIROS
+       ====================================================================== */
+    function recalculateRow(row) {
+      const quantity = Number(row.querySelector('[data-field="quantidade_itens"]')?.value || 0);
+      const unitInput = row.querySelector('[data-field="valor_unitario"]');
+      const totalInput = row.querySelector('[data-field="valor_total"]');
+      if (!unitInput || !totalInput) return;
+      const total = quantity * currencyValue(unitInput);
+      totalInput.dataset.value = String(total);
+      totalInput.value = formatBRL(total);
+      const kind = row.dataset.stageKind;
+      if (kind) {
+        updateStageSummary(kind);
+      } else {
+        const courseContainer = row.closest("[data-course-expenses]");
+        if (courseContainer) updateCourseSummary(courseContainer);
+      }
+    }
+
+    function updateExpenseTotalsByType() {
+      const totals = {
+        Gestao: 0,
+        Finalistica: 0,
+        Estruturacao: 0,
+        Kit: 0
+      };
+      const totalsByFundingSource = {
+        SISEC: 0,
+        Contrapartida: 0
+      };
+
+      document.querySelectorAll("[data-course-expenses] tbody tr").forEach(row => {
+        const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+        const category = catalogs.tiposItemCurso.find(entry => entry.id === categoryId);
+        const total = Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0);
+        if (category?.tipo in totals) totals[category.tipo] += total;
+        totalsByFundingSource.SISEC += total;
+      });
+
+      document.querySelectorAll("#stage11-table tbody tr, #stage12-table tbody tr, #event-table tbody tr").forEach(row => {
+        const type = row.querySelector('[data-field="tipo_despesa"]')?.value;
+        const fundingSource = row.querySelector('[data-field="fonte_recurso"]')?.value;
+        const total = Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0);
+        if (type in totals) totals[type] += total;
+        if (fundingSource in totalsByFundingSource) totalsByFundingSource[fundingSource] += total;
+      });
+
+      valorTotalGestao = totals.Gestao;
+      valorTotalFinalistica = totals.Finalistica;
+      valorTotalEstruturacao = totals.Estruturacao;
+      valorTotalKit = totals.Kit;
+      valorTotalGestaoFinalistica = valorTotalGestao + valorTotalFinalistica;
+      valorTotalProjetoCalculado = valorTotalGestao + valorTotalFinalistica + valorTotalEstruturacao + valorTotalKit;
+      valorTotalSISEC = totalsByFundingSource.SISEC;
+      valorTotalContrapartida = totalsByFundingSource.Contrapartida;
+    }
+
+    function updateCoursePeriod(card) {
+      const start = card.querySelector('[data-field="inicio_curso"]');
+      const end = card.querySelector('[data-field="fim_curso"]');
+      if (!start || !end) return;
+
+      const comparable = monthYearToComparable(start.value);
+      if (comparable == null) {
+        end.value = "";
+        return;
+      }
+
+      const endDate = comparable + 12;
+      const month = ((endDate - 1) % 12) + 1;
+      const year = Math.floor((endDate - 1) / 12);
+      end.value = `${String(month).padStart(2, "0")}/${year}`;
+    }
+
+    /* =========================================================
+       RESUMO FINANCEIRO DAS DESPESAS DE CADA CURSO
+       - Total de itens: quantidade de linhas de despesa.
+       - Valor total: soma dos valores totais dessas linhas.
+       - Valor Kit Participante por Aluno: sempre exibido.
+       - Valores por aluno de EPI, Insumos Gerais e Kit Trabalho:
+         exibidos somente quando existir ao menos uma linha do tipo.
+       ========================================================= */
+    function updateCourseSummary(container) {
+      const card = container.closest(".course-card");
+      if (!card) return;
+
+      const rows = [...container.querySelectorAll("tbody tr")];
+      const total = rows.reduce(
+        (sum, row) => sum + Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0),
+        0
+      );
+
+      const totalsByType = rows.reduce((totals, row) => {
+        const expenseType = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+        if (!expenseType) return totals;
+
+        const rowTotal = Number(
+          row.querySelector('[data-field="valor_total"]')?.dataset.value || 0
+        );
+        totals[expenseType] = (totals[expenseType] || 0) + rowTotal;
+        return totals;
+      }, {});
+
+      const participantInput = card.querySelector('[data-field="quantidade_participantes"]');
+      const participantCount = Number(participantInput?.value || 0);
+      const valuePerStudent = typeId => participantCount > 0
+        ? (totalsByType[typeId] || 0) / participantCount
+        : 0;
+
+      const countOutput = card.querySelector("[data-course-count]");
+      const totalOutput = card.querySelector("[data-course-total]");
+      const kitPerStudentOutput = card.querySelector("[data-course-kit-per-student]");
+
+      if (countOutput) countOutput.textContent = String(rows.length);
+      if (totalOutput) totalOutput.textContent = formatBRL(total);
+      if (kitPerStudentOutput) {
+        kitPerStudentOutput.textContent = formatBRL(valuePerStudent("kit_participante"));
+      }
+
+      const conditionalCards = [
+        {
+          typeId: "epi",
+          cardSelector: '[data-course-type-card="epi"]',
+          outputSelector: "[data-course-epi-per-student]"
+        },
+        {
+          typeId: "insumos_gerais",
+          cardSelector: '[data-course-type-card="insumos_gerais"]',
+          outputSelector: "[data-course-insumos-per-student]"
+        },
+        {
+          typeId: "kit_trabalho",
+          cardSelector: '[data-course-type-card="kit_trabalho"]',
+          outputSelector: "[data-course-kit-trabalho-per-student]"
+        }
+      ];
+
+      conditionalCards.forEach(({ typeId, cardSelector, outputSelector }) => {
+        const typeCard = card.querySelector(cardSelector);
+        const output = card.querySelector(outputSelector);
+        const hasType = rows.some(
+          row => row.querySelector('[data-field="tipo_item_despesa"]')?.value === typeId
+        );
+
+        if (typeCard) typeCard.hidden = !hasType;
+        if (output) output.textContent = formatBRL(valuePerStudent(typeId));
+      });
+
+      updateExpenseTotalsByType();
+    }
+
+    function updateStageSummary(kind) {
+      const container = document.getElementById(`${kind}-table`);
+      const rows = [...container.querySelectorAll("tbody tr")];
+      const total = rows.reduce((sum, row) => sum + Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0), 0);
+      document.getElementById(`${kind}-count`).textContent = String(rows.length);
+      document.getElementById(`${kind}-total`).textContent = formatBRL(total);
+      updateExpenseTotalsByType();
+    }
+
+    /* ======================================================================
+       7. VALIDAÇÃO
+       ====================================================================== */
+    function clearError(control) {
+      control.classList.remove("is-invalid");
+      const message = document.querySelector(`[data-error-for="${CSS.escape(control.id)}"]`);
+      if (message) message.textContent = "";
+    }
+
+    function setError(control, message) {
+      control.classList.add("is-invalid");
+      const target = document.querySelector(`[data-error-for="${CSS.escape(control.id)}"]`);
+      if (target) target.textContent = message;
+    }
+
+    function validateControl(control, options = {}) {
+      clearError(control);
+      if (control.disabled || (!options.ignoreVisibility && control.closest("[hidden]"))) return true;
+
+      const value = control.type === "checkbox" ? control.checked : control.value.trim();
+      if (control.dataset.required === "true" && (value === "" || value === false)) {
+        setError(control, "Campo obrigatório.");
+        return false;
+      }
+      if (value === "") return true;
+
+      if (control.classList.contains("currency-input")) {
+        if (currencyValue(control) < 0) {
+          setError(control, "Informe um valor igual ou superior a zero.");
+          return false;
+        }
+      }
+
+      if (control.type === "number") {
+        const number = Number(control.value);
+        if (!Number.isInteger(number)) {
+          setError(control, control.dataset.rangeError || "Informe somente números inteiros.");
+          return false;
+        }
+        if (control.min !== "" && number < Number(control.min)) {
+          setError(control, control.dataset.rangeError || `O valor mínimo é ${control.min}.`);
+          return false;
+        }
+        if (control.max !== "" && number > Number(control.max)) {
+          setError(control, control.dataset.rangeError || `O valor máximo é ${control.max}.`);
+          return false;
+        }
+      }
+
+      if (control.classList.contains("month-year-input")) {
+        if (monthYearToComparable(control.value) == null) {
+          setError(control, "Use o formato MM/AAAA.");
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function validatePeriods(section) {
+      let valid = true;
+      section.querySelectorAll("tbody tr").forEach(row => {
+        const start = row.querySelector('[data-field="inicio_etapa"]');
+        const end = row.querySelector('[data-field="fim_etapa"]');
+        if (!start || !end || !start.value || !end.value) return;
+        const startValue = monthYearToComparable(start.value);
+        const endValue = monthYearToComparable(end.value);
+        if (startValue != null && endValue != null && endValue < startValue) {
+          setError(end, "O fim não pode ser anterior ao início.");
+          valid = false;
+        }
+      });
+      return valid;
+    }
+
+    function validateStep(stepId, focusFirst = true) {
+      const section = document.getElementById(stepId);
+      const navButton = document.querySelector(`[data-step-target="${stepId}"]`);
+      if (!section || !navButton || navButton.hidden) return true;
+      const controls = [...section.querySelectorAll("input, select")].filter(control => control.type !== "button");
+      let valid = true;
+      controls.forEach(control => { if (!validateControl(control, { ignoreVisibility: true })) valid = false; });
+      section.querySelectorAll(".course-card").forEach(updateClassDistribution);
+      if (!validatePeriods(section)) valid = false;
+      if (!valid && focusFirst) section.querySelector(".is-invalid")?.focus();
+      return valid;
+    }
+
+    function validateAll() {
+      const invalidStep = visibleSteps().find(stepId => !validateStep(stepId, false));
+      if (invalidStep) {
+        showStep(invalidStep);
+        document.getElementById(invalidStep).querySelector(".is-invalid")?.focus();
+        setStatus("Revise os campos destacados antes de finalizar.", "error");
+        return false;
+      }
+      return true;
+    }
+
+    /* ======================================================================
+       8. COLETA, GERAÇÃO E EXPORTAÇÃO DO RESULTADO
+       ====================================================================== */
+    function selectedText(select) {
+      return select?.selectedOptions?.[0]?.textContent || "";
+    }
+
+    function collectCourseExpenses(card) {
+      return [...card.querySelectorAll("[data-course-expenses] tbody tr")].map(row => {
+        const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+        const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        return {
+          tipo_item_id: typeSelect.value,
+          tipo_item_label: selectedText(typeSelect),
+          item_id: itemSelect.value,
+          item_label: selectedText(itemSelect),
+          codigo_elemento_despesa: row.querySelector('[data-field="codigo_elemento_despesa"]').value,
+          unidade: row.querySelector('[data-field="unidade"]').value,
+          quantidade_itens: Number(row.querySelector('[data-field="quantidade_itens"]').value),
+          valor_unitario: currencyValue(row.querySelector('[data-field="valor_unitario"]')),
+          valor_total: Number(row.querySelector('[data-field="valor_total"]').dataset.value || 0),
+          fonte_recurso: "SISEC"
+        };
+      });
+    }
+
+    function collectCourses() {
+      return [...document.querySelectorAll(".course-card")].map(card => {
+        const value = field => card.querySelector(`[data-field="${field}"]`).value;
+        return {
+          dados_gerais: {
+            nome_curso: value("nome_curso").trim(),
+            inicio_curso: value("inicio_curso"),
+            fim_curso: value("fim_curso"),
+            carga_horaria: Number(value("carga_horaria_total")),
+            quantidade_participantes: Number(value("quantidade_participantes")),
+            margem_reserva: Number(value("margem_reserva")),
+            carga_horaria_diaria: Number(value("carga_horaria_diaria")),
+            quantidade_encontros_semanais: Number(value("quantidade_encontros_semanais")),
+            quantidade_turmas: Number(value("quantidade_turmas")),
+            participantes_por_turma: Number(value("participantes_por_turma")),
+            distribuicao_turmas: calculateClassDistribution(Number(value("quantidade_participantes")))
+          },
+          despesas: collectCourseExpenses(card)
+        };
+      });
+    }
+
+    function collectStage(kind) {
+      return [...document.querySelectorAll(`#${kind}-table tbody tr`)].map(row => {
+        const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        return {
+          item_id: itemSelect.value,
+          item_label: selectedText(itemSelect),
+          codigo_elemento_despesa: row.querySelector('[data-field="codigo_elemento_despesa"]').value,
+          unidade: row.querySelector('[data-field="unidade"]').value,
+          quantidade_itens: Number(row.querySelector('[data-field="quantidade_itens"]').value),
+          valor_unitario: currencyValue(row.querySelector('[data-field="valor_unitario"]')),
+          valor_total: Number(row.querySelector('[data-field="valor_total"]').dataset.value || 0),
+          fonte_recurso: row.querySelector('[data-field="fonte_recurso"]').value,
+          inicio_etapa: row.querySelector('[data-field="inicio_etapa"]').value,
+          fim_etapa: row.querySelector('[data-field="fim_etapa"]').value,
+          tipo_despesa: row.querySelector('[data-field="tipo_despesa"]').value
+        };
+      });
+    }
+
+    const groupedCourseExpenseTypes = new Set([
+      "kit_participante",
+      "insumos_gerais",
+      "epi",
+      "kit_trabalho"
+    ]);
+
+    const courseSummaryLabels = {
+      kit_participante: "Kit participante (memória de cálculo anexa)",
+      insumos_gerais: "Insumos para as aulas práticas (memória de cálculo anexa)",
+      epi: "EPIs (memória de cálculo anexa)",
+      kit_trabalho: "Kit Trabalho (memória de cálculo anexa)"
+    };
+
+    const courseSummaryUnits = {
+      kit_participante: "unidade",
+      insumos_gerais: "unidade",
+      epi: "unidade",
+      kit_trabalho: "kit"
+    };
+
+    function roundCurrencyValue(value) {
+      return Math.round((Number(value || 0) + Number.EPSILON) * 100) / 100;
+    }
+
+    function sumExpenseValues(expenses) {
+      return roundCurrencyValue(
+        expenses.reduce((total, expense) => total + Number(expense.valor_total || 0), 0)
+      );
+    }
+
+    function uniqueNonEmptyValues(values) {
+      return [...new Set(values.filter(value => value != null && value !== ""))];
+    }
+
+    function courseSummaryQuantity(typeId, generalData) {
+      const participants = Number(generalData.quantidade_participantes || 0);
+      const reserveMargin = Number(generalData.margem_reserva || 0);
+
+      if (["kit_participante", "epi"].includes(typeId)) {
+        return Math.ceil(participants * (1 + reserveMargin / 100));
+      }
+      if (typeId === "kit_trabalho") return participants;
+      return 1;
+    }
+
+    function buildCourseSummary(course) {
+      const generalData = course.dados_gerais || {};
+      const detailedExpenses = course.despesas_detalhadas || course.despesas || [];
+      const expensesByType = detailedExpenses.reduce((groups, expense) => {
+        const typeId = expense.tipo_item_id;
+        if (!groups.has(typeId)) groups.set(typeId, []);
+        groups.get(typeId).push(expense);
+        return groups;
+      }, new Map());
+      const insertedGroups = new Set();
+      const lines = [];
+
+      detailedExpenses.forEach(expense => {
+        const typeId = expense.tipo_item_id;
+        if (!groupedCourseExpenseTypes.has(typeId)) {
+          lines.push({ ...expense, agrupado: false });
+          return;
+        }
+        if (insertedGroups.has(typeId)) return;
+
+        insertedGroups.add(typeId);
+        const groupedExpenses = expensesByType.get(typeId) || [];
+        const category = catalogs.tiposItemCurso.find(item => item.id === typeId);
+        const quantity = courseSummaryQuantity(typeId, generalData);
+        const total = sumExpenseValues(groupedExpenses);
+        const expenseCodes = uniqueNonEmptyValues(
+          groupedExpenses.map(item => item.codigo_elemento_despesa)
+        );
+        const fundingSources = uniqueNonEmptyValues(
+          groupedExpenses.map(item => item.fonte_recurso)
+        );
+
+        lines.push({
+          agrupado: true,
+          tipo_item_id: typeId,
+          tipo_item_label: category?.label || expense.tipo_item_label,
+          item_id: `resumo_${typeId}`,
+          item_label: courseSummaryLabels[typeId] || category?.label || expense.tipo_item_label,
+          codigo_elemento_despesa: expenseCodes.length === 1 ? expenseCodes[0] : "Diversos",
+          codigos_elemento_despesa: expenseCodes,
+          unidade: courseSummaryUnits[typeId] || "unidade",
+          quantidade_itens: quantity,
+          valor_unitario: quantity > 0 ? total / quantity : 0,
+          valor_total: total,
+          fonte_recurso: fundingSources.length === 1 ? fundingSources[0] : "Múltiplas",
+          inicio_etapa: generalData.inicio_curso || "",
+          fim_etapa: generalData.fim_curso || "",
+          tipo_despesa: category?.tipo || expense.tipo_despesa || "",
+          itens_origem: groupedExpenses.map(item => item.item_id)
+        });
+      });
+
+      const totalsByItemType = Object.fromEntries(
+        [...expensesByType].map(([typeId, expenses]) => [typeId, sumExpenseValues(expenses)])
+      );
+
+      return {
+        linhas: lines,
+        totais_por_tipo_item: totalsByItemType,
+        valor_total: sumExpenseValues(detailedExpenses)
+      };
+    }
+
+    function buildStageData(stageNumber, expenses) {
+      return {
+        numero_etapa: stageNumber,
+        despesas: expenses,
+        valor_total: sumExpenseValues(expenses)
+      };
+    }
+
+    function buildExportData() {
+      const collectedCourses = collectCourses();
+      const courses = collectedCourses.map((course, index) => {
+        const stageNumber = `1.${index + 3}`;
+        const detailedExpenses = course.despesas.map(expense => {
+          const category = catalogs.tiposItemCurso.find(item => item.id === expense.tipo_item_id);
+          return {
+            ...expense,
+            inicio_etapa: course.dados_gerais.inicio_curso,
+            fim_etapa: course.dados_gerais.fim_curso,
+            tipo_despesa: category?.tipo || ""
+          };
+        });
+        const normalizedCourse = {
+          numero_etapa: stageNumber,
+          dados_gerais: course.dados_gerais,
+          despesas_detalhadas: detailedExpenses
+        };
+        const summary = buildCourseSummary(normalizedCourse);
+
+        return {
+          ...normalizedCourse,
+          despesas_resumidas: summary.linhas,
+          resumo_financeiro: {
+            totais_por_tipo_item: summary.totais_por_tipo_item,
+            valor_total: summary.valor_total
+          }
+        };
+      });
+
+      const stage11Expenses = collectStage("stage11");
+      const stage12Expenses = collectStage("stage12");
+      const eventExpenses = eventCheckbox.checked ? collectStage("event") : [];
+      const allExpenses = [
+        ...stage11Expenses,
+        ...stage12Expenses,
+        ...courses.flatMap(course => course.despesas_detalhadas),
+        ...eventExpenses
+      ];
+      const totalsByExpenseType = allExpenses.reduce((totals, expense) => {
+        const type = expense.tipo_despesa;
+        if (type) {
+          totals[type] = roundCurrencyValue(
+            (totals[type] || 0) + Number(expense.valor_total || 0)
+          );
+        }
+        return totals;
+      }, {});
+      const totalsByFundingSource = allExpenses.reduce((totals, expense) => {
+        const source = expense.fonte_recurso;
+        if (source) {
+          totals[source] = roundCurrencyValue(
+            (totals[source] || 0) + Number(expense.valor_total || 0)
+          );
+        }
+        return totals;
+      }, {});
+      const totalParticipants = courses.reduce(
+        (total, course) => total + Number(course.dados_gerais.quantidade_participantes || 0),
+        0
+      );
+      const totalWorkload = courses.reduce(
+        (total, course) => total + Number(course.dados_gerais.carga_horaria || 0),
+        0
+      );
+      const managementTotal = totalsByExpenseType.Gestao || 0;
+      const finalisticTotal = totalsByExpenseType.Finalistica || 0;
+      const structuringTotal = totalsByExpenseType.Estruturacao || 0;
+      const kitTotal = totalsByExpenseType.Kit || 0;
+      const calculatedProjectTotal = sumExpenseValues(allExpenses);
+      const managementFinalisticTotal = roundCurrencyValue(managementTotal + finalisticTotal);
+      const participantUnitCost = managementFinalisticTotal > 0
+        ? roundCurrencyValue(totalWorkload * totalParticipants / managementFinalisticTotal)
+        : 0;
+
+      return {
+        projeto: {
+          custo_total_informado: currencyValue(document.getElementById("custo_total_projeto")),
+          custo_total_calculado: calculatedProjectTotal,
+          quantidade_cursos: courses.length,
+          total_participantes: totalParticipants,
+          total_carga_horaria: totalWorkload,
+          possui_evento_final: eventCheckbox.checked
+        },
+        resumo_financeiro: {
+          gestao: managementTotal,
+          finalistica: finalisticTotal,
+          gestao_finalistica: managementFinalisticTotal,
+          estruturacao: structuringTotal,
+          kit_trabalho: kitTotal,
+          total_projeto: calculatedProjectTotal,
+          custo_unitario_por_participante: participantUnitCost,
+          sisec: totalsByFundingSource.SISEC || 0,
+          contrapartida: totalsByFundingSource.Contrapartida || 0
+        },
+        etapas: {
+          etapa_1_1: buildStageData("1.1", stage11Expenses),
+          etapa_1_2: buildStageData("1.2", stage12Expenses),
+          etapa_final: eventCheckbox.checked
+            ? buildStageData(`1.${courses.length + 3}`, eventExpenses)
+            : null
+        },
+        cursos: courses
+      };
+    }
+
+    function buildJson() {
+      return buildExportData();
+    }
+
+    const spreadsheetTemplateUrl = "./template_exportacao.xlsx";
+    const spreadsheetMimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+    function ensureExcelJsAvailable() {
+      if (typeof ExcelJS === "undefined" || typeof ExcelJS.Workbook !== "function") {
+        throw new Error("A biblioteca ExcelJS nao foi carregada corretamente.");
+      }
+    }
+
+    function validateSpreadsheetTemplate(workbook) {
+      const summarySheet = workbook.getWorksheet("Resumo do projeto");
+      const modelsSheet = workbook.getWorksheet("_MODELOS");
+
+      if (!summarySheet || !modelsSheet) {
+        throw new Error("O template XLSX nao possui as abas obrigatorias.");
+      }
+      if (modelsSheet.state !== "hidden" && modelsSheet.state !== "veryHidden") {
+        throw new Error("A aba _MODELOS precisa permanecer oculta.");
+      }
+
+      return { summarySheet, modelsSheet };
+    }
+
+    async function loadSpreadsheetTemplate(templateUrl = spreadsheetTemplateUrl) {
+      ensureExcelJsAvailable();
+
+      const response = await fetch(templateUrl, { cache: "no-cache" });
+      if (!response.ok) {
+        throw new Error(`Nao foi possivel carregar o template XLSX (${response.status}).`);
+      }
+
+      const templateBuffer = await response.arrayBuffer();
+      const workbook = new ExcelJS.Workbook();
+      await workbook.xlsx.load(templateBuffer);
+      validateSpreadsheetTemplate(workbook);
+      return workbook;
+    }
+
+    async function serializeSpreadsheet(workbook) {
+      ensureExcelJsAvailable();
+      validateSpreadsheetTemplate(workbook);
+      workbook.calcProperties.fullCalcOnLoad = true;
+      workbook.calcProperties.forceFullCalc = true;
+      return workbook.xlsx.writeBuffer();
+    }
+
+    function downloadSpreadsheetBuffer(buffer, filename = "projeto_qualificacao.xlsx") {
+      const blob = new Blob([buffer], { type: spreadsheetMimeType });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function cloneSpreadsheetObject(value) {
+      return value == null ? value : JSON.parse(JSON.stringify(value));
+    }
+
+    function captureRowPrototype(worksheet, rowNumber, firstColumn, lastColumn) {
+      const row = worksheet.getRow(rowNumber);
+      const cells = [];
+      for (let column = firstColumn; column <= lastColumn; column += 1) {
+        cells.push({ style: cloneSpreadsheetObject(row.getCell(column).style) || {} });
+      }
+      return {
+        firstColumn,
+        lastColumn,
+        height: row.height,
+        cells
+      };
+    }
+
+    function applyRowPrototype(worksheet, rowNumber, prototype) {
+      const row = worksheet.getRow(rowNumber);
+      row.height = prototype.height;
+      prototype.cells.forEach((cellPrototype, index) => {
+        const cell = row.getCell(prototype.firstColumn + index);
+        cell.value = null;
+        cell.style = cloneSpreadsheetObject(cellPrototype.style) || {};
+      });
+      return row;
+    }
+
+    function unmergeAllCells(worksheet) {
+      Object.values(worksheet._merges || {}).forEach(merge => {
+        worksheet.unMergeCells(merge.range);
+      });
+    }
+
+    function monthYearToSpreadsheetDate(value) {
+      const match = /^(0[1-9]|1[0-2])\/(\d{4})$/.exec(value || "");
+      return match ? new Date(Number(match[2]), Number(match[1]) - 1, 1) : null;
+    }
+
+    function setSpreadsheetPeriodCell(cell, value) {
+      const date = monthYearToSpreadsheetDate(value);
+      cell.value = date || value || "";
+      if (date) cell.numFmt = "mm/yyyy";
+    }
+
+    function replaceSpreadsheetMarkers(text, values) {
+      return Object.entries(values).reduce(
+        (result, [key, value]) => result.replaceAll(`{{${key}}}`, String(value ?? "")),
+        String(text || "")
+      );
+    }
+
+    function fillSummaryExpenseRow(worksheet, rowNumber, expense, stageNumber, itemIndex) {
+      const cells = worksheet.getRow(rowNumber);
+      if (!expense) {
+        for (let column = 3; column <= 12; column += 1) cells.getCell(column).value = null;
+        return;
+      }
+
+      cells.getCell(3).value = `${stageNumber}.${itemIndex + 1} - ${expense.item_label || ""}`;
+      cells.getCell(4).value = expense.codigo_elemento_despesa || "";
+      cells.getCell(5).value = expense.unidade || "";
+      cells.getCell(6).value = Number(expense.quantidade_itens || 0);
+      cells.getCell(7).value = Number(expense.valor_unitario || 0);
+      cells.getCell(8).value = {
+        formula: `F${rowNumber}*G${rowNumber}`,
+        result: Number(expense.valor_total || 0)
+      };
+      cells.getCell(9).value = expense.fonte_recurso || "";
+      setSpreadsheetPeriodCell(cells.getCell(10), expense.inicio_etapa);
+      setSpreadsheetPeriodCell(cells.getCell(11), expense.fim_etapa);
+      cells.getCell(12).value = expense.tipo_despesa || "";
+      cells.getCell(7).numFmt = 'R$ #,##0.00';
+      cells.getCell(8).numFmt = 'R$ #,##0.00';
+    }
+
+    function courseDescriptionFromTemplate(templateText, course) {
+      const generalData = course.dados_gerais;
+      return replaceSpreadsheetMarkers(templateText, {
+        NUMERO_ETAPA: course.numero_etapa,
+        NOME_CURSO: generalData.nome_curso,
+        CARGA_HORARIA: generalData.carga_horaria,
+        QUANTIDADE_PARTICIPANTES: generalData.quantidade_participantes,
+        MARGEM_RESERVA: generalData.margem_reserva,
+        QUANTIDADE_TURMAS: generalData.quantidade_turmas
+      });
+    }
+
+    function projectPeriod(expenses) {
+      const validStarts = expenses
+        .map(expense => expense.inicio_etapa)
+        .filter(value => monthYearToComparable(value) != null)
+        .sort((a, b) => monthYearToComparable(a) - monthYearToComparable(b));
+      const validEnds = expenses
+        .map(expense => expense.fim_etapa)
+        .filter(value => monthYearToComparable(value) != null)
+        .sort((a, b) => monthYearToComparable(a) - monthYearToComparable(b));
+      return {
+        inicio: validStarts[0] || "",
+        fim: validEnds.at(-1) || ""
+      };
+    }
+
+    function buildMainWorksheet(workbook, exportData) {
+      const worksheet = workbook.getWorksheet("Resumo do projeto");
+      const fixedTexts = {
+        meta: worksheet.getCell("A2").value,
+        stage11: worksheet.getCell("B2").value,
+        stage12: worksheet.getCell("B4").value,
+        course: worksheet.getCell("B6").value,
+        event: worksheet.getCell("B8").value
+      };
+      const prototypes = {
+        stage11Item: captureRowPrototype(worksheet, 2, 1, 12),
+        stage11Total: captureRowPrototype(worksheet, 3, 1, 12),
+        stage12Item: captureRowPrototype(worksheet, 4, 1, 12),
+        stage12Total: captureRowPrototype(worksheet, 5, 1, 12),
+        courseItem: captureRowPrototype(worksheet, 6, 1, 12),
+        courseTotal: captureRowPrototype(worksheet, 7, 1, 12),
+        eventItem: captureRowPrototype(worksheet, 8, 1, 12),
+        eventTotal: captureRowPrototype(worksheet, 9, 1, 12),
+        projectTotal: captureRowPrototype(worksheet, 10, 1, 12)
+      };
+
+      unmergeAllCells(worksheet);
+      if (worksheet.rowCount > 1) worksheet.spliceRows(2, worksheet.rowCount - 1);
+
+      let nextRow = 2;
+      const subtotalRows = [];
+      const allDetailedExpenses = [];
+
+      const appendBlock = ({
+        stageNumber,
+        description,
+        expenses,
+        itemPrototype,
+        totalPrototype
+      }) => {
+        const rowsToWrite = expenses.length ? expenses : [null];
+        const firstExpenseRow = nextRow;
+
+        rowsToWrite.forEach((expense, index) => {
+          applyRowPrototype(worksheet, nextRow, itemPrototype);
+          worksheet.getCell(`B${nextRow}`).value = index === 0 ? description : null;
+          fillSummaryExpenseRow(worksheet, nextRow, expense, stageNumber, index);
+          nextRow += 1;
+        });
+
+        const lastExpenseRow = nextRow - 1;
+        if (lastExpenseRow > firstExpenseRow) {
+          worksheet.mergeCells(`B${firstExpenseRow}:B${lastExpenseRow}`);
+        }
+
+        applyRowPrototype(worksheet, nextRow, totalPrototype);
+        worksheet.getCell(`B${nextRow}`).value = `TOTAL ETAPA ${stageNumber}`;
+        worksheet.mergeCells(`B${nextRow}:G${nextRow}`);
+        const blockTotal = sumExpenseValues(expenses);
+        worksheet.getCell(`H${nextRow}`).value = {
+          formula: `SUM(H${firstExpenseRow}:H${lastExpenseRow})`,
+          result: blockTotal
+        };
+        worksheet.getCell(`H${nextRow}`).numFmt = 'R$ #,##0.00';
+        subtotalRows.push(nextRow);
+        allDetailedExpenses.push(...expenses);
+        nextRow += 1;
+      };
+
+      appendBlock({
+        stageNumber: "1.1",
+        description: fixedTexts.stage11,
+        expenses: exportData.etapas.etapa_1_1.despesas,
+        itemPrototype: prototypes.stage11Item,
+        totalPrototype: prototypes.stage11Total
+      });
+      appendBlock({
+        stageNumber: "1.2",
+        description: fixedTexts.stage12,
+        expenses: exportData.etapas.etapa_1_2.despesas,
+        itemPrototype: prototypes.stage12Item,
+        totalPrototype: prototypes.stage12Total
+      });
+
+      exportData.cursos.forEach(course => {
+        appendBlock({
+          stageNumber: course.numero_etapa,
+          description: courseDescriptionFromTemplate(fixedTexts.course, course),
+          expenses: course.despesas_resumidas,
+          itemPrototype: prototypes.courseItem,
+          totalPrototype: prototypes.courseTotal
+        });
+        allDetailedExpenses.push(...course.despesas_detalhadas);
+      });
+
+      if (exportData.etapas.etapa_final) {
+        appendBlock({
+          stageNumber: exportData.etapas.etapa_final.numero_etapa,
+          description: replaceSpreadsheetMarkers(fixedTexts.event, {
+            NUMERO_ETAPA_FINAL: exportData.etapas.etapa_final.numero_etapa
+          }),
+          expenses: exportData.etapas.etapa_final.despesas,
+          itemPrototype: prototypes.eventItem,
+          totalPrototype: prototypes.eventTotal
+        });
+      }
+
+      const lastStageRow = nextRow - 1;
+      worksheet.getCell("A2").value = replaceSpreadsheetMarkers(fixedTexts.meta, {
+        TOTAL_PARTICIPANTES: exportData.projeto.total_participantes
+      });
+      if (lastStageRow > 2) worksheet.mergeCells(`A2:A${lastStageRow}`);
+
+      applyRowPrototype(worksheet, nextRow, prototypes.projectTotal);
+      worksheet.getCell(`A${nextRow}`).value = "TOTAL DO PROJETO";
+      worksheet.mergeCells(`A${nextRow}:G${nextRow}`);
+      worksheet.getCell(`H${nextRow}`).value = {
+        formula: `SUM(${subtotalRows.map(row => `H${row}`).join(",")})`,
+        result: exportData.resumo_financeiro.total_projeto
+      };
+      worksheet.getCell(`H${nextRow}`).numFmt = 'R$ #,##0.00';
+      const period = projectPeriod(allDetailedExpenses);
+      setSpreadsheetPeriodCell(worksheet.getCell(`J${nextRow}`), period.inicio);
+      setSpreadsheetPeriodCell(worksheet.getCell(`K${nextRow}`), period.fim);
+      worksheet.getCell(`L${nextRow}`).value = "-";
+      worksheet.views = [{ state: "frozen", ySplit: 1, activeCell: "A2" }];
+
+      return { worksheet, projectTotalRow: nextRow, subtotalRows };
+    }
+
+    const detailedCourseTypeOrder = [
+      "kit_participante",
+      "insumos_gerais",
+      "epi",
+      "kit_trabalho"
+    ];
+
+    const detailedCourseTypeTitles = {
+      kit_participante: "KIT PARTICIPANTE",
+      insumos_gerais: "INSUMOS PARA AS AULAS PRATICAS",
+      epi: "EPI",
+      kit_trabalho: "KIT TRABALHO"
+    };
+
+    function copyDetailedSheetSettings(modelsSheet, targetSheet) {
+      for (let column = 1; column <= 7; column += 1) {
+        targetSheet.getColumn(column).width = modelsSheet.getColumn(column).width;
+      }
+      targetSheet.properties.defaultRowHeight = modelsSheet.properties.defaultRowHeight;
+      targetSheet.pageSetup = cloneSpreadsheetObject(modelsSheet.pageSetup);
+      targetSheet.views = [{ state: "frozen", ySplit: 0, activeCell: "A1" }];
+    }
+
+    function createCourseDetailWorksheet(workbook, modelsSheet, course) {
+      const worksheet = workbook.addWorksheet(`Despesas Etapa ${course.numero_etapa}`);
+      copyDetailedSheetSettings(modelsSheet, worksheet);
+      const prototypes = {
+        title: captureRowPrototype(modelsSheet, 1, 1, 7),
+        header: captureRowPrototype(modelsSheet, 2, 1, 7),
+        item: captureRowPrototype(modelsSheet, 3, 1, 7),
+        total: captureRowPrototype(modelsSheet, 4, 1, 7),
+        perParticipant: captureRowPrototype(modelsSheet, 5, 1, 7)
+      };
+      const expensesByType = course.despesas_detalhadas.reduce((groups, expense) => {
+        if (!groups.has(expense.tipo_item_id)) groups.set(expense.tipo_item_id, []);
+        groups.get(expense.tipo_item_id).push(expense);
+        return groups;
+      }, new Map());
+      let nextRow = 1;
+
+      detailedCourseTypeOrder.forEach(typeId => {
+        const expenses = expensesByType.get(typeId) || [];
+        if (!expenses.length) return;
+        const title = detailedCourseTypeTitles[typeId];
+
+        applyRowPrototype(worksheet, nextRow, prototypes.title);
+        worksheet.getCell(`A${nextRow}`).value = title;
+        worksheet.mergeCells(`A${nextRow}:G${nextRow}`);
+        nextRow += 1;
+
+        applyRowPrototype(worksheet, nextRow, prototypes.header);
+        [
+          "Tipo do item",
+          "Item de despesa",
+          "Codigo do Elemento de Despesa",
+          "Unidade",
+          "Quantidade de Itens de Despesa",
+          "Valor Unitario (R$)",
+          "Valor Total (R$)"
+        ].forEach((label, index) => {
+          worksheet.getRow(nextRow).getCell(index + 1).value = label;
+        });
+        nextRow += 1;
+        const firstItemRow = nextRow;
+
+        expenses.forEach(expense => {
+          applyRowPrototype(worksheet, nextRow, prototypes.item);
+          const row = worksheet.getRow(nextRow);
+          row.getCell(1).value = expense.tipo_item_label;
+          row.getCell(2).value = expense.item_label;
+          row.getCell(3).value = expense.codigo_elemento_despesa;
+          row.getCell(4).value = expense.unidade;
+          row.getCell(5).value = Number(expense.quantidade_itens || 0);
+          row.getCell(6).value = Number(expense.valor_unitario || 0);
+          row.getCell(7).value = {
+            formula: `E${nextRow}*F${nextRow}`,
+            result: Number(expense.valor_total || 0)
+          };
+          row.getCell(6).numFmt = 'R$ #,##0.00';
+          row.getCell(7).numFmt = 'R$ #,##0.00';
+          nextRow += 1;
+        });
+
+        const lastItemRow = nextRow - 1;
+        const typeTotal = sumExpenseValues(expenses);
+        applyRowPrototype(worksheet, nextRow, prototypes.total);
+        worksheet.getCell(`A${nextRow}`).value = `TOTAL ${title}`;
+        worksheet.mergeCells(`A${nextRow}:F${nextRow}`);
+        worksheet.getCell(`G${nextRow}`).value = {
+          formula: `SUM(G${firstItemRow}:G${lastItemRow})`,
+          result: typeTotal
+        };
+        worksheet.getCell(`G${nextRow}`).numFmt = 'R$ #,##0.00';
+        const totalRow = nextRow;
+        nextRow += 1;
+
+        applyRowPrototype(worksheet, nextRow, prototypes.perParticipant);
+        const participants = Number(course.dados_gerais.quantidade_participantes || 0);
+        worksheet.getCell(`A${nextRow}`).value = `Total por participante (n=${participants})`;
+        worksheet.mergeCells(`A${nextRow}:F${nextRow}`);
+        worksheet.getCell(`G${nextRow}`).value = {
+          formula: participants > 0 ? `G${totalRow}/${participants}` : "0",
+          result: participants > 0 ? typeTotal / participants : 0
+        };
+        worksheet.getCell(`G${nextRow}`).numFmt = 'R$ #,##0.00';
+        nextRow += 2;
+      });
+
+      if (nextRow === 1) {
+        applyRowPrototype(worksheet, 1, prototypes.title);
+        worksheet.getCell("A1").value = "SEM DESPESAS DETALHADAS PARA ESTE CURSO";
+        worksheet.mergeCells("A1:G1");
+      }
+
+      return worksheet;
+    }
+
+    function buildCourseDetailWorksheets(workbook, exportData) {
+      const modelsSheet = workbook.getWorksheet("_MODELOS");
+      workbook.worksheets
+        .filter(sheet => sheet.name.startsWith("Despesas Etapa "))
+        .forEach(sheet => workbook.removeWorksheet(sheet.id));
+      return exportData.cursos.map(course =>
+        createCourseDetailWorksheet(workbook, modelsSheet, course)
+      );
+    }
+
+    const generalTableBorder = {
+      top: { style: "thin", color: { argb: "FF000000" } },
+      left: { style: "thin", color: { argb: "FF000000" } },
+      bottom: { style: "thin", color: { argb: "FF000000" } },
+      right: { style: "thin", color: { argb: "FF000000" } }
+    };
+
+    function applyGeneralTableStyle(cell, options = {}) {
+      cell.font = {
+        name: "Aptos Narrow",
+        family: 2,
+        size: 11,
+        bold: Boolean(options.bold),
+        color: options.fontColor ? { argb: options.fontColor } : { theme: 1 }
+      };
+      cell.border = cloneSpreadsheetObject(generalTableBorder);
+      cell.alignment = {
+        vertical: "middle",
+        horizontal: options.horizontal || "left",
+        wrapText: true
+      };
+      cell.fill = options.fillColor
+        ? {
+            type: "pattern",
+            pattern: "solid",
+            fgColor: { argb: options.fillColor },
+            bgColor: { argb: options.fillColor }
+          }
+        : { type: "pattern", pattern: "none" };
+    }
+
+    function removeWorksheetIfPresent(workbook, sheetName) {
+      const existing = workbook.getWorksheet(sheetName);
+      if (existing) workbook.removeWorksheet(existing.id);
+    }
+
+    function courseDistributionText(generalData) {
+      const distribution = Array.isArray(generalData.distribuicao_turmas)
+        ? generalData.distribuicao_turmas
+        : [];
+      if (!distribution.length) return "";
+      const total = distribution.reduce((sum, value) => sum + Number(value || 0), 0);
+      return `Distribuicao: ${distribution.join(" + ")} = ${total} participantes.`;
+    }
+
+    function buildGeneralCoursesWorksheet(workbook, exportData) {
+      const sheetName = "Dados gerais cursos";
+      removeWorksheetIfPresent(workbook, sheetName);
+      const worksheet = workbook.addWorksheet(sheetName);
+      [35, 20, 22, 18, 23, 15, 38].forEach((width, index) => {
+        worksheet.getColumn(index + 1).width = width;
+      });
+
+      worksheet.mergeCells("A1:G1");
+      worksheet.getCell("A1").value = "Tabela de dados gerais dos cursos";
+      applyGeneralTableStyle(worksheet.getCell("A1"), {
+        bold: true,
+        horizontal: "center"
+      });
+
+      const headers = [
+        "Curso",
+        "Carga horaria total do curso",
+        "Qtd. Participantes do curso",
+        "Carga horaria diaria",
+        "Qtd. encontros semanais",
+        "Qtd. Turmas",
+        "Qtd. Participantes por Turma"
+      ];
+      headers.forEach((header, index) => {
+        const cell = worksheet.getRow(2).getCell(index + 1);
+        cell.value = header;
+        applyGeneralTableStyle(cell, { bold: true, horizontal: "center" });
+      });
+
+      exportData.cursos.forEach((course, index) => {
+        const rowNumber = index + 3;
+        const generalData = course.dados_gerais;
+        const values = [
+          generalData.nome_curso,
+          Number(generalData.carga_horaria || 0),
+          Number(generalData.quantidade_participantes || 0),
+          Number(generalData.carga_horaria_diaria || 0),
+          Number(generalData.quantidade_encontros_semanais || 0),
+          Number(generalData.quantidade_turmas || 0),
+          courseDistributionText(generalData)
+        ];
+        values.forEach((value, columnIndex) => {
+          const cell = worksheet.getRow(rowNumber).getCell(columnIndex + 1);
+          cell.value = value;
+          applyGeneralTableStyle(cell, {
+            horizontal: columnIndex === 0 || columnIndex === 6 ? "left" : "center"
+          });
+        });
+      });
+
+      const firstCourseRow = 3;
+      const lastCourseRow = Math.max(firstCourseRow, exportData.cursos.length + 2);
+      const totalRow = exportData.cursos.length + 3;
+      worksheet.getCell(`A${totalRow}`).value = "Total";
+      worksheet.getCell(`B${totalRow}`).value = {
+        formula: `SUM(B${firstCourseRow}:B${lastCourseRow})`,
+        result: exportData.projeto.total_carga_horaria
+      };
+      worksheet.getCell(`C${totalRow}`).value = {
+        formula: `SUM(C${firstCourseRow}:C${lastCourseRow})`,
+        result: exportData.projeto.total_participantes
+      };
+      for (let column = 1; column <= 7; column += 1) {
+        applyGeneralTableStyle(worksheet.getRow(totalRow).getCell(column), {
+          bold: true,
+          horizontal: column === 1 ? "left" : "center"
+        });
+      }
+      worksheet.views = [{ state: "frozen", ySplit: 2, activeCell: "A3" }];
+      worksheet.pageSetup = {
+        orientation: "landscape",
+        fitToPage: true,
+        fitToWidth: 1,
+        fitToHeight: 0,
+        margins: { left: 0.4, right: 0.4, top: 0.6, bottom: 0.6, header: 0.2, footer: 0.2 }
+      };
+      return { worksheet, totalRow };
+    }
+
+    function buildGeneralProjectWorksheet(workbook, exportData, coursesTotalRow) {
+      const sheetName = "Dados gerais do projeto";
+      removeWorksheetIfPresent(workbook, sheetName);
+      const worksheet = workbook.addWorksheet(sheetName);
+      worksheet.getColumn(1).width = 78;
+      worksheet.getColumn(2).width = 24;
+      worksheet.mergeCells("A1:B1");
+      worksheet.getCell("A1").value = "Tabela: Detalhamento de custos do projeto";
+      applyGeneralTableStyle(worksheet.getCell("A1"), {
+        bold: true,
+        horizontal: "center"
+      });
+
+      const financial = exportData.resumo_financeiro;
+      const rows = [
+        ["Gestao do Projeto", financial.gestao],
+        ["Despesas Finalisticas das Acoes", financial.finalistica],
+        ["Total do Projeto (descontando estruturacao e kits, se houver)", {
+          formula: "B2+B3",
+          result: financial.gestao_finalistica
+        }],
+        ["Despesa com Estruturacao de Espaco", financial.estruturacao],
+        ["Aquisicao de Kits de Trabalho (se houver)", financial.kit_trabalho],
+        ["TOTAL DO PROJETO CALCULADO", {
+          formula: "SUM(B2,B3,B5,B6)",
+          result: financial.total_projeto
+        }],
+        ["TOTAL DO PROJETO INFORMADO", exportData.projeto.custo_total_informado],
+        ["Custo unitario por participante", {
+          formula: `IF(B4=0,0,'Dados gerais cursos'!B${coursesTotalRow}*'Dados gerais cursos'!C${coursesTotalRow}/B4)`,
+          result: financial.custo_unitario_por_participante
+        }]
+      ];
+
+      rows.forEach(([label, value], index) => {
+        const rowNumber = index + 2;
+        const highlighted = rowNumber >= 7;
+        const labelCell = worksheet.getCell(`A${rowNumber}`);
+        const valueCell = worksheet.getCell(`B${rowNumber}`);
+        labelCell.value = label;
+        valueCell.value = value;
+        applyGeneralTableStyle(labelCell, {
+          bold: true,
+          fontColor: highlighted ? undefined : "FF0070C0",
+          fillColor: highlighted ? "FF92D050" : undefined
+        });
+        applyGeneralTableStyle(valueCell, {
+          bold: true,
+          fontColor: highlighted ? undefined : "FF0070C0",
+          fillColor: highlighted ? "FF92D050" : undefined,
+          horizontal: "right"
+        });
+        valueCell.numFmt = 'R$ #,##0.00';
+      });
+      worksheet.views = [{ state: "frozen", ySplit: 1, activeCell: "A2" }];
+      worksheet.pageSetup = {
+        fitToPage: true,
+        fitToWidth: 1,
+        fitToHeight: 1,
+        margins: { left: 0.5, right: 0.5, top: 0.6, bottom: 0.6, header: 0.2, footer: 0.2 }
+      };
+      return worksheet;
+    }
+
+    function buildGeneralDataWorksheets(workbook, exportData) {
+      const coursesSheet = buildGeneralCoursesWorksheet(workbook, exportData);
+      const projectSheet = buildGeneralProjectWorksheet(
+        workbook,
+        exportData,
+        coursesSheet.totalRow
+      );
+      return { coursesSheet: coursesSheet.worksheet, projectSheet };
+    }
+
+    async function createSpreadsheetWorkbook(exportData = buildExportData()) {
+      const workbook = await loadSpreadsheetTemplate();
+      workbook.creator = "Sistema SPFD/TED";
+      workbook.lastModifiedBy = "Sistema SPFD/TED";
+      workbook.created = new Date();
+      workbook.modified = new Date();
+
+      buildMainWorksheet(workbook, exportData);
+      buildGeneralDataWorksheets(workbook, exportData);
+      buildCourseDetailWorksheets(workbook, exportData);
+
+      return { workbook, exportData };
+    }
+
+    async function downloadSpreadsheet() {
+      const button = document.getElementById("download-xlsx");
+      const originalText = button.textContent;
+      button.disabled = true;
+      button.textContent = "Gerando planilha...";
+      setStatus("Gerando a planilha. Aguarde...", "success");
+
+      try {
+        const exportData = state.json || buildExportData();
+        const { workbook } = await createSpreadsheetWorkbook(exportData);
+        const buffer = await serializeSpreadsheet(workbook);
+        downloadSpreadsheetBuffer(buffer);
+        setStatus("Planilha gerada com sucesso.", "success");
+      } catch (error) {
+        console.error(error);
+        setStatus(`Nao foi possivel gerar a planilha: ${error.message}`, "error");
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    }
+
+    function downloadJson() {
+      if (!state.json) return;
+      const blob = new Blob([JSON.stringify(state.json, null, 2)], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "projeto_qualificacao.json";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function finishForm() {
+      if (!validateAll()) return;
+      state.json = buildJson();
+      document.getElementById("json-preview").textContent = JSON.stringify(state.json, null, 2);
+      setStatus("Formulario validado. Os arquivos estao prontos para geracao.", "success");
+      if (typeof jsonDialog.showModal === "function") jsonDialog.showModal();
+      else downloadSpreadsheet();
+    }
+
+    function handleEventSection() {
+      const section = document.getElementById("despesas_evento_final");
+      const navButton = document.querySelector('[data-step-target="despesas_evento_final"]');
+      if (eventCheckbox.checked) {
+        navButton.hidden = false;
+      } else {
+        document.getElementById("event-table").innerHTML = emptyState("Nenhuma despesa adicionada nesta etapa.");
+        updateStageSummary("event");
+        navButton.hidden = true;
+        state.completedSteps.delete("despesas_evento_final");
+        if (state.currentStep === "despesas_evento_final") showStep("despesas_etapa_1_2");
+      }
+      // Mantém visível somente a seção que corresponde à etapa atual.
+      section.hidden = state.currentStep !== "despesas_evento_final";
+      updateNavigation();
+    }
+
+    /* ======================================================================
+       9. CONTROLADORES DE EVENTOS
+       ====================================================================== */
+    function handleFormInput(event) {
+      const control = event.target;
+      if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
+      if (control.classList.contains("month-year-input")) maskMonthYear(control);
+      if (control.matches("input, select")) validateControl(control);
+
+      if (["quantidade_participantes", "margem_reserva"].includes(control.dataset.field)) {
+        const courseCard = control.closest(".course-card");
+        const courseContainer = courseCard?.querySelector("[data-course-expenses]");
+        if (courseCard) updateReserveImpact(courseCard);
+        if (courseCard) syncCourseExpenseQuantities(courseCard);
+        if (control.dataset.field === "quantidade_participantes") {
+          if (courseCard) updateClassDistribution(courseCard);
+          if (courseContainer) updateCourseSummary(courseContainer);
+        }
+      }
+
+      if (["carga_horaria_total", "carga_horaria_diaria"].includes(control.dataset.field)) {
+        const courseCard = control.closest(".course-card");
+        if (courseCard) updateCourseDuration(courseCard);
+      }
+
+      if (control.dataset.field === "inicio_curso") {
+        const courseCard = control.closest(".course-card");
+        if (courseCard) updateCoursePeriod(courseCard);
+      }
+
+      const row = control.closest("tr");
+      if (row && ["quantidade_itens", "valor_unitario"].includes(control.dataset.field)) recalculateRow(row);
+    }
+
+    function handleFormChange(event) {
+      const control = event.target;
+      if (control === quantityCourses) syncCourses();
+      if (control === eventCheckbox) handleEventSection();
+      const row = control.closest("tr");
+      if (!row) return;
+      if (control.dataset.field === "tipo_item_despesa") {
+        updateCourseDependencies(row);
+        const courseContainer = row.closest("[data-course-expenses]");
+        if (courseContainer) updateCourseSummary(courseContainer);
+      }
+      if (control.dataset.field === "item_despesa" && row.querySelector('[data-field="tipo_item_despesa"]')) updateCourseItemDependencies(row);
+      if (control.dataset.field === "item_despesa" && row.dataset.stageKind) updateStageDependencies(row);
+      if (control.dataset.field === "fonte_recurso") updateExpenseTotalsByType();
+    }
+
+    function handleFormClick(event) {
+      const addCourse = event.target.closest("[data-add-course-expense]");
+      if (addCourse) return addCourseExpense(Number(addCourse.dataset.addCourseExpense));
+
+      const addStage = event.target.closest("[data-add-stage-row]");
+      if (addStage) return addStageRow(addStage.dataset.addStageRow);
+
+      const remove = event.target.closest("[data-remove-row]");
+      if (remove) {
+        const row = remove.closest("tr");
+        const courseContainer = row.closest("[data-course-expenses]");
+        const kind = row.dataset.stageKind;
+        row.remove();
+        if (courseContainer) renderCourseExpenseTable(courseContainer);
+        if (kind) renderStageTable(kind);
+        return;
+      }
+
+      if (event.target.closest("[data-next]")) {
+        if (!validateStep(state.currentStep)) {
+          setStatus("Revise os campos destacados para avançar.", "error");
+          return;
+        }
+        state.completedSteps.add(state.currentStep);
+        const steps = visibleSteps();
+        const next = steps[steps.indexOf(state.currentStep) + 1];
+        if (next) showStep(next);
+        return;
+      }
+
+      if (event.target.closest("[data-prev]")) {
+        const steps = visibleSteps();
+        const previous = steps[steps.indexOf(state.currentStep) - 1];
+        if (previous) showStep(previous);
+        return;
+      }
+
+      if (event.target.closest("[data-finish]")) finishForm();
+    }
+
+    function handleStepNavigation(event) {
+      const button = event.currentTarget;
+      const target = button.dataset.stepTarget;
+      const steps = visibleSteps();
+      const currentIndex = steps.indexOf(state.currentStep);
+      const targetIndex = steps.indexOf(target);
+
+      if (targetIndex > currentIndex && !validateStep(state.currentStep)) {
+        setStatus("Revise os campos destacados antes de mudar de etapa.", "error");
+        return;
+      }
+
+      if (targetIndex > currentIndex) state.completedSteps.add(state.currentStep);
+      showStep(target);
+    }
+
+    function bindEvents() {
+      form.addEventListener("input", handleFormInput);
+      form.addEventListener("change", handleFormChange);
+      form.addEventListener("click", handleFormClick);
+      document.querySelectorAll("[data-step-target]").forEach(button => {
+        button.addEventListener("click", handleStepNavigation);
+      });
+      document.getElementById("close-dialog").addEventListener("click", () => jsonDialog.close());
+      document.getElementById("download-json").addEventListener("click", downloadJson);
+      document.getElementById("download-xlsx").addEventListener("click", downloadSpreadsheet);
+    }
+
+    /* ======================================================================
+       10. INICIALIZAÇÃO
+       ====================================================================== */
+    function initializeApp() {
+      bindEvents();
+      syncCourses();
+      ["stage11", "stage12", "event"].forEach(renderStageTable);
+      handleEventSection();
+      showStep("dados_gerais_projeto", { scroll: false });
+    }
+
+    initializeApp();
+  </script>
+</body>
+</html>
