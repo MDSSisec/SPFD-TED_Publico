@@ -548,6 +548,7 @@
     }
 
     .searchable-combobox {
+      position: relative;
       width: 100%;
       min-width: 0;
     }
@@ -559,6 +560,53 @@
 
     .searchable-combobox-source {
       display: none;
+    }
+
+    .searchable-combobox-list {
+      position: absolute;
+      z-index: 50;
+      top: calc(100% + 5px);
+      left: 0;
+      width: max(100%, 260px);
+      max-height: 240px;
+      overflow-y: auto;
+      padding: 5px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(16, 24, 40, .16);
+    }
+
+    .searchable-combobox-list[hidden] {
+      display: none;
+    }
+
+    .searchable-combobox-option {
+      display: block;
+      width: 100%;
+      padding: 9px 10px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      font-size: .82rem;
+      line-height: 1.3;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .searchable-combobox-option:hover,
+    .searchable-combobox-option.is-active {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .searchable-combobox-empty {
+      padding: 10px;
+      color: var(--muted);
+      font-size: .8rem;
+      text-align: center;
     }
 
     td .error-message {
@@ -1647,33 +1695,62 @@
       const id = `${rowId}_${field}`;
       const sourceId = `${id}_value`;
       const listId = `${id}_options`;
-      const options = items.map(item => {
-        const value = typeof item === "string" ? item : item.id;
-        const itemLabel = typeof item === "string" ? item : item.label;
-        return `<option value="${escapeHtml(itemLabel)}" data-value="${escapeHtml(value)}"></option>`;
-      }).join("");
       return `<td><div class="searchable-combobox">
         <input id="${id}" class="searchable-combobox-input" type="text" role="combobox"
           aria-autocomplete="list" aria-controls="${listId}" aria-expanded="false"
-          list="${listId}" placeholder="${escapeHtml(placeholder)}" autocomplete="off"
+          placeholder="${escapeHtml(placeholder)}" autocomplete="off"
           data-combobox-input data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""} />
-        <datalist id="${listId}">${options}</datalist>
+        <div id="${listId}" class="searchable-combobox-list" role="listbox" hidden></div>
         <select id="${sourceId}" class="searchable-combobox-source" data-field="${field}" tabindex="-1" aria-hidden="true" ${disabled ? "disabled" : ""}>${optionList(items, placeholder)}</select>
       </div><small class="error-message" data-error-for="${id}"></small></td>`;
+    }
+
+    function renderComboboxOptions(wrapper, search = "") {
+      const select = wrapper.querySelector("select");
+      const list = wrapper.querySelector("[role='listbox']");
+      const normalizedSearch = search.trim().toLocaleLowerCase("pt-BR");
+      const options = [...select.options].filter(option => option.value &&
+        option.textContent.toLocaleLowerCase("pt-BR").includes(normalizedSearch)
+      );
+      list.innerHTML = options.length ? options.map(option =>
+        `<button type="button" class="searchable-combobox-option" role="option" data-combobox-option="${escapeHtml(option.value)}">${escapeHtml(option.textContent)}</button>`
+      ).join("") : `<div class="searchable-combobox-empty">Nenhum item encontrado.</div>`;
+    }
+
+    function openCombobox(wrapper, search = null) {
+      const input = wrapper.querySelector("[data-combobox-input]");
+      if (input.disabled) return;
+      document.querySelectorAll(".searchable-combobox-list:not([hidden])").forEach(list => {
+        if (list !== wrapper.querySelector("[role='listbox']")) closeCombobox(list.closest(".searchable-combobox"));
+      });
+      renderComboboxOptions(wrapper, search == null ? input.value : search);
+      wrapper.querySelector("[role='listbox']").hidden = false;
+      input.setAttribute("aria-expanded", "true");
+    }
+
+    function closeCombobox(wrapper) {
+      if (!wrapper) return;
+      wrapper.querySelector("[role='listbox']").hidden = true;
+      wrapper.querySelector("[data-combobox-input]").setAttribute("aria-expanded", "false");
+    }
+
+    function chooseComboboxOption(wrapper, value) {
+      const select = wrapper.querySelector("select");
+      select.value = value;
+      syncComboboxDisplay(select);
+      closeCombobox(wrapper);
+      clearError(wrapper.querySelector("[data-combobox-input]"));
+      select.dispatchEvent(new Event("change", { bubbles: true }));
     }
 
     function setComboboxOptions(select, items, placeholder = "Selecione ou pesquise") {
       const wrapper = select.closest(".searchable-combobox");
       const input = wrapper.querySelector("[data-combobox-input]");
-      const datalist = wrapper.querySelector("datalist");
       select.innerHTML = optionList(items, placeholder);
-      datalist.innerHTML = items.map(item => {
-        const value = typeof item === "string" ? item : item.id;
-        const label = typeof item === "string" ? item : item.label;
-        return `<option value="${escapeHtml(label)}" data-value="${escapeHtml(value)}"></option>`;
-      }).join("");
       select.value = "";
       input.value = "";
+      renderComboboxOptions(wrapper);
+      closeCombobox(wrapper);
     }
 
     function syncComboboxDisplay(select) {
@@ -3082,14 +3159,14 @@
       if (control.matches("[data-combobox-input]")) {
         const wrapper = control.closest(".searchable-combobox");
         const source = wrapper.querySelector("select");
-        const match = [...wrapper.querySelectorAll("datalist option")].find(option =>
-          option.value.localeCompare(control.value, "pt-BR", { sensitivity: "base" }) === 0
+        const previousValue = source.value;
+        const match = [...source.options].find(option =>
+          option.value && option.textContent.localeCompare(control.value, "pt-BR", { sensitivity: "base" }) === 0
         );
-        const nextValue = match?.dataset.value || "";
-        if (source.value !== nextValue) {
-          source.value = nextValue;
-          source.dispatchEvent(new Event("change", { bubbles: true }));
-        }
+        const nextValue = match?.value || "";
+        source.value = nextValue;
+        if (previousValue !== nextValue) source.dispatchEvent(new Event("change", { bubbles: true }));
+        openCombobox(wrapper, control.value);
       }
       if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
@@ -3136,7 +3213,52 @@
       if (control.dataset.field === "fonte_recurso") updateExpenseTotalsByType();
     }
 
+    function handleFormKeydown(event) {
+      const input = event.target.closest("[data-combobox-input]");
+      if (!input) return;
+      const wrapper = input.closest(".searchable-combobox");
+      const list = wrapper.querySelector("[role='listbox']");
+
+      if (event.key === "Escape" || event.key === "Tab") {
+        closeCombobox(wrapper);
+        return;
+      }
+
+      if (!["ArrowDown", "ArrowUp", "Enter"].includes(event.key)) return;
+      event.preventDefault();
+      if (list.hidden) openCombobox(wrapper);
+      const options = [...list.querySelectorAll("[data-combobox-option]")];
+      if (!options.length) return;
+      const activeIndex = options.findIndex(option => option.classList.contains("is-active"));
+
+      if (event.key === "Enter") {
+        const selected = options[Math.max(0, activeIndex)];
+        chooseComboboxOption(wrapper, selected.dataset.comboboxOption);
+        return;
+      }
+
+      const nextIndex = event.key === "ArrowDown"
+        ? (activeIndex + 1) % options.length
+        : (activeIndex <= 0 ? options.length - 1 : activeIndex - 1);
+      options.forEach(option => option.classList.remove("is-active"));
+      options[nextIndex].classList.add("is-active");
+      options[nextIndex].scrollIntoView({ block: "nearest" });
+    }
+
     function handleFormClick(event) {
+      const comboboxOption = event.target.closest("[data-combobox-option]");
+      if (comboboxOption) {
+        chooseComboboxOption(comboboxOption.closest(".searchable-combobox"), comboboxOption.dataset.comboboxOption);
+        return;
+      }
+
+      const comboboxInput = event.target.closest("[data-combobox-input]");
+      if (comboboxInput) {
+        const wrapper = comboboxInput.closest(".searchable-combobox");
+        openCombobox(wrapper, wrapper.querySelector("select").value ? "" : comboboxInput.value);
+      }
+      else document.querySelectorAll(".searchable-combobox-list:not([hidden])").forEach(list => closeCombobox(list.closest(".searchable-combobox")));
+
       const addCourse = event.target.closest("[data-add-course-expense]");
       if (addCourse) return addCourseExpense(Number(addCourse.dataset.addCourseExpense));
 
@@ -3195,6 +3317,7 @@
     function bindEvents() {
       form.addEventListener("input", handleFormInput);
       form.addEventListener("change", handleFormChange);
+      form.addEventListener("keydown", handleFormKeydown);
       form.addEventListener("click", handleFormClick);
       document.querySelectorAll("[data-step-target]").forEach(button => {
         button.addEventListener("click", handleStepNavigation);
