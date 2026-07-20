@@ -547,6 +547,20 @@
       font-size: .82rem;
     }
 
+    .searchable-combobox {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .searchable-combobox-input {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .searchable-combobox-source {
+      display: none;
+    }
+
     td .error-message {
       max-width: none;
       overflow-wrap: anywhere;
@@ -946,7 +960,7 @@
                 { id: "estojo_escolar_simples_nylon_preto", label: "Estojo Escolar Simples Nylon Preto", codigo: "33.90.39", unidades: ["unidade"] },
                 { id: "caderno_a4_100_paginas", label: "Caderno a4 100 paginas", codigo: "33.90.39", unidades: ["unidade"] },
                 { id: "lapis_preto_hb2", label: "Lápis preto HB2", codigo: "33.90.39", unidades: ["kit 4 unidades"] },
-                { id: "apontador_de_lapis_de_grafiti", label: "Apontador de lapis de grafiti", codigo: "33.90.39", unidades: ["unidade"] },
+                { id: "apontador_de_lapis_de_grafiti", label: "Apontador de lapis de graifiti", codigo: "33.90.39", unidades: ["unidade"] },
                 { id: "borracha_para_lapis_grafiti", label: "Borracha para lápis grafiti", codigo: "33.90.39", unidades: ["unidade"] },
                 { id: "caneta_esferografica_azul", label: "Caneta esferográfica azul", codigo: "33.90.39", unidades: ["kit 3 unidades"] },
                 { id: "mochila_poliester_42cm_x_48cm_x_33cm", label: "Mochila poliester 42cm x 48cm x 33cm", codigo: "33.90.39", unidades: ["unidade"] },
@@ -1575,7 +1589,7 @@
       tr.dataset.rowId = rowId;
       tr.innerHTML = `
         ${tableCellSelect("tipo_item_despesa", optionList(catalogs.tiposItemCurso), rowId, "Tipo do item")}
-        ${tableCellSelect("item_despesa", optionList([], "Selecione o tipo primeiro"), rowId, "Item", true)}
+        ${tableCellCombobox("item_despesa", [], rowId, "Item", "Selecione o tipo primeiro", true)}
         ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
@@ -1591,6 +1605,7 @@
         typeSelect.value = preset.tipoId;
         updateCourseDependencies(tr);
         itemSelect.value = preset.itemId;
+        syncComboboxDisplay(itemSelect);
         updateCourseItemDependencies(tr);
 
         const type = catalogs.tiposItemCurso.find(entry => entry.id === preset.tipoId);
@@ -1609,7 +1624,7 @@
       tr.dataset.rowId = rowId;
       tr.dataset.stageKind = kind;
       tr.innerHTML = `
-        ${tableCellSelect("item_despesa", optionList(catalogs[kind]), rowId, "Item")}
+        ${tableCellCombobox("item_despesa", catalogs[kind], rowId, "Item")}
         ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
@@ -1626,6 +1641,44 @@
     function tableCellSelect(field, options, rowId, label, disabled = false) {
       const id = `${rowId}_${field}`;
       return `<td><select id="${id}" data-field="${field}" data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""}>${options}</select><small class="error-message" data-error-for="${id}"></small></td>`;
+    }
+
+    function tableCellCombobox(field, items, rowId, label, placeholder = "Selecione ou pesquise", disabled = false) {
+      const id = `${rowId}_${field}`;
+      const sourceId = `${id}_value`;
+      const listId = `${id}_options`;
+      const options = items.map(item => {
+        const value = typeof item === "string" ? item : item.id;
+        const itemLabel = typeof item === "string" ? item : item.label;
+        return `<option value="${escapeHtml(itemLabel)}" data-value="${escapeHtml(value)}"></option>`;
+      }).join("");
+      return `<td><div class="searchable-combobox">
+        <input id="${id}" class="searchable-combobox-input" type="text" role="combobox"
+          aria-autocomplete="list" aria-controls="${listId}" aria-expanded="false"
+          list="${listId}" placeholder="${escapeHtml(placeholder)}" autocomplete="off"
+          data-combobox-input data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""} />
+        <datalist id="${listId}">${options}</datalist>
+        <select id="${sourceId}" class="searchable-combobox-source" data-field="${field}" tabindex="-1" aria-hidden="true" ${disabled ? "disabled" : ""}>${optionList(items, placeholder)}</select>
+      </div><small class="error-message" data-error-for="${id}"></small></td>`;
+    }
+
+    function setComboboxOptions(select, items, placeholder = "Selecione ou pesquise") {
+      const wrapper = select.closest(".searchable-combobox");
+      const input = wrapper.querySelector("[data-combobox-input]");
+      const datalist = wrapper.querySelector("datalist");
+      select.innerHTML = optionList(items, placeholder);
+      datalist.innerHTML = items.map(item => {
+        const value = typeof item === "string" ? item : item.id;
+        const label = typeof item === "string" ? item : item.label;
+        return `<option value="${escapeHtml(label)}" data-value="${escapeHtml(value)}"></option>`;
+      }).join("");
+      select.value = "";
+      input.value = "";
+    }
+
+    function syncComboboxDisplay(select) {
+      const input = select.closest(".searchable-combobox")?.querySelector("[data-combobox-input]");
+      if (input) input.value = selectedText(select);
     }
 
     function tableCellInput(field, type, rowId, options = {}) {
@@ -1736,7 +1789,9 @@
       const unitSelect = row.querySelector('[data-field="unidade"]');
       const type = catalogs.tiposItemCurso.find(item => item.id === typeSelect.value);
       itemSelect.disabled = !type;
-      itemSelect.innerHTML = type ? optionList(type.itens) : optionList([], "Selecione o tipo primeiro");
+      const itemInput = itemSelect.closest(".searchable-combobox").querySelector("[data-combobox-input]");
+      itemInput.disabled = !type;
+      setComboboxOptions(itemSelect, type?.itens || [], type ? "Selecione ou pesquise" : "Selecione o tipo primeiro");
       codeSelect.disabled = true;
       codeSelect.innerHTML = optionList([], "Selecione o item primeiro");
       unitSelect.disabled = true;
@@ -1958,6 +2013,11 @@
         return false;
       }
       if (value === "") return true;
+
+      if (control.matches("[data-combobox-input]") && !control.closest(".searchable-combobox").querySelector("select").value) {
+        setError(control, "Selecione uma opção da lista.");
+        return false;
+      }
 
       if (control.classList.contains("currency-input")) {
         if (currencyValue(control) < 0) {
@@ -3019,6 +3079,18 @@
        ====================================================================== */
     function handleFormInput(event) {
       const control = event.target;
+      if (control.matches("[data-combobox-input]")) {
+        const wrapper = control.closest(".searchable-combobox");
+        const source = wrapper.querySelector("select");
+        const match = [...wrapper.querySelectorAll("datalist option")].find(option =>
+          option.value.localeCompare(control.value, "pt-BR", { sensitivity: "base" }) === 0
+        );
+        const nextValue = match?.dataset.value || "";
+        if (source.value !== nextValue) {
+          source.value = nextValue;
+          source.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      }
       if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
       if (control.matches("input, select")) validateControl(control);

@@ -1,4 +1,4 @@
-﻿Categoria;Código do Elemento de Despesa;Unidade;TIPO;Item de Despesa Padronizado
+Categoria;Código do Elemento de Despesa;Unidade;TIPO;Item de Despesa Padronizado
 curso_outros;33.90.39;unidade;finalística;Almoço para participantes
 curso_outros;33.90.30, 33.90.39;unidade;finalística;Apostila
 curso_outros;33.90.39;hora;finalística;Assessoria especializada
@@ -1019,12 +1019,9 @@ stage12;33.90.39;unidade;estruturação;Trompete
 stage12;33.90.39;unidade;estruturação;Viola
 stage12;33.90.39;unidade;estruturação;Violino
 stage12;33.90.39;unidade;estruturação;Violoncelo
-<<<<<<< HEAD
-=======
-event;33.90.39;unidade;finalística;Coffee Break Lançamento e Encerramento (400 pessoas ao valor 10 cada)
 event;00.00.00;unidade;finalística;Coffee break para participantes e convidados
 event;33.90.39;unidade;finalística;Contratação de pessoa jurídica
-event;33.90.39;unidade;gestão;Contratação de Pessoa jurídica
+event;33.90.39;unidade;finalística;Contratação de Pessoa jurídica
 event;00.00.00;unidade;finalística;Equipe de apoio operacional e cerimonial
 event;00.00.00;unidade;finalística;Estrutura de palco com backdrop e decoração institucional
 event;33.90.39;unidade;finalística;Evento Fechamentoo/Formatura
@@ -2100,4 +2097,3 @@ kit_trabalho;00.00.00;unidade;kit;Touca de cabelo
 kit_trabalho;00.00.00;unidade;kit;Valor total
 kit_trabalho;00.00.00;unidade;kit;Vasos plásticos tamanho médio
 kit_trabalho;33.90.39;unidade;kit;Xícaras com pires
->>>>>>> ce838d533e88afee2f7500690d49243c42305e2b
