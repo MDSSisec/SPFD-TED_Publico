@@ -1034,11 +1034,11 @@ event;00.00.00;unidade;finalística;Serviço de credenciamento e recepção dos 
 event;33.90.39;unidade;finalística;Serviço de Fotografia e Filmar (2 eventos)
 event;00.00.00;unidade;finalística;Serviço de limpeza e apoio logístico
 event;33.90.39;unidade;finalística;Serviço de Mestre de Cerimônias
-event;33.90.39;unidade;finalística;Serviço de Projeção Visual (2 eventos)
+event;33.90.39;unidade;"Abraçadeira Galvanizada ""D"" para Eletroduto 3/4 com Cunha";Serviço de Projeção Visual (2 eventos)
 event;00.00.00;unidade;finalística;Serviço de segurança e brigadistas
 event;00.00.00;unidade;finalística;Serviço de sonorização profissional com mesa de som
 insumo_gerais;00.00.00;unidade;finalística;Frascos 30 mL Pet borrifador com válvula spray para perfumes - pacote com 100 unidades
-insumo_gerais;33.90.39;unidade;finalística;"Abraçadeira Galvanizada ""D"" para Eletroduto 3/4"" com Cunha"
+insumo_gerais;33.90.39;unidade;finalística;"Abraçadeira Galvanizada ""D"" para Eletroduto 3/4 com Cunha"
 insumo_gerais;33.90.39;unidade;finalística;Abraçadeira ovalada metálica para fixação de lâmpada fluorescente T8
 insumo_gerais;33.90.39;unidade;finalística;"Abraçadeira tipo U - 3/4"" - aço carbono galvanizado"
 insumo_gerais;00.00.00;unidade;finalística;Abraçadeiras, Velcros e Organizadores de Cabos
@@ -1119,7 +1119,6 @@ insumo_gerais;00.00.00;unidade;finalística;Balde de lixo 30l
 insumo_gerais;33.90.54;unidade;finalística;Balde plástico
 insumo_gerais;33.90.39;unidade;finalística;Balde reforçado
 insumo_gerais;33.90.39;unidade;finalística;Balde
-insumo_gerais;00.00.00;unidade;finalística;Balde plásticos
 insumo_gerais;33.90.39;unidade;finalística;Balnça digital para gás
 insumo_gerais;33.90.46;unidade;finalística;Bancada de trabalho
 insumo_gerais;33.90.39;unidade;finalística;Bancada de treinamento
