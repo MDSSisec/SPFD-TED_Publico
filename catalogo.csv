@@ -1019,3 +1019,1085 @@ stage12;33.90.39;unidade;estruturação;Trompete
 stage12;33.90.39;unidade;estruturação;Viola
 stage12;33.90.39;unidade;estruturação;Violino
 stage12;33.90.39;unidade;estruturação;Violoncelo
+<<<<<<< HEAD
+=======
+event;33.90.39;unidade;finalística;Coffee Break Lançamento e Encerramento (400 pessoas ao valor 10 cada)
+event;00.00.00;unidade;finalística;Coffee break para participantes e convidados
+event;33.90.39;unidade;finalística;Contratação de pessoa jurídica
+event;33.90.39;unidade;gestão;Contratação de Pessoa jurídica
+event;00.00.00;unidade;finalística;Equipe de apoio operacional e cerimonial
+event;00.00.00;unidade;finalística;Estrutura de palco com backdrop e decoração institucional
+event;33.90.39;unidade;finalística;Evento Fechamentoo/Formatura
+event;33.90.39;unidade;finalística;Evento Lançamento/Aula Inaugural
+event;00.00.00;unidade;finalística;Locação de cadeiras e mesas de apoio adicionais
+event;33.90.39;unidade;finalística;Locação de Equipamento de Som/Luz (2 eventos)
+event;00.00.00;unidade;finalística;Material gráfico (banners, faixas, credenciais e sinalização)
+event;00.00.00;unidade;finalística;Painel de LED ou projetores multimídia para apresentações institucionais
+event;00.00.00;unidade;finalística;Serviço de credenciamento e recepção dos participantes
+event;33.90.39;unidade;finalística;Serviço de Fotografia e Filmar (2 eventos)
+event;00.00.00;unidade;finalística;Serviço de limpeza e apoio logístico
+event;33.90.39;unidade;finalística;Serviço de Mestre de Cerimônias
+event;33.90.39;unidade;finalística;Serviço de Projeção Visual (2 eventos)
+event;00.00.00;unidade;finalística;Serviço de segurança e brigadistas
+event;00.00.00;unidade;finalística;Serviço de sonorização profissional com mesa de som
+insumo_gerais;00.00.00;unidade;finalística;Frascos 30 mL Pet borrifador com válvula spray para perfumes - pacote com 100 unidades
+insumo_gerais;33.90.39;unidade;finalística;"Abraçadeira Galvanizada ""D"" para Eletroduto 3/4"" com Cunha"
+insumo_gerais;33.90.39;unidade;finalística;Abraçadeira ovalada metálica para fixação de lâmpada fluorescente T8
+insumo_gerais;33.90.39;unidade;finalística;"Abraçadeira tipo U - 3/4"" - aço carbono galvanizado"
+insumo_gerais;00.00.00;unidade;finalística;Abraçadeiras, Velcros e Organizadores de Cabos
+insumo_gerais;00.00.00;unidade;finalística;Abridor de Latas
+insumo_gerais;33.90.30;unidade;finalística;Acetona 500ml
+insumo_gerais;33.90.39;unidade;finalística;"Adaptador em latão com espigão 3/8"" (10mm) e rosca macho BPS 1/2"""
+insumo_gerais;33.90.39;unidade;finalística;Adaptador Soldável Bolsa/Rosca PVC 25mm Marrom
+insumo_gerais;33.90.39;unidade;finalística;"Adaptador Soldável em PVC Curto com Bolsa e Rosca 25mmX3/4"""
+insumo_gerais;33.90.39;unidade;finalística;Adaptador Soldável PVC Bolsa/Rosca 32mm Marrom
+insumo_gerais;33.90.39;unidade;finalística;Adesivo/Cola instantânea líquida de alta viscosidade para madeira/MDF (100g)
+insumo_gerais;33.90.39;unidade;finalística;Adubo - saco
+insumo_gerais;00.00.00;unidade;finalística;Água mineral (lote)
+insumo_gerais;00.00.00;unidade;finalística;Água sanitária
+insumo_gerais;33.90.39;unidade;finalística;agulha 05 nº 05
+insumo_gerais;33.90.39;unidade;finalística;Agulha de crochê 2, 5mm
+insumo_gerais;33.90.39;unidade;finalística;Agulha de crochê 3
+insumo_gerais;33.90.39;unidade;finalística;agulha de Tapeceiro
+insumo_gerais;33.90.39;unidade;finalística;Agulha nº 07
+insumo_gerais;33.90.39;unidade;finalística;agulhas (pacote)
+insumo_gerais;00.00.00;unidade;finalística;Álcool 70%
+insumo_gerais;33.90.30;unidade;finalística;Álcool 70% 5l - litro
+insumo_gerais;00.00.00;unidade;finalística;Álcool 70% Galão 5 litros
+insumo_gerais;00.00.00;unidade;finalística;Álcool de Cereais 96% frasco de 5 litros
+insumo_gerais;33.90.39;unidade;finalística;Álcool etílico 70% - galão com 5 litros
+insumo_gerais;33.90.39;unidade;finalística;Álcool isopropílico 99, 8% - galão com 5 litros
+insumo_gerais;33.90.30;unidade;finalística;Algodão 500g - rolo
+insumo_gerais;33.90.39;unidade;finalística;Algodão Cru - metro
+insumo_gerais;00.00.00;unidade;finalística;Algodão hidrófilo
+insumo_gerais;33.90.39;unidade;finalística;Alicate amperímetro
+insumo_gerais;33.90.39;unidade;finalística;Alicate Amperímetro - True RMS
+insumo_gerais;33.90.39;unidade;finalística;Alicate Amperímetro Digital True RMS: Categoria de segurança CAT III 600V (ou superior), visor LCD iluminado, medição de corrente AC, tensão AC/DC, resistência e continuidade. Referência: Et-3155 (Minipa)
+insumo_gerais;33.90.39;unidade;finalística;Alicate de Bico Meia-Cana Reto 6 polegadas: Isolado para 1000V, NBR 9699. Referência: Vonder
+insumo_gerais;33.90.30;unidade;finalística;Alicate de cortar unhas
+insumo_gerais;00.00.00;unidade;finalística;Alicate de corte
+insumo_gerais;33.90.39;unidade;finalística;Alicate de Corte Diagonal 6 polegadas: Isolado para 1000V, NBR 9699. Referência: Tramontina ou Vonder
+insumo_gerais;33.90.39;unidade;finalística;Alicate Desencapador Automático: Ajustável, para fios de 0, 2 a 6, 0 mm², com função de crimpagem de terminais. Referência: Gross ou Vonder
+insumo_gerais;33.90.30;unidade;finalística;Alicate para cutilar
+insumo_gerais;00.00.00;unidade;finalística;Alicate universal
+insumo_gerais;33.90.39;unidade;finalística;Alicate Universal 8 polegadas: Isolado para 1000V, em conformidade com a NBR 9699. Referência: Tramontina ou Vonder
+insumo_gerais;00.00.00;unidade;finalística;Alicates De Corte - Yaxun Yx109
+insumo_gerais;33.90.39;unidade;finalística;Alicates diversos
+insumo_gerais;33.90.61;unidade;finalística;Alimentos
+insumo_gerais;33.90.62;unidade;finalística;Alimentos regionais (lote)
+insumo_gerais;33.90.39;unidade;finalística;almofada com palha de bananeira
+insumo_gerais;33.90.30;unidade;finalística;Amolecendo de cutícula 100ml
+insumo_gerais;33.90.39;unidade;finalística;Amperímetros alicate
+insumo_gerais;33.90.39;unidade;finalística;Anilina - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Aparelhos de pressão
+insumo_gerais;00.00.00;unidade;finalística;Apito de emergência
+insumo_gerais;00.00.00;unidade;finalística;Apolo Algodão Hidrófilo em rolo 500g
+insumo_gerais;33.90.39;unidade;finalística;Aquecedor Roll-on - Base dupla profissional
+insumo_gerais;33.90.39;unidade;finalística;Arco de Serra Profissional 12 polegadas: Com regulagem de tensão e lâmina de aço rápido
+insumo_gerais;33.90.39;unidade;finalística;Ar-condicionado Split (usado - prática)
+insumo_gerais;33.90.46;unidade;finalística;Áre de prática
+insumo_gerais;33.90.39, 33.90.47;unidade;finalística;Areia média (m³)
+insumo_gerais;33.90.50;unidade;finalística;Argamassa colante
+insumo_gerais;00.00.00;unidade;finalística;Argila 1 branca
+insumo_gerais;00.00.00;unidade;finalística;Argila 2 verde
+insumo_gerais;00.00.00;unidade;finalística;Argila 3 amarela
+insumo_gerais;00.00.00;unidade;finalística;Argila 4 rosa
+insumo_gerais;33.90.39;unidade;finalística;Argolas para chaveiro - kit com 10 unidades
+insumo_gerais;00.00.00;unidade;finalística;Aristoflex AVC 100 gramas - pacote
+insumo_gerais;33.90.39;unidade;finalística;Armário Para Escritório Alto 2 Portas Com Chave e prateleiras (dimensões mínimas em cm: P: 42 x L: 91 x A: 161)
+insumo_gerais;33.90.39;unidade;finalística;Arroz - quilograma
+insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 1/4""X10mmX1mm"
+insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 3/8""X20mmX1mm"
+insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 5/16""X10mmX1mm"
+insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 5/32""X10mmX1mm"
+insumo_gerais;00.00.00, 33.90.51;unidade;finalística;Assadeiras
+insumo_gerais;00.00.00;unidade;finalística;Avental/Capote Descartável - pacote com 10 unidades
+insumo_gerais;33.90.39;unidade;finalística;Bacia grande (inox)
+insumo_gerais;00.00.00;unidade;finalística;Bacias plásticas para higiene
+insumo_gerais;33.90.39;unidade;finalística;Balanca de mola com suspensorio
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Balança digital
+insumo_gerais;33.90.55;unidade;finalística;Balança digital de cozinha
+insumo_gerais;33.90.39;unidade;finalística;Balde 100 litros com tampa - Cesto
+insumo_gerais;00.00.00;unidade;finalística;Balde de lixo 30l
+insumo_gerais;33.90.54;unidade;finalística;Balde plástico
+insumo_gerais;33.90.39;unidade;finalística;Balde reforçado
+insumo_gerais;33.90.39;unidade;finalística;Balde
+insumo_gerais;00.00.00;unidade;finalística;Balde plásticos
+insumo_gerais;33.90.39;unidade;finalística;Balnça digital para gás
+insumo_gerais;33.90.46;unidade;finalística;Bancada de trabalho
+insumo_gerais;33.90.39;unidade;finalística;Bancada de treinamento
+insumo_gerais;33.90.39;unidade;finalística;Bancada/área de prática
+insumo_gerais;33.90.58;unidade;finalística;Bandeja de pintura
+insumo_gerais;00.00.00, 33.90.59;unidade;finalística;Bandejas
+insumo_gerais;00.00.00;unidade;finalística;Bandejas de mudas
+insumo_gerais;00.00.00;unidade;finalística;Bandejas laboratoriais
+insumo_gerais;00.00.00;unidade;finalística;Banner profissional
+insumo_gerais;33.90.30;unidade;finalística;Banners
+insumo_gerais;33.90.57;unidade;finalística;Barbante/linha
+insumo_gerais;33.90.39;unidade;finalística;"Barra chata 3/8"" x 2"" com 6000mm"
+insumo_gerais;33.90.39;unidade;finalística;"Barra chata 3/8"" x 4"" com 6000mm"
+insumo_gerais;33.90.39;unidade;finalística;Barra de conectores isolados tipo Sindal (12 bornes, para cabos até 4mm²)
+insumo_gerais;33.90.39;unidade;finalística;Barramento de Neutro (11 parafusos) com suporte para trilho DIN. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Barramento de Terra (11 parafusos) com suporte para trilho DIN. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Barramento Neutro - 7 Terminais Com Base Azul Para Trilho DIN
+insumo_gerais;33.90.39;unidade;finalística;Barramento neutro/terra
+insumo_gerais;33.90.39;unidade;finalística;Barramento Terra - 7 Terminais Com Base Verde Para Trilho DIN
+insumo_gerais;33.90.39;unidade;finalística;Barramento Tipo Pente (Fase) Bipolar - 1 metro
+insumo_gerais;33.90.39;unidade;finalística;Barramento Tipo Pente (Fase) Monopolar 63A - 1 metro
+insumo_gerais;33.90.30;unidade;finalística;Base de unha
+insumo_gerais;33.90.39;unidade;finalística;Base para Relé Fotoelétrico giratória com fixador metálico (10A, 100-240V)
+insumo_gerais;33.90.39;unidade;finalística;Bastão de cola quente de silicone grosso (Comp: 28 cm, Bitola: 11mm)
+insumo_gerais;00.00.00;unidade;finalística;Batedeira simples
+insumo_gerais;00.00.00;unidade;finalística;Batedores (fouet)
+insumo_gerais;33.90.39;unidade;finalística;Bateria Solar Felicity Fla24100 100ah 24v Lifepo4
+insumo_gerais;33.90.39;unidade;finalística;Baterias Estacionária para sistema híbrido 100Ah
+insumo_gerais;33.90.39;unidade;finalística;bilros (1 dúzia de pares)
+insumo_gerais;33.90.39;unidade;finalística;Bisnaga de Adesivo Plástico (Cola) para tubos de PVC rígido (17g)
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Bloco de anotação
+insumo_gerais;00.00.00;unidade;finalística;Bloco profissional (planejamento)
+insumo_gerais;00.00.00;unidade;finalística;Blocos de montar educativos
+insumo_gerais;00.00.00;unidade;finalística;Blocos de Post-it Grandes e Pincéis (Design Thinking)
+insumo_gerais;33.90.39;unidade;finalística;Blocos/tijolos
+insumo_gerais;33.90.48;unidade;finalística;Blocos/tijolos cerâmicos
+insumo_gerais;33.90.39;unidade;finalística;bolas de futebol de campo de tamanho oficial - kit com 10 itens
+insumo_gerais;00.00.00;unidade;finalística;Bolsa para Cuidador de Idosos com Alça de Mão e Ombro Preta
+insumo_gerais;33.90.39;unidade;finalística;Bolsas para ferramentas
+insumo_gerais;33.90.39;unidade;finalística;Bomba de vácuo
+insumo_gerais;33.90.39;unidade;finalística;Borne - Conectores de passagem com conexão por parafuso - cabo 2, 5mm2
+insumo_gerais;33.90.39;unidade;finalística;Borne - Conectores de passagem com conexão por parafuso - cabo 4mm2
+insumo_gerais;33.90.39;unidade;finalística;Borne - Conectores de passagem com conexão por parafuso - cabo 6mm2
+insumo_gerais;00.00.00;unidade;finalística;Bornes e conectores
+insumo_gerais;33.90.30;unidade;finalística;Borrifadores 300ml
+insumo_gerais;33.90.39;unidade;finalística;Botão de comando plástico para painel (Ø22mm, 1NA, verde) - Metaltex
+insumo_gerais;33.90.39;unidade;finalística;Botão de comando plástico para painel (Ø22mm, 1NF, vermelho) - Metaltex
+insumo_gerais;00.00.00, 33.90.48;unidade;finalística;Botijão de gás
+insumo_gerais;00.00.00;unidade;finalística;Botões de comando (liga/desliga/emergência)
+insumo_gerais;00.00.00;unidade;finalística;Bowls em inox
+insumo_gerais;33.90.39;unidade;finalística;Breu para Violino
+insumo_gerais;33.90.39, 33.90.49;unidade;finalística;Brita fina (m³)
+insumo_gerais;33.90.46;unidade;finalística;Brocas para madeira (kit c/5)
+insumo_gerais;33.90.39;unidade;finalística;Bucha de Redução Soldável Curta (32 mm x 25 mm) Marrom
+insumo_gerais;33.90.39;unidade;finalística;Bucha de Redução Soldável Longa PVC (50 mm x 25 mm) Marrom
+insumo_gerais;33.90.52;unidade;finalística;Buchas (caixa)
+insumo_gerais;00.00.00;unidade;finalística;Bússola simples
+insumo_gerais;33.90.39;unidade;finalística;Cabinho 2.5 mmm² (100m) - rolo
+insumo_gerais;33.90.39;unidade;finalística;Cabinho 6.0 mmm² (100m) - rolo
+insumo_gerais;33.90.39;unidade;finalística;Cabo Elétrico PP Flexível redondo 750V (3 x 0, 75 mm²) Preto
+insumo_gerais;33.90.39;unidade;finalística;Cabo Elétrico PP Flexível redondo 750V (3 x 1, 5 mm²) Preto
+insumo_gerais;33.90.39;unidade;finalística;Cabo Elétrico PVC 750V Flexível torcido paralelo (2 x 1, 0 mm²) Branco
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 1.5 mm² - Azul (Neutro) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 1.5 mm² - Preto (Fase) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 1.5 mm² - Verde (Terra) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 10.0 mm² - Azul (Neutro) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 10.0 mm² - Preto (Fase) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 10.0 mm² - Verde (Terra) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 2.5 mm² - Azul (Neutro) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 2.5 mm² - Preto (Fase) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 2.5 mm² - Verde (Terra) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 4.0 mm² - Azul (Neutro) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 4.0 mm² - Preto (Fase) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 4.0 mm² - Verde (Terra) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 6.0 mm² - Azul (Neutro) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 6.0 mm² - Preto (Fase) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Flexível PVC 750V 6.0 mm² - Verde (Terra) - 100m
+insumo_gerais;33.90.39;unidade;finalística;Cabo Solar 4mm² - Preto
+insumo_gerais;33.90.39;unidade;finalística;Cabo Solar 4mm² - Vermelho
+insumo_gerais;33.90.39;unidade;finalística;Cabo Solar 6mm² - Preto
+insumo_gerais;33.90.39;unidade;finalística;Cabo Solar 6mm² - Vermelho
+insumo_gerais;33.90.39;unidade;finalística;Cabo telefônico/interfone CCI multicores com 4 vias de 26 AWG
+insumo_gerais;33.90.39;unidade;finalística;Cabos elétricos
+insumo_gerais;00.00.00;unidade;finalística;Cabos elétricos diversos
+insumo_gerais;33.90.40;unidade;finalística;Cadeira
+insumo_gerais;00.00.00, 33.90.42;unidade;finalística;Cadeiras
+insumo_gerais;33.90.39;unidade;finalística;Caderneta de anotacoes de campo
+insumo_gerais;00.00.00, 33.90.55, 33.90.58;unidade;finalística;Caderno de registro
+insumo_gerais;33.90.39;unidade;finalística;Caixa 4x2
+insumo_gerais;33.90.39;unidade;finalística;Caixa 4X4
+insumo_gerais;33.90.39;unidade;finalística;Caixa ArStop com mini disjuntor DIN 20A e tomada dedicada (Padrão Ar-Condicionado)
+insumo_gerais;33.90.39;unidade;finalística;Caixa de junção String Box 1-2E/2S 1000V DC
+insumo_gerais;33.90.39;unidade;finalística;Caixa de Luz Octogonal 4x4. Referência: Tigre ou Tramontina
+insumo_gerais;33.90.39;unidade;finalística;Caixa de Passagem 4x2. Referência: Tigre ou Tramontina
+insumo_gerais;33.90.39;unidade;finalística;Caixa de passagem elétrica - hermética 102x102x55
+insumo_gerais;33.90.39;unidade;finalística;Caixa de sobrepor para bloco mecânico (Disjuntor Bipolar + Tomada 20A) - FAME
+insumo_gerais;33.90.39;unidade;finalística;Caixa organizadora de ferramentas Modelo: DEWALT-DWST17806
+insumo_gerais;33.90.39;unidade;finalística;Caixa plástica para botões de 22mm com 3 furos (TN2-B3) - Metaltex
+insumo_gerais;33.90.39;unidade;finalística;Caixas de passagem
+insumo_gerais;00.00.00;unidade;finalística;Caixas elétricas 4x2 e 4x4
+insumo_gerais;00.00.00;unidade;finalística;Caixas para transporte
+insumo_gerais;00.00.00;unidade;finalística;Caixas porta-lâminas
+insumo_gerais;33.90.39;unidade;finalística;Cal hidratada (saco padrão)
+insumo_gerais;00.00.00, 33.90.57, 33.90.58;unidade;finalística;Calculadora
+insumo_gerais;33.90.39;unidade;finalística;Campainha tipo Cigarra 220V de embutir
+insumo_gerais;33.90.39;unidade;finalística;Canaleta cinza para quadros de comando com parede aberta e semiaberta em PVC- 30mmX30mm
+insumo_gerais;33.90.39;unidade;finalística;Canaleta cinza para quadros de comando com parede aberta e semiaberta em PVC- 50mmX50mm
+insumo_gerais;00.00.00;unidade;finalística;Canaletas e conduítes
+insumo_gerais;00.00.00;unidade;finalística;Caneta
+insumo_gerais;00.00.00;unidade;finalística;Canetas
+insumo_gerais;33.90.60;unidade;finalística;Canetas (kit)
+insumo_gerais;00.00.00;unidade;finalística;Canetas/markers
+insumo_gerais;00.00.00;unidade;finalística;Canetas/markers (kit)
+insumo_gerais;33.90.39;unidade;finalística;"Cano 40"" - metro"
+insumo_gerais;33.90.41;unidade;finalística;Carnes - quilograma
+insumo_gerais;33.90.39, 33.90.55;unidade;finalística;Carrinho de mão
+insumo_gerais;00.00.00;unidade;finalística;Cartas educativas (alfabeto/números)
+insumo_gerais;00.00.00;unidade;finalística;Cartazes impressos
+insumo_gerais;00.00.00;unidade;finalística;Cartazes simples
+insumo_gerais;00.00.00;unidade;finalística;Cartões de Memória MicroSD 64GB Classe 10
+insumo_gerais;33.90.30, 33.90.39;unidade;finalística;Cartolina
+insumo_gerais;33.90.39;unidade;finalística;cartolina dupla face (folha)
+insumo_gerais;00.00.00;unidade;finalística;Cartolina/papel kraft
+insumo_gerais;33.90.39;unidade;finalística;Cavadeira articulada
+insumo_gerais;00.00.00;unidade;finalística;Cera branca pura de abelha em flocos - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Cera de Abelha - quilograma
+insumo_gerais;33.90.39;unidade;finalística;Cestinhos de palha
+insumo_gerais;33.90.39;unidade;finalística;Cesto plástico azul para descarte com tampa basculante (100 Litros)
+insumo_gerais;00.00.00;unidade;finalística;Chaira para afiação
+insumo_gerais;33.90.51;unidade;finalística;Chaleira
+insumo_gerais;33.90.39;unidade;finalística;Chave Boia Unipolar 15A (Nível superior/inferior, cabo de 1, 2 a 1, 5m)
+insumo_gerais;33.90.39;unidade;finalística;Chave Combinada com Catraca Speedy 12 Peças de 8 a 19 mm
+insumo_gerais;00.00.00;unidade;finalística;Chave de fenda
+insumo_gerais;33.90.39;unidade;finalística;"Chave Inglesa ajustável de boca com escala métrica (Comprimento 8"") - Vonder"
+insumo_gerais;00.00.00;unidade;finalística;Chave Philips
+insumo_gerais;33.90.43;unidade;finalística;"Chave Philips 1/8"""
+insumo_gerais;33.90.42;unidade;finalística;"Chave Philips 3/6"""
+insumo_gerais;33.90.39;unidade;finalística;Chave seccionadora rotativa solar 32A - 4polos DIN
+insumo_gerais;33.90.39;unidade;finalística;Chave seletora de duas posições plástica para painel (Ø22mm, 1NA/1NF)
+insumo_gerais;33.90.39;unidade;finalística;Chaves isoladas
+insumo_gerais;33.90.39, 33.90.46;unidade;finalística;Cimento (50 Kg)
+insumo_gerais;33.90.39;unidade;finalística;CINTURÃO PARA-QUEDISTA (EPI)
+insumo_gerais;00.00.00;unidade;finalística;Clorexidina Degermante 2%
+insumo_gerais;33.90.44;unidade;finalística;Cobertores
+insumo_gerais;00.00.00;unidade;finalística;Coffee break estruturado (lote)
+insumo_gerais;00.00.00;unidade;finalística;Cola B-7000 (Transparente - 110ml)
+insumo_gerais;33.90.53;unidade;finalística;Cola para madeira (litro)
+insumo_gerais;33.90.39;unidade;finalística;Cola Plastica
+insumo_gerais;00.00.00;unidade;finalística;Cola T-7000 (Preta - 110ml)
+insumo_gerais;33.90.39;unidade;finalística;Colher de pedreiro
+insumo_gerais;00.00.00;unidade;finalística;Colher medidora conjunto
+insumo_gerais;00.00.00, 33.90.54;unidade;finalística;Colheres grandes
+insumo_gerais;00.00.00, 33.90.57;unidade;finalística;Colheres medidoras (kit)
+insumo_gerais;33.90.49;unidade;finalística;Compensado (chapa)
+insumo_gerais;33.90.39;unidade;finalística;"Conduíte Eletroduto Corrugado Leve (amarelo) 3/4"" 50 Metros. Referência: Tigre"
+insumo_gerais;33.90.39;unidade;finalística;"Conduíte Eletroduto Corrugado Reforçado (laranja) 3/4"" 50 Metros. Referência: Tigre"
+insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - C - 3/4 "" Sem Rosca Cinza S/Tampa"
+insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - E - 3/4 "" Sem Rosca Cinza S/Tampa"
+insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - LL 3/4 "" Sem Rosca Cinza S/Tampa"
+insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - LR 3/4 "" Sem Rosca Cinza S/Tampa"
+insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - T 3/4 "" Sem Rosca Cinza S/Tampa"
+insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - X - 3/4 "" Sem Rosca Cinza S/Tampa"
+insumo_gerais;33.90.39;unidade;finalística;Conector de Emenda por Torção cônico mola de aço (fios 0, 8 a 2, 5mm²)
+insumo_gerais;33.90.39;unidade;finalística;Conector de Emenda por Torção cônico mola de aço (fios 1, 5 a 6, 0mm²)
+insumo_gerais;33.90.39;unidade;finalística;Conector em Barra (sindal) - 2, 5mm com 12 Polos
+insumo_gerais;33.90.39;unidade;finalística;Conector MC4 - Par macho/fêmea
+insumo_gerais;33.90.39;unidade;finalística;Conector Mc4 (par)
+insumo_gerais;33.90.39;unidade;finalística;"Conector para haste de aterramento 5/8"" cabo 6mm2"
+insumo_gerais;33.90.39;unidade;finalística;"Conector paralelo em latão forjado para haste de aterramento de 5/8"""
+insumo_gerais;33.90.39;unidade;finalística;"Conector Reto PVC 3/4"" Cinza"
+insumo_gerais;33.90.39;unidade;finalística;Conector Wago Emenda Alavanca (2 fios) para cabos até 4 mm² com 50 unid
+insumo_gerais;33.90.39;unidade;finalística;Conector Wago Emenda Alavanca (3 fios) para cabos até 4 mm² com 50 unid
+insumo_gerais;33.90.39;unidade;finalística;Conector Wago Emenda Alavanca (5 fios) para cabos até 4 mm² com 50 unid
+insumo_gerais;33.90.39;unidade;finalística;Conectores e terminais
+insumo_gerais;33.90.39;unidade;finalística;Conectores/curvas
+insumo_gerais;33.90.44;unidade;finalística;Conexões diversas (kit)
+insumo_gerais;00.00.00;unidade;finalística;Conjunto de Panelas de aquecimento por indução
+insumo_gerais;33.90.39;unidade;finalística;Conjunto escovas de limpeza de laboratorio - kit com 8 unidades
+insumo_gerais;00.00.00;unidade;finalística;Contatores
+insumo_gerais;33.90.58;unidade;finalística;Copos
+insumo_gerais;33.90.56, 00.00.00;unidade;finalística;Copos medidores
+insumo_gerais;00.00.00;unidade;finalística;Copos medidores conjunto
+insumo_gerais;00.00.00;unidade;finalística;Corante Giemsa
+insumo_gerais;33.90.39;unidade;finalística;Corda para Contrabaixo acústico
+insumo_gerais;33.90.39;unidade;finalística;Corda para Viola
+insumo_gerais;33.90.39;unidade;finalística;Corda para Violino
+insumo_gerais;33.90.39;unidade;finalística;Corda para Violoncelo
+insumo_gerais;00.00.00;unidade;finalística;Cordões para crachá
+insumo_gerais;33.90.40;unidade;finalística;Cortador de piso
+insumo_gerais;33.90.39;unidade;finalística;Cosméticos (Loção pré e gel pós-depilatório (500ml) )
+insumo_gerais;00.00.00;unidade;finalística;Credenciais
+insumo_gerais;00.00.00;unidade;finalística;Cronômetro Digital Multifuncional Alarme profissional de Mão
+insumo_gerais;33.90.39;unidade;finalística;"Curva 90° soldável em PVC rígido para eletroduto preto/zincado de 3/4"""
+insumo_gerais;33.90.39;unidade;finalística;Curva 90° Soldável PVC 25mm Marrom
+insumo_gerais;33.90.39;unidade;finalística;Curva para eletroduto - 90° PVC com Bolsa 3/4'' - Cinza
+insumo_gerais;33.90.39;unidade;finalística;"Curva para tubulação hidráulica - 90° PVC Soldável 3/4"""
+insumo_gerais;33.90.39;unidade;finalística;Dermógrafo Simples (Para treino de micropigmentação básica)
+insumo_gerais;00.00.00;unidade;finalística;Descarte perfurocortante
+insumo_gerais;00.00.00;unidade;finalística;Descascadores
+insumo_gerais;33.90.54;unidade;finalística;Desempenadeira acabamento
+insumo_gerais;33.90.42;unidade;finalística;Desempenadeira borracha
+insumo_gerais;33.90.39, 33.90.41;unidade;finalística;Desempenadeira dentada
+insumo_gerais;33.90.39;unidade;finalística;Desempenadeira lisa
+insumo_gerais;33.90.39;unidade;finalística;Desenpenadeira de aço
+insumo_gerais;00.00.00;unidade;finalística;Desinfetante 5 litros
+insumo_gerais;00.00.00;unidade;finalística;Desinfetante hospitalar
+insumo_gerais;33.90.39;unidade;finalística;Detector de Tensão por Aproximação: Tipo caneta, com alerta visual e sonoro, categoria CAT IV 1000V. Referência: Ezalert I (Minipa)
+insumo_gerais;00.00.00;unidade;finalística;Detergente 500ml
+insumo_gerais;33.90.39;unidade;finalística;Detergente germicida - galão com 5 litros
+insumo_gerais;33.90.39;unidade;finalística;Detergente neutro - galão com 5 litros
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor bipolar
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor CC 25A - 1000V CC
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor monopolar
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor termomagnético antigo padrão NEMA unipolar 10A Curva C
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor Termomagnético DIN Bipolar 25A Curva C. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor Termomagnético DIN Bipolar 32A Curva C. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor Termomagnético DIN Monopolar 10A Curva C. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor Termomagnético DIN Monopolar 16A Curva C. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor Termomagnético DIN Monopolar 20A Curva C. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Disjuntor Termomagnético DIN Tripolar 40A Curva C. Referência: Steck
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Disjuntores
+insumo_gerais;33.90.39;unidade;finalística;Dispositivo de Proteção contra surtos
+insumo_gerais;33.90.39;unidade;finalística;Dispositivo Referencial Residencial
+insumo_gerais;33.90.39;unidade;finalística;DPS 275V/20kA, DIN. Referência: Clamper
+insumo_gerais;33.90.39;unidade;finalística;DPS CA - Classe II
+insumo_gerais;33.90.39;unidade;finalística;DPS CC - Classe II
+insumo_gerais;33.90.39;unidade;finalística;Eletrodo 7018, diametro 2, 5mm - quilograma
+insumo_gerais;33.90.39;unidade;finalística;Eletroduto corrugado 20mm (30m)
+insumo_gerais;33.90.39;unidade;finalística;Eletroduto Corrugado Leve Flexível DN25 - 25mm - Amarelo
+insumo_gerais;33.90.39;unidade;finalística;Eletroduto Leve Sem Rosca PVC Cinza - 3/4''
+insumo_gerais;33.90.39;unidade;finalística;"Eletroduto rígido roscável em PVC preto/cinza (Bitola 3/4"", barra de 3m)"
+insumo_gerais;33.90.39;unidade;finalística;Eletrodutos PVC
+insumo_gerais;00.00.00;unidade;finalística;Embalagens (doces/salgados)
+insumo_gerais;33.90.39;unidade;finalística;Enxada
+insumo_gerais;00.00.00;unidade;finalística;Enxadas
+insumo_gerais;33.90.39;unidade;finalística;Enxadinha sacho, bico coração
+insumo_gerais;33.90.39;unidade;finalística;Ervas - quilograma
+insumo_gerais;33.90.39;unidade;finalística;Escaldapés 200g
+insumo_gerais;33.90.58;unidade;finalística;Escorredor
+insumo_gerais;00.00.00;unidade;finalística;Escorredor de louças
+insumo_gerais;00.00.00;unidade;finalística;Escorredor de macarrão e arroz
+insumo_gerais;00.00.00;unidade;finalística;Escumadeiras e peneiras
+insumo_gerais;00.00.00;unidade;finalística;Esfigmomanômetro
+insumo_gerais;33.90.39;unidade;finalística;Esfigmomanômetro digital de pulso
+insumo_gerais;33.90.30;unidade;finalística;Esfoliante 220g
+insumo_gerais;33.90.30;unidade;finalística;Esmalte para francesinha
+insumo_gerais;33.90.30;unidade;finalística;Esmaltes variados
+insumo_gerais;33.90.45;unidade;finalística;Espaçadores de piso (kit)
+insumo_gerais;33.90.43, 33.90.56, 00.00.00;unidade;finalística;Espátula
+insumo_gerais;00.00.00;unidade;finalística;Espátula de silicone
+insumo_gerais;33.90.30;unidade;finalística;Espátula desencravadora inox
+insumo_gerais;33.90.39;unidade;finalística;espinhos de cacto (pacote)
+insumo_gerais;00.00.00;unidade;finalística;Esponjas para limpeza de louças
+insumo_gerais;00.00.00;unidade;finalística;Espremedor de batatas
+insumo_gerais;33.90.39;unidade;finalística;Esquadro
+insumo_gerais;33.90.43;unidade;finalística;Esquadro carpinteiro
+insumo_gerais;33.90.39;unidade;finalística;Estadiômetro Compacto Portátil 2 Metros
+insumo_gerais;00.00.00;unidade;finalística;Estanho em Pasta (Solda em Pasta 183°C)
+insumo_gerais;33.90.39;unidade;finalística;Estante de Partitura
+insumo_gerais;33.90.39;unidade;finalística;Estante organizadora multiuso em aço com 3 prateleiras (EDP03) - Pandin
+insumo_gerais;00.00.00;unidade;finalística;Esterco curtido - saco
+insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Estetoscópio
+insumo_gerais;00.00.00;unidade;finalística;"Estetoscópio, Tipo: Biauricular, Acessórios: Olivas Anatômicas Pvc, Haste: Haste Aço Inox, Tubo: Tubo ""Y"" Pvc, Auscultador: Auscultador Aço Inox C/Anel De Borracha, Tamanho: Adulto"
+insumo_gerais;00.00.00;unidade;finalística;Estetoscópios infantis
+insumo_gerais;33.90.39;unidade;finalística;Estilete profissional emborrachado com trava e lâmina larga de 18mm
+insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Etiqueta
+insumo_gerais;33.90.39;unidade;finalística;Etiqueta 60x30 Térmica Tubo 1, 5''/38, 1 Mm - rolo com 1.000 unidades
+insumo_gerais;33.90.39;unidade;finalística;Etiqueta Anvisa Bopp A Prova D'àgua 60x40 - rolo com 1.000 unidades
+insumo_gerais;33.90.30;unidade;finalística;Extra brilho
+insumo_gerais;00.00.00;unidade;finalística;Extrato de Própolis 500ml
+insumo_gerais;33.90.39;unidade;finalística;Facão
+insumo_gerais;00.00.00, 33.90.53;unidade;finalística;Facas de cozinha
+insumo_gerais;33.90.40;unidade;finalística;Feijão - quilograma
+insumo_gerais;33.90.39;unidade;finalística;Ferro de Soldar rápido para eletrônica (60W, 220V) com suporte - Hikari
+insumo_gerais;33.90.39;unidade;finalística;Fibra Azul Limpeza Macia Não Risca Esponja Multiuso - kit com 10 unidades
+insumo_gerais;33.90.39;unidade;finalística;Fibra siliconada para enchimento - quilograma
+insumo_gerais;33.90.39;unidade;finalística;Fibra Verde Limpeza Pesada Uso Geral Esponja - kit com 10 unidades
+insumo_gerais;00.00.00;unidade;finalística;Fichas avaliação/feedback
+insumo_gerais;00.00.00;unidade;finalística;Fichas de avaliação
+insumo_gerais;00.00.00;unidade;finalística;Fichas de feedback
+insumo_gerais;00.00.00;unidade;finalística;Fichas de inscrição
+insumo_gerais;33.90.60;unidade;finalística;Fichas de pedido
+insumo_gerais;33.90.40;unidade;finalística;Fichas de receita/custos
+insumo_gerais;00.00.00, 33.90.54;unidade;finalística;Fichas impressas
+insumo_gerais;00.00.00;unidade;finalística;Fichas técnicas/receitas
+insumo_gerais;00.00.00;unidade;finalística;Fichs de roteiro/inventário (impressas)
+insumo_gerais;00.00.00;unidade;finalística;Fio de Jumper Isolado (0.02mm)
+insumo_gerais;33.90.39;unidade;finalística;fio de Malha 35 mm
+insumo_gerais;33.90.39;unidade;finalística;Fio Elétrico de Cobre Sólido Rígido PVC 750V (1, 5 mm²) qualquer cor
+insumo_gerais;33.90.39;unidade;finalística;Fio Náutico nº 5
+insumo_gerais;00.00.00;unidade;finalística;Fios e cabos elétricos (diversos) - peça c/100m
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Fita adesiva
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Fita isolante - rolo
+insumo_gerais;33.90.42;unidade;finalística;Fita isolante (10 unidades)
+insumo_gerais;33.90.39;unidade;finalística;Fita Isolante Preta 3 metros (18mm x 20m) - Classe A (ex: Scotch 33+ ou equivalente)
+insumo_gerais;00.00.00;unidade;finalística;Fita Kapton Térmica (10mm x 30m)
+insumo_gerais;00.00.00;unidade;finalística;Fita Malha Dessoldadora - Hk-120-03 1, 5mx2mm No Clean Hikari
+insumo_gerais;33.90.39;unidade;finalística;fita métrica
+insumo_gerais;33.90.43;unidade;finalística;Fita térmica (5 unidades)
+insumo_gerais;33.90.39;unidade;finalística;Fita Veda Rosca (18 mm x 10 m) - Tigre
+insumo_gerais;33.90.39;unidade;finalística;Fitas isolantes
+insumo_gerais;33.90.39;unidade;finalística;Flanela de algodão macio para limpeza e polimento (48 x 78 cm)
+insumo_gerais;33.90.30;unidade;finalística;Flip chart
+insumo_gerais;00.00.00;unidade;finalística;Fluxos de Solda - Antech RMA-223
+insumo_gerais;00.00.00, 33.90.48;unidade;finalística;Fogão/cooktop
+insumo_gerais;33.90.59;unidade;finalística;Folhas impressas
+insumo_gerais;00.00.00;unidade;finalística;Fontes 24V para automação
+insumo_gerais;00.00.00;unidade;finalística;Forma Assadeira Redonda Pizza Grande 35cm
+insumo_gerais;33.90.41;unidade;finalística;Formão (kit c/4)
+insumo_gerais;33.90.46;unidade;finalística;Formas de madeira
+insumo_gerais;00.00.00;unidade;finalística;Formas diversas (bolo/goma/tapioca)
+insumo_gerais;33.90.39;unidade;finalística;Formulários de acompanhamento pedagógico impressos
+insumo_gerais;33.90.39;unidade;finalística;Formulários de ensaios impressos
+insumo_gerais;33.90.39;unidade;finalística;Formularios SUS impressos
+insumo_gerais;33.90.40;unidade;finalística;Fotocélula
+insumo_gerais;33.90.39;unidade;finalística;Four-way
+insumo_gerais;00.00.00;unidade;finalística;Fralda Descartável, Tipo Fixação: Tiras Ajustáveis E Reposicionáveis, Tamanho: Adulto Médio, Material: Tela Polímerica E Núcleo Absorvente, Revestimento Externo: Impermeável, Característica Adicional: P/Fluxo Intenso/Noturno, Barreira Antivazamento - pacote com 30 unidades
+insumo_gerais;00.00.00;unidade;finalística;Fraldas geriátricas
+insumo_gerais;00.00.00;unidade;finalística;Frascos gotejadores conta gotas vidro ambar 30 ml
+insumo_gerais;00.00.00;unidade;finalística;Frascos reagentes
+insumo_gerais;33.90.50;unidade;finalística;Frigideira
+insumo_gerais;00.00.00;unidade;finalística;Frigideiras de aquecimento por indução
+insumo_gerais;00.00.00;unidade;finalística;Frigiderias
+insumo_gerais;33.90.45;unidade;finalística;Frutas variadas - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Funil
+insumo_gerais;33.90.39;unidade;finalística;Furadeira
+insumo_gerais;33.90.45;unidade;finalística;Furadeira elétrica
+insumo_gerais;33.90.39;unidade;finalística;Furadeira Impacto - 800W
+insumo_gerais;00.00.00;unidade;finalística;Garrafa de água reutilizável
+insumo_gerais;33.90.39;unidade;finalística;Gás refrigerante (R-410A/R-32)
+insumo_gerais;00.00.00;unidade;finalística;Gazes Estéreis + Micropore - kit
+insumo_gerais;00.00.00;unidade;finalística;Glicerina vegetal bidestilada USP laudo pura 100% 500 mL
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Glicosímetro
+insumo_gerais;33.90.30;unidade;finalística;Glitter kit 12 unds (cores variadas)
+insumo_gerais;33.90.39;unidade;finalística;grade simples (armação de madeira 1mx1m)
+insumo_gerais;33.90.39;unidade;finalística;Grampeador
+insumo_gerais;33.90.39;unidade;finalística;Grampo (caixa)
+insumo_gerais;33.90.44;unidade;finalística;Grampo/sargento
+insumo_gerais;33.90.39;unidade;finalística;Higienizadores (Limpador de pincéis e Placa de aço inox) - kit
+insumo_gerais;33.90.40;unidade;finalística;Hipoclorito de Sodio 5% - galão com 5 litros
+insumo_gerais;00.00.00;unidade;finalística;Iluminação básica (Kit LED simples)
+insumo_gerais;33.90.39;unidade;finalística;Impressora/Scanner Multifuncional com Tanque de Tinta Colorida, Wi-Fi Direct, USB, Bivolt. Referência: EPSON Multifuncional EcoTank L3250 ou equivalente técnico de igual ou superior qualidade
+insumo_gerais;00.00.00;unidade;finalística;Ingredientes doces (ciclo)
+insumo_gerais;33.90.39;unidade;finalística;Ingredientes para preparações doces (açúcar, chocolate, leite condensado, fermento) - kit
+insumo_gerais;00.00.00;unidade;finalística;Ingredientes salgados (ciclo)
+insumo_gerais;33.90.36;hora;finalística;Instrutor/a
+insumo_gerais;00.00.00;unidade;finalística;Insumos alimentícios perecíveis para oficinas
+insumo_gerais;00.00.00;unidade;finalística;Insumos básicos (lote)
+insumo_gerais;33.90.39;unidade;finalística;Insumos Descartáveis (TNT rolo, espátulas, luvas e máscaras) - kit
+insumo_gerais;33.90.39;unidade;finalística;Interruptor 1 tecla 10A/250V
+insumo_gerais;33.90.39;unidade;finalística;Interruptor Diferencial Residual (IDR) Bipolar DIN 30mA/40A. Referência: Steck
+insumo_gerais;33.90.39;unidade;finalística;Interruptor DR Diferencial Residual Bipolar 25A 30mA - DIN
+insumo_gerais;33.90.39;unidade;finalística;Interruptor duplo
+insumo_gerais;33.90.39;unidade;finalística;Interruptor Four-way
+insumo_gerais;33.90.39;unidade;finalística;Interruptor Intermediário (Four-way) 10a 250v. Referência: Steck Stella Branco
+insumo_gerais;33.90.39;unidade;finalística;Interruptor Paralelo (Three-way) 10a 250v. Referência: Steck Stella Branco
+insumo_gerais;33.90.39;unidade;finalística;Interruptor simples
+insumo_gerais;33.90.39;unidade;finalística;Interruptor Simples + Tomada (2P+T) 10A de embutirPadrão brasileiro (NBR 14136). Referência: Steck, Tramontina ou Pial
+insumo_gerais;33.90.39;unidade;finalística;Interruptor Simples 10a 250v. Referência: Steck Stella Branco
+insumo_gerais;33.90.39;unidade;finalística;Interruptor Three-way
+insumo_gerais;33.90.39;unidade;finalística;interruptor triplo
+insumo_gerais;33.90.39;unidade;finalística;Inversor Híbrido - 5kW com MPPT
+insumo_gerais;33.90.39;unidade;finalística;Isolador elétrico plástico tipo Cleat monofásico com prego fixador
+insumo_gerais;33.90.39;unidade;finalística;Isolador elétrico plástico tipo Cleat trifásico com prego fixador
+insumo_gerais;33.90.45;unidade;finalística;Itens decorativos
+insumo_gerais;33.90.39;unidade;finalística;Jarra plástica graduada para medição de volumes (Capacidade 2 Litros)
+insumo_gerais;33.90.58;unidade;finalística;Jarras
+insumo_gerais;33.90.39;unidade;finalística;Joelhos
+insumo_gerais;33.90.39;unidade;finalística;Jogo de chave de fenda simples
+insumo_gerais;33.90.39;unidade;finalística;Jogo de Chaves Allen (9 chaves)
+insumo_gerais;33.90.39;unidade;finalística;Jogo de Chaves de Fenda e Phillips Isoladas (1000V): Contendo no mínimo 3 chaves de fenda (3mm, 5mm, 6.5mm) e 2 chaves Phillips (PH1, PH2). Referência: Vonder
+insumo_gerais;33.90.39;unidade;finalística;Jogo de Pincéis (Profissional (mínimo 22 peças) - kit
+insumo_gerais;33.90.41;unidade;finalística;Jogos de cama
+insumo_gerais;00.00.00;unidade;finalística;Jogos de tabuleiro adaptados para TEA/TDAH
+insumo_gerais;00.00.00;unidade;finalística;kit 100 potes vazios 30 g, pote para creme, pote para pomada - pacote com 100 unidades
+insumo_gerais;33.90.39;unidade;finalística;Kit 5 Barreiras Obstáculo Treinamento Funcional Futebol 23cm - kit com 4 unidades
+insumo_gerais;33.90.39;unidade;finalística;Kit 57 Itens Material Escolar Infantil Creche - kit com 57 itens
+insumo_gerais;33.90.39;unidade;finalística;"Kit Abraçadeira Tipo Clique (Cunhada) de 25mm (3/4"") Conduite Pvc cor: preta com 10 Unidades. Referência: Adesso"
+insumo_gerais;33.90.40;unidade;finalística;Kit Árbitro Com Apito/Jogo De Cartão/Cronômetro Digital - kit com 3 unidades
+insumo_gerais;33.90.39;unidade;finalística;Kit aterramento simples
+insumo_gerais;33.90.39;unidade;finalística;Kit Ceras (Cera elástica (5kg) e Refil Roll-on (10 un) ) - kit
+insumo_gerais;00.00.00;unidade;finalística;Kit Chave Precisão Manutenção Celular - Yaxun Yx 6028b
+insumo_gerais;00.00.00;unidade;finalística;Kit com 3 Espátulas Aço Inox para Manutenção Celular
+insumo_gerais;33.90.39;unidade;finalística;Kit com 8 banners demonstrativos de 40x60 cm sobre o Corpo Humano, letras, números, animais, alimentos, geometria, mapa do Brasil e boas maneiras - kit com 8 unidades
+insumo_gerais;33.90.39;unidade;finalística;Kit com 8 banners demonstrativos de 40x60 cm sobre os tipos de mteriais reciclaveis e rejeito - kit com 8 unidades
+insumo_gerais;00.00.00;unidade;finalística;Kit de fichas (briefing, orçamento, checklist)
+insumo_gerais;33.90.39;unidade;finalística;Kit de garrafas de tintas originais para impressora Tanque de Tinta (Magenta, Amarelo, Ciano, e Preto). Observação: Deve ser compatível com a impressora adquirida como material permanente. Referência: Kit Epson 4 garrafas (T544520-BR) para a Epson Ecotank L3250
+insumo_gerais;33.90.39;unidade;finalística;Kit de papel para teste de PH - kit com 50 unidades
+insumo_gerais;33.90.39;unidade;finalística;Kit de pás para horta (pás e ancinho ponta bico)
+insumo_gerais;33.90.39;unidade;finalística;Kit de Pele (Primers, Bases e Corretivos (diversos tons) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kit de Pinças (Profissionais (Reta, Chanfrada, Ponta Agulha) - kit
+insumo_gerais;00.00.00;unidade;finalística;Kit de primeiros socorros
+insumo_gerais;33.90.58, 00.00.00;unidade;finalística;Kit de utensílios diversos
+insumo_gerais;33.90.39;unidade;finalística;Kit de vidraria de ensaios laboratoriais 33 PEÇAS - kit com 5 unidades
+insumo_gerais;00.00.00;unidade;finalística;Kit Embalagens e Insumos para Aulas de Unboxing
+insumo_gerais;33.90.39;unidade;finalística;Kit Ferramentas Eletricista - Ferramentas isoladas
+insumo_gerais;33.90.39;unidade;finalística;Kit flangeador + cortador
+insumo_gerais;33.90.39;unidade;finalística;Kit funcional 20 Cones 24 Cm Flexível - kit com 20 itens
+insumo_gerais;33.90.39;unidade;finalística;Kit Funcional 4 Obstáculos + 12 Pratos + Escada Laranja + corda de pular + 1 paraquedas + 1 elastico de forca - kit com 24 itens
+insumo_gerais;33.90.39;unidade;finalística;Kit Henna Profissional (Cores variadas + Fixador) - kit
+insumo_gerais;00.00.00;unidade;finalística;Kit Manutenção/Higienização de Equipamentos
+insumo_gerais;00.00.00;unidade;finalística;Kit Microfone Lapela Sem Fio (Duplo)
+insumo_gerais;33.90.39;unidade;finalística;Kit Primeiros Socorros com maleta e 11 itens - kit com 11 itens
+insumo_gerais;33.90.39;unidade;finalística;Kit Primeiros Socorros com maleta e 15 itens - kit com 15 itens
+insumo_gerais;33.90.39;unidade;finalística;Kit Trilho Din Perfurado Aco Galvanizado 1 metro com 10 unidades. Referência: Autack
+insumo_gerais;33.90.39;unidade;finalística;Kits de apoio visual e organização (cartazes, etiquetas, organizadores) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de farinhas e grãos (trigo, integral, fermentos secos, mix panificação) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de grãos e farináceos (arroz, feijão, farinha, massas) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de ingredientes alimentares (hortifruti variados) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de ingredientes alimentares (panificação - farinhas especiais, hortifruti) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de ingredientes para confeitaria (açúcar, chocolate, leite condensado, corantes) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de laticínios (leite, queijo, creme de leite, manteiga) - kit
+insumo_gerais;33.90.46;unidade;finalística;Kits de limpeza
+insumo_gerais;33.90.39;unidade;finalística;Kits de massas e bases (misturas para bolos, pães e massas doces) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de materiais de apresentação (papel A4, flip charts, marcadores, suportes visuais) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de materiais de prototipagem (papel cartão, EVA, tesoura, cola, fita adesiva) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de materiais de validação de mercado (questionários impressos, formulários de pesquisa, pranchetas) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de materiais para construção de Canvas (papel kraft, cartolinas, post-its, marcadores) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de materiais para ideação (cartolinas coloridas, pincéis, canetas coloridas, post-its) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de materiais para simulação de negócios (impressos, fichas, formulários, fichas de controle) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de proteínas (frango, carne bovina, ovos e derivados) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de proteínas e derivados (ovos, leite, manteiga, derivados) - kit
+insumo_gerais;33.90.39;unidade;finalística;Kits de temperos e condimentos (sal, alho, cebola, ervas, especiarias) - kit
+insumo_gerais;33.90.53;unidade;finalística;Kits refeição
+insumo_gerais;00.00.00;unidade;finalística;Lâminas de microscopia
+insumo_gerais;00.00.00;unidade;finalística;Lamínula
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada de LED tubular T8 (20W, 220V)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada fluorescente comum tubular T10 (20W)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada Halógena Clara modelo bulbo clássico A55 (70W, E27)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada Halógena Dicróica (base E27, 50W, 220V)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada Incandescente Bolinha (15W, 220V, lente leitosa, E27)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada Incandescente padrão bulbo A55 cristal (40W, 220V, E27)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada LED - bulbo 9W 12VDC
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada LED - bulbo 9W 220VAC
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada LED E27 (11W) Luz Branco-frio. Referência: Phillips
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada LED E27 (9W) Luz Branco-frio. Referência: Phillips
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada Mista Ovóide de Alta Pressão (160W, 220V, E27, 3600K)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada Vapor de Mercúrio Ovóide (80W, E27)
+insumo_gerais;33.90.39;unidade;finalística;Lâmpada Vapor de Sódio Tubular (70W, rosca E27, 220V)
+insumo_gerais;00.00.00;unidade;finalística;Lâmpadas LED
+insumo_gerais;00.00.00;unidade;finalística;Lanceta, Material Lâmina: Aço Inoxidável, Ponta Afiada, Trifacetada, Uso: Descartável, Características Adicionais: Estéril, Embalagem Individual, Tipo: Ultra Fina - caixa com 100 unidades
+insumo_gerais;00.00.00;unidade;finalística;Lancetas descartáveis
+insumo_gerais;33.90.39;unidade;finalística;Lanche
+insumo_gerais;33.90.44;unidade;finalística;Legumes variados - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Leiteira por indução
+insumo_gerais;00.00.00;unidade;finalística;Lençóis para prática
+insumo_gerais;00.00.00;unidade;finalística;Lençol Clinica Hospital Hotel 100% Algodão
+insumo_gerais;00.00.00;unidade;finalística;Lençol Papel Hospitalar para Maca 70 x 50 cm- Rolo
+insumo_gerais;00.00.00;unidade;finalística;Lenços Livres de Fiapos (Lint-free - Pacote)
+insumo_gerais;00.00.00;unidade;finalística;Lenços umedecidos
+insumo_gerais;00.00.00;unidade;finalística;Letreiro Neon LED para Fundo de Cenário
+insumo_gerais;33.90.39;unidade;finalística;Linha clea
+insumo_gerais;33.90.39;unidade;finalística;linha clea (1000m)
+insumo_gerais;33.90.39;unidade;finalística;Linha de costura (cone)
+insumo_gerais;33.90.39;unidade;finalística;Linha de costura para máquina reta (cone 120)
+insumo_gerais;33.90.39;unidade;finalística;Linha para bordado (cores variadas)
+insumo_gerais;33.90.39;unidade;finalística;Linha tubo para máquina overlock (cone grande)
+insumo_gerais;33.90.39;unidade;finalística;Linhas para acabamento
+insumo_gerais;00.00.00, 33.90.52;unidade;finalística;Liquidificador
+insumo_gerais;00.00.00;unidade;finalística;Lista de presença
+insumo_gerais;00.00.00;unidade;finalística;Litros de Álcool Isopropílico - Skytech
+insumo_gerais;33.90.30;unidade;finalística;Lixa bloco branca
+insumo_gerais;33.90.55;unidade;finalística;Lixas (kit)
+insumo_gerais;33.90.30;unidade;finalística;Lixas de unhas 100 unds
+insumo_gerais;00.00.00;unidade;finalística;Lixeira
+insumo_gerais;33.90.40, 33.90.58;unidade;finalística;Lona plástica
+insumo_gerais;33.90.39;unidade;finalística;Lonas - metro
+insumo_gerais;33.90.39;unidade;finalística;Luminária Spot de sobrepor externa aletada para 1 lâmpada E27
+insumo_gerais;33.90.39;unidade;finalística;Lupa de Cabeça (Com iluminação LED)
+insumo_gerais;33.90.39;unidade;finalística;Luva de emenda por pressão para eletroduto flexível corrugado de 25mm
+insumo_gerais;33.90.39;unidade;finalística;Luva de Rosca PVC 20mm Marrom
+insumo_gerais;33.90.39;unidade;finalística;"Luva roscada de união para eletroduto rígido de PVC de 3/4"""
+insumo_gerais;00.00.00;unidade;finalística;Luva Térmica
+insumo_gerais;33.90.39;unidade;finalística;Luvas de PVC (cano longo - M)
+insumo_gerais;33.90.39;unidade;finalística;Luvas de PVC (cano longo - XG)
+insumo_gerais;00.00.00;unidade;finalística;Luvas Descartáveis Latex Natural Procedimento C/Pó - Caixa 100 Pçs - Branca
+insumo_gerais;33.90.39;unidade;finalística;Luvas para goleiro - par
+insumo_gerais;33.90.39;unidade;finalística;Maca Portátil (Dobrável em alumínio ou madeira)
+insumo_gerais;33.90.39;unidade;finalística;Maçarico (kit solda)
+insumo_gerais;33.90.39;unidade;finalística;Maleta de Maquiagem (Com rodinhas e divisórias)
+insumo_gerais;33.90.39, 33.90.56;unidade;finalística;Mangueira (20 m)
+insumo_gerais;00.00.00;unidade;finalística;Mangueira de jardim - peça c/30m
+insumo_gerais;33.90.39;unidade;finalística;"Mangueira de PVC Cristal de 1/2"" com superfície lisa"
+insumo_gerais;00.00.00;unidade;finalística;Mangueiras de irrigação - peça c/100m
+insumo_gerais;33.90.39;unidade;finalística;Manifold (jogo de manômetros)
+insumo_gerais;00.00.00;unidade;finalística;Manta Magnética Antiestática Silicone Azul - S160 G 300x450
+insumo_gerais;00.00.00;unidade;finalística;Manteiga de Cupuacu - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Manteiga de Muru Muru - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Mapa da comunidade
+insumo_gerais;33.90.39;unidade;finalística;Mapas da área de atuação
+insumo_gerais;00.00.00;unidade;finalística;Mapas da região/comunidade
+insumo_gerais;00.00.00;unidade;finalística;Marcadores (kit)
+insumo_gerais;00.00.00;unidade;finalística;Marcadores profissionais
+insumo_gerais;33.90.39;unidade;finalística;Marreta mecânica oitavada (1000g) com cabo de madeira envernizado
+insumo_gerais;33.90.39;unidade;finalística;Martelo
+insumo_gerais;33.90.44;unidade;finalística;Martelo de borracha
+insumo_gerais;00.00.00;unidade;finalística;Máscara UV (Tinta) + Lanterna de Cura
+insumo_gerais;00.00.00;unidade;finalística;MaskMe Máscara Descartável Tripla Proteção 50 Unidades (50) - pacote com 50 unidades
+insumo_gerais;33.90.59;unidade;finalística;Massa corrida (kg)
+insumo_gerais;33.90.39, 33.90.46;unidade;finalística;Masseira
+insumo_gerais;33.90.39;unidade;finalística;Materiais de apoio geral (fitas, colas, clips, grampos, etc.) - kit
+insumo_gerais;33.90.39;unidade;finalística;Materiais descartáveis (luvas, toucas, máscaras, aventais) - kit
+insumo_gerais;33.90.39;unidade;finalística;Materiais para rede de distribuição
+insumo_gerais;33.90.39;unidade;finalística;Megôhmetro Digital Tensão de teste até 1000V, CAT III, em conformidade com a IEC 61010-1. Referência: MI-2552 (Minipa)
+insumo_gerais;33.90.38;unidade;finalística;Meião De Futebol Antiderrapante Esportivo Adulto - Branco - kit com 6 pares
+insumo_gerais;33.90.39;unidade;finalística;Meião De Futebol Antiderrapante Esportivo Adulto - Preto - kit com 6 pares
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Mesa coletiva
+insumo_gerais;00.00.00;unidade;finalística;Mesas (evento)
+insumo_gerais;00.00.00, 33.90.41;unidade;finalística;Mesas de apoio
+insumo_gerais;00.00.00;unidade;finalística;Metanol
+insumo_gerais;00.00.00;unidade;finalística;Mini bisnaga plástica de 30 ml corpo branco (com 100 unid) - pacote com 100 unidades
+insumo_gerais;33.90.39;unidade;finalística;Mini pá de bico
+insumo_gerais;33.90.39;unidade;finalística;Mini-Contator de Potência (bobina 220V, contatos até 16A, trilho DIN) - WEG
+insumo_gerais;33.90.39;unidade;finalística;"Monitor externo 24"" Full HD com no mínimo 2 entradas HDMI. Referência: Monitor LG UltraGear™ 24G411A-B ou equivalente técnico de igual ou superior qualidade"
+insumo_gerais;33.90.39;unidade;finalística;Motobomba centrífuga periférica 1/2 CV (370W) monofásica - Ferrari IDB-40
+insumo_gerais;00.00.00;unidade;finalística;Muda de alecrim
+insumo_gerais;00.00.00;unidade;finalística;Muda de capim limão
+insumo_gerais;00.00.00;unidade;finalística;Muda de erva cidreira
+insumo_gerais;00.00.00;unidade;finalística;Muda de hortelã
+insumo_gerais;33.90.39;unidade;finalística;Multímetro digital
+insumo_gerais;33.90.39;unidade;finalística;Multímetro Digital Categoria de segurança CAT II 600V (ou superior), visor LCD, mudança de faixa manual, medição de tensão AC/DC, corrente AC/DC, resistência, continuidade e diodo. Referência: Et-1400a (Minipa)
+insumo_gerais;33.90.39;unidade;finalística;Multímetro True RMS - CAT III 1000V
+insumo_gerais;33.90.39;unidade;finalística;Multímetros
+insumo_gerais;00.00.00;unidade;finalística;Nipaguard Sce 100 g
+insumo_gerais;33.90.40;unidade;finalística;Nitrogênio
+insumo_gerais;33.90.39;unidade;finalística;Nível
+insumo_gerais;33.90.39;unidade;finalística;Nível a laser
+insumo_gerais;33.90.39;unidade;finalística;Nível de bolha
+insumo_gerais;33.90.39;unidade;finalística;Nível de mangueira
+insumo_gerais;33.90.39;unidade;finalística;"Notebook Core i7, 8GB, 512GB SSD, Intel UHD Graphics, monitor 15.3"", Windows 11. Referência: IdeaPad Slim 3 15ARP10, Samsung Galaxy Book4 ou equivalente técnico de igual ou superior qualidade"
+insumo_gerais;33.90.39;unidade;finalística;Novelos de fio para amigurumi (cores variadas)
+insumo_gerais;33.90.39;unidade;finalística;Oleo - litro
+insumo_gerais;33.90.30;unidade;finalística;Óleo de banana 100ml
+insumo_gerais;00.00.00;unidade;finalística;Óleo de coco palmiste (jundcoco) - litro
+insumo_gerais;00.00.00;unidade;finalística;Óleo de imersão
+insumo_gerais;00.00.00;unidade;finalística;Óleo de semente de abóbora prensado a frio com laudo - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Óleo Essencial - Cedro Deodara 100 ml - puro e natural
+insumo_gerais;00.00.00;unidade;finalística;Óleo Essencial - Citronela 100ml 100% puro e natural
+insumo_gerais;00.00.00;unidade;finalística;Óleo Essencial - Laranja Doce (Citrus aurantium dulcis) - 100mL
+insumo_gerais;00.00.00;unidade;finalística;Óleo Essencial - Lavanda Francesa 100ml
+insumo_gerais;33.90.39;unidade;finalística;Óleo para instrumentos de sopro
+insumo_gerais;00.00.00;unidade;finalística;Óleo resina de Copaiba 100% Puro - quilograma
+insumo_gerais;33.90.30;unidade;finalística;Óleo secante 100 ml
+insumo_gerais;33.90.39;unidade;finalística;Óleos e gorduras (óleo vegetal, azeite, manteiga) - kit
+insumo_gerais;33.90.39;unidade;finalística;Óleos e gorduras (óleo vegetal, manteiga, margarina, azeite) - kit
+insumo_gerais;33.90.39;unidade;finalística;Olhos com trava para amigurumi - kit com 100 unidades
+insumo_gerais;33.90.39;unidade;finalística;Outros
+insumo_gerais;00.00.00;unidade;finalística;Oximetro Aparelho para medir Saturação de dedo Portatil
+insumo_gerais;33.90.39;unidade;finalística;Oxímetro de Dedo Digital
+insumo_gerais;33.90.39;unidade;finalística;Pá
+insumo_gerais;33.90.39;unidade;finalística;Painel MDF didático
+insumo_gerais;33.90.39;unidade;finalística;Paleta de Sombras (Colorimetria completa (Nudes e Vibrantes)
+insumo_gerais;00.00.00;unidade;finalística;Palha de aço
+insumo_gerais;33.90.39;unidade;finalística;Palha de carnaúba - cento
+insumo_gerais;33.90.39;unidade;finalística;Palhetas para Sax alto
+insumo_gerais;33.90.39;unidade;finalística;Palhetas para Sax tenor
+insumo_gerais;33.90.30;unidade;finalística;Palito de madeira manicure 100 unds
+insumo_gerais;00.00.00;unidade;finalística;Panela de pressão por indução
+insumo_gerais;33.90.49;unidade;finalística;Panelas
+insumo_gerais;33.90.49;unidade;finalística;Panelas (kit básico)
+insumo_gerais;00.00.00;unidade;finalística;Panelas médias
+insumo_gerais;33.90.39;unidade;finalística;Pano de chão alvejado saco 100% algodão para manutenção (40 x 60 cm)
+insumo_gerais;00.00.00;unidade;finalística;Pano para limpeza MULTIUSO 20cm x 240 m (tipo Perfex)
+insumo_gerais;33.90.47;unidade;finalística;Panos
+insumo_gerais;00.00.00;unidade;finalística;Panos de prato
+insumo_gerais;00.00.00, 33.90.61;unidade;finalística;Papel A4
+insumo_gerais;00.00.00;unidade;finalística;Papel absorvente
+insumo_gerais;33.90.30;unidade;finalística;Papel Grau 05cmx100 - rolo
+insumo_gerais;33.90.63;unidade;finalística;Papel higiênico
+insumo_gerais;00.00.00;unidade;finalística;Papel Higiênico (pacote com 12)
+insumo_gerais;00.00.00;unidade;finalística;Papel Kraft Bobina 60cm
+insumo_gerais;00.00.00;unidade;finalística;Papel Toalha - Pacote c 1000 folhas
+insumo_gerais;00.00.00;unidade;finalística;Papel Toalha Folha Dupla 22cm Pacote Hiper 360 Folhas
+insumo_gerais;00.00.00, 33.90.62;unidade;finalística;Papel-toalha
+insumo_gerais;33.90.39;unidade;finalística;Paquímetro Digital (Para medição de precisão)
+insumo_gerais;33.90.39;unidade;finalística;Parafuso autoperfurante cabeça chata phillips 3, 5 x 16mm
+insumo_gerais;33.90.39;unidade;finalística;Parafuso fendado Philips cabeça panela autoatarraxante zincado (9, 5 mm)
+insumo_gerais;33.90.51;unidade;finalística;Parafusos (Kg)
+insumo_gerais;00.00.00;unidade;finalística;Pás
+insumo_gerais;33.90.39;unidade;finalística;Passa fio - metro
+insumo_gerais;00.00.00;unidade;finalística;Pasta organizadora
+insumo_gerais;00.00.00;unidade;finalística;Pastas arquivo
+insumo_gerais;00.00.00;unidade;finalística;Pastas de organização
+insumo_gerais;00.00.00;unidade;finalística;Pegadores de alimentos
+insumo_gerais;33.90.39;unidade;finalística;Perlon de malha
+insumo_gerais;33.90.42;unidade;finalística;Pescados - quilograma
+insumo_gerais;33.90.39;unidade;finalística;Pigmentos e Batoques (Insumos para aplicação) - kit
+insumo_gerais;00.00.00;unidade;finalística;Pinças de cozinha
+insumo_gerais;33.90.30;unidade;finalística;Pincéis
+insumo_gerais;33.90.39;unidade;finalística;Pincel atômico
+insumo_gerais;00.00.00;unidade;finalística;Pipetas plásticas descartáveis
+insumo_gerais;33.90.52;unidade;finalística;Piso cerâmico (m²)
+insumo_gerais;33.90.39;unidade;finalística;Pistola aplicadora de cola quente bivolt profissional (40W)
+insumo_gerais;33.90.39;unidade;finalística;Placa de compensado naval resistente à umidade tratada (18mm, 300x400mm)
+insumo_gerais;33.90.39;unidade;finalística;Placa de MDF bilaminado com duas faces brancas para bancada (15mm, 300x400mm)
+insumo_gerais;33.90.39;unidade;finalística;Placa de MDF bilaminado com duas faces brancas para bancada (15mm, 400x500mm)
+insumo_gerais;33.90.39;unidade;finalística;Placa de MDF bilaminado com duas faces brancas para bancada (15mm, 400x700mm)
+insumo_gerais;33.90.30;unidade;finalística;Placas foam board
+insumo_gerais;00.00.00;unidade;finalística;Placas/painéis para montagem de circuitos
+insumo_gerais;33.90.39;unidade;finalística;Plafon bocal termoplástico simples sobrepor preto (Base rosca E27)
+insumo_gerais;33.90.42;unidade;finalística;Plaina manual
+insumo_gerais;33.90.39;unidade;finalística;Plug macho em termoplástico para tomada emborrachada 2P+T (10A) preta
+insumo_gerais;33.90.39;unidade;finalística;Plug macho em termoplástico para tomada emborrachada 2P+T (20A) preta
+insumo_gerais;33.90.30;unidade;finalística;Porta acetona 120ml
+insumo_gerais;33.90.39;unidade;finalística;Porta Fusível Solar Bipolar + Fusível 30A 1000VDC
+insumo_gerais;00.00.00;unidade;finalística;Porta mantimento de vidro com tampa plástica ou de madeira 1, 4 L
+insumo_gerais;33.90.39;unidade;finalística;Porteiro Interfone Eletrônico IPR 8010 Residencial - Intelbras
+insumo_gerais;33.90.30;unidade;finalística;Post-it
+insumo_gerais;00.00.00;unidade;finalística;Pote Plastico 1 litro
+insumo_gerais;00.00.00;unidade;finalística;Pote Plastico 150ml
+insumo_gerais;00.00.00;unidade;finalística;Potes para pomadas/creme 30 grama pct 100 - pacote com 100 unidades
+insumo_gerais;33.90.39;unidade;finalística;prancheta a4 acrilico
+insumo_gerais;00.00.00, 33.90.58;unidade;finalística;Pranchetas
+insumo_gerais;00.00.00;unidade;finalística;Prato Giratório para Foto de Produto (360°)
+insumo_gerais;33.90.58;unidade;finalística;Pratos
+insumo_gerais;00.00.00;unidade;finalística;Pratos de exposição
+insumo_gerais;33.90.50;unidade;finalística;Pregos (Kg)
+insumo_gerais;33.90.41;unidade;finalística;Pregos adicionais
+insumo_gerais;33.90.39;unidade;finalística;"Prensa Cabos - 6mm a 12mm - rosca longa 1/2"" (20mm)"
+insumo_gerais;00.00.00;unidade;finalística;Produtos Cenográficos para Prática de Estúdio
+insumo_gerais;33.90.45;unidade;finalística;Produtos de limpeza
+insumo_gerais;33.90.39;unidade;finalística;Produtos de limpeza e higienização (detergente, álcool, sanitizantes) - kit
+insumo_gerais;33.90.39;unidade;finalística;Produtos de limpeza e organização do ambiente (álcool, panos, sanitizantes) - kit
+insumo_gerais;33.90.39;unidade;finalística;Projetor portátil (datashow) 3800 Lúmens, resolução nativa WGA: 1280 X 800, saída HDMI, Lâmpadas duráveis e de baixo custo (até 17.000 horas no modo econômico). Referência: Epson Powerlite W49 ou equivalente técnico de igual ou superior qualidade
+insumo_gerais;33.90.39;unidade;finalística;Proteção/quadro
+insumo_gerais;00.00.00;unidade;finalística;Protetor solar
+insumo_gerais;33.90.39;unidade;finalística;Prumo
+insumo_gerais;00.00.00;unidade;finalística;Pulverizadores manuais
+insumo_gerais;00.00.00;unidade;finalística;Púpito simples
+insumo_gerais;00.00.00;unidade;finalística;Quadro branco
+insumo_gerais;00.00.00;unidade;finalística;Quadro branco ou flip chart
+insumo_gerais;33.90.39;unidade;finalística;Quadro de distribuição
+insumo_gerais;33.90.39;unidade;finalística;Quadro de Distribuição 18 Disjuntores DIN - Sobrepor
+insumo_gerais;33.90.39;unidade;finalística;Quadro de Distribuição 4 Disjuntores DIN - Sobrepor
+insumo_gerais;33.90.39;unidade;finalística;Quadro de Distribuição 8 Disjuntores DIN - Sobrepor
+insumo_gerais;33.90.39;unidade;finalística;Quadro de Distribuição de Embutir (QDC) para 12 a 16 disjuntores com porta. Referência: Tigre
+insumo_gerais;33.90.39;unidade;finalística;Quadro de distribuição de embutir compacto (3 NEMA/4 DIN) s/barramento - Tigre
+insumo_gerais;33.90.39;unidade;finalística;Quadro/Caixa para medidor de energia monofásico (Padrão de entrada da concessionária)
+insumo_gerais;33.90.56;unidade;finalística;Quadro/painel
+insumo_gerais;00.00.00;unidade;finalística;Quebra-cabeça sensorial
+insumo_gerais;00.00.00;unidade;finalística;Raladores e zesters
+insumo_gerais;00.00.00;unidade;finalística;Rastelos
+insumo_gerais;00.00.00;unidade;finalística;Reagente Para Diagnóstico Clínico 5, Tipo De Análise: Quantitativo De Glicose, Características Adicionais: Capilar, Apresentação: Tira - caixa com 50 unidades
+insumo_gerais;33.90.39;unidade;finalística;Reator convencional eletromagnético de partida rápida para 1 lâmpada de 20W
+insumo_gerais;33.90.39;unidade;finalística;Reator eletrônico para 1 lâmpada fluorescente de 20W
+insumo_gerais;33.90.39;unidade;finalística;Reator eletrônico para 2 lâmpadas fluorescentes de 20W
+insumo_gerais;00.00.00;unidade;finalística;Recipiente pomada
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Regadores
+insumo_gerais;33.90.39;unidade;finalística;Registro Esfera Monobloco Soldável 25mm PVC
+insumo_gerais;33.90.39;unidade;finalística;Régua de alumínio
+insumo_gerais;33.90.51;unidade;finalística;Rejunte (kg)
+insumo_gerais;33.90.39;unidade;finalística;Relé de Sobrecarga Tripolar com ajuste de 1, 2 a 1, 8A (RW17D) - WEG
+insumo_gerais;33.90.39;unidade;finalística;"Relé fotoelétrico magnético tipo ""NA"" (220V, 1000W) para base de 3 pinos"
+insumo_gerais;33.90.39;unidade;finalística;"Relé fotoelétrico magnético tipo ""NF"" (220V, 1000W) para base de 3 pinos"
+insumo_gerais;00.00.00;unidade;finalística;Relés eletromecânicos
+insumo_gerais;33.90.30;unidade;finalística;Remover dor de esmalte 500ml
+insumo_gerais;00.00.00;unidade;finalística;Repelente
+insumo_gerais;33.90.39;unidade;finalística;Resma de Papel A4 reciclado
+insumo_gerais;33.90.53;unidade;finalística;Revestimento cerâmico (m²)
+insumo_gerais;00.00.00;unidade;finalística;Ring Lights de Mesa
+insumo_gerais;33.90.39;unidade;finalística;Rodízio giratório em gel/silicone com chapa e trava de freio (Ø 50 mm)
+insumo_gerais;00.00.00;unidade;finalística;Rodo
+insumo_gerais;33.90.39;unidade;finalística;Rolo de fio de solda estanho-chumbo com fluxo interno (1mm, carretel de 500g)
+insumo_gerais;00.00.00;unidade;finalística;Rolo de Papel Manteiga (50 m x 29 cm)
+insumo_gerais;33.90.57;unidade;finalística;Rolo de pintura
+insumo_gerais;00.00.00;unidade;finalística;Rolo Posicionador Napa Impermeável Fisioterapia 10x 30 Ziper
+insumo_gerais;00.00.00;unidade;finalística;Rolos de fita dupla face de 3mm - 3M
+insumo_gerais;00.00.00;unidade;finalística;Rolos de Solda - Cobix 1mm 60x40 250g
+insumo_gerais;00.00.00;unidade;finalística;Roteiros de atendimento
+insumo_gerais;00.00.00;unidade;finalística;Roteiros de simulações (impressos)
+insumo_gerais;00.00.00;unidade;finalística;Sabonete líquido
+insumo_gerais;00.00.00;unidade;finalística;Sabonete Líquido Antisséptico - frasco com 500 ml
+insumo_gerais;00.00.00;unidade;finalística;Saca Rolhas
+insumo_gerais;00.00.00, 33.90.64;unidade;finalística;Saco de lixo
+insumo_gerais;00.00.00;unidade;finalística;Sacos de lixo (100L cada)
+insumo_gerais;33.90.39;unidade;finalística;Sal marinho grosso - quilograma
+insumo_gerais;00.00.00;unidade;finalística;Saquinho adesivado saco transparente 7 x7 com 1000 unidades - pacote com 1.000 unidades
+insumo_gerais;33.90.39;unidade;finalística;Saquinho bordado
+insumo_gerais;33.90.48;unidade;finalística;Sarrafos
+insumo_gerais;00.00.00;unidade;finalística;Sementes variadas - sachê c/100gr
+insumo_gerais;33.90.41;unidade;finalística;Sensor de presença
+insumo_gerais;33.90.39;unidade;finalística;Sensor de presença com bocal/soquete integrado E27 - Exatron
+insumo_gerais;33.90.39;unidade;finalística;Sensor de presença com minuteria interno de embutir com placa 4x2
+insumo_gerais;33.90.39;unidade;finalística;Sensor de presença externo de parede e teto com minuteria - Foxlux
+insumo_gerais;00.00.00;unidade;finalística;Sensores de proximidade
+insumo_gerais;33.90.39;unidade;finalística;Serra de fita
+insumo_gerais;33.90.39;unidade;finalística;Serra manual
+insumo_gerais;33.90.40;unidade;finalística;Serrote
+insumo_gerais;33.90.39;unidade;finalística;Serviço de manutenção de Instrumentos
+insumo_gerais;00.00.00;unidade;finalística;Soda cáustica 99% - quilograma
+insumo_gerais;33.90.39;unidade;finalística;Sombrite - metro
+insumo_gerais;00.00.00;unidade;finalística;Sombrite/tela de viveiro - peça c/20m
+insumo_gerais;33.90.39;unidade;finalística;Soquete + lâmpada LED
+insumo_gerais;33.90.39;unidade;finalística;Soquete com porta-starter integrado para lâmpada fluorescente
+insumo_gerais;33.90.39;unidade;finalística;Soquete de Plástico - E-27 10A/250V - sem Rabicho
+insumo_gerais;33.90.39;unidade;finalística;Soquete de Porcelana - E-27 10A/250V - sem Rabicho
+insumo_gerais;33.90.39;unidade;finalística;Soquete Fixo Bocal para Lâmpada E27
+insumo_gerais;33.90.39;unidade;finalística;Soquete porta-starter para lâmpada fluorescente (com fiação/rabicho)
+insumo_gerais;33.90.39;unidade;finalística;Soquete redondo com rabicho comum para lâmpada tubular T8
+insumo_gerais;33.90.39;unidade;finalística;Soquete sem porta-starter para lâmpada fluorescente
+insumo_gerais;00.00.00;unidade;finalística;Soquetes
+insumo_gerais;33.90.39, 33.90.41;unidade;finalística;Spray Massageador Icerelief - Arnica E Castanha Da Índia - kit com 3 unidades
+insumo_gerais;33.90.39;unidade;finalística;Starter de partida modelo FS-2 para lâmpadas fluorescentes de 15/20W
+insumo_gerais;33.90.39;unidade;finalística;String Box CA - Com DPS
+insumo_gerais;33.90.39;unidade;finalística;String Box CC - 2E/2S
+insumo_gerais;00.00.00;unidade;finalística;Substrato 5kg
+insumo_gerais;00.00.00;unidade;finalística;Substrato orgânico - saco
+insumo_gerais;00.00.00;unidade;finalística;Sugadores de Solda - Hikari HK-192
+insumo_gerais;33.90.39;unidade;finalística;suporte para almofada
+insumo_gerais;00.00.00;unidade;finalística;Suportes para Solda com Lupa - Western 9050L
+insumo_gerais;33.90.39;unidade;finalística;Supressor de surto - DPS - Dispositivo de Proteção de Surto CA - 45KA 275V - DIN
+insumo_gerais;33.90.39;unidade;finalística;Supressor de surto - DPS - Dispositivo de Proteção de Surto CC Solar 1040V 40KA - DIN
+insumo_gerais;33.90.39, 33.90.47;unidade;finalística;Tábua de madeira
+insumo_gerais;00.00.00;unidade;finalística;Tábuas carnes/recheios
+insumo_gerais;00.00.00;unidade;finalística;Tábuas de corte
+insumo_gerais;33.90.45;unidade;finalística;Tábuas de corte - carnes/peixes
+insumo_gerais;33.90.44;unidade;finalística;Tábuas de corte - uso geral
+insumo_gerais;00.00.00;unidade;finalística;Tábuas uso geral
+insumo_gerais;33.90.39;unidade;finalística;Tags
+insumo_gerais;33.90.39;unidade;finalística;TALABARTE DE SALVAMENTO E SEGURANCA
+insumo_gerais;33.90.58;unidade;finalística;Talheres
+insumo_gerais;00.00.00;unidade;finalística;Tapetes de silicone (para confeitaria)
+insumo_gerais;33.90.39;unidade;finalística;Tê de Redução Soldável (25 mm x 20 mm) Marrom
+insumo_gerais;33.90.39;unidade;finalística;tecido linho (1 metro linear de linho)
+insumo_gerais;00.00.00;unidade;finalística;Teleprompter de Mesa para Smartphone/Tablet
+insumo_gerais;33.90.39;unidade;finalística;Televisor Smart TV LED 65 polegadas, resolução mínima 4K Ultra HD (3840 x 2160 pixels), painel com tecnologia LED, taxa de atualização mínima de 60 Hz, conectividade Wi-Fi e Bluetooth integradas, no mínimo 03 entradas HDMI e 02 portas USB, sistema operacional com acesso a aplicativos de streaming, suporte aos padrões HDR, áudio integrado de alta qualidade e controle remoto com comando de voz
+insumo_gerais;33.90.63;unidade;finalística;Temperos e insumos básicos (lote)
+insumo_gerais;33.90.43;unidade;finalística;Temperos variados (kit)
+insumo_gerais;00.00.00;unidade;finalística;Temporizadores industriais
+insumo_gerais;33.90.39;unidade;finalística;Terminal Ilhós/Agulha Pré-Isolado 1.5 mm²
+insumo_gerais;33.90.39;unidade;finalística;Terminal Ilhós/Agulha Pré-Isolado 2.5 mm²
+insumo_gerais;33.90.39;unidade;finalística;Terminal Ilhós/Agulha Pré-Isolado 4.0 mm²
+insumo_gerais;33.90.39;unidade;finalística;Terminal Ilhós/Agulha Pré-Isolado 6.0 mm²
+insumo_gerais;33.90.39;unidade;finalística;Terminal Metálico do Conector Mc4 Macho e Fêmea
+insumo_gerais;33.90.39;unidade;finalística;Terminal Olhal Pré Isolado 2, 5mm M5 - Azul
+insumo_gerais;33.90.39;unidade;finalística;Terminal Olhal Pré Isolado 6, 0mm M5 - Amarelo
+insumo_gerais;33.90.39;unidade;finalística;Terminal Olhal Pré Isolado 6, 0mm M8 - Amarelo
+insumo_gerais;33.90.39;unidade;finalística;Terminal Pino (agulha) Pré Isolado 2, 5mm - Azul
+insumo_gerais;33.90.39;unidade;finalística;Terminal Pino (agulha) Pré Isolado 6, 0mm - Amarelo
+insumo_gerais;33.90.39;unidade;finalística;Terminal Tubular de Compressão de cobre estanhado - 4mm2 M5
+insumo_gerais;33.90.39;unidade;finalística;Terminal Tubular de Compressão de cobre estanhado - 6mm2 M5
+insumo_gerais;33.90.39;unidade;finalística;Termocera Profissional - Capacidade 2kg (Bivolt)
+insumo_gerais;00.00.00;unidade;finalística;Termômetro clinico ecologico 1.0 incoterm
+insumo_gerais;00.00.00;unidade;finalística;Termômetro culinário
+insumo_gerais;00.00.00;unidade;finalística;Termômetros digitais
+insumo_gerais;33.90.39;unidade;finalística;Terrômetro - Digital
+insumo_gerais;33.90.39;unidade;finalística;Terrômetro Digital Lcd 3 3/4 Dígitos portátil com bolsa de transporte. Referência: Mtr-1522 (Minipa)
+insumo_gerais;33.90.39;unidade;finalística;tesoura
+insumo_gerais;33.90.39;unidade;finalística;Tesoura de poda
+insumo_gerais;33.90.30;unidade;finalística;Tesoura de unhas
+insumo_gerais;33.90.39;unidade;finalística;Tesoura para artesanato
+insumo_gerais;00.00.00;unidade;finalística;Tesouras
+insumo_gerais;00.00.00;unidade;finalística;Tesouras de Cozinha
+insumo_gerais;00.00.00;unidade;finalística;Testador de tensão
+insumo_gerais;33.90.39;unidade;finalística;Three-way
+insumo_gerais;00.00.00;unidade;finalística;Tigelas para mistura
+insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Tigelas/bacias
+insumo_gerais;33.90.39;unidade;finalística;Tinta para impressora (Tonner)
+insumo_gerais;33.90.39;unidade;finalística;Tiras Reagentes Glicemia + Lancetas - kit com 50 unidades
+insumo_gerais;00.00.00, 33.90.42;unidade;finalística;Toalhas de banho
+insumo_gerais;00.00.00;unidade;finalística;Toalhas de mesa
+insumo_gerais;33.90.39;unidade;finalística;Tomada 10A
+insumo_gerais;33.90.39;unidade;finalística;Tomada 20A
+insumo_gerais;33.90.39;unidade;finalística;Tomada 2P+T 10A 250V
+insumo_gerais;33.90.39;unidade;finalística;Tomada de Embutir Simples (2P+T) 10A Padrão brasileiro (NBR 14136). Referência: Steck, Tramontina ou Pial
+insumo_gerais;33.90.39;unidade;finalística;Tomada de Embutir Simples (2P+T) 20A Padrão brasileiro (NBR 14136). Referência: Steck, Tramontina ou Pial
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Tomadas e interruptores
+insumo_gerais;33.90.39;unidade;finalística;"Torneira de PVC para Jardim 1/2"" preta com bico para mangueira"
+insumo_gerais;33.90.39;serviço;finalística;Transporte
+insumo_gerais;33.90.39;unidade;finalística;Trave De Futebol Golzinho De Aço Kit 2 Mini Traves E Redes Branco - kit com 2 unidades
+insumo_gerais;00.00.00;unidade;finalística;Travesseiro 40x30x08 impermeável Napa Estética fisioterapia azul
+insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Travesseiros
+insumo_gerais;00.00.00;unidade;finalística;Travesseiros para simulação
+insumo_gerais;33.90.39;unidade;finalística;Trena
+insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Trenas
+insumo_gerais;00.00.00;unidade;finalística;Trenas (5 m)
+insumo_gerais;33.90.39;unidade;finalística;Trilhas de esquemas taticos paineis impressos - Banners A1 - kit com 8 unidades
+insumo_gerais;33.90.39;unidade;finalística;Trilhas de estudo dirigido impressas sobre a legislacao de residuos solidos, logística primária, triagem e armazenagem, logística secundária e destinação final
+insumo_gerais;33.90.39;unidade;finalística;Trilhas de estudo dirigido impressos
+insumo_gerais;33.90.39;unidade;finalística;Trilhas dos ensaios impressos - Banners A1
+insumo_gerais;33.90.39;unidade;finalística;Trilho DIN Perfurado - 35mmX7, 5mmX 2000mm - Ferro Zincado - Barra
+insumo_gerais;00.00.00;unidade;finalística;Tripés com garra de celular
+insumo_gerais;33.90.39;unidade;finalística;Tubo (Cano) Soldável PVC Marrom 25mm para água fria
+insumo_gerais;33.90.39;unidade;finalística;Tubo de cobre (1/4 e 3/8)
+insumo_gerais;33.90.39;unidade;finalística;União com Rosca Soldável PVC 25mm Marrom
+insumo_gerais;33.90.39;unidade;finalística;Uniformes De Futebol Personalizados Short E Camisa - Amarelo - kit com 10 unidades
+insumo_gerais;33.90.39;unidade;finalística;Uniformes De Futebol Personalizados Short E Camisa - Branco - kit com 10 unidades
+insumo_gerais;33.90.52;unidade;finalística;Utensílios básicos
+insumo_gerais;33.90.39;unidade;finalística;Vacuômetro digital
+insumo_gerais;33.90.39;unidade;finalística;Válvula de Retenção de Fundo de Poço 25mm PVC
+insumo_gerais;33.90.41;unidade;finalística;Varetas de solda (kit)
+insumo_gerais;33.90.39;unidade;finalística;Ventilador de teto comercial com 3 pás metálicas e motor 130W (220V) - Arge
+insumo_gerais;00.00.00;unidade;finalística;Vidro Conta Gotas
+kit_participante;33.90.39, 33.90.46;unidade;finalística;Apontador de lápis grafite
+kit_participante;33.90.39;unidade;finalística;Apostila
+kit_participante;33.90.30, 33.90.39;unidade;finalística;Borracha
+kit_participante;33.90.39, 33.90.45;unidade;finalística;Borracha para lápis grafite
+kit_participante;33.90.30, 33.90.39;unidade;finalística;Caderno
+kit_participante;33.90.39, 33.90.48;unidade;finalística;Caderno a4 100 paginas
+kit_participante;33.90.30;unidade;finalística;Caderno universitário
+kit_participante;33.90.39, 33.90.43;unidade;finalística;Caneta esferográfica azul - kit com 3 unidades
+kit_participante;33.90.30, 33.90.39;unidade;finalística;Canetas
+kit_participante;33.90.30;unidade;finalística;Canetas esferográficas
+kit_participante;33.90.39, 33.90.44;unidade;finalística;Copo plástico
+kit_participante;33.90.39;unidade;finalística;Eco bag
+kit_participante;33.90.39;unidade;finalística;Ecobag com artesanato simples 36cm x 32cm
+kit_participante;33.90.39, 33.90.41;unidade;finalística;Estojo
+kit_participante;33.90.39;unidade;finalística;Estojo Escolar Simples Nylon Preto
+kit_participante;33.90.39;unidade;finalística;Garrafa para água
+kit_participante;33.90.30, 33.90.39;unidade;finalística;Lápis
+kit_participante;33.90.39, 33.90.42;unidade;finalística;Lápis preto HB2 - kit com 4 unidades
+kit_participante;33.90.39;unidade;finalística;Mochila poliester 42cm x 48cm x 33cm
+kit_participante;33.90.39, 33.90.40;unidade;finalística;Pasta
+kit_participante;33.90.30;unidade;finalística;Pasta personalizada
+kit_participante;33.90.30, 33.90.39;unidade;finalística;Pastas
+kit_trabalho;33.90.39;unidade;kit;Adubo
+kit_trabalho;33.90.39;unidade;kit;agulha 05 nº 05
+kit_trabalho;33.90.39;unidade;kit;Agulha de crochê 2, 5mm
+kit_trabalho;33.90.39;unidade;kit;Agulha de crochê 3
+kit_trabalho;33.90.39;unidade;kit;agulha de Tapeceiro
+kit_trabalho;33.90.39;unidade;kit;Agulha nº 07
+kit_trabalho;33.90.39;unidade;kit;agulhas (pacote)
+kit_trabalho;33.90.30;unidade;kit;Algodão 500g
+kit_trabalho;33.90.39;unidade;kit;Algodão Cru - metro
+kit_trabalho;33.90.30;unidade;kit;Alicate de cortar unhas
+kit_trabalho;00.00.00;unidade;kit;Alicate de corte isolado
+kit_trabalho;00.00.00;unidade;kit;Alicate de corte/universal isolado
+kit_trabalho;00.00.00;unidade;kit;Alicate para cutícula
+kit_trabalho;00.00.00;unidade;kit;Alicate universal isolado
+kit_trabalho;33.90.39;unidade;kit;almofada com palha de bananeira
+kit_trabalho;33.90.39;unidade;kit;Argolas para chaveiro - kit com 10 unidades
+kit_trabalho;33.90.39;unidade;kit;Assadeiras
+kit_trabalho;00.00.00;unidade;kit;Avental ou jaleco leve
+kit_trabalho;00.00.00;unidade;kit;Avental/jaleco leve
+kit_trabalho;33.90.39;unidade;kit;Bacias
+kit_trabalho;33.90.39;unidade;kit;Balança digital
+kit_trabalho;33.90.39;unidade;kit;Bandejas
+kit_trabalho;00.00.00;unidade;kit;Banner em lona da comunidade com sinalização dos produtos e serviços turíssticos
+kit_trabalho;33.90.30;unidade;kit;Base de unha
+kit_trabalho;33.90.39;unidade;kit;Batedeira
+kit_trabalho;33.90.39;unidade;kit;bilros (1 dúzia de pares)
+kit_trabalho;00.00.00;unidade;kit;Bloco de anotações + caneta
+kit_trabalho;00.00.00;unidade;kit;Bolsa/Maleta básica
+kit_trabalho;33.90.39;unidade;kit;Botijão de gás
+kit_trabalho;00.00.00;unidade;kit;Bowls de aço inox volume de 9 litros
+kit_trabalho;00.00.00;unidade;kit;Cabos elétricos (pequeno kit)
+kit_trabalho;00.00.00;unidade;kit;Caderno de anotações
+kit_trabalho;00.00.00;unidade;kit;Caderno de registro
+kit_trabalho;33.90.39;unidade;kit;Caixa d'água 500 litros
+kit_trabalho;33.90.39;unidade;kit;caixa organizadora 50L
+kit_trabalho;33.90.39;unidade;kit;Caixas plásticas para transporte mercadorias
+kit_trabalho;00.00.00;unidade;kit;Camisa UV Manga Longa cor verde
+kit_trabalho;00.00.00;unidade;kit;Caneta testadora/multímetro simples
+kit_trabalho;00.00.00;unidade;kit;Caneta/lápis
+kit_trabalho;33.90.39;unidade;kit;cartolina dupla face (folha)
+kit_trabalho;33.90.39;unidade;kit;Cavadeira articulada
+kit_trabalho;00.00.00;unidade;kit;Chave de fenda isolada
+kit_trabalho;00.00.00;unidade;kit;Chave de teste/chave de tensão
+kit_trabalho;00.00.00;unidade;kit;Chave philips isolada
+kit_trabalho;33.90.39;unidade;kit;Colheres grande inox
+kit_trabalho;33.90.39;unidade;kit;Colheres inox
+kit_trabalho;00.00.00;unidade;kit;Computador para autogestão
+kit_trabalho;33.90.39;unidade;kit;Concha grande inox
+kit_trabalho;00.00.00;unidade;kit;Conectores e terminais (kit)
+kit_trabalho;00.00.00;unidade;kit;Conectores elétricos (kit)
+kit_trabalho;00.00.00;unidade;kit;Conjunto de ferramentas de jardim 3 peças - conjunto
+kit_trabalho;33.90.39;unidade;kit;Conjunto de mesas e cadeiras plásticas (1 mesa com 4 cadeiras)
+kit_trabalho;00.00.00;unidade;kit;Conta-gotas
+kit_trabalho;33.90.39;unidade;kit;Copos
+kit_trabalho;00.00.00;unidade;kit;Corantes/reagentes básicos
+kit_trabalho;00.00.00;unidade;kit;Descrição
+kit_trabalho;00.00.00;unidade;kit;Dispensador de álcool em gel – 50 ml
+kit_trabalho;00.00.00;unidade;kit;Domínio do Site Rota Delta Mulher
+kit_trabalho;00.00.00, 33.90.39;unidade;kit;Enxada
+kit_trabalho;33.90.39;unidade;kit;Enxadeco
+kit_trabalho;33.90.39;unidade;kit;Enxadinha sacho, bico coração
+kit_trabalho;00.00.00;unidade;kit;Escova para limpeza de lâminas
+kit_trabalho;33.90.30;unidade;kit;Esmalte para francesinha
+kit_trabalho;33.90.30;unidade;kit;Esmaltes variados
+kit_trabalho;00.00.00;unidade;kit;Esmaltes variados (extra)
+kit_trabalho;00.00.00;unidade;kit;Espátula de silicone
+kit_trabalho;00.00.00;unidade;kit;Espátula desencravadora inox
+kit_trabalho;33.90.39;unidade;kit;espinhos de cacto (pacote)
+kit_trabalho;33.90.30;unidade;kit;Extra brilho
+kit_trabalho;00.00.00, 33.90.39;unidade;kit;Facão
+kit_trabalho;33.90.39;unidade;kit;Fibra siliconada para enchimento - quilograma
+kit_trabalho;33.90.39;unidade;kit;fio de Malha 35 mm
+kit_trabalho;33.90.39;unidade;kit;Fio Náutico nº 5
+kit_trabalho;00.00.00;unidade;kit;Fita isolante
+kit_trabalho;00.00.00, 33.90.39;unidade;kit;fita métrica
+kit_trabalho;33.90.39;unidade;kit;Fogão industrial 4 bocas com forno
+kit_trabalho;00.00.00;unidade;kit;Folder
+kit_trabalho;00.00.00;unidade;kit;Forma em Madeira 1k
+kit_trabalho;00.00.00;unidade;kit;Fouet inox
+kit_trabalho;33.90.39;unidade;kit;Freezer horizontal
+kit_trabalho;33.90.39;unidade;kit;Frigideiras grandes
+kit_trabalho;33.90.39;unidade;kit;Fritadeira elétrica industrial
+kit_trabalho;33.90.39;unidade;kit;Furadeira
+kit_trabalho;33.90.39;unidade;kit;Garrafa térmica
+kit_trabalho;33.90.39;unidade;kit;Geladeira Fost free (450L)
+kit_trabalho;33.90.39;unidade;kit;grade simples (armação de madeira 1mx1m)
+kit_trabalho;33.90.39;unidade;kit;Insumos para cozinha
+kit_trabalho;00.00.00;unidade;kit;Jaleco de tecido lavável
+kit_trabalho;33.90.39;unidade;kit;Jarra
+kit_trabalho;00.00.00;unidade;kit;Jogo de Facas Profissionais - conjunto
+kit_trabalho;00.00.00;unidade;kit;Jogos educativos/brinquedos
+kit_trabalho;33.90.39;unidade;kit;Kit de pás para horta (pás e ancinho ponta bico)
+kit_trabalho;00.00.00;unidade;kit;Kit de primeiros socorros básico
+kit_trabalho;33.90.39;unidade;kit;Kit facas
+kit_trabalho;33.90.39;unidade;kit;Kit Panelas tamanhos diversos (grandes)
+kit_trabalho;00.00.00;unidade;kit;Lâmina para microscopia
+kit_trabalho;00.00.00;unidade;kit;Lamínula
+kit_trabalho;00.00.00;unidade;kit;Lâmpadas e soquetes (para prática)
+kit_trabalho;00.00.00;unidade;kit;LEDs e resistores para prática
+kit_trabalho;33.90.39;unidade;kit;Linha clea
+kit_trabalho;33.90.39;unidade;kit;linha clea (1000m)
+kit_trabalho;33.90.39;unidade;kit;Linha de costura (cone)
+kit_trabalho;33.90.39;unidade;kit;Linha de costura para máquina reta (cone 120)
+kit_trabalho;33.90.39;unidade;kit;Linha para bordado (cores variadas)
+kit_trabalho;33.90.39;unidade;kit;Linha tubo para máquina overlock (cone grande)
+kit_trabalho;33.90.39;unidade;kit;Linhas para acabamento
+kit_trabalho;33.90.39;unidade;kit;Liquidificador industrial
+kit_trabalho;00.00.00;unidade;kit;Livros de desenho ou atividades
+kit_trabalho;33.90.30;unidade;kit;Lixa bloco branca
+kit_trabalho;00.00.00;unidade;kit;Lixas de unha (caixa 100 unds)
+kit_trabalho;00.00.00;unidade;kit;Luvas de limpeza
+kit_trabalho;00.00.00;unidade;kit;Luvas descartáveis
+kit_trabalho;00.00.00;unidade;kit;Luvas isolantes
+kit_trabalho;00.00.00;unidade;kit;Mala, maleta, mochila personalizada
+kit_trabalho;00.00.00;unidade;kit;Mala, maleta, mochila personalizada Agente de Reflorestamento
+kit_trabalho;00.00.00;unidade;kit;Mala, maleta, mochila personalizada Auxiliar de Cozinha
+kit_trabalho;00.00.00;unidade;kit;Maleta/bolsa para ferramentas
+kit_trabalho;00.00.00;unidade;kit;Maleta/bolsa para materiais
+kit_trabalho;00.00.00;unidade;kit;Mangueira para irrigação 15M - metro
+kit_trabalho;00.00.00;unidade;kit;Marcadores de lâmina
+kit_trabalho;00.00.00;unidade;kit;Máscaras descartáveis
+kit_trabalho;33.90.39;unidade;kit;Material para kit escalda pé
+kit_trabalho;33.90.39;unidade;kit;Micro-ondas
+kit_trabalho;00.00.00;unidade;kit;Mini bolsa/estojo
+kit_trabalho;00.00.00;unidade;kit;Mini bolsa/estojo para materiais
+kit_trabalho;00.00.00;unidade;kit;Mini ferramentas adicionais (chaves, pinças)
+kit_trabalho;00.00.00;unidade;kit;Mini maleta ou estojo para armazenamento
+kit_trabalho;33.90.39;unidade;kit;Mini pá de bico
+kit_trabalho;00.00.00;unidade;kit;Mudas florestais nativas kit com 10 espécie - kit
+kit_trabalho;00.00.00;unidade;kit;Mudas frutíferas regionais (ex: açaí e cupuaçu) - kit
+kit_trabalho;00.00.00;unidade;kit;Multímetro básico
+kit_trabalho;33.90.39;unidade;kit;Novelos de fio para amigurumi (cores variadas)
+kit_trabalho;00.00.00;unidade;kit;Óculos de proteção
+kit_trabalho;33.90.30;unidade;kit;Óleo secante 100 ml
+kit_trabalho;33.90.39;unidade;kit;Olhos com trava para amigurumi - kit com 50 unidades
+kit_trabalho;00.00.00;unidade;kit;Palitos de madeira 100 unds
+kit_trabalho;33.90.39;unidade;kit;Panela de pressão (10L)
+kit_trabalho;00.00.00;unidade;kit;Par de luvas - par
+kit_trabalho;33.90.39;unidade;kit;Perlon de malha
+kit_trabalho;33.90.39;unidade;kit;Pia Inox (industrial somples)
+kit_trabalho;00.00.00;unidade;kit;Pipeta plástica
+kit_trabalho;00.00.00;unidade;kit;Pisseta plástica pequena
+kit_trabalho;33.90.39;unidade;kit;Pratos
+kit_trabalho;00.00.00;unidade;kit;Quantidade de kits - kit
+kit_trabalho;33.90.39;unidade;kit;Regadores
+kit_trabalho;00.00.00;unidade;kit;Sabonete em barra ou álcool 70% 50ml
+kit_trabalho;00.00.00;unidade;kit;Sabonete líquido 250ml
+kit_trabalho;33.90.39;unidade;kit;Sementes - quilograma
+kit_trabalho;00.00.00;unidade;kit;Sementes de ciclo curto kit com 20 espécie - kit
+kit_trabalho;33.90.39;unidade;kit;suporte para almofada
+kit_trabalho;33.90.39;unidade;kit;Tacho grande
+kit_trabalho;33.90.39;unidade;kit;Talheres (garfo e faca) inox
+kit_trabalho;33.90.39;unidade;kit;tecido linho (1 metro linear de linho)
+kit_trabalho;00.00.00;unidade;kit;Termômetro digital básico
+kit_trabalho;33.90.39;unidade;kit;tesoura
+kit_trabalho;33.90.39;unidade;kit;Tesoura de poda
+kit_trabalho;00.00.00;unidade;kit;Tesoura de unhas
+kit_trabalho;00.00.00;unidade;kit;Toalha de mão pequena
+kit_trabalho;00.00.00;unidade;kit;Touca de cabelo
+kit_trabalho;00.00.00;unidade;kit;Valor total
+kit_trabalho;00.00.00;unidade;kit;Vasos plásticos tamanho médio
+kit_trabalho;33.90.39;unidade;kit;Xícaras com pires
+>>>>>>> ce838d533e88afee2f7500690d49243c42305e2b
