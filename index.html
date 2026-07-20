@@ -996,152 +996,6 @@
      * 10. Inicialização
      */
 
-    /* =========================================================
-       CATÁLOGO MOCK LEGADO
-       Mantido isolado durante a migração para facilitar conferência.
-       Não é utilizado para montar a interface.
-       ========================================================= */
-    const legacyMockCatalogs = {
-          fontesRecurso: ["SISEC", "Contrapartida"],
-          tiposItemCurso: [
-            {
-              id: "kit_participante", label: "Kit participante", tipo: "Finalistica", itens: [
-                { id: "estojo_escolar_simples_nylon_preto", label: "Estojo Escolar Simples Nylon Preto", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "caderno_a4_100_paginas", label: "Caderno a4 100 paginas", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "lapis_preto_hb2", label: "Lápis preto HB2", codigo: "33.90.39", unidades: ["kit 4 unidades"] },
-                { id: "apontador_de_lapis_de_grafiti", label: "Apontador de lapis de graifiti", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "borracha_para_lapis_grafiti", label: "Borracha para lápis grafiti", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "caneta_esferografica_azul", label: "Caneta esferográfica azul", codigo: "33.90.39", unidades: ["kit 3 unidades"] },
-                { id: "mochila_poliester_42cm_x_48cm_x_33cm", label: "Mochila poliester 42cm x 48cm x 33cm", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "ecobag_tecido", label: "Ecobag de tecido 22cm x 28cm x 13cm", codigo: "33.90.39", unidades: ["unidade"] }
-              ]
-            },
-            {
-              id: "insumos_gerais", label: "Insumos gerais", tipo: "Finalistica", itens: [
-                { id: "material_escritorio", label: "Material de escritório", codigo: "33.90.30", unidades: ["pacote", "unidade"] },
-                { id: "material_consumo", label: "Material de consumo", codigo: "33.90.30", unidades: ["unidade", "litro", "metro"] },
-                { id: "cimento_50kg", label: "Cimento (50 kg)", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "areia_media_m3", label: "Areia média (m³)", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "blocos_tijolos", label: "Blocos/tijolos", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "brita_fina_m3", label: "Brita fina (m³)", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "cal_hidratada_saco_padrao", label: "Cal hidratada (saco padrão)", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "colher_de_pedreiro", label: "Colher de pedreiro", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "desempenadeira_lisa", label: "Desempenadeira lisa", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "desempenadeira_dentada", label: "Desempenadeira dentada", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "prumo", label: "Prumo", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "nivel", label: "Nível", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "trena", label: "Trena", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "esquadro", label: "Esquadro", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "regua_de_aluminio", label: "Régua de alumínio", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "enxada", label: "Enxada", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "pa", label: "Pá", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "balde_reforcado", label: "Balde reforçado", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "martelo", label: "Martelo", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "serra_manual", label: "Serra manual", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "serrote", label: "Serrote", codigo: "33.90.40", unidades: ["unidade"] },
-                { id: "formao_kit_c_4", label: "Formão (kit c/ 4)", codigo: "33.90.41", unidades: ["unidade"] },
-                { id: "plaina_manual", label: "Plaina manual", codigo: "33.90.42", unidades: ["unidade"] },
-                { id: "esquadro_carpinteiro", label: "Esquadro carpinteiro", codigo: "33.90.43", unidades: ["unidade"] },
-                { id: "grampo_sargento", label: "Grampo/sargento", codigo: "33.90.44", unidades: ["unidade"] },
-                { id: "furadeira_eletrica", label: "Furadeira elétrica", codigo: "33.90.45", unidades: ["unidade"] },
-                { id: "brocas_para_madeira_kit_c_5", label: "Brocas para madeira (kit c/ 5)", codigo: "33.90.46", unidades: ["unidade"] },
-                { id: "bancada_de_trabalho", label: "Bancada de trabalho", codigo: "33.90.46", unidades: ["unidade"] },
-                { id: "are_de_pratica", label: "Áre de prática", codigo: "33.90.46", unidades: ["unidade"] },
-                { id: "masseira", label: "Masseira", codigo: "33.90.46", unidades: ["unidade"] },
-                { id: "formas_de_madeira", label: "Formas de madeira", codigo: "33.90.46", unidades: ["unidade"] },
-                { id: "tabuas_de_madeira", label: "Tábuas de madeira", codigo: "33.90.47", unidades: ["unidade"] },
-                { id: "sarrafos", label: "Sarrafos", codigo: "33.90.48", unidades: ["unidade"] },
-                { id: "compensado_chapa", label: "Compensado (chapa)", codigo: "33.90.49", unidades: ["unidade"] },
-                { id: "pregos_kg", label: "Pregos (Kg)", codigo: "33.90.50", unidades: ["unidade"] },
-                { id: "parafusos_kg", label: "Parafusos (Kg)", codigo: "33.90.51", unidades: ["unidade"] },
-                { id: "buchas_caixa", label: "Buchas (caixa)", codigo: "33.90.52", unidades: ["unidade"] },
-                { id: "cola_para_madeira_litro", label: "Cola para madeira (litro)", codigo: "33.90.53", unidades: ["unidade"] },
-                { id: "desempenadeira_acabamento", label: "Desempenadeira acabamento", codigo: "33.90.54", unidades: ["unidade"] },
-                { id: "lixas_kit", label: "Lixas (kit)", codigo: "33.90.55", unidades: ["unidade"] },
-                { id: "espatula", label: "Espátula", codigo: "33.90.56", unidades: ["unidade"] },
-                { id: "rolo_de_pintura", label: "Rolo de pintura", codigo: "33.90.57", unidades: ["unidade"] },
-                { id: "bandeja_de_pintura", label: "Bandeja de pintura", codigo: "33.90.58", unidades: ["unidade"] },
-                { id: "massa_corrida_kg", label: "Massa corrida (kg)", codigo: "33.90.59", unidades: ["unidade"] },
-                { id: "baldes", label: "Baldes", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "carrinho_de_mao", label: "Carrinho de mão", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "mangueira_20_m", label: "Mangueira (20 m)", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "lona_plastica", label: "Lona plástica", codigo: "33.90.40", unidades: ["unidade"] },
-                { id: "pregos_adicionais", label: "Pregos adicionais", codigo: "33.90.41", unidades: ["unidade"] }
-              ]
-            },
-            {
-              id: "epi", label: "EPI", tipo: "Finalistica", itens: [
-                { id: "luva_protecao", label: "Luva de proteção", codigo: "33.90.30", unidades: ["unidade", "par"] },
-                { id: "oculos_protecao", label: "Óculos de proteção", codigo: "33.90.30", unidades: ["unidade"] },
-                { id: "capacete_seguranca", label: "Capacete de segurança", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "oculos_seguranca", label: "Óculos de segurança", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "luvas_protecao_tabela", label: "Luvas de proteção (Tabela)", codigo: "33.90.39", unidades: ["unidade", "par"] },
-                { id: "botina_seguranca", label: "Botina de segurança", codigo: "33.90.40", unidades: ["unidade"] },
-                { id: "mascara_respiratoria_pf2", label: "Máscara respiratória (PF2)", codigo: "33.90.41", unidades: ["unidade", "kit"] },
-                { id: "protetor_auricular", label: "Protetor auricular", codigo: "33.90.42", unidades: ["unidade", "kit"] }
-              ]
-            },
-            {
-              id: "kit_trabalho", label: "Kit Trabalho", tipo: "Kit", itens: [
-                { id: "ferramentas_basicas", label: "Ferramentas básicas", codigo: "33.90.30", unidades: ["kit"] },
-                { id: "uniforme_trabalho", label: "Uniforme de trabalho", codigo: "33.90.30", unidades: ["kit", "unidade"] }
-              ]
-            },
-            {
-              id: "Outros", label: "Outros", tipo: "Finalistica", itens: [
-                { id: "apostila_impressa", label: "Apostila impressa", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "uniforme_camiseta", label: "Uniforme (camiseta)", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "certificados", label: "Certificados", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "instrutor", label: "Instrutor", codigo: "33.90.39", unidades: ["hora"] },
-                { id: "monitor", label: "Monitor", codigo: "33.90.39", unidades: ["hora"] },
-                { id: "lanche_participantes", label: "Lanche para os participantes do curso", codigo: "33.90.39", unidades: ["unidade"] },
-                { id: "transporte_participantes", label: "Transporte para os participantes do curso", codigo: "33.90.39", unidades: ["unidade"] }
-              ]
-            }
-          ],
-          stage11: [
-            { id: "servico_planejamento", label: "Serviço de planejamento", codigo: "33.90.39", unidades: ["servico", "hora"], tipo: "Gestao" },
-            { id: "mobilizacao_divulgacao", label: "Mobilização e divulgação", codigo: "33.90.39", unidades: ["servico", "unidade"], tipo: "Finalistica" },
-            { id: "monitoramento_projeto", label: "Monitoramento do projeto", codigo: "33.90.39", unidades: ["servico", "hora"], tipo: "Gestao" },
-            { id: "material_apoio_execucao", label: "Material de apoio à execução", codigo: "33.90.30", unidades: ["unidade", "kit"], tipo: "Finalistica" },
-            { id: "servicos_administrativos_financeiros", label: "Serviços administrativos e financeiros do projeto (Taxa de Administração)", codigo: "33.90.39", unidades: ["unidade"], tipo: "Gestao" },
-            { id: "coordenador_geral", label: "Contratação de Coordenador geral", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "coordenador_executivo", label: "Contratação de Coordenador Executivo", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "assessor_tecnico", label: "Contratação de Assessor Técnico", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "assessor_operacional", label: "Contratação de Assessor Operacional", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "apoio_administrativo", label: "Contratação de Apoio Administrativo", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "diarias_equipe_gestao", label: "Diárias para equipe de gestão", codigo: "33.90.39", unidades: ["diaria", "unidade"], tipo: "Finalistica" },
-            { id: "material_consumo_gestao", label: "Material de Consumo (pasta, lápis, caneta, papel, etc.)", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
-            { id: "producao_banners", label: "Serviço de Produção de banners", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
-            { id: "desenvolvimento_website", label: "Serviço de desenvolvimento de website", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
-            { id: "webmaster_social_media", label: "Serviço de webmaster e social mídia do Projeto", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
-            { id: "coordenador_regional", label: "Contratação de Coordenador Regional", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "mobilizador_social", label: "Contratação de Mobilizadores Sociais", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "assistente_academico", label: "Contratação de Assistente Acadêmico", codigo: "33.90.39", unidades: ["hora"], tipo: "Gestao" },
-            { id: "servico_comunicacao", label: "Serviço de comunicação", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" }
-          ],
-          stage12: [
-            { id: "notebook", label: "Aquisição de notebook", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "smartphone", label: "Aquisição de smartphone", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "power_bank", label: "Aquisição de power bank", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "tela_projecao", label: "Aquisição de tela de projeção", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "mesa_som", label: "Aquisição de mesa de som", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "caixa_som_amplificada", label: "Aquisição de caixa de som amplificada", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "microfone_sem_fio", label: "Aquisição de microfone sem fio", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "camera_dslr_mirrorless", label: "Aquisição de câmera DSLR/Mirrorless", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "camera_360", label: "Aquisição de câmera 360°", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "extensao_filtro_linha", label: "Aquisição de extensão/filtro de linha profissional", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "kit_portatil_som", label: "Aquisição de kit portátil de som", codigo: "44.90.52", unidades: ["unidade"], tipo: "Estruturacao" },
-            { id: "locacao_espaco_capacitacao", label: "Locação de espaço para as capacitações", codigo: "33.90.39", unidades: ["unidade", "servico"], tipo: "Estruturacao" }
-          ],
-          event: [
-            { id: "locacao_espaco", label: "Locação de espaço para evento", codigo: "33.90.39", unidades: ["servico", "diaria"], tipo: "Finalistica" },
-            { id: "impressao_certificados", label: "Impressão de certificados", codigo: "33.90.39", unidades: ["unidade"], tipo: "Finalistica" },
-            { id: "servico_organizacao_evento", label: "Serviço de organização do evento", codigo: "33.90.39", unidades: ["servico"], tipo: "Gestao" },
-            { id: "kit_evento", label: "Kit para participantes do evento", codigo: "33.90.30", unidades: ["kit"], tipo: "Kit" },
-            { id: "contratacao", label: "Contratação de Pessoa jurídica para realizar os Eventos de celebração do Termo de Execução Descentralizada e certificação e Avaliação dos avanços do projeto.", codigo: "33.90.39", unidades: ["unidade"], tipo: "Gestao" }
-          ]
-        };
 
     let catalogs = {};
 
@@ -1263,31 +1117,6 @@
       if (!response.ok) throw new Error(`Não foi possível carregar o catálogo (${response.status}).`);
       catalogs = buildCatalogsFromCsv(parseCatalogCsv(await response.text()));
     }
-
-    /* =========================================================
-       ITENS PADRÃO DAS TABELAS DE DESPESAS DOS CURSOS
-       Cada novo curso é iniciado com estas 15 despesas:
-       - 8 itens de "Kit participante";
-       - 7 itens de "Outros".
-       Quantidade e valor unitário permanecem para preenchimento.
-       ========================================================= */
-    const defaultCourseExpenseItems = [
-      { tipoId: "kit_participante", itemId: "estojo_escolar_simples_nylon_preto" },
-      { tipoId: "kit_participante", itemId: "caderno_a4_100_paginas" },
-      { tipoId: "kit_participante", itemId: "lapis_preto_hb2_kit_com_4_unidades" },
-      { tipoId: "kit_participante", itemId: "apontador_de_lapis_grafite" },
-      { tipoId: "kit_participante", itemId: "borracha_para_lapis_grafite" },
-      { tipoId: "kit_participante", itemId: "caneta_esferografica_azul_kit_com_3_unidades" },
-      { tipoId: "kit_participante", itemId: "mochila_poliester_42cm_x_48cm_x_33cm" },
-      { tipoId: "kit_participante", itemId: "eco_bag" },
-      { tipoId: "Outros", itemId: "apostila_impressa" },
-      { tipoId: "Outros", itemId: "camiseta" },
-      { tipoId: "Outros", itemId: "certificados" },
-      { tipoId: "Outros", itemId: "instrutor" },
-      { tipoId: "Outros", itemId: "monitor" },
-      { tipoId: "Outros", itemId: "lanche" },
-      { tipoId: "Outros", itemId: "transporte" }
-    ];
 
     /* ======================================================================
        2. ESTADO E REFERÊNCIAS DA INTERFACE
@@ -1621,7 +1450,6 @@
         for (let index = existing.length; index < desired; index += 1) {
           const card = buildCourseCard(index);
           container.appendChild(card);
-          populateDefaultCourseExpenses(card, index);
         }
       } else if (existing.length > desired) {
         existing.slice(desired).forEach(card => card.remove());
@@ -1632,7 +1460,7 @@
       return `<div class="empty-state">${escapeHtml(message)}</div>`;
     }
 
-    function courseExpenseRow(courseIndex, preset = null) {
+    function courseExpenseRow(courseIndex) {
       const rowId = `course-${courseIndex}-${++state.rowCounter}`;
       const tr = document.createElement("tr");
       tr.dataset.rowId = rowId;
@@ -1645,24 +1473,6 @@
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
         ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
         <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
-
-      if (preset) {
-        const typeSelect = tr.querySelector('[data-field="tipo_item_despesa"]');
-        const itemSelect = tr.querySelector('[data-field="item_despesa"]');
-        const unitSelect = tr.querySelector('[data-field="unidade"]');
-
-        typeSelect.value = preset.tipoId;
-        updateCourseDependencies(tr);
-        itemSelect.value = preset.itemId;
-        syncComboboxDisplay(itemSelect);
-        updateCourseItemDependencies(tr);
-
-        const type = catalogs.tiposItemCurso.find(entry => entry.id === preset.tipoId);
-        const item = type?.itens.find(entry => entry.id === preset.itemId);
-        if (item?.unidades?.length) unitSelect.value = item.unidades[0];
-
-        tr.dataset.defaultCourseItem = preset.itemId;
-      }
 
       return tr;
     }
@@ -1823,25 +1633,6 @@
         container.replaceChildren(wrapper);
       }
       updateStageSummary(kind);
-    }
-
-    /* =========================================================
-       PREENCHIMENTO INICIAL DAS DESPESAS DE CADA NOVO CURSO
-       O preenchimento ocorre somente na criação do card, evitando
-       recriar itens que o usuário tenha removido posteriormente.
-       ========================================================= */
-    function populateDefaultCourseExpenses(card, courseIndex) {
-      const container = card.querySelector(`[data-course-expenses="${courseIndex}"]`);
-      if (!container || container.dataset.defaultsLoaded === "true") return;
-
-      const rows = defaultCourseExpenseItems.map(preset =>
-        courseExpenseRow(courseIndex, preset)
-      );
-
-      container.dataset.defaultsLoaded = "true";
-      container.replaceChildren(...rows);
-      renderCourseExpenseTable(container);
-      syncCourseExpenseQuantities(card);
     }
 
     function addCourseExpense(courseIndex) {
