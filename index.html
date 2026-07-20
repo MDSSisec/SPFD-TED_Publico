@@ -934,10 +934,11 @@
      */
 
     /* =========================================================
-       CATÁLOGO NEGOCIAL ATUALIZADO
-       Fonte: arquivo catalogo.html fornecido pelo usuário.
+       CATÁLOGO MOCK LEGADO
+       Mantido isolado durante a migração para facilitar conferência.
+       Não é utilizado para montar a interface.
        ========================================================= */
-    const catalogs = {
+    const legacyMockCatalogs = {
           fontesRecurso: ["SISEC", "Contrapartida"],
           tiposItemCurso: [
             {
@@ -1079,6 +1080,127 @@
           ]
         };
 
+    let catalogs = {};
+
+    /* =========================================================
+       CATÁLOGO CARREGADO DO CSV
+       A aplicação só é inicializada depois que catalogo.csv é carregado.
+       ========================================================= */
+    const catalogCsvUrl = "./catalogo.csv";
+
+    function splitCatalogValues(value) {
+      return [...new Set(String(value || "")
+        .split(",")
+        .map(part => part.trim())
+        .filter(Boolean))];
+    }
+
+    function catalogId(value) {
+      return String(value || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "_")
+        .replace(/^_+|_+$/g, "");
+    }
+
+    function normalizeExpenseType(value) {
+      const normalized = catalogId(value);
+      return {
+        gestao: "Gestao",
+        finalistica: "Finalistica",
+        estruturacao: "Estruturacao",
+        kit: "Kit"
+      }[normalized] || value.trim();
+    }
+
+    function parseCatalogCsv(text) {
+      const lines = text.replace(/^\uFEFF/, "").split(/\r?\n/).filter(line => line.trim());
+      if (lines.length < 2) throw new Error("O catálogo CSV está vazio.");
+
+      const headers = lines[0].split(";").map(header => header.trim());
+      const requiredHeaders = [
+        "Categoria",
+        "Código do Elemento de Despesa",
+        "Unidade",
+        "TIPO",
+        "Item de Despesa Padronizado"
+      ];
+      if (!requiredHeaders.every(header => headers.includes(header))) {
+        throw new Error("O catálogo CSV não possui as colunas obrigatórias.");
+      }
+
+      return lines.slice(1).map((line, lineIndex) => {
+        const values = line.split(";");
+        if (values.length !== headers.length) {
+          throw new Error(`Linha ${lineIndex + 2} inválida no catálogo CSV.`);
+        }
+        return Object.fromEntries(headers.map((header, index) => [header, values[index].trim()]));
+      });
+    }
+
+    function mergeCatalogItems(rows) {
+      const items = new Map();
+      rows.forEach(row => {
+        const label = row["Item de Despesa Padronizado"];
+        const key = catalogId(label);
+        const existing = items.get(key) || {
+          id: key,
+          label,
+          codigos: [],
+          unidades: [],
+          tipo: normalizeExpenseType(row.TIPO)
+        };
+        existing.codigos = [...new Set([
+          ...existing.codigos,
+          ...splitCatalogValues(row["Código do Elemento de Despesa"])
+        ])];
+        existing.unidades = [...new Set([
+          ...existing.unidades,
+          ...splitCatalogValues(row.Unidade)
+        ])];
+        items.set(key, existing);
+      });
+
+      return [...items.values()]
+        .map(item => ({ ...item, codigo: item.codigos[0] || "" }))
+        .sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
+    }
+
+    function buildCatalogsFromCsv(rows) {
+      const rowsByCategory = category => rows.filter(row => row.Categoria === category);
+      const courseCategories = [
+        ["kit_participante", "Kit participante"],
+        ["insumo_gerais", "Insumos gerais"],
+        ["epi", "EPI"],
+        ["kit_trabalho", "Kit trabalho"],
+        ["curso_outros", "Outros"]
+      ];
+
+      return {
+        fontesRecurso: ["SISEC", "Contrapartida"],
+        tiposItemCurso: courseCategories.map(([csvCategory, label]) => {
+          const itens = mergeCatalogItems(rowsByCategory(csvCategory));
+          return {
+            id: csvCategory === "insumo_gerais" ? "insumos_gerais" :
+              csvCategory === "curso_outros" ? "Outros" : csvCategory,
+            label,
+            tipo: itens[0]?.tipo || "",
+            itens
+          };
+        }),
+        stage11: mergeCatalogItems(rowsByCategory("stage11")),
+        stage12: mergeCatalogItems(rowsByCategory("stage12")),
+        event: mergeCatalogItems(rowsByCategory("event"))
+      };
+    }
+
+    async function loadCatalogs(url = catalogCsvUrl) {
+      const response = await fetch(url, { cache: "no-cache" });
+      if (!response.ok) throw new Error(`Não foi possível carregar o catálogo (${response.status}).`);
+      catalogs = buildCatalogsFromCsv(parseCatalogCsv(await response.text()));
+    }
+
     /* =========================================================
        ITENS PADRÃO DAS TABELAS DE DESPESAS DOS CURSOS
        Cada novo curso é iniciado com estas 15 despesas:
@@ -1089,19 +1211,19 @@
     const defaultCourseExpenseItems = [
       { tipoId: "kit_participante", itemId: "estojo_escolar_simples_nylon_preto" },
       { tipoId: "kit_participante", itemId: "caderno_a4_100_paginas" },
-      { tipoId: "kit_participante", itemId: "lapis_preto_hb2" },
-      { tipoId: "kit_participante", itemId: "apontador_de_lapis_de_grafiti" },
-      { tipoId: "kit_participante", itemId: "borracha_para_lapis_grafiti" },
-      { tipoId: "kit_participante", itemId: "caneta_esferografica_azul" },
+      { tipoId: "kit_participante", itemId: "lapis_preto_hb2_kit_com_4_unidades" },
+      { tipoId: "kit_participante", itemId: "apontador_de_lapis_grafite" },
+      { tipoId: "kit_participante", itemId: "borracha_para_lapis_grafite" },
+      { tipoId: "kit_participante", itemId: "caneta_esferografica_azul_kit_com_3_unidades" },
       { tipoId: "kit_participante", itemId: "mochila_poliester_42cm_x_48cm_x_33cm" },
-      { tipoId: "kit_participante", itemId: "ecobag_tecido" },
+      { tipoId: "kit_participante", itemId: "eco_bag" },
       { tipoId: "Outros", itemId: "apostila_impressa" },
-      { tipoId: "Outros", itemId: "uniforme_camiseta" },
+      { tipoId: "Outros", itemId: "camiseta" },
       { tipoId: "Outros", itemId: "certificados" },
       { tipoId: "Outros", itemId: "instrutor" },
       { tipoId: "Outros", itemId: "monitor" },
-      { tipoId: "Outros", itemId: "lanche_participantes" },
-      { tipoId: "Outros", itemId: "transporte_participantes" }
+      { tipoId: "Outros", itemId: "lanche" },
+      { tipoId: "Outros", itemId: "transporte" }
     ];
 
     /* ======================================================================
@@ -1628,7 +1750,7 @@
       const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
       codeSelect.disabled = !selected;
-      codeSelect.innerHTML = selected ? optionList([selected.codigo], "Selecione") : optionList([], "Selecione o item primeiro");
+      codeSelect.innerHTML = selected ? optionList(selected.codigos || [selected.codigo], "Selecione") : optionList([], "Selecione o item primeiro");
       unitSelect.disabled = !selected;
       unitSelect.innerHTML = selected ? optionList(selected.unidades, "Selecione") : optionList([], "Selecione o item primeiro");
       if (selected) codeSelect.value = selected.codigo;
@@ -1642,7 +1764,7 @@
       const unitSelect = row.querySelector('[data-field="unidade"]');
       const typeInput = row.querySelector('[data-field="tipo_despesa"]');
       codeSelect.disabled = !item;
-      codeSelect.innerHTML = item ? optionList([item.codigo]) : optionList([], "Selecione o item primeiro");
+      codeSelect.innerHTML = item ? optionList(item.codigos || [item.codigo]) : optionList([], "Selecione o item primeiro");
       unitSelect.disabled = !item;
       unitSelect.innerHTML = item ? optionList(item.unidades) : optionList([], "Selecione o item primeiro");
       typeInput.value = item?.tipo || "";
@@ -3013,12 +3135,18 @@
     /* ======================================================================
        10. INICIALIZAÇÃO
        ====================================================================== */
-    function initializeApp() {
-      bindEvents();
-      syncCourses();
-      ["stage11", "stage12", "event"].forEach(renderStageTable);
-      handleEventSection();
-      showStep("dados_gerais_projeto", { scroll: false });
+    async function initializeApp() {
+      try {
+        await loadCatalogs();
+        bindEvents();
+        syncCourses();
+        ["stage11", "stage12", "event"].forEach(renderStageTable);
+        handleEventSection();
+        showStep("dados_gerais_projeto", { scroll: false });
+      } catch (error) {
+        console.error(error);
+        setStatus(`Não foi possível iniciar o formulário: ${error.message}`, "error");
+      }
     }
 
     initializeApp();
