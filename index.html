@@ -624,32 +624,34 @@
       font-size: .76rem;
     }
 
-    /* Distribuição proporcional das oito colunas das despesas dos cursos. */
+    /* Distribuição proporcional das nove colunas das despesas dos cursos. */
     [data-course-expenses] th:nth-child(1),
-    [data-course-expenses] td:nth-child(1) { width: 14%; }
+    [data-course-expenses] td:nth-child(1) { width: 12%; }
     [data-course-expenses] th:nth-child(2),
-    [data-course-expenses] td:nth-child(2) { width: 20%; }
+    [data-course-expenses] td:nth-child(2) { width: 17%; }
     [data-course-expenses] th:nth-child(3),
-    [data-course-expenses] td:nth-child(3) { width: 14%; }
+    [data-course-expenses] td:nth-child(3) { width: 20%; }
     [data-course-expenses] th:nth-child(4),
-    [data-course-expenses] td:nth-child(4) { width: 12%; }
+    [data-course-expenses] td:nth-child(4) { width: 10%; }
     [data-course-expenses] th:nth-child(5),
     [data-course-expenses] td:nth-child(5) { width: 8%; }
     [data-course-expenses] th:nth-child(6),
-    [data-course-expenses] td:nth-child(6) { width: 12%; }
+    [data-course-expenses] td:nth-child(6) { width: 7%; }
     [data-course-expenses] th:nth-child(7),
-    [data-course-expenses] td:nth-child(7) { width: 12%; }
+    [data-course-expenses] td:nth-child(7) { width: 10%; }
     [data-course-expenses] th:nth-child(8),
-    [data-course-expenses] td:nth-child(8) { width: 8%; }
+    [data-course-expenses] td:nth-child(8) { width: 10%; }
+    [data-course-expenses] th:nth-child(9),
+    [data-course-expenses] td:nth-child(9) { width: 6%; }
 
-    /* Distribuição proporcional das nove colunas das despesas das etapas. */
+    /* Distribuição proporcional das dez colunas das despesas das etapas. */
     #stage11-table th:nth-child(1), #stage11-table td:nth-child(1),
     #stage12-table th:nth-child(1), #stage12-table td:nth-child(1),
-    #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 22%; }
+    #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 18%; }
 
     #stage11-table th:nth-child(2), #stage11-table td:nth-child(2),
     #stage12-table th:nth-child(2), #stage12-table td:nth-child(2),
-    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 12%; }
+    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 20%; }
 
     #stage11-table th:nth-child(3), #stage11-table td:nth-child(3),
     #stage12-table th:nth-child(3), #stage12-table td:nth-child(3),
@@ -661,11 +663,11 @@
 
     #stage11-table th:nth-child(5), #stage11-table td:nth-child(5),
     #stage12-table th:nth-child(5), #stage12-table td:nth-child(5),
-    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 13%; }
+    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 7%; }
 
     #stage11-table th:nth-child(6), #stage11-table td:nth-child(6),
     #stage12-table th:nth-child(6), #stage12-table td:nth-child(6),
-    #event-table th:nth-child(6), #event-table td:nth-child(6) { width: 13%; }
+    #event-table th:nth-child(6), #event-table td:nth-child(6) { width: 10%; }
 
     #stage11-table th:nth-child(7), #stage11-table td:nth-child(7),
     #stage12-table th:nth-child(7), #stage12-table td:nth-child(7),
@@ -678,6 +680,10 @@
     #stage11-table th:nth-child(9), #stage11-table td:nth-child(9),
     #stage12-table th:nth-child(9), #stage12-table td:nth-child(9),
     #event-table th:nth-child(9), #event-table td:nth-child(9) { width: 5%; }
+
+    #stage11-table th:nth-child(10), #stage11-table td:nth-child(10),
+    #stage12-table th:nth-child(10), #stage12-table td:nth-child(10),
+    #event-table th:nth-child(10), #event-table td:nth-child(10) { width: 5%; }
 
     /* Em telas intermediárias, o menu fica acima para liberar a largura inteira. */
     @media (max-width: 1180px) {
@@ -740,40 +746,44 @@
 
       [data-course-expenses] td:nth-child(1)::before { content: "Tipo do item"; }
       [data-course-expenses] td:nth-child(2)::before { content: "Item"; }
-      [data-course-expenses] td:nth-child(3)::before { content: "Elemento"; }
-      [data-course-expenses] td:nth-child(4)::before { content: "Unidade"; }
-      [data-course-expenses] td:nth-child(5)::before { content: "Quantidade"; }
-      [data-course-expenses] td:nth-child(6)::before { content: "Valor unitário"; }
-      [data-course-expenses] td:nth-child(7)::before { content: "Valor total"; }
-      [data-course-expenses] td:nth-child(8)::before { content: "Ações"; }
+      [data-course-expenses] td:nth-child(3)::before { content: "Detalhamento do item"; }
+      [data-course-expenses] td:nth-child(4)::before { content: "Elemento"; }
+      [data-course-expenses] td:nth-child(5)::before { content: "Unidade"; }
+      [data-course-expenses] td:nth-child(6)::before { content: "Quantidade"; }
+      [data-course-expenses] td:nth-child(7)::before { content: "Valor unitário"; }
+      [data-course-expenses] td:nth-child(8)::before { content: "Valor total"; }
+      [data-course-expenses] td:nth-child(9)::before { content: "Ações"; }
 
       #stage11-table td:nth-child(1)::before,
       #stage12-table td:nth-child(1)::before,
       #event-table td:nth-child(1)::before { content: "Item"; }
       #stage11-table td:nth-child(2)::before,
       #stage12-table td:nth-child(2)::before,
-      #event-table td:nth-child(2)::before { content: "Elemento"; }
+      #event-table td:nth-child(2)::before { content: "Detalhamento do item"; }
       #stage11-table td:nth-child(3)::before,
       #stage12-table td:nth-child(3)::before,
-      #event-table td:nth-child(3)::before { content: "Unidade"; }
+      #event-table td:nth-child(3)::before { content: "Elemento"; }
       #stage11-table td:nth-child(4)::before,
       #stage12-table td:nth-child(4)::before,
-      #event-table td:nth-child(4)::before { content: "Quantidade"; }
+      #event-table td:nth-child(4)::before { content: "Unidade"; }
       #stage11-table td:nth-child(5)::before,
       #stage12-table td:nth-child(5)::before,
-      #event-table td:nth-child(5)::before { content: "Valor unitário"; }
+      #event-table td:nth-child(5)::before { content: "Quantidade"; }
       #stage11-table td:nth-child(6)::before,
       #stage12-table td:nth-child(6)::before,
-      #event-table td:nth-child(6)::before { content: "Valor total"; }
+      #event-table td:nth-child(6)::before { content: "Valor unitário"; }
       #stage11-table td:nth-child(7)::before,
       #stage12-table td:nth-child(7)::before,
-      #event-table td:nth-child(7)::before { content: "Fonte"; }
+      #event-table td:nth-child(7)::before { content: "Valor total"; }
       #stage11-table td:nth-child(8)::before,
       #stage12-table td:nth-child(8)::before,
-      #event-table td:nth-child(8)::before { content: "Tipo"; }
+      #event-table td:nth-child(8)::before { content: "Fonte"; }
       #stage11-table td:nth-child(9)::before,
       #stage12-table td:nth-child(9)::before,
-      #event-table td:nth-child(9)::before { content: "Ações"; }
+      #event-table td:nth-child(9)::before { content: "Tipo"; }
+      #stage11-table td:nth-child(10)::before,
+      #stage12-table td:nth-child(10)::before,
+      #event-table td:nth-child(10)::before { content: "Ações"; }
 
       td:last-child .btn { width: auto; }
     }
@@ -1490,6 +1500,7 @@
       tr.innerHTML = `
         ${tableCellSelect("tipo_item_despesa", optionList(catalogs.tiposItemCurso), rowId, "Tipo do item")}
         ${tableCellCombobox("item_despesa", [], rowId, "Item", "Selecione o tipo primeiro", true)}
+        ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
         ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
@@ -1507,6 +1518,7 @@
       tr.dataset.stageKind = kind;
       tr.innerHTML = `
         ${tableCellCombobox("item_despesa", catalogs[kind], rowId, "Item")}
+        ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
         ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
@@ -1628,7 +1640,7 @@
       table.className = "table-wrap";
       table.innerHTML = `<table>
         <thead><tr>
-          <th>Tipo do item *</th><th>Item *</th><th>Elemento *</th><th>Unidade *</th>
+          <th>Tipo do item *</th><th>Item *</th><th>Detalhamento do item *</th><th>Elemento *</th><th>Unidade *</th>
           <th>Qtd. *</th><th>Valor unitário *</th><th>Valor total</th><th>Ações</th>
         </tr></thead><tbody></tbody></table>`;
       rows.forEach(row => table.querySelector("tbody").appendChild(row));
@@ -1646,7 +1658,7 @@
         wrapper.className = "table-wrap";
         wrapper.innerHTML = `<table>
           <thead><tr>
-            <th>Item *</th><th>Elemento *</th><th>Unidade *</th><th>Qtd. *</th>
+            <th>Item *</th><th>Detalhamento do item *</th><th>Elemento *</th><th>Unidade *</th><th>Qtd. *</th>
             <th>Valor unitário *</th><th>Valor total</th><th>Fonte *</th>
             <th>Tipo</th><th>Ações</th>
           </tr></thead><tbody></tbody></table>`;
@@ -1989,15 +2001,22 @@
       return select?.selectedOptions?.[0]?.textContent || "";
     }
 
+    function detailedItemLabel(itemLabel, itemDetail) {
+      const detail = String(itemDetail || "").trim();
+      return detail ? `${itemLabel} (${detail})` : itemLabel;
+    }
+
     function collectCourseExpenses(card) {
       return [...card.querySelectorAll("[data-course-expenses] tbody tr")].map(row => {
         const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        const itemDetail = row.querySelector('[data-field="detalhamento_item"]').value.trim();
         return {
           tipo_item_id: typeSelect.value,
           tipo_item_label: selectedText(typeSelect),
           item_id: itemSelect.value,
-          item_label: selectedText(itemSelect),
+          item_label: detailedItemLabel(selectedText(itemSelect), itemDetail),
+          detalhamento_item: itemDetail,
           codigo_elemento_despesa: row.querySelector('[data-field="codigo_elemento_despesa"]').value,
           unidade: row.querySelector('[data-field="unidade"]').value,
           quantidade_itens: Number(row.querySelector('[data-field="quantidade_itens"]').value),
@@ -2036,9 +2055,11 @@
       const end = period?.querySelector('[data-field="fim_etapa"]')?.value || "";
       return [...document.querySelectorAll(`#${kind}-table tbody tr`)].map(row => {
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        const itemDetail = row.querySelector('[data-field="detalhamento_item"]').value.trim();
         return {
           item_id: itemSelect.value,
-          item_label: selectedText(itemSelect),
+          item_label: detailedItemLabel(selectedText(itemSelect), itemDetail),
+          detalhamento_item: itemDetail,
           codigo_elemento_despesa: row.querySelector('[data-field="codigo_elemento_despesa"]').value,
           unidade: row.querySelector('[data-field="unidade"]').value,
           quantidade_itens: Number(row.querySelector('[data-field="quantidade_itens"]').value),
