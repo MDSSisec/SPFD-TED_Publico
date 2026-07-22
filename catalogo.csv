@@ -1,11 +1,11 @@
 Categoria;Código do Elemento de Despesa;Unidade;TIPO;Item de Despesa Padronizado
-curso_outros;33.90.39;unidade;finalística;Almoço para participantes
+alimentacao;33.90.39;unidade;finalística;Almoço para participantes
 curso_outros;33.90.30, 33.90.39;unidade;finalística;Apostila
 curso_outros;33.90.39;hora;finalística;Assessoria especializada
 curso_outros;33.90.30, 33.90.39;unidade;finalística;Camiseta
 curso_outros;33.90.30, 33.90.39;unidade;finalística;Certificado
 curso_outros;33.90.39, 33.90.48;hora;finalística;Instrutor
-curso_outros;33.90.39;unidade;finalística;Lanche
+alimentacao;33.90.39;unidade;finalística;Lanche
 curso_outros;33.90.39;hora;finalística;Mentor
 curso_outros;33.90.39, 33.90.48;hora;finalística;Monitor
 curso_outros;33.90.39;hora;finalística;Palestrante
