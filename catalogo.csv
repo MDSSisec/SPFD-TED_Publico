@@ -1035,19 +1035,18 @@ event;00.00.00;unidade;finalística;Serviço de credenciamento e recepção dos 
 event;33.90.39;unidade;finalística;Serviço de Fotografia e Filmar (2 eventos)
 event;00.00.00;unidade;finalística;Serviço de limpeza e apoio logístico
 event;33.90.39;unidade;finalística;Serviço de Mestre de Cerimônias
-event;33.90.39;unidade;"Abraçadeira Galvanizada ""D"" para Eletroduto 3/4 com Cunha";Serviço de Projeção Visual (2 eventos)
 event;00.00.00;unidade;finalística;Serviço de segurança e brigadistas
 event;00.00.00;unidade;finalística;Serviço de sonorização profissional com mesa de som
 insumo_gerais;00.00.00;unidade;finalística;Frascos 30 mL Pet borrifador com válvula spray para perfumes - pacote com 100 unidades
-insumo_gerais;33.90.39;unidade;finalística;"Abraçadeira Galvanizada ""D"" para Eletroduto 3/4 com Cunha"
+insumo_gerais;33.90.39;unidade;finalística;Abraçadeira Galvanizada D para Eletroduto 3/4 com Cunha
 insumo_gerais;33.90.39;unidade;finalística;Abraçadeira ovalada metálica para fixação de lâmpada fluorescente T8
-insumo_gerais;33.90.39;unidade;finalística;"Abraçadeira tipo U - 3/4"" - aço carbono galvanizado"
+insumo_gerais;33.90.39;unidade;finalística;Abraçadeira tipo U - 3/4 - aço carbono galvanizado
 insumo_gerais;00.00.00;unidade;finalística;Abraçadeiras, Velcros e Organizadores de Cabos
 insumo_gerais;00.00.00;unidade;finalística;Abridor de Latas
 insumo_gerais;33.90.30;unidade;finalística;Acetona 500ml
-insumo_gerais;33.90.39;unidade;finalística;"Adaptador em latão com espigão 3/8"" (10mm) e rosca macho BPS 1/2"""
+insumo_gerais;33.90.39;unidade;finalística;Adaptador em latão com espigão 3/8 (10mm) e rosca macho BPS 1/2
 insumo_gerais;33.90.39;unidade;finalística;Adaptador Soldável Bolsa/Rosca PVC 25mm Marrom
-insumo_gerais;33.90.39;unidade;finalística;"Adaptador Soldável em PVC Curto com Bolsa e Rosca 25mmX3/4"""
+insumo_gerais;33.90.39;unidade;finalística;Adaptador Soldável em PVC Curto com Bolsa e Rosca 25mmX3/4
 insumo_gerais;33.90.39;unidade;finalística;Adaptador Soldável PVC Bolsa/Rosca 32mm Marrom
 insumo_gerais;33.90.39;unidade;finalística;Adesivo/Cola instantânea líquida de alta viscosidade para madeira/MDF (100g)
 insumo_gerais;33.90.39;unidade;finalística;Adubo - saco
@@ -1104,10 +1103,10 @@ insumo_gerais;33.90.39;unidade;finalística;Argolas para chaveiro - kit com 10 u
 insumo_gerais;00.00.00;unidade;finalística;Aristoflex AVC 100 gramas - pacote
 insumo_gerais;33.90.39;unidade;finalística;Armário Para Escritório Alto 2 Portas Com Chave e prateleiras (dimensões mínimas em cm: P: 42 x L: 91 x A: 161)
 insumo_gerais;33.90.39;unidade;finalística;Arroz - quilograma
-insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 1/4""X10mmX1mm"
-insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 3/8""X20mmX1mm"
-insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 5/16""X10mmX1mm"
-insumo_gerais;33.90.39;unidade;finalística;"Arruela lisa 5/32""X10mmX1mm"
+insumo_gerais;33.90.39;unidade;finalística;Arruela lisa 1/4X10mmX1mm
+insumo_gerais;33.90.39;unidade;finalística;Arruela lisa 3/8X20mmX1mm
+insumo_gerais;33.90.39;unidade;finalística;Arruela lisa 5/16X10mmX1mm
+insumo_gerais;33.90.39;unidade;finalística;Arruela lisa 5/32X10mmX1mm
 insumo_gerais;00.00.00, 33.90.51;unidade;finalística;Assadeiras
 insumo_gerais;00.00.00;unidade;finalística;Avental/Capote Descartável - pacote com 10 unidades
 insumo_gerais;33.90.39;unidade;finalística;Bacia grande (inox)
@@ -1131,8 +1130,8 @@ insumo_gerais;00.00.00;unidade;finalística;Bandejas laboratoriais
 insumo_gerais;00.00.00;unidade;finalística;Banner profissional
 insumo_gerais;33.90.30;unidade;finalística;Banners
 insumo_gerais;33.90.57;unidade;finalística;Barbante/linha
-insumo_gerais;33.90.39;unidade;finalística;Barra chata 3/8"" x 2"" com 6000mm"
-insumo_gerais;33.90.39;unidade;finalística;Barra chata 3/8"" x 4"" com 6000mm"
+insumo_gerais;33.90.39;unidade;finalística;Barra chata 3/8 x 2 com 6000mm
+insumo_gerais;33.90.39;unidade;finalística;Barra chata 3/8 x 4 com 6000mm
 insumo_gerais;33.90.39;unidade;finalística;Barra de conectores isolados tipo Sindal (12 bornes, para cabos até 4mm²)
 insumo_gerais;33.90.39;unidade;finalística;Barramento de Neutro
 insumo_gerais;33.90.39;unidade;finalística;Barramento de Terra
@@ -1233,7 +1232,7 @@ insumo_gerais;00.00.00;unidade;finalística;Canetas
 insumo_gerais;33.90.60;unidade;finalística;Canetas (kit)
 insumo_gerais;00.00.00;unidade;finalística;Canetas/markers
 insumo_gerais;00.00.00;unidade;finalística;Canetas/markers (kit)
-insumo_gerais;33.90.39;unidade;finalística;"Cano 40"" - metro"
+insumo_gerais;33.90.39;unidade;finalística;Cano 40 - metro
 insumo_gerais;33.90.41;unidade;finalística;Carnes - quilograma
 insumo_gerais;33.90.39, 33.90.55;unidade;finalística;Carrinho de mão
 insumo_gerais;00.00.00;unidade;finalística;Cartas educativas (alfabeto/números)
@@ -1253,10 +1252,10 @@ insumo_gerais;33.90.51;unidade;finalística;Chaleira
 insumo_gerais;33.90.39;unidade;finalística;Chave Boia Unipolar 15A (Nível superior/inferior, cabo de 1, 2 a 1, 5m)
 insumo_gerais;33.90.39;unidade;finalística;Chave Combinada com Catraca Speedy 12 Peças de 8 a 19 mm
 insumo_gerais;00.00.00;unidade;finalística;Chave de fenda
-insumo_gerais;33.90.39;unidade;finalística;"Chave Inglesa ajustável de boca com escala métrica (Comprimento 8"") - Vonder"
+insumo_gerais;33.90.39;unidade;finalística;Chave Inglesa ajustável de boca com escala métrica (Comprimento 8) - Vonder
 insumo_gerais;00.00.00;unidade;finalística;Chave Philips
-insumo_gerais;33.90.43;unidade;finalística;"Chave Philips 1/8"""
-insumo_gerais;33.90.42;unidade;finalística;"Chave Philips 3/6"""
+insumo_gerais;33.90.43;unidade;finalística;Chave Philips 1/8
+insumo_gerais;33.90.42;unidade;finalística;Chave Philips 3/6
 insumo_gerais;33.90.39;unidade;finalística;Chave seccionadora rotativa solar 32A - 4polos DIN
 insumo_gerais;33.90.39;unidade;finalística;Chave seletora de duas posições plástica para painel (Ø22mm, 1NA/1NF)
 insumo_gerais;33.90.39;unidade;finalística;Chaves isoladas
@@ -1274,22 +1273,22 @@ insumo_gerais;00.00.00;unidade;finalística;Colher medidora conjunto
 insumo_gerais;00.00.00, 33.90.54;unidade;finalística;Colheres grandes
 insumo_gerais;00.00.00, 33.90.57;unidade;finalística;Colheres medidoras (kit)
 insumo_gerais;33.90.49;unidade;finalística;Compensado (chapa)
-insumo_gerais;33.90.39;unidade;finalística;"Conduíte Eletroduto Corrugado Leve (amarelo) 3/4"" 50 Metros. Referência: Tigre"
-insumo_gerais;33.90.39;unidade;finalística;"Conduíte Eletroduto Corrugado Reforçado (laranja) 3/4"" 50 Metros. Referência: Tigre"
-insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - C - 3/4 "" Sem Rosca Cinza S/Tampa"
-insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - E - 3/4 "" Sem Rosca Cinza S/Tampa"
-insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - LL 3/4 "" Sem Rosca Cinza S/Tampa"
-insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - LR 3/4 "" Sem Rosca Cinza S/Tampa"
-insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - T 3/4 "" Sem Rosca Cinza S/Tampa"
-insumo_gerais;33.90.39;unidade;finalística;"Condulete PVC - X - 3/4 "" Sem Rosca Cinza S/Tampa"
+insumo_gerais;33.90.39;unidade;finalística;Conduíte Eletroduto Corrugado Leve (amarelo) 3/4 50 Metros. Referência: Tigre
+insumo_gerais;33.90.39;unidade;finalística;Conduíte Eletroduto Corrugado Reforçado (laranja) 3/4 50 Metros. Referência: Tigre
+insumo_gerais;33.90.39;unidade;finalística;Condulete PVC - C - 3/4  Sem Rosca Cinza S/Tampa
+insumo_gerais;33.90.39;unidade;finalística;Condulete PVC - E - 3/4  Sem Rosca Cinza S/Tampa
+insumo_gerais;33.90.39;unidade;finalística;Condulete PVC - LL 3/4  Sem Rosca Cinza S/Tampa
+insumo_gerais;33.90.39;unidade;finalística;Condulete PVC - LR 3/4  Sem Rosca Cinza S/Tampa
+insumo_gerais;33.90.39;unidade;finalística;Condulete PVC - T 3/4  Sem Rosca Cinza S/Tampa
+insumo_gerais;33.90.39;unidade;finalística;Condulete PVC - X - 3/4  Sem Rosca Cinza S/Tampa
 insumo_gerais;33.90.39;unidade;finalística;Conector de Emenda por Torção cônico mola de aço (fios 0, 8 a 2, 5mm²)
 insumo_gerais;33.90.39;unidade;finalística;Conector de Emenda por Torção cônico mola de aço (fios 1, 5 a 6, 0mm²)
 insumo_gerais;33.90.39;unidade;finalística;Conector em Barra (sindal) - 2, 5mm com 12 Polos
 insumo_gerais;33.90.39;unidade;finalística;Conector MC4 - Par macho/fêmea
 insumo_gerais;33.90.39;unidade;finalística;Conector Mc4 (par)
-insumo_gerais;33.90.39;unidade;finalística;"Conector para haste de aterramento 5/8"" cabo 6mm2"
-insumo_gerais;33.90.39;unidade;finalística;"Conector paralelo em latão forjado para haste de aterramento de 5/8"""
-insumo_gerais;33.90.39;unidade;finalística;"Conector Reto PVC 3/4"" Cinza"
+insumo_gerais;33.90.39;unidade;finalística;Conector para haste de aterramento 5/8 cabo 6mm2
+insumo_gerais;33.90.39;unidade;finalística;Conector paralelo em latão forjado para haste de aterramento de 5/8
+insumo_gerais;33.90.39;unidade;finalística;Conector Reto PVC 3/4 Cinza
 insumo_gerais;33.90.39;unidade;finalística;Conector Wago Emenda Alavanca (2 fios) para cabos até 4 mm² com 50 unid
 insumo_gerais;33.90.39;unidade;finalística;Conector Wago Emenda Alavanca (3 fios) para cabos até 4 mm² com 50 unid
 insumo_gerais;33.90.39;unidade;finalística;Conector Wago Emenda Alavanca (5 fios) para cabos até 4 mm² com 50 unid
@@ -1312,10 +1311,10 @@ insumo_gerais;33.90.40;unidade;finalística;Cortador de piso
 insumo_gerais;33.90.39;unidade;finalística;Cosméticos (Loção pré e gel pós-depilatório (500ml) )
 insumo_gerais;00.00.00;unidade;finalística;Credenciais
 insumo_gerais;00.00.00;unidade;finalística;Cronômetro Digital Multifuncional Alarme profissional de Mão
-insumo_gerais;33.90.39;unidade;finalística;"Curva 90° soldável em PVC rígido para eletroduto preto/zincado de 3/4"""
+insumo_gerais;33.90.39;unidade;finalística;Curva 90° soldável em PVC rígido para eletroduto preto/zincado de 3/4
 insumo_gerais;33.90.39;unidade;finalística;Curva 90° Soldável PVC 25mm Marrom
 insumo_gerais;33.90.39;unidade;finalística;Curva para eletroduto - 90° PVC com Bolsa 3/4'' - Cinza
-insumo_gerais;33.90.39;unidade;finalística;"Curva para tubulação hidráulica - 90° PVC Soldável 3/4"""
+insumo_gerais;33.90.39;unidade;finalística;Curva para tubulação hidráulica - 90° PVC Soldável 3/4
 insumo_gerais;33.90.39;unidade;finalística;Dermógrafo Simples (Para treino de micropigmentação básica)
 insumo_gerais;00.00.00;unidade;finalística;Descarte perfurocortante
 insumo_gerais;00.00.00;unidade;finalística;Descascadores
@@ -1350,7 +1349,7 @@ insumo_gerais;33.90.39;unidade;finalística;Eletrodo 7018, diametro 2, 5mm - qui
 insumo_gerais;33.90.39;unidade;finalística;Eletroduto corrugado 20mm (30m)
 insumo_gerais;33.90.39;unidade;finalística;Eletroduto Corrugado Leve Flexível DN25 - 25mm - Amarelo
 insumo_gerais;33.90.39;unidade;finalística;Eletroduto Leve Sem Rosca PVC Cinza - 3/4''
-insumo_gerais;33.90.39;unidade;finalística;"Eletroduto rígido roscável em PVC preto/cinza (Bitola 3/4"", barra de 3m)"
+insumo_gerais;33.90.39;unidade;finalística;Eletroduto rígido roscável em PVC preto/cinza (Bitola 3/4, barra de 3m)
 insumo_gerais;33.90.39;unidade;finalística;Eletrodutos PVC
 insumo_gerais;00.00.00;unidade;finalística;Embalagens (doces/salgados)
 insumo_gerais;33.90.39;unidade;finalística;Enxada
@@ -1382,7 +1381,7 @@ insumo_gerais;33.90.39;unidade;finalística;Estante de Partitura
 insumo_gerais;33.90.39;unidade;finalística;Estante organizadora multiuso em aço com 3 prateleiras (EDP03) - Pandin
 insumo_gerais;00.00.00;unidade;finalística;Esterco curtido - saco
 insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Estetoscópio
-insumo_gerais;00.00.00;unidade;finalística;"Estetoscópio, Tipo: Biauricular, Acessórios: Olivas Anatômicas Pvc, Haste: Haste Aço Inox, Tubo: Tubo ""Y"" Pvc, Auscultador: Auscultador Aço Inox C/Anel De Borracha, Tamanho: Adulto"
+insumo_gerais;00.00.00;unidade;finalística;Estetoscópio, Tipo: Biauricular, Acessórios: Olivas Anatômicas Pvc, Haste: Haste Aço Inox, Tubo: Tubo Y Pvc, Auscultador: Auscultador Aço Inox C/Anel De Borracha, Tamanho: Adulto
 insumo_gerais;00.00.00;unidade;finalística;Estetoscópios infantis
 insumo_gerais;33.90.39;unidade;finalística;Estilete profissional emborrachado com trava e lâmina larga de 18mm
 insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Etiqueta
@@ -1497,7 +1496,7 @@ insumo_gerais;00.00.00;unidade;finalística;Jogos de tabuleiro adaptados para TE
 insumo_gerais;00.00.00;unidade;finalística;kit 100 potes vazios 30 g, pote para creme, pote para pomada - pacote com 100 unidades
 insumo_gerais;33.90.39;unidade;finalística;Kit 5 Barreiras Obstáculo Treinamento Funcional Futebol 23cm - kit com 4 unidades
 insumo_gerais;33.90.39;unidade;finalística;Kit 57 Itens Material Escolar Infantil Creche - kit com 57 itens
-insumo_gerais;33.90.39;unidade;finalística;"Kit Abraçadeira Tipo Clique (Cunhada) de 25mm (3/4"") Conduite Pvc cor: preta com 10 Unidades. Referência: Adesso"
+insumo_gerais;33.90.39;unidade;finalística;Kit Abraçadeira Tipo Clique (Cunhada) de 25mm (3/4) Conduite Pvc cor: preta com 10 Unidades. Referência: Adesso
 insumo_gerais;33.90.40;unidade;finalística;Kit Árbitro Com Apito/Jogo De Cartão/Cronômetro Digital - kit com 3 unidades
 insumo_gerais;33.90.39;unidade;finalística;Kit aterramento simples
 insumo_gerais;33.90.39;unidade;finalística;Kit Ceras (Cera elástica (5kg) e Refil Roll-on (10 un) ) - kit
@@ -1591,7 +1590,7 @@ insumo_gerais;33.90.39;unidade;finalística;Luminária Spot de sobrepor externa 
 insumo_gerais;33.90.39;unidade;finalística;Lupa de Cabeça (Com iluminação LED)
 insumo_gerais;33.90.39;unidade;finalística;Luva de emenda por pressão para eletroduto flexível corrugado de 25mm
 insumo_gerais;33.90.39;unidade;finalística;Luva de Rosca PVC 20mm Marrom
-insumo_gerais;33.90.39;unidade;finalística;"Luva roscada de união para eletroduto rígido de PVC de 3/4"""
+insumo_gerais;33.90.39;unidade;finalística;Luva roscada de união para eletroduto rígido de PVC de 3/4
 insumo_gerais;00.00.00;unidade;finalística;Luva Térmica
 insumo_gerais;33.90.39;unidade;finalística;Luvas de PVC (cano longo - M)
 insumo_gerais;33.90.39;unidade;finalística;Luvas de PVC (cano longo - XG)
@@ -1602,7 +1601,7 @@ insumo_gerais;33.90.39;unidade;finalística;Maçarico (kit solda)
 insumo_gerais;33.90.39;unidade;finalística;Maleta de Maquiagem (Com rodinhas e divisórias)
 insumo_gerais;33.90.39, 33.90.56;unidade;finalística;Mangueira (20 m)
 insumo_gerais;00.00.00;unidade;finalística;Mangueira de jardim - peça c/30m
-insumo_gerais;33.90.39;unidade;finalística;"Mangueira de PVC Cristal de 1/2"" com superfície lisa"
+insumo_gerais;33.90.39;unidade;finalística;Mangueira de PVC Cristal de 1/2 com superfície lisa
 insumo_gerais;00.00.00;unidade;finalística;Mangueiras de irrigação - peça c/100m
 insumo_gerais;33.90.39;unidade;finalística;Manifold (jogo de manômetros)
 insumo_gerais;00.00.00;unidade;finalística;Manta Magnética Antiestática Silicone Azul - S160 G 300x450
@@ -1633,7 +1632,7 @@ insumo_gerais;00.00.00;unidade;finalística;Metanol
 insumo_gerais;00.00.00;unidade;finalística;Mini bisnaga plástica de 30 ml corpo branco (com 100 unid) - pacote com 100 unidades
 insumo_gerais;33.90.39;unidade;finalística;Mini pá de bico
 insumo_gerais;33.90.39;unidade;finalística;Mini-Contator de Potência (bobina 220V, contatos até 16A, trilho DIN) - WEG
-insumo_gerais;33.90.39;unidade;finalística;"Monitor externo 24"" Full HD com no mínimo 2 entradas HDMI. Referência: Monitor LG UltraGear™ 24G411A-B ou equivalente técnico de igual ou superior qualidade"
+insumo_gerais;33.90.39;unidade;finalística;Monitor externo 24 Full HD com no mínimo 2 entradas HDMI. Referência: Monitor LG UltraGear™ 24G411A-B ou equivalente técnico de igual ou superior qualidade
 insumo_gerais;33.90.39;unidade;finalística;Motobomba centrífuga periférica 1/2 CV (370W) monofásica - Ferrari IDB-40
 insumo_gerais;00.00.00;unidade;finalística;Muda de alecrim
 insumo_gerais;00.00.00;unidade;finalística;Muda de capim limão
@@ -1649,7 +1648,7 @@ insumo_gerais;33.90.39;unidade;finalística;Nível
 insumo_gerais;33.90.39;unidade;finalística;Nível a laser
 insumo_gerais;33.90.39;unidade;finalística;Nível de bolha
 insumo_gerais;33.90.39;unidade;finalística;Nível de mangueira
-insumo_gerais;33.90.39;unidade;finalística;"Notebook Core i7, 8GB, 512GB SSD, Intel UHD Graphics, monitor 15.3"", Windows 11. Referência: IdeaPad Slim 3 15ARP10, Samsung Galaxy Book4 ou equivalente técnico de igual ou superior qualidade"
+insumo_gerais;33.90.39;unidade;finalística;Notebook Core i7, 8GB, 512GB SSD, Intel UHD Graphics, monitor 15.3, Windows 11. Referência: IdeaPad Slim 3 15ARP10, Samsung Galaxy Book4 ou equivalente técnico de igual ou superior qualidade
 insumo_gerais;33.90.39;unidade;finalística;Novelos de fio para amigurumi (cores variadas)
 insumo_gerais;33.90.39;unidade;finalística;Oleo - litro
 insumo_gerais;33.90.30;unidade;finalística;Óleo de banana 100ml
@@ -1830,7 +1829,7 @@ insumo_gerais;33.90.39;unidade;finalística;Tomada 20A
 insumo_gerais;33.90.39;unidade;finalística;Tomada 2P+T 10A 250V
 insumo_gerais;33.90.39;unidade;finalística;Tomada de Embutir Simples
 insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Tomadas e interruptores
-insumo_gerais;33.90.39;unidade;finalística;"Torneira de PVC para Jardim 1/2"" preta com bico para mangueira"
+insumo_gerais;33.90.39;unidade;finalística;Torneira de PVC para Jardim 1/2 preta com bico para mangueira
 insumo_gerais;33.90.39;unidade;finalística;Transporte
 insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Travesseiro
 insumo_gerais;33.90.39;unidade;finalística;Trena
