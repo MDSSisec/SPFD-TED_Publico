@@ -401,6 +401,8 @@
       margin: 0 0 22px;
     }
 
+    [data-stage-period] { margin-bottom: 22px; }
+
     .summary-card {
       padding: 14px 16px;
       border: 1px solid var(--border);
@@ -640,30 +642,30 @@
     [data-course-expenses] th:nth-child(8),
     [data-course-expenses] td:nth-child(8) { width: 8%; }
 
-    /* Distribuição proporcional das onze colunas das despesas das etapas. */
+    /* Distribuição proporcional das nove colunas das despesas das etapas. */
     #stage11-table th:nth-child(1), #stage11-table td:nth-child(1),
     #stage12-table th:nth-child(1), #stage12-table td:nth-child(1),
-    #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 15%; }
+    #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 22%; }
 
     #stage11-table th:nth-child(2), #stage11-table td:nth-child(2),
     #stage12-table th:nth-child(2), #stage12-table td:nth-child(2),
-    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 10%; }
+    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 12%; }
 
     #stage11-table th:nth-child(3), #stage11-table td:nth-child(3),
     #stage12-table th:nth-child(3), #stage12-table td:nth-child(3),
-    #event-table th:nth-child(3), #event-table td:nth-child(3) { width: 8%; }
+    #event-table th:nth-child(3), #event-table td:nth-child(3) { width: 10%; }
 
     #stage11-table th:nth-child(4), #stage11-table td:nth-child(4),
     #stage12-table th:nth-child(4), #stage12-table td:nth-child(4),
-    #event-table th:nth-child(4), #event-table td:nth-child(4) { width: 6%; }
+    #event-table th:nth-child(4), #event-table td:nth-child(4) { width: 8%; }
 
     #stage11-table th:nth-child(5), #stage11-table td:nth-child(5),
     #stage12-table th:nth-child(5), #stage12-table td:nth-child(5),
-    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 10%; }
+    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 13%; }
 
     #stage11-table th:nth-child(6), #stage11-table td:nth-child(6),
     #stage12-table th:nth-child(6), #stage12-table td:nth-child(6),
-    #event-table th:nth-child(6), #event-table td:nth-child(6) { width: 10%; }
+    #event-table th:nth-child(6), #event-table td:nth-child(6) { width: 13%; }
 
     #stage11-table th:nth-child(7), #stage11-table td:nth-child(7),
     #stage12-table th:nth-child(7), #stage12-table td:nth-child(7),
@@ -671,19 +673,11 @@
 
     #stage11-table th:nth-child(8), #stage11-table td:nth-child(8),
     #stage12-table th:nth-child(8), #stage12-table td:nth-child(8),
-    #event-table th:nth-child(8), #event-table td:nth-child(8) { width: 8%; }
+    #event-table th:nth-child(8), #event-table td:nth-child(8) { width: 7%; }
 
     #stage11-table th:nth-child(9), #stage11-table td:nth-child(9),
     #stage12-table th:nth-child(9), #stage12-table td:nth-child(9),
-    #event-table th:nth-child(9), #event-table td:nth-child(9) { width: 8%; }
-
-    #stage11-table th:nth-child(10), #stage11-table td:nth-child(10),
-    #stage12-table th:nth-child(10), #stage12-table td:nth-child(10),
-    #event-table th:nth-child(10), #event-table td:nth-child(10) { width: 7%; }
-
-    #stage11-table th:nth-child(11), #stage11-table td:nth-child(11),
-    #stage12-table th:nth-child(11), #stage12-table td:nth-child(11),
-    #event-table th:nth-child(11), #event-table td:nth-child(11) { width: 8%; }
+    #event-table th:nth-child(9), #event-table td:nth-child(9) { width: 5%; }
 
     /* Em telas intermediárias, o menu fica acima para liberar a largura inteira. */
     @media (max-width: 1180px) {
@@ -776,16 +770,10 @@
       #event-table td:nth-child(7)::before { content: "Fonte"; }
       #stage11-table td:nth-child(8)::before,
       #stage12-table td:nth-child(8)::before,
-      #event-table td:nth-child(8)::before { content: "Início"; }
+      #event-table td:nth-child(8)::before { content: "Tipo"; }
       #stage11-table td:nth-child(9)::before,
       #stage12-table td:nth-child(9)::before,
-      #event-table td:nth-child(9)::before { content: "Fim"; }
-      #stage11-table td:nth-child(10)::before,
-      #stage12-table td:nth-child(10)::before,
-      #event-table td:nth-child(10)::before { content: "Tipo"; }
-      #stage11-table td:nth-child(11)::before,
-      #stage12-table td:nth-child(11)::before,
-      #event-table td:nth-child(11)::before { content: "Ações"; }
+      #event-table td:nth-child(9)::before { content: "Ações"; }
 
       td:last-child .btn { width: auto; }
     }
@@ -894,6 +882,18 @@
           <p class="eyebrow">Etapa 3 de 5</p>
           <h2 class="section-title">Planejamento, Mobilização, Execução e Monitoramento — Etapa 1.1</h2>
           <p class="section-description">Detalhe as despesas para planejar, executar, monitorar, mobilizar, sensibilizar e divulgar as ações do projeto, incluindo contratações, bens e insumos.</p>
+          <div class="grid" data-stage-period="stage11">
+            <div class="field">
+              <label class="required" for="stage11_inicio_etapa">Início da etapa</label>
+              <input id="stage11_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage11_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="stage11_fim_etapa">Fim da etapa</label>
+              <input id="stage11_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage11_fim_etapa"></small>
+            </div>
+          </div>
           <div class="summary-strip">
             <div class="summary-card"><span>Itens adicionados</span><strong id="stage11-count">0</strong></div>
             <div class="summary-card"><span>Total da etapa</span><strong id="stage11-total">R$ 0,00</strong></div>
@@ -917,6 +917,18 @@
           <p class="eyebrow">Etapa 4 de 5</p>
           <h2 class="section-title">Estruturação e Equipamento dos Espaços — Etapa 1.2</h2>
           <p class="section-description">Detalhe as despesas para estruturar os espaços de capacitação e adquirir os equipamentos necessários às ações de qualificação profissional.</p>
+          <div class="grid" data-stage-period="stage12">
+            <div class="field">
+              <label class="required" for="stage12_inicio_etapa">Início da etapa</label>
+              <input id="stage12_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage12_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="stage12_fim_etapa">Fim da etapa</label>
+              <input id="stage12_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage12_fim_etapa"></small>
+            </div>
+          </div>
           <div class="summary-strip">
             <div class="summary-card"><span>Itens adicionados</span><strong id="stage12-count">0</strong></div>
             <div class="summary-card"><span>Total da etapa</span><strong id="stage12-total">R$ 0,00</strong></div>
@@ -941,6 +953,18 @@
           <p class="eyebrow">Etapa 5 de 5</p>
           <h2 class="section-title">Celebração, Certificação e Encerramento — Etapa Final</h2>
           <p class="section-description">Detalhe as despesas dos eventos de celebração do termo, certificação, avaliação dos avanços e encerramento com entrega de certificados.</p>
+          <div class="grid" data-stage-period="event">
+            <div class="field">
+              <label class="required" for="event_inicio_etapa">Início da etapa</label>
+              <input id="event_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="event_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="event_fim_etapa">Fim da etapa</label>
+              <input id="event_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="event_fim_etapa"></small>
+            </div>
+          </div>
           <div class="summary-strip">
             <div class="summary-card"><span>Itens adicionados</span><strong id="event-count">0</strong></div>
             <div class="summary-card"><span>Total da etapa</span><strong id="event-total">R$ 0,00</strong></div>
@@ -1487,8 +1511,6 @@
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
         ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
         ${tableCellSelect("fonte_recurso", optionList(catalogs.fontesRecurso), rowId, "Fonte")}
-        ${tableCellInput("inicio_etapa", "text", rowId, { monthYear: true, placeholder: "MM/AAAA" })}
-        ${tableCellInput("fim_etapa", "text", rowId, { monthYear: true, placeholder: "MM/AAAA" })}
         ${tableCellInput("tipo_despesa", "text", rowId, { readonly: true })}
         <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
       return tr;
@@ -1624,7 +1646,7 @@
           <thead><tr>
             <th>Item *</th><th>Elemento *</th><th>Unidade *</th><th>Qtd. *</th>
             <th>Valor unitário *</th><th>Valor total</th><th>Fonte *</th>
-            <th>Início *</th><th>Fim *</th><th>Tipo</th><th>Ações</th>
+            <th>Tipo</th><th>Ações</th>
           </tr></thead><tbody></tbody></table>`;
         rows.forEach(row => wrapper.querySelector("tbody").appendChild(row));
         container.replaceChildren(wrapper);
@@ -1920,9 +1942,9 @@
           valid = false;
         }
       });
-      section.querySelectorAll("tbody tr").forEach(row => {
-        const start = row.querySelector('[data-field="inicio_etapa"]');
-        const end = row.querySelector('[data-field="fim_etapa"]');
+      section.querySelectorAll("[data-stage-period]").forEach(period => {
+        const start = period.querySelector('[data-field="inicio_etapa"]');
+        const end = period.querySelector('[data-field="fim_etapa"]');
         if (!start || !end || !start.value || !end.value) return;
         const startValue = monthYearToComparable(start.value);
         const endValue = monthYearToComparable(end.value);
@@ -2007,6 +2029,9 @@
     }
 
     function collectStage(kind) {
+      const period = document.querySelector(`[data-stage-period="${kind}"]`);
+      const start = period?.querySelector('[data-field="inicio_etapa"]')?.value || "";
+      const end = period?.querySelector('[data-field="fim_etapa"]')?.value || "";
       return [...document.querySelectorAll(`#${kind}-table tbody tr`)].map(row => {
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
         return {
@@ -2018,8 +2043,8 @@
           valor_unitario: currencyValue(row.querySelector('[data-field="valor_unitario"]')),
           valor_total: Number(row.querySelector('[data-field="valor_total"]').dataset.value || 0),
           fonte_recurso: row.querySelector('[data-field="fonte_recurso"]').value,
-          inicio_etapa: row.querySelector('[data-field="inicio_etapa"]').value,
-          fim_etapa: row.querySelector('[data-field="fim_etapa"]').value,
+          inicio_etapa: start,
+          fim_etapa: end,
           tipo_despesa: row.querySelector('[data-field="tipo_despesa"]').value
         };
       });
@@ -2930,6 +2955,10 @@
         navButton.hidden = false;
       } else {
         document.getElementById("event-table").innerHTML = emptyState("Nenhuma despesa adicionada nesta etapa.");
+        document.querySelectorAll('[data-stage-period="event"] input').forEach(input => {
+          input.value = "";
+          clearError(input);
+        });
         updateStageSummary("event");
         navButton.hidden = true;
         state.completedSteps.delete("despesas_evento_final");
