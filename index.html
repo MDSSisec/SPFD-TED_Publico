@@ -1381,12 +1381,14 @@
 
     function calculateClassDistribution(participantCount, capacity = 30) {
       if (!Number.isInteger(participantCount) || participantCount < 1) return [];
-      const fullClasses = Math.floor(participantCount / capacity);
-      const remainder = participantCount % capacity;
-      return [
-        ...Array(fullClasses).fill(capacity),
-        ...(remainder ? [remainder] : [])
-      ];
+      const classCount = Math.ceil(participantCount / capacity);
+      const baseClassSize = Math.floor(participantCount / classCount);
+      const classesWithExtraParticipant = participantCount % classCount;
+
+      return Array.from(
+        { length: classCount },
+        (_, index) => baseClassSize + (index < classesWithExtraParticipant ? 1 : 0)
+      );
     }
 
     function updateClassDistribution(card) {
