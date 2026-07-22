@@ -553,7 +553,7 @@ insumo_gerais;00.00.00;unidade;finalística;Metanol
 insumo_gerais;00.00.00;unidade;finalística;Bisnaga plástica
 insumo_gerais;33.90.39;unidade;finalística;Mini pá de bico
 insumo_gerais;33.90.39;unidade;finalística;Minicontator de potência
-insumo_gerais;33.90.39;unidade;finalística;Monitor
+insumo_gerais;33.90.39;hora;finalística;Monitor
 insumo_gerais;33.90.39;unidade;finalística;Motobomba centrífuga
 insumo_gerais;00.00.00;unidade;finalística;Muda de alecrim
 insumo_gerais;00.00.00;unidade;finalística;Muda de capim limao
@@ -744,7 +744,7 @@ insumo_gerais;33.90.39;unidade;finalística;Tomada 10 a
 insumo_gerais;33.90.39;unidade;finalística;Tomada 20 a
 insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Tomada e interruptor
 insumo_gerais;33.90.39;unidade;finalística;Torneira de PVC para jardim
-insumo_gerais;33.90.39;serviço;finalística;Transporte
+insumo_gerais;33.90.39;unidade;finalística;Transporte
 insumo_gerais;33.90.39;unidade;finalística;Mini-trave de futebol
 insumo_gerais;00.00.00;unidade;finalística;Travesseiro para fisioterapia
 insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Travesseiro
@@ -919,7 +919,7 @@ kit_trabalho;00.00.00;unidade;kit;Toalha de mão
 kit_trabalho;00.00.00;unidade;kit;Touca para cabelo
 kit_trabalho;00.00.00;unidade;kit;Vaso plástico
 kit_trabalho;33.90.39;unidade;kit;Xícara com pires
-stage11;33.90.39;diária;finalística;Locação de veículo
+stage11;33.90.39;unidade;finalística;Locação de veículo
 stage11;33.90.39;hora;gestão;Apoio acadêmico
 stage11;33.90.39;hora;gestão;Apoio administrativo
 stage11;33.90.48;hora;gestão;Apoio às atividades acadêmicas e administrativas
@@ -972,11 +972,11 @@ stage11;33.90.39;unidade;finalística;Serviço de produção de banner
 stage11;33.90.39;unidade;finalística;Serviço de produção de colete
 stage11;33.90.39;unidade;finalística;Serviço de registro audiovisual
 stage11;33.90.39;unidade;finalística;Serviço de transporte por aplicativo
-stage11;33.90.39;hora;finalística;Serviço de website e mídias sociais
+stage11;33.90.39;unidade;finalística;Serviço de website e mídias sociais
 stage11;33.90.39;unidade;gestão;Serviços administrativos e financeiros
 stage11;33.90.39;unidade;finalística;Serviço de identidade visual e comunicação
 stage11;33.90.48;hora;gestão;Supervisor
-stage12;33.90.39;diária;estruturação;Locação de veículo
+stage12;33.90.39;unidade;estruturação;Locação de veículo
 stage12;44.90.52, 00.00.00;unidade;estruturação;Caixa de som amplificada
 stage12;44.90.52;unidade;estruturação;Câmera 360°
 stage12;44.90.52;unidade;estruturação;Câmera fotográfica
@@ -1830,7 +1830,7 @@ insumo_gerais;33.90.39;unidade;finalística;Tomada 2P+T 10A 250V
 insumo_gerais;33.90.39;unidade;finalística;Tomada de Embutir Simples
 insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Tomadas e interruptores
 insumo_gerais;33.90.39;unidade;finalística;"Torneira de PVC para Jardim 1/2"" preta com bico para mangueira"
-insumo_gerais;33.90.39;serviço;finalística;Transporte
+insumo_gerais;33.90.39;unidade;finalística;Transporte
 insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Travesseiro
 insumo_gerais;33.90.39;unidade;finalística;Trena
 insumo_gerais;33.90.39;unidade;finalística;Trilho DIN Perfurado - 35mmX7, 5mmX 2000mm - Ferro Zincado - Barra
