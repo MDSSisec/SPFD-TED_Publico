@@ -807,7 +807,7 @@
   <!-- Cabeçalho da aplicação -->
   <header class="app-header">
     <div class="app-header__inner">
-      <h1>Formulário de Projeto de Qualificação Profissional</h1>
+      <h1>Prova de conceito: Formulário de detalhamento de despesas TED</h1>
       <p>Preencha as etapas do projeto. Os campos são validados em tempo real e, ao final, os dados poderão ser exportados em JSON e planilha.</p>
     </div>
   </header>
@@ -1675,9 +1675,12 @@
       const unitSelect = row.querySelector('[data-field="unidade"]');
       codeSelect.disabled = !selected;
       codeSelect.innerHTML = selected ? optionList(selected.codigos || [selected.codigo], "Selecione") : optionList([], "Selecione o item primeiro");
-      unitSelect.disabled = !selected;
+      unitSelect.disabled = true;
       unitSelect.innerHTML = selected ? optionList(selected.unidades, "Selecione") : optionList([], "Selecione o item primeiro");
-      if (selected) codeSelect.value = selected.codigo;
+      if (selected) {
+        codeSelect.value = selected.codigo;
+        unitSelect.value = selected.unidades[0] || "";
+      }
       syncCourseExpenseQuantities(row.closest(".course-card"));
     }
 
@@ -1689,10 +1692,13 @@
       const typeInput = row.querySelector('[data-field="tipo_despesa"]');
       codeSelect.disabled = !item;
       codeSelect.innerHTML = item ? optionList(item.codigos || [item.codigo]) : optionList([], "Selecione o item primeiro");
-      unitSelect.disabled = !item;
+      unitSelect.disabled = true;
       unitSelect.innerHTML = item ? optionList(item.unidades) : optionList([], "Selecione o item primeiro");
       typeInput.value = item?.tipo || "";
-      if (item) codeSelect.value = item.codigo;
+      if (item) {
+        codeSelect.value = item.codigo;
+        unitSelect.value = item.unidades[0] || "";
+      }
       updateExpenseTotalsByType();
     }
 
