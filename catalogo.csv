@@ -9,7 +9,8 @@ curso_outros;33.90.39;unidade;finalística;Lanche
 curso_outros;33.90.39;hora;finalística;Mentor
 curso_outros;33.90.39, 33.90.48;hora;finalística;Monitor
 curso_outros;33.90.39;hora;finalística;Palestrante
-curso_outros;33.90.39;unidade;finalística;Transporte
+transporte;00.00.00;unidade;finalística;Transporte público
+transporte;00.00.00;unidade;finalística;Transporte privado
 curso_outros;33.90.39;unidade;finalística;Uniforme
 epi;33.90.39;unidade;finalística;Álcool líquido 70%
 epi;33.90.39;unidade;finalística;Álcool em gel 70%
