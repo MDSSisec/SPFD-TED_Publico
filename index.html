@@ -1267,12 +1267,7 @@
           <div class="grid">
             ${courseField(index, "nome_curso", "Nome do Curso", "text", { full: true, max: 255 })}
             ${courseField(index, "inicio_curso", "Início do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
-            <div class="field">
-              <label for="curso_${index}_fim_curso">Fim do curso</label>
-              <input id="curso_${index}_fim_curso" name="curso_${index}_fim_curso" type="text" class="month-year-input" data-field="fim_curso" placeholder="MM/AAAA" readonly />
-              <small class="hint">Calculado automaticamente: 12 meses após o início.</small>
-              <small class="error-message" data-error-for="curso_${index}_fim_curso"></small>
-            </div>
+            ${courseField(index, "fim_curso", "Fim do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
             ${courseField(index, "carga_horaria_total", "Carga horária total", "number", { min: 1, suffix: "horas" })}
             ${courseField(index, "quantidade_participantes", "Quantidade de participantes", "number", { min: 1 })}
             ${courseField(index, "margem_reserva", "Margem de Reserva", "number", {
@@ -1762,23 +1757,6 @@
       valorTotalContrapartida = totalsByFundingSource.Contrapartida;
     }
 
-    function updateCoursePeriod(card) {
-      const start = card.querySelector('[data-field="inicio_curso"]');
-      const end = card.querySelector('[data-field="fim_curso"]');
-      if (!start || !end) return;
-
-      const comparable = monthYearToComparable(start.value);
-      if (comparable == null) {
-        end.value = "";
-        return;
-      }
-
-      const endDate = comparable + 12;
-      const month = ((endDate - 1) % 12) + 1;
-      const year = Math.floor((endDate - 1) / 12);
-      end.value = `${String(month).padStart(2, "0")}/${year}`;
-    }
-
     /* =========================================================
        RESUMO FINANCEIRO DAS DESPESAS DE CADA CURSO
        - Total de itens: quantidade de linhas de despesa.
@@ -1931,6 +1909,17 @@
 
     function validatePeriods(section) {
       let valid = true;
+      section.querySelectorAll(".course-card").forEach(card => {
+        const start = card.querySelector('[data-field="inicio_curso"]');
+        const end = card.querySelector('[data-field="fim_curso"]');
+        if (!start || !end || !start.value || !end.value) return;
+        const startValue = monthYearToComparable(start.value);
+        const endValue = monthYearToComparable(end.value);
+        if (startValue != null && endValue != null && endValue < startValue) {
+          setError(end, "O fim do curso não pode ser anterior ao início do curso.");
+          valid = false;
+        }
+      });
       section.querySelectorAll("tbody tr").forEach(row => {
         const start = row.querySelector('[data-field="inicio_etapa"]');
         const end = row.querySelector('[data-field="fim_etapa"]');
@@ -2986,11 +2975,6 @@
       if (["carga_horaria_total", "carga_horaria_diaria"].includes(control.dataset.field)) {
         const courseCard = control.closest(".course-card");
         if (courseCard) updateCourseDuration(courseCard);
-      }
-
-      if (control.dataset.field === "inicio_curso") {
-        const courseCard = control.closest(".course-card");
-        if (courseCard) updateCoursePeriod(courseCard);
       }
 
       const row = control.closest("tr");
