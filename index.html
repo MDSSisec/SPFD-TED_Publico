@@ -445,6 +445,8 @@
     .dialog-header h2 { margin: 0; font-size: 1.25rem; }
     .dialog-body { padding: 18px 22px; overflow: auto; }
     .dialog-footer { display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border); }
+    .catalog-item-action { margin-top: 7px; }
+    .dialog-field + .dialog-field { margin-top: 16px; }
     pre {
       margin: 0;
       padding: 16px;
@@ -744,6 +746,8 @@
         line-height: 1.25;
       }
 
+      .catalog-item-action { grid-column: 2; }
+
       [data-course-expenses] td:nth-child(1)::before { content: "Tipo do item"; }
       [data-course-expenses] td:nth-child(2)::before { content: "Item"; }
       [data-course-expenses] td:nth-child(3)::before { content: "Detalhamento do item"; }
@@ -1011,6 +1015,38 @@
     </div>
   </dialog>
 
+  <dialog id="catalog-item-dialog">
+    <div class="dialog-header"><h2>Cadastrar item no catálogo</h2></div>
+    <form id="catalog-item-form" novalidate>
+      <div class="dialog-body">
+        <p class="section-description">O item ficará disponível imediatamente. Como a aplicação é estática, será baixado um <strong>catalogo.csv</strong> atualizado para substituir o arquivo do repositório.</p>
+        <div class="dialog-field">
+          <label for="catalog-item-category">Categoria</label>
+          <input id="catalog-item-category" type="text" readonly />
+        </div>
+        <div class="dialog-field">
+          <label class="required" for="catalog-item-name">Nome do item</label>
+          <input id="catalog-item-name" type="text" maxlength="255" required />
+          <small class="error-message" data-catalog-error="name"></small>
+        </div>
+        <div class="dialog-field">
+          <label class="required" for="catalog-item-code">Elemento de despesa</label>
+          <input id="catalog-item-code" type="text" maxlength="100" placeholder="Ex: 33.90.30" required />
+          <small class="error-message" data-catalog-error="code"></small>
+        </div>
+        <div class="dialog-field">
+          <label class="required" for="catalog-item-unit">Tipo de unidade</label>
+          <input id="catalog-item-unit" type="text" maxlength="100" placeholder="Ex: unidade, kit, hora" required />
+          <small class="error-message" data-catalog-error="unit"></small>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" class="btn btn-ghost" id="cancel-catalog-item">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Cadastrar e baixar catálogo</button>
+      </div>
+    </form>
+  </dialog>
+
   <!-- ExcelJS 4.4.0: bundle local para funcionamento sem CDN. -->
   <script src="./assets/exceljs.min.js"></script>
   <script>
@@ -1032,12 +1068,19 @@
 
 
     let catalogs = {};
+    let catalogRows = [];
+    let catalogCsvText = "";
 
     /* =========================================================
        CATÁLOGO CARREGADO DO CSV
        A aplicação só é inicializada depois que catalogo.csv é carregado.
        ========================================================= */
     const catalogCsvUrl = "./catalogo.csv";
+    const customCourseCategoryConfig = {
+      kit_trabalho: { csvCategory: "kit_trabalho", label: "Kit Trabalho", csvType: "kit" },
+      epi: { csvCategory: "epi", label: "EPI", csvType: "finalística" },
+      insumos_gerais: { csvCategory: "insumo_gerais", label: "Insumos Gerais", csvType: "finalística" }
+    };
 
     function splitCatalogValues(value) {
       return [...new Set(String(value || "")
@@ -1151,7 +1194,9 @@
     async function loadCatalogs(url = catalogCsvUrl) {
       const response = await fetch(url, { cache: "no-cache" });
       if (!response.ok) throw new Error(`Não foi possível carregar o catálogo (${response.status}).`);
-      catalogs = buildCatalogsFromCsv(parseCatalogCsv(await response.text()));
+      catalogCsvText = await response.text();
+      catalogRows = parseCatalogCsv(catalogCsvText);
+      catalogs = buildCatalogsFromCsv(catalogRows);
     }
 
     /* ======================================================================
@@ -1161,7 +1206,8 @@
       currentStep: "dados_gerais_projeto",
       completedSteps: new Set(),
       json: null,
-      rowCounter: 0
+      rowCounter: 0,
+      catalogTargetRow: null
     };
 
     let valorTotalGestao = 0;
@@ -1178,6 +1224,8 @@
     const quantityCourses = document.getElementById("quantidade_cursos");
     const statusBanner = document.getElementById("form-status");
     const jsonDialog = document.getElementById("json-dialog");
+    const catalogItemDialog = document.getElementById("catalog-item-dialog");
+    const catalogItemForm = document.getElementById("catalog-item-form");
 
     /* ======================================================================
        3. UTILITÁRIOS DE FORMATAÇÃO E CONVERSÃO
@@ -1499,7 +1547,7 @@
       tr.dataset.rowId = rowId;
       tr.innerHTML = `
         ${tableCellSelect("tipo_item_despesa", optionList(catalogs.tiposItemCurso), rowId, "Tipo do item")}
-        ${tableCellCombobox("item_despesa", [], rowId, "Item", "Selecione o tipo primeiro", true)}
+        ${tableCellCombobox("item_despesa", [], rowId, "Item", "Selecione o tipo primeiro", true, true)}
         ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
         ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
@@ -1535,7 +1583,7 @@
       return `<td><select id="${id}" data-field="${field}" data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""}>${options}</select><small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
-    function tableCellCombobox(field, items, rowId, label, placeholder = "Selecione ou pesquise", disabled = false) {
+    function tableCellCombobox(field, items, rowId, label, placeholder = "Selecione ou pesquise", disabled = false, allowItemCreation = false) {
       const id = `${rowId}_${field}`;
       const sourceId = `${id}_value`;
       const listId = `${id}_options`;
@@ -1546,7 +1594,7 @@
           data-combobox-input data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""} />
         <div id="${listId}" class="searchable-combobox-list" role="listbox" hidden></div>
         <select id="${sourceId}" class="searchable-combobox-source" data-field="${field}" tabindex="-1" aria-hidden="true" ${disabled ? "disabled" : ""}>${optionList(items, placeholder)}</select>
-      </div><small class="error-message" data-error-for="${id}"></small></td>`;
+      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary btn-sm catalog-item-action" data-add-catalog-item hidden>+ Cadastrar item</button>` : ""}<small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
     function renderComboboxOptions(wrapper, search = "") {
@@ -1689,7 +1737,9 @@
       const itemSelect = row.querySelector('[data-field="item_despesa"]');
       const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
+      const addCatalogItemButton = row.querySelector("[data-add-catalog-item]");
       const type = catalogs.tiposItemCurso.find(item => item.id === typeSelect.value);
+      if (addCatalogItemButton) addCatalogItemButton.hidden = !customCourseCategoryConfig[typeSelect.value];
       itemSelect.disabled = !type;
       const itemInput = itemSelect.closest(".searchable-combobox").querySelector("[data-combobox-input]");
       itemInput.disabled = !type;
@@ -1733,6 +1783,117 @@
         unitSelect.value = item.unidades[0] || "";
       }
       updateExpenseTotalsByType();
+    }
+
+    function clearCatalogItemErrors() {
+      catalogItemForm.querySelectorAll(".is-invalid").forEach(control => control.classList.remove("is-invalid"));
+      catalogItemForm.querySelectorAll("[data-catalog-error]").forEach(error => { error.textContent = ""; });
+    }
+
+    function setCatalogItemError(field, message) {
+      const control = document.getElementById(`catalog-item-${field}`);
+      control?.classList.add("is-invalid");
+      const error = catalogItemForm.querySelector(`[data-catalog-error="${field}"]`);
+      if (error) error.textContent = message;
+    }
+
+    function openCatalogItemDialog(row) {
+      const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+      const config = customCourseCategoryConfig[categoryId];
+      if (!config) return;
+      state.catalogTargetRow = row;
+      catalogItemForm.reset();
+      clearCatalogItemErrors();
+      document.getElementById("catalog-item-category").value = config.label;
+      catalogItemDialog.showModal();
+      document.getElementById("catalog-item-name").focus();
+    }
+
+    function closeCatalogItemDialog() {
+      catalogItemDialog.close();
+      state.catalogTargetRow = null;
+    }
+
+    function refreshCourseCategoryItems(categoryId) {
+      const category = catalogs.tiposItemCurso.find(item => item.id === categoryId);
+      if (!category) return;
+      document.querySelectorAll('[data-course-expenses] tbody tr').forEach(row => {
+        if (row.querySelector('[data-field="tipo_item_despesa"]')?.value !== categoryId) return;
+        const select = row.querySelector('[data-field="item_despesa"]');
+        const previousValue = select.value;
+        select.innerHTML = optionList(category.itens, "Selecione ou pesquise");
+        select.value = previousValue;
+        syncComboboxDisplay(select);
+        renderComboboxOptions(select.closest(".searchable-combobox"));
+      });
+    }
+
+    function downloadUpdatedCatalog() {
+      const blob = new Blob([catalogCsvText], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "catalogo.csv";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function addCatalogItem(event) {
+      event.preventDefault();
+      clearCatalogItemErrors();
+
+      const row = state.catalogTargetRow;
+      const categoryId = row?.querySelector('[data-field="tipo_item_despesa"]')?.value;
+      const config = customCourseCategoryConfig[categoryId];
+      if (!row || !config) return closeCatalogItemDialog();
+
+      const name = document.getElementById("catalog-item-name").value.trim();
+      const code = document.getElementById("catalog-item-code").value.trim();
+      const unit = document.getElementById("catalog-item-unit").value.trim();
+      let valid = true;
+      [["name", name], ["code", code], ["unit", unit]].forEach(([field, value]) => {
+        if (!value) {
+          setCatalogItemError(field, "Preencha este campo.");
+          valid = false;
+        } else if (/[;\r\n]/.test(value)) {
+          setCatalogItemError(field, "Não use ponto e vírgula ou quebra de linha.");
+          valid = false;
+        }
+      });
+
+      const category = catalogs.tiposItemCurso.find(item => item.id === categoryId);
+      const newItemId = catalogId(name);
+      if (name && category?.itens.some(item => item.id === newItemId)) {
+        setCatalogItemError("name", "Este item já existe na categoria.");
+        valid = false;
+      }
+      if (!valid) {
+        catalogItemForm.querySelector(".is-invalid")?.focus();
+        return;
+      }
+
+      const catalogRow = {
+        Categoria: config.csvCategory,
+        "Código do Elemento de Despesa": code,
+        Unidade: unit,
+        TIPO: config.csvType,
+        "Item de Despesa Padronizado": name
+      };
+      const newItem = mergeCatalogItems([catalogRow])[0];
+      catalogRows.push(catalogRow);
+      category.itens.push(newItem);
+      category.itens.sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
+      catalogCsvText = `${catalogCsvText.replace(/[\r\n]+$/, "")}\n${config.csvCategory};${code};${unit};${config.csvType};${name}\n`;
+
+      refreshCourseCategoryItems(categoryId);
+      const targetSelect = row.querySelector('[data-field="item_despesa"]');
+      chooseComboboxOption(targetSelect.closest(".searchable-combobox"), newItem.id);
+      catalogItemDialog.close();
+      state.catalogTargetRow = null;
+      downloadUpdatedCatalog();
+      setStatus(`Item "${name}" cadastrado. Substitua o catalogo.csv pela versão baixada para persistir a alteração.`, "success");
     }
 
     /* ======================================================================
@@ -3082,6 +3243,12 @@
     }
 
     function handleFormClick(event) {
+      const catalogItemButton = event.target.closest("[data-add-catalog-item]");
+      if (catalogItemButton) {
+        openCatalogItemDialog(catalogItemButton.closest("tr"));
+        return;
+      }
+
       const comboboxOption = event.target.closest("[data-combobox-option]");
       if (comboboxOption) {
         chooseComboboxOption(comboboxOption.closest(".searchable-combobox"), comboboxOption.dataset.comboboxOption);
@@ -3161,6 +3328,9 @@
       document.getElementById("close-dialog").addEventListener("click", () => jsonDialog.close());
       document.getElementById("download-json").addEventListener("click", downloadJson);
       document.getElementById("download-xlsx").addEventListener("click", downloadSpreadsheet);
+      catalogItemForm.addEventListener("submit", addCatalogItem);
+      document.getElementById("cancel-catalog-item").addEventListener("click", closeCatalogItemDialog);
+      catalogItemDialog.addEventListener("close", () => { state.catalogTargetRow = null; });
     }
 
     /* ======================================================================
