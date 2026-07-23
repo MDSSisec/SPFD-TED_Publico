@@ -445,7 +445,16 @@
     .dialog-header h2 { margin: 0; font-size: 1.25rem; }
     .dialog-body { padding: 18px 22px; overflow: auto; }
     .dialog-footer { display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border); }
-    .catalog-item-action { margin-top: 7px; }
+    .catalog-item-action {
+      width: 30px;
+      min-height: 30px;
+      margin-top: 7px;
+      padding: 0;
+      border-radius: 50%;
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    .catalog-item-action[hidden] { display: none; }
     .dialog-field + .dialog-field { margin-top: 16px; }
     pre {
       margin: 0;
@@ -1594,7 +1603,7 @@
           data-combobox-input data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""} />
         <div id="${listId}" class="searchable-combobox-list" role="listbox" hidden></div>
         <select id="${sourceId}" class="searchable-combobox-source" data-field="${field}" tabindex="-1" aria-hidden="true" ${disabled ? "disabled" : ""}>${optionList(items, placeholder)}</select>
-      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary btn-sm catalog-item-action" data-add-catalog-item hidden>+ Cadastrar item</button>` : ""}<small class="error-message" data-error-for="${id}"></small></td>`;
+      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary catalog-item-action" data-add-catalog-item aria-label="Cadastrar Item" title="Cadastrar Item" hidden>+</button>` : ""}<small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
     function renderComboboxOptions(wrapper, search = "") {
