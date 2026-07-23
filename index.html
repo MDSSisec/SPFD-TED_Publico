@@ -1045,7 +1045,9 @@
         </div>
         <div class="dialog-field">
           <label class="required" for="catalog-item-unit">Tipo de unidade</label>
-          <input id="catalog-item-unit" type="text" maxlength="100" placeholder="Ex: unidade, kit, hora" required />
+          <select id="catalog-item-unit" required>
+            <option value="">Selecione</option>
+          </select>
           <small class="error-message" data-catalog-error="unit"></small>
         </div>
       </div>
@@ -1806,6 +1808,12 @@
       if (error) error.textContent = message;
     }
 
+    function catalogUnitOptions() {
+      const units = [...new Set(catalogRows.flatMap(row => splitCatalogValues(row.Unidade)))]
+        .sort((a, b) => a.localeCompare(b, "pt-BR"));
+      return optionList(units);
+    }
+
     function openCatalogItemDialog(row) {
       const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
       const config = customCourseCategoryConfig[categoryId];
@@ -1814,6 +1822,7 @@
       catalogItemForm.reset();
       clearCatalogItemErrors();
       document.getElementById("catalog-item-category").value = config.label;
+      document.getElementById("catalog-item-unit").innerHTML = catalogUnitOptions();
       catalogItemDialog.showModal();
       document.getElementById("catalog-item-name").focus();
     }
