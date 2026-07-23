@@ -445,13 +445,26 @@
     .dialog-header h2 { margin: 0; font-size: 1.25rem; }
     .dialog-body { padding: 18px 22px; overflow: auto; }
     .dialog-footer { display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border); }
+    .catalog-item-control {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      width: 100%;
+      min-width: 0;
+    }
+    .catalog-item-control .searchable-combobox {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
     .catalog-item-action {
-      width: 30px;
-      min-height: 30px;
-      margin-top: 7px;
+      flex: 0 0 24px;
+      width: 24px;
+      min-height: 24px;
+      height: 24px;
+      margin: 0;
       padding: 0;
       border-radius: 50%;
-      font-size: 1.15rem;
+      font-size: .95rem;
       line-height: 1;
     }
     .catalog-item-action[hidden] { display: none; }
@@ -754,8 +767,6 @@
         font-weight: 700;
         line-height: 1.25;
       }
-
-      .catalog-item-action { grid-column: 2; }
 
       [data-course-expenses] td:nth-child(1)::before { content: "Tipo do item"; }
       [data-course-expenses] td:nth-child(2)::before { content: "Item"; }
@@ -1598,14 +1609,14 @@
       const id = `${rowId}_${field}`;
       const sourceId = `${id}_value`;
       const listId = `${id}_options`;
-      return `<td><div class="searchable-combobox">
+      return `<td><div class="${allowItemCreation ? "catalog-item-control" : ""}"><div class="searchable-combobox">
         <input id="${id}" class="searchable-combobox-input" type="text" role="combobox"
           aria-autocomplete="list" aria-controls="${listId}" aria-expanded="false"
           placeholder="${escapeHtml(placeholder)}" autocomplete="off"
           data-combobox-input data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""} />
         <div id="${listId}" class="searchable-combobox-list" role="listbox" hidden></div>
         <select id="${sourceId}" class="searchable-combobox-source" data-field="${field}" tabindex="-1" aria-hidden="true" ${disabled ? "disabled" : ""}>${optionList(items, placeholder)}</select>
-      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary catalog-item-action" data-add-catalog-item aria-label="Cadastrar Item" title="Cadastrar Item" hidden>+</button>` : ""}<small class="error-message" data-error-for="${id}"></small></td>`;
+      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary catalog-item-action" data-add-catalog-item aria-label="Cadastrar Item" title="Cadastrar Item" hidden>+</button>` : ""}</div><small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
     function renderComboboxOptions(wrapper, search = "") {
