@@ -214,7 +214,8 @@
 
     input[type="text"],
     input[type="number"],
-    select {
+    select,
+    textarea {
       width: 100%;
       min-height: 44px;
       padding: 9px 12px;
@@ -226,10 +227,12 @@
       transition: border-color .15s, box-shadow .15s;
     }
 
-    input:focus, select:focus {
+    input:focus, select:focus, textarea:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(19, 81, 180, .14);
     }
+
+    textarea { min-height: 130px; resize: vertical; }
 
     input[readonly] { background: #f2f4f7; color: #475467; }
     select:disabled { background: #f2f4f7; color: #667085; }
@@ -397,6 +400,7 @@
     }
 
     .wizard-actions__right { display: flex; gap: 10px; }
+    .wizard-actions .btn[hidden] { display: none; }
 
     /* ======================================================================
        5. RESUMOS, MENSAGENS E DIÁLOGO DE EXPORTAÇÃO
@@ -716,6 +720,17 @@
     #stage12-table th:nth-child(10), #stage12-table td:nth-child(10),
     #event-table th:nth-child(10), #event-table td:nth-child(10) { width: 5%; }
 
+    #assistance-table th:nth-child(1), #assistance-table td:nth-child(1) { width: 18%; }
+    #assistance-table th:nth-child(2), #assistance-table td:nth-child(2) { width: 20%; }
+    #assistance-table th:nth-child(3), #assistance-table td:nth-child(3) { width: 10%; }
+    #assistance-table th:nth-child(4), #assistance-table td:nth-child(4) { width: 8%; }
+    #assistance-table th:nth-child(5), #assistance-table td:nth-child(5) { width: 7%; }
+    #assistance-table th:nth-child(6), #assistance-table td:nth-child(6) { width: 10%; }
+    #assistance-table th:nth-child(7), #assistance-table td:nth-child(7) { width: 10%; }
+    #assistance-table th:nth-child(8), #assistance-table td:nth-child(8) { width: 7%; }
+    #assistance-table th:nth-child(9), #assistance-table td:nth-child(9) { width: 5%; }
+    #assistance-table th:nth-child(10), #assistance-table td:nth-child(10) { width: 5%; }
+
     /* Em telas intermediárias, o menu fica acima para liberar a largura inteira. */
     @media (max-width: 1180px) {
       .app-shell { grid-template-columns: 1fr; }
@@ -816,6 +831,17 @@
       #stage12-table td:nth-child(10)::before,
       #event-table td:nth-child(10)::before { content: "Ações"; }
 
+      #assistance-table td:nth-child(1)::before { content: "Item"; }
+      #assistance-table td:nth-child(2)::before { content: "Detalhamento do item"; }
+      #assistance-table td:nth-child(3)::before { content: "Elemento"; }
+      #assistance-table td:nth-child(4)::before { content: "Unidade"; }
+      #assistance-table td:nth-child(5)::before { content: "Quantidade"; }
+      #assistance-table td:nth-child(6)::before { content: "Valor unitário"; }
+      #assistance-table td:nth-child(7)::before { content: "Valor total"; }
+      #assistance-table td:nth-child(8)::before { content: "Fonte"; }
+      #assistance-table td:nth-child(9)::before { content: "Tipo"; }
+      #assistance-table td:nth-child(10)::before { content: "Ações"; }
+
       td:last-child .btn { width: auto; }
     }
 
@@ -857,6 +883,9 @@
       <button type="button" data-step-target="despesas_etapa_1_2">
         <span class="step-index">4</span><span class="step-label">Estruturação e Equipamento</span>
       </button>
+      <button type="button" data-step-target="assistencia_tecnica_gerencial" hidden>
+        <span class="step-index">5</span><span class="step-label">Realização de Assistência Técnica e Gerencial aos Empreendedores</span>
+      </button>
       <button type="button" data-step-target="despesas_evento_final" hidden>
         <span class="step-index">5</span><span class="step-label">Evento de lançamento e encerramento</span>
       </button>
@@ -869,7 +898,7 @@
         <section class="panel wizard-section" id="dados_gerais_projeto" data-section>
           <p class="eyebrow">Etapa 1 de 5</p>
           <h2 class="section-title">Dados gerais do projeto</h2>
-          <p class="section-description">Informe o orçamento total, a quantidade de cursos e se haverá evento de certificação.</p>
+          <p class="section-description">Informe o orçamento total, a quantidade de cursos e as etapas opcionais do projeto.</p>
 
           <div class="grid">
             <div class="field">
@@ -884,6 +913,16 @@
               <input id="quantidade_cursos" name="quantidade_cursos" type="number" min="1" step="1" inputmode="numeric" data-required="true" value="1" />
               <small class="hint">A seção de cursos será criada conforme esta quantidade.</small>
               <small class="error-message" data-error-for="quantidade_cursos"></small>
+            </div>
+
+            <div class="field field--full">
+              <div class="check-card">
+                <input id="possui_assistencia_tecnica_gerencial" name="possui_assistencia_tecnica_gerencial" type="checkbox" />
+                <label for="possui_assistencia_tecnica_gerencial">
+                  Projeto terá Assistência Técnica e Gerencial?
+                  <small>Ao marcar, a etapa de assistência será exibida depois dos cursos e passará a ser validada.</small>
+                </label>
+              </div>
             </div>
 
             <div class="field field--full">
@@ -980,6 +1019,53 @@
             <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage12">+ Adicionar despesa</button>
           </div>
           <div id="stage12-table"></div>
+
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
+            <div class="wizard-actions__right">
+              <button class="btn btn-primary" type="button" data-next>Próxima etapa</button>
+              <button class="btn btn-primary" type="button" data-finish hidden>Finalizar e gerar arquivos</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wizard-section" id="assistencia_tecnica_gerencial" data-section hidden>
+          <p class="eyebrow">Etapa 5 de 6</p>
+          <h2 class="section-title">Realização de Assistência Técnica e Gerencial aos Empreendedores</h2>
+          <p class="section-description">Detalhe as despesas necessárias para executar as ações de assistência técnica e gerencial aos empreendedores, incluindo recursos humanos, materiais, serviços, deslocamentos e demais insumos necessários à realização das atividades.</p>
+
+          <div class="field field--full">
+            <label class="required" for="tematica_assistencia">Temática da assistência</label>
+            <textarea id="tematica_assistencia" name="tematica_assistencia" data-required="true">Assistência Técnica: (informar a temática relacionada à assistência técnica);
+
+Assistência Gerencial: (informar a temática relacionada à Assistência Gerencial — exemplo: gestão financeira; organização da produção; comercialização e marketing; elaboração de planos de negócios.)</textarea>
+            <small class="error-message" data-error-for="tematica_assistencia"></small>
+          </div>
+
+          <div class="grid" data-stage-period="assistance">
+            <div class="field">
+              <label class="required" for="assistance_inicio_etapa">Início da etapa</label>
+              <input id="assistance_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="assistance_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="assistance_fim_etapa">Fim da etapa</label>
+              <input id="assistance_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="assistance_fim_etapa"></small>
+            </div>
+          </div>
+
+          <div class="summary-strip">
+            <div class="summary-card"><span>Itens adicionados</span><strong id="assistance-count">0</strong></div>
+            <div class="summary-card"><span>Total da etapa</span><strong id="assistance-total">R$ 0,00</strong></div>
+            <div class="summary-card"><span>Participantes atendidos</span><strong id="assistance-participants">0</strong></div>
+          </div>
+
+          <div class="table-toolbar">
+            <h3>Despesas da Assistência Técnica e Gerencial</h3>
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="assistance">+ Adicionar despesa</button>
+          </div>
+          <div id="assistance-table"></div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -1216,6 +1302,7 @@
         }),
         stage11: mergeCatalogItems(rowsByCategory("stage11")),
         stage12: mergeCatalogItems(rowsByCategory("stage12")),
+        assistance: mergeCatalogItems(rowsByCategory("assistencia")),
         event: mergeCatalogItems(rowsByCategory("event"))
       };
     }
@@ -1250,11 +1337,14 @@
 
     const form = document.getElementById("project-form");
     const eventCheckbox = document.getElementById("possui_evento_certificacao");
+    const assistanceCheckbox = document.getElementById("possui_assistencia_tecnica_gerencial");
     const quantityCourses = document.getElementById("quantidade_cursos");
     const statusBanner = document.getElementById("form-status");
     const jsonDialog = document.getElementById("json-dialog");
     const catalogItemDialog = document.getElementById("catalog-item-dialog");
     const catalogItemForm = document.getElementById("catalog-item-form");
+    const assistanceThemeInput = document.getElementById("tematica_assistencia");
+    const assistanceThemeTemplate = assistanceThemeInput.defaultValue.trim();
 
     /* ======================================================================
        3. UTILITÁRIOS DE FORMATAÇÃO E CONVERSÃO
@@ -1331,6 +1421,10 @@
         else button.removeAttribute("aria-current");
         button.classList.toggle("is-complete", state.completedSteps.has(target));
       });
+      visible.forEach((stepId, index) => {
+        const stepIndex = document.querySelector(`[data-step-target="${stepId}"] .step-index`);
+        if (stepIndex) stepIndex.textContent = String(index + 1);
+      });
 
       const currentIndex = visible.indexOf(state.currentStep);
       document.querySelectorAll("[data-section] .eyebrow").forEach(eyebrow => {
@@ -1345,6 +1439,13 @@
       const stage12IsLast = visible.at(-1) === "despesas_etapa_1_2";
       nextButton.hidden = stage12IsLast;
       finishButton.hidden = !stage12IsLast;
+
+      const assistanceSection = document.getElementById("assistencia_tecnica_gerencial");
+      const assistanceNextButton = assistanceSection.querySelector("[data-next]");
+      const assistanceFinishButton = assistanceSection.querySelector("[data-finish]");
+      const assistanceIsLast = visible.at(-1) === "assistencia_tecnica_gerencial";
+      assistanceNextButton.hidden = assistanceIsLast;
+      assistanceFinishButton.hidden = !assistanceIsLast;
 
       return currentIndex;
     }
@@ -1552,6 +1653,16 @@
       });
     }
 
+    function totalCourseParticipantsFromForm() {
+      return [...document.querySelectorAll('.course-card [data-field="quantidade_participantes"]')]
+        .reduce((total, input) => total + (Number(input.value) || 0), 0);
+    }
+
+    function updateAssistanceParticipantSummary() {
+      document.getElementById("assistance-participants").textContent =
+        String(totalCourseParticipantsFromForm());
+    }
+
     function syncCourses() {
       const container = document.getElementById("courses-container");
       const desired = Math.max(1, Number.parseInt(quantityCourses.value, 10) || 1);
@@ -1564,6 +1675,7 @@
       } else if (existing.length > desired) {
         existing.slice(desired).forEach(card => card.remove());
       }
+      updateAssistanceParticipantSummary();
     }
 
     function emptyState(message) {
@@ -1972,7 +2084,7 @@
         totalsByFundingSource.SISEC += total;
       });
 
-      document.querySelectorAll("#stage11-table tbody tr, #stage12-table tbody tr, #event-table tbody tr").forEach(row => {
+      document.querySelectorAll("#stage11-table tbody tr, #stage12-table tbody tr, #assistance-table tbody tr, #event-table tbody tr").forEach(row => {
         const type = row.querySelector('[data-field="tipo_despesa"]')?.value;
         const fundingSource = row.querySelector('[data-field="fonte_recurso"]')?.value;
         const total = Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0);
@@ -2171,7 +2283,7 @@
       const section = document.getElementById(stepId);
       const navButton = document.querySelector(`[data-step-target="${stepId}"]`);
       if (!section || !navButton || navButton.hidden) return true;
-      const controls = [...section.querySelectorAll("input, select")].filter(control => control.type !== "button");
+      const controls = [...section.querySelectorAll("input, select, textarea")].filter(control => control.type !== "button");
       let valid = true;
       controls.forEach(control => { if (!validateControl(control, { ignoreVisibility: true })) valid = false; });
       section.querySelectorAll(".course-card").forEach(updateClassDistribution);
@@ -2246,10 +2358,16 @@
       });
     }
 
-    function collectStage(kind) {
+    function collectStagePeriod(kind) {
       const period = document.querySelector(`[data-stage-period="${kind}"]`);
-      const start = period?.querySelector('[data-field="inicio_etapa"]')?.value || "";
-      const end = period?.querySelector('[data-field="fim_etapa"]')?.value || "";
+      return {
+        inicio: period?.querySelector('[data-field="inicio_etapa"]')?.value || "",
+        fim: period?.querySelector('[data-field="fim_etapa"]')?.value || ""
+      };
+    }
+
+    function collectStage(kind) {
+      const period = collectStagePeriod(kind);
       return [...document.querySelectorAll(`#${kind}-table tbody tr`)].map(row => {
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
         const itemDetail = row.querySelector('[data-field="detalhamento_item"]').value.trim();
@@ -2263,8 +2381,8 @@
           valor_unitario: currencyValue(row.querySelector('[data-field="valor_unitario"]')),
           valor_total: Number(row.querySelector('[data-field="valor_total"]').dataset.value || 0),
           fonte_recurso: row.querySelector('[data-field="fonte_recurso"]').value,
-          inicio_etapa: start,
-          fim_etapa: end,
+          inicio_etapa: period.inicio,
+          fim_etapa: period.fim,
           tipo_despesa: row.querySelector('[data-field="tipo_despesa"]').value
         };
       });
@@ -2387,6 +2505,21 @@
       };
     }
 
+    function buildAssistanceStageData(stageNumber, expenses, totalParticipants) {
+      const period = collectStagePeriod("assistance");
+      return {
+        numero_etapa: stageNumber,
+        dados_gerais: {
+          quantidade_participantes: totalParticipants,
+          tematica_assistencia: assistanceThemeInput.value.trim(),
+          inicio_etapa: period.inicio,
+          fim_etapa: period.fim
+        },
+        despesas: expenses,
+        valor_total: sumExpenseValues(expenses)
+      };
+    }
+
     function buildExportData() {
       const collectedCourses = collectCourses();
       const courses = collectedCourses.map((course, index) => {
@@ -2419,11 +2552,13 @@
 
       const stage11Expenses = collectStage("stage11");
       const stage12Expenses = collectStage("stage12");
+      const assistanceExpenses = assistanceCheckbox.checked ? collectStage("assistance") : [];
       const eventExpenses = eventCheckbox.checked ? collectStage("event") : [];
       const allExpenses = [
         ...stage11Expenses,
         ...stage12Expenses,
         ...courses.flatMap(course => course.despesas_detalhadas),
+        ...assistanceExpenses,
         ...eventExpenses
       ];
       const totalsByExpenseType = allExpenses.reduce((totals, expense) => {
@@ -2461,6 +2596,8 @@
       const participantUnitCost = managementFinalisticTotal > 0
         ? roundCurrencyValue(totalWorkload * totalParticipants / managementFinalisticTotal)
         : 0;
+      const assistanceStageNumber = `1.${courses.length + 3}`;
+      const eventStageNumber = `1.${courses.length + (assistanceCheckbox.checked ? 4 : 3)}`;
 
       return {
         projeto: {
@@ -2469,6 +2606,7 @@
           quantidade_cursos: courses.length,
           total_participantes: totalParticipants,
           total_carga_horaria: totalWorkload,
+          possui_assistencia_tecnica_gerencial: assistanceCheckbox.checked,
           possui_evento_final: eventCheckbox.checked
         },
         resumo_financeiro: {
@@ -2485,8 +2623,11 @@
         etapas: {
           etapa_1_1: buildStageData("1.1", stage11Expenses),
           etapa_1_2: buildStageData("1.2", stage12Expenses),
+          assistencia_tecnica_gerencial: assistanceCheckbox.checked
+            ? buildAssistanceStageData(assistanceStageNumber, assistanceExpenses, totalParticipants)
+            : null,
           etapa_final: eventCheckbox.checked
-            ? buildStageData(`1.${courses.length + 3}`, eventExpenses)
+            ? buildStageData(eventStageNumber, eventExpenses)
             : null
         },
         cursos: courses
@@ -2644,6 +2785,20 @@
       });
     }
 
+    const assistanceSpreadsheetDescription = `Etapa {{NUMERO_ETAPA}} - Realizar Assistência Técnica e Gerencial para {{QUANTIDADE_PARTICIPANTES}} empreendedoras/es, nas seguintes temáticas:
+
+{{TEMATICA_ASSISTENCIA}}
+
+Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprovados por meio de Relatórios, sendo a comprovação conforme previsto no item 24 do TRP.`;
+
+    function assistanceDescription(assistance) {
+      return replaceSpreadsheetMarkers(assistanceSpreadsheetDescription, {
+        NUMERO_ETAPA: assistance.numero_etapa,
+        QUANTIDADE_PARTICIPANTES: assistance.dados_gerais.quantidade_participantes,
+        TEMATICA_ASSISTENCIA: assistance.dados_gerais.tematica_assistencia
+      });
+    }
+
     function projectPeriod(expenses) {
       const validStarts = expenses
         .map(expense => expense.inicio_etapa)
@@ -2692,7 +2847,8 @@
         description,
         expenses,
         itemPrototype,
-        totalPrototype
+        totalPrototype,
+        period = null
       }) => {
         const rowsToWrite = expenses.length ? expenses : [null];
         const firstExpenseRow = nextRow;
@@ -2701,6 +2857,10 @@
           applyRowPrototype(worksheet, nextRow, itemPrototype);
           worksheet.getCell(`B${nextRow}`).value = index === 0 ? description : null;
           fillSummaryExpenseRow(worksheet, nextRow, expense, stageNumber, index);
+          if (!expense && period) {
+            setSpreadsheetPeriodCell(worksheet.getCell(`J${nextRow}`), period.inicio);
+            setSpreadsheetPeriodCell(worksheet.getCell(`K${nextRow}`), period.fim);
+          }
           nextRow += 1;
         });
 
@@ -2748,6 +2908,21 @@
         });
         allDetailedExpenses.push(...course.despesas_detalhadas);
       });
+
+      if (exportData.etapas.assistencia_tecnica_gerencial) {
+        const assistance = exportData.etapas.assistencia_tecnica_gerencial;
+        appendBlock({
+          stageNumber: assistance.numero_etapa,
+          description: assistanceDescription(assistance),
+          expenses: assistance.despesas,
+          itemPrototype: prototypes.eventItem,
+          totalPrototype: prototypes.eventTotal,
+          period: {
+            inicio: assistance.dados_gerais.inicio_etapa,
+            fim: assistance.dados_gerais.fim_etapa
+          }
+        });
+      }
 
       if (exportData.etapas.etapa_final) {
         appendBlock({
@@ -3168,6 +3343,30 @@
       else downloadSpreadsheet();
     }
 
+    function handleAssistanceSection() {
+      const section = document.getElementById("assistencia_tecnica_gerencial");
+      const navButton = document.querySelector('[data-step-target="assistencia_tecnica_gerencial"]');
+      if (assistanceCheckbox.checked) {
+        navButton.hidden = false;
+        if (!assistanceThemeInput.value.trim()) assistanceThemeInput.value = assistanceThemeTemplate;
+        updateAssistanceParticipantSummary();
+      } else {
+        document.getElementById("assistance-table").innerHTML = emptyState("Nenhuma despesa adicionada nesta etapa.");
+        document.querySelectorAll('[data-stage-period="assistance"] input').forEach(input => {
+          input.value = "";
+          clearError(input);
+        });
+        assistanceThemeInput.value = assistanceThemeTemplate;
+        clearError(assistanceThemeInput);
+        updateStageSummary("assistance");
+        navButton.hidden = true;
+        state.completedSteps.delete("assistencia_tecnica_gerencial");
+        if (state.currentStep === "assistencia_tecnica_gerencial") showStep("despesas_etapa_1_2");
+      }
+      section.hidden = state.currentStep !== "assistencia_tecnica_gerencial";
+      updateNavigation();
+    }
+
     function handleEventSection() {
       const section = document.getElementById("despesas_evento_final");
       const navButton = document.querySelector('[data-step-target="despesas_evento_final"]');
@@ -3182,7 +3381,9 @@
         updateStageSummary("event");
         navButton.hidden = true;
         state.completedSteps.delete("despesas_evento_final");
-        if (state.currentStep === "despesas_evento_final") showStep("despesas_etapa_1_2");
+        if (state.currentStep === "despesas_evento_final") {
+          showStep(assistanceCheckbox.checked ? "assistencia_tecnica_gerencial" : "despesas_etapa_1_2");
+        }
       }
       // Mantém visível somente a seção que corresponde à etapa atual.
       section.hidden = state.currentStep !== "despesas_evento_final";
@@ -3208,7 +3409,7 @@
       }
       if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
-      if (control.matches("input, select")) validateControl(control);
+      if (control.matches("input, select, textarea")) validateControl(control);
 
       if (["quantidade_participantes", "margem_reserva"].includes(control.dataset.field)) {
         const courseCard = control.closest(".course-card");
@@ -3218,6 +3419,7 @@
         if (control.dataset.field === "quantidade_participantes") {
           if (courseCard) updateClassDistribution(courseCard);
           if (courseContainer) updateCourseSummary(courseContainer);
+          updateAssistanceParticipantSummary();
         }
       }
 
@@ -3233,6 +3435,7 @@
     function handleFormChange(event) {
       const control = event.target;
       if (control === quantityCourses) syncCourses();
+      if (control === assistanceCheckbox) handleAssistanceSection();
       if (control === eventCheckbox) handleEventSection();
       const row = control.closest("tr");
       if (!row) return;
@@ -3377,7 +3580,8 @@
         await loadCatalogs();
         bindEvents();
         syncCourses();
-        ["stage11", "stage12", "event"].forEach(renderStageTable);
+        ["stage11", "stage12", "assistance", "event"].forEach(renderStageTable);
+        handleAssistanceSection();
         handleEventSection();
         showStep("dados_gerais_projeto", { scroll: false });
       } catch (error) {
