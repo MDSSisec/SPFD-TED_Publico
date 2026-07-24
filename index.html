@@ -1616,8 +1616,10 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
             ${courseField(index, "fim_curso", "Fim do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
             ${courseField(index, "carga_horaria_total", "Carga horária total", "number", {
               min: 40,
+              step: 10,
+              multipleOf: 10,
               suffix: "horas",
-              rangeError: "Informe uma carga horária total inteira de, no mínimo, 40 horas."
+              rangeError: "Informe um número inteiro, igual ou superior a 40, terminado em 0."
             })}
             ${courseField(index, "quantidade_participantes", "Quantidade de participantes", "number", { min: 1 })}
             ${courseField(index, "margem_reserva", "Margem de Reserva", "number", {
@@ -1692,7 +1694,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const attrs = [
         `id="${fieldId}"`, `name="${fieldId}"`, `type="${type}"`, `data-field="${id}"`, `data-required="true"`
       ];
-      if (type === "number") attrs.push(`step="1"`, `inputmode="numeric"`);
+      if (type === "number") attrs.push(`step="${options.step || 1}"`, `inputmode="numeric"`);
       if (options.monthYear) attrs.push(`class="month-year-input"`, `inputmode="numeric"`, `maxlength="7"`);
       if (options.min != null) attrs.push(`min="${options.min}"`);
       if (options.max != null) attrs.push(`max="${options.max}"`);
@@ -1700,6 +1702,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       if (options.value != null) attrs.push(`value="${escapeHtml(options.value)}"`);
       if (options.placeholder) attrs.push(`placeholder="${escapeHtml(options.placeholder)}"`);
       if (options.rangeError) attrs.push(`data-range-error="${escapeHtml(options.rangeError)}"`);
+      if (options.multipleOf != null) attrs.push(`data-multiple-of="${options.multipleOf}"`);
       const wrapper = options.suffix ? "input-with-suffix" : "";
       const tooltipId = `${fieldId}_tooltip`;
       return `
@@ -2393,6 +2396,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         }
         if (control.max !== "" && number > Number(control.max)) {
           setError(control, control.dataset.rangeError || `O valor máximo é ${control.max}.`);
+          return false;
+        }
+        const multipleOf = Number(control.dataset.multipleOf);
+        if (multipleOf > 0 && number % multipleOf !== 0) {
+          setError(control, control.dataset.rangeError || `Informe um múltiplo de ${multipleOf}.`);
           return false;
         }
       }
