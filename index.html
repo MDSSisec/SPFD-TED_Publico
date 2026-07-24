@@ -308,6 +308,16 @@
 
     .objective-card__header label { margin: 0; }
     .objective-card textarea { min-height: 105px; }
+    .objective-card[hidden] { display: none; }
+
+    .objective-restore-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .objective-restore-actions .btn[hidden] { display: none; }
 
     /* ======================================================================
        4. CURSOS, TABELAS DE DESPESAS E AÇÕES
@@ -985,6 +995,10 @@
                   <small class="hint">Opcional. Aplicável quando houver estruturação de espaços.</small>
                   <small class="error-message" data-error-for="objetivo_especifico_4"></small>
                 </div>
+              </div>
+              <div class="objective-restore-actions" aria-live="polite">
+                <button class="btn btn-secondary btn-sm" type="button" data-restore-objective="3" hidden>Adicionar objetivo específico 3</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-restore-objective="4" hidden>Adicionar objetivo específico 4</button>
               </div>
             </div>
 
@@ -2590,6 +2604,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
     function collectSpecificObjectives() {
       return [...document.querySelectorAll("[data-specific-objective]")]
+        .filter(container => !container.hidden)
         .map(container => {
           const input = container.querySelector("textarea");
           return {
@@ -3614,9 +3629,36 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
     }
 
     function handleFormClick(event) {
+      const restoreObjectiveButton = event.target.closest("[data-restore-objective]");
+      if (restoreObjectiveButton) {
+        const objectiveNumber = restoreObjectiveButton.dataset.restoreObjective;
+        const objectiveCard = document.querySelector(
+          `[data-specific-objective][data-objective-number="${objectiveNumber}"]`
+        );
+        const objectiveInput = objectiveCard?.querySelector("textarea");
+        if (objectiveCard && objectiveInput) {
+          objectiveCard.hidden = false;
+          objectiveInput.disabled = false;
+          restoreObjectiveButton.hidden = true;
+          state.json = null;
+          objectiveInput.focus();
+        }
+        return;
+      }
+
       const removeObjectiveButton = event.target.closest("[data-remove-objective]");
       if (removeObjectiveButton) {
-        removeObjectiveButton.closest("[data-specific-objective]")?.remove();
+        const objectiveCard = removeObjectiveButton.closest("[data-specific-objective]");
+        const objectiveInput = objectiveCard?.querySelector("textarea");
+        const restoreButton = document.querySelector(
+          `[data-restore-objective="${objectiveCard?.dataset.objectiveNumber}"]`
+        );
+        if (objectiveCard && objectiveInput && restoreButton) {
+          objectiveCard.hidden = true;
+          objectiveInput.disabled = true;
+          clearError(objectiveInput);
+          restoreButton.hidden = false;
+        }
         state.json = null;
         return;
       }
