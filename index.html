@@ -2485,9 +2485,9 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     };
 
     const courseSummaryUnits = {
-      kit_participante: "unidade",
-      insumos_gerais: "unidade",
-      epi: "unidade",
+      kit_participante: "unid.",
+      insumos_gerais: "unid.",
+      epi: "unid.",
       kit_trabalho: "kit"
     };
 
@@ -2556,7 +2556,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           item_label: courseSummaryLabels[typeId] || category?.label || expense.tipo_item_label,
           codigo_elemento_despesa: expenseCodes.join(", "),
           codigos_elemento_despesa: expenseCodes,
-          unidade: courseSummaryUnits[typeId] || "unidade",
+          unidade: courseSummaryUnits[typeId] || "unid.",
           quantidade_itens: quantity,
           valor_unitario: quantity > 0 ? total / quantity : 0,
           valor_total: total,
