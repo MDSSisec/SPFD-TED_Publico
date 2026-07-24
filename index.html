@@ -1775,6 +1775,14 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         : "Informe a quantidade de participantes.";
     }
 
+    function calculateParticipantCountWithReserve(participantCount, reserveMargin) {
+      if (!Number.isFinite(participantCount) || participantCount <= 0 ||
+          !Number.isFinite(reserveMargin) || reserveMargin < 0) {
+        return 0;
+      }
+      return Math.ceil(participantCount * (100 + reserveMargin) / 100);
+    }
+
     function updateReserveImpact(card) {
       const participantCount = Number(card.querySelector('[data-field="quantidade_participantes"]')?.value);
       const reserveMargin = Number(card.querySelector('[data-field="margem_reserva"]')?.value);
@@ -1783,7 +1791,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
       if (Number.isInteger(participantCount) && participantCount > 0 &&
           Number.isInteger(reserveMargin) && reserveMargin >= 5 && reserveMargin <= 10) {
-        const itemCount = Math.ceil(participantCount * (1 + reserveMargin / 100));
+        const itemCount = calculateParticipantCountWithReserve(participantCount, reserveMargin);
         impactHint.textContent = `Com esta margem, o sistema calculará a compra de ${itemCount} itens para ${participantCount} participantes.`;
       } else {
         impactHint.textContent = "Informe valores válidos de participantes e margem para visualizar o cálculo.";
@@ -1811,9 +1819,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const reserveMargin = Number(card.querySelector('[data-field="margem_reserva"]')?.value);
       const totalWorkload = Number(card.querySelector('[data-field="carga_horaria_total"]')?.value);
       const dailyWorkload = Number(card.querySelector('[data-field="carga_horaria_diaria"]')?.value);
-      const itemCount = Number.isFinite(participantCount) && Number.isFinite(reserveMargin)
-        ? Math.ceil(participantCount * (1 + reserveMargin / 100))
-        : 0;
+      const itemCount = calculateParticipantCountWithReserve(participantCount, reserveMargin);
 
       card.querySelectorAll('[data-course-expenses] tbody tr').forEach(row => {
         const typeId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
@@ -2663,7 +2669,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const reserveMargin = Number(generalData.margem_reserva || 0);
 
       if (["kit_participante", "epi"].includes(typeId)) {
-        return Math.ceil(participants * (1 + reserveMargin / 100));
+        return calculateParticipantCountWithReserve(participants, reserveMargin);
       }
       if (typeId === "kit_trabalho") return participants;
       return 1;
