@@ -319,6 +319,58 @@
 
     .objective-restore-actions .btn[hidden] { display: none; }
 
+    .radio-fieldset {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .radio-fieldset legend {
+      margin-bottom: 7px;
+      font-size: .91rem;
+      font-weight: 650;
+    }
+
+    .radio-options {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(65px, 1fr));
+      gap: 8px;
+    }
+
+    .radio-option {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      min-height: 44px;
+      margin: 0;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .radio-option:has(input:checked) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(19, 81, 180, .1);
+    }
+
+    .radio-option input {
+      width: 17px;
+      height: 17px;
+      margin: 0;
+      accent-color: var(--primary);
+    }
+
+    .daily-workload-field:has(input[type="hidden"].is-invalid) .radio-options {
+      border-radius: 8px;
+      box-shadow: 0 0 0 3px rgba(180,35,24,.1);
+    }
+
     /* ======================================================================
        4. CURSOS, TABELAS DE DESPESAS E AÇÕES
        ====================================================================== */
@@ -1571,7 +1623,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
               hint: "Informe a quantidade de participantes para visualizar o impacto da margem.",
               rangeError: "A margem de reserva deve ser um valor entre 5% e 10%."
             })}
-            ${courseField(index, "carga_horaria_diaria", "Carga horária diária", "number", { min: 2, max: 8, suffix: "horas" })}
+            ${courseDailyWorkloadField(index)}
             <div class="field">
               <label for="curso_${index}_duracao_dias">Dias de duração do curso</label>
               <div class="input-with-suffix">
@@ -1658,6 +1710,28 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           </div>
           ${options.hint ? `<small class="hint" ${options.hintAttribute || ""}>${escapeHtml(options.hint)}</small>` : ""}
           <small class="error-message" data-error-for="${fieldId}"></small>
+        </div>`;
+    }
+
+    function courseDailyWorkloadField(index) {
+      const fieldId = `curso_${index}_carga_horaria_diaria`;
+      const fieldName = `${fieldId}_opcao`;
+      const options = [8, 6, 4, 2];
+      return `
+        <div class="field daily-workload-field">
+          <fieldset class="radio-fieldset">
+            <legend class="required">Carga horária diária</legend>
+            <input id="${fieldId}" type="hidden" data-field="carga_horaria_diaria" data-required="true" />
+            <div class="radio-options">
+              ${options.map(hours => `
+                <label class="radio-option">
+                  <input type="radio" name="${fieldName}" value="${hours}"
+                    data-field="carga_horaria_diaria" data-daily-workload-option />
+                  <span>${hours}h</span>
+                </label>`).join("")}
+            </div>
+            <small class="error-message" data-error-for="${fieldId}"></small>
+          </fieldset>
         </div>`;
     }
 
@@ -3556,7 +3630,17 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
       if (control.classList.contains("expense-code-input")) maskExpenseCode(control);
+      if (control.matches("[data-daily-workload-option]")) {
+        const dailyWorkload = control.closest(".daily-workload-field")
+          ?.querySelector('input[type="hidden"][data-field="carga_horaria_diaria"]');
+        if (dailyWorkload) dailyWorkload.value = control.value;
+      }
       if (control.matches("input, select, textarea")) validateControl(control);
+      if (control.matches("[data-daily-workload-option]")) {
+        const dailyWorkload = control.closest(".daily-workload-field")
+          ?.querySelector('input[type="hidden"][data-field="carga_horaria_diaria"]');
+        if (dailyWorkload) validateControl(dailyWorkload);
+      }
 
       if (["quantidade_participantes", "margem_reserva"].includes(control.dataset.field)) {
         const courseCard = control.closest(".course-card");
