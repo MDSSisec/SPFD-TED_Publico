@@ -3740,6 +3740,12 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       if (options.change) control.dispatchEvent(new Event("change", { bubbles: true }));
     }
 
+    function getMockField(id) {
+      const control = document.getElementById(id);
+      if (!control) throw new Error(`Campo "${id}" do mock não encontrado.`);
+      return control;
+    }
+
     function setMockCurrency(control, value) {
       setMockInputValue(control, Math.round(Number(value) * 100));
     }
@@ -3860,25 +3866,25 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       try {
         resetFormForMock();
 
-        setMockCurrency(document.getElementById("custo_total_projeto"), 450000);
+        setMockCurrency(getMockField("custo_total_projeto"), 450000);
         setMockInputValue(
-          document.getElementById("objeto_projeto"),
+          getMockField("objetivo_geral_projeto"),
           "Promover qualificação profissional e inclusão produtiva de pessoas inscritas no CadÚnico na Região Demonstrativa, ampliando oportunidades de emprego e empreendedorismo."
         );
         setMockInputValue(
-          document.getElementById("objetivo_especifico_1"),
+          getMockField("objetivo_especifico_1"),
           "Desenvolver competências técnicas e empreendedoras para ampliar as oportunidades de inserção socioeconômica dos participantes."
         );
         setMockInputValue(
-          document.getElementById("objetivo_especifico_2"),
+          getMockField("objetivo_especifico_2"),
           "Ampliar a oferta de capacitação profissional para mulheres inscritas no CadÚnico."
         );
         setMockInputValue(
-          document.getElementById("objetivo_especifico_3"),
+          getMockField("objetivo_especifico_3"),
           "Entregar kits de trabalho adequados às formações ofertadas, fortalecendo a autonomia financeira dos participantes."
         );
         setMockInputValue(
-          document.getElementById("objetivo_especifico_4"),
+          getMockField("objetivo_especifico_4"),
           "Estruturar espaços demonstrativos com os equipamentos necessários às ações de qualificação profissional."
         );
 
