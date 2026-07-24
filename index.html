@@ -1001,10 +1001,10 @@
             </div>
 
             <div class="field field--full">
-              <label class="required" for="objeto_projeto">Objeto</label>
-              <textarea id="objeto_projeto" name="objeto_projeto" maxlength="1000" data-required="true">Promover a capacitação de pessoas em situação de vulnerabilidade no (Município/Região/Estado) de (Nome do Município/Região/Estado), inscritas no Cadastro Único de Programas Sociais do Governo Federal - CadÚnico, com vistas à empregabilidade ou ao empreendedorismo, possibilitando-lhes inclusão socioeconômica.</textarea>
+              <label class="required" for="objetivo_geral_projeto">objetivo_geral</label>
+              <textarea id="objetivo_geral_projeto" name="objetivo_geral_projeto" maxlength="1000" data-required="true">Promover a capacitação de pessoas em situação de vulnerabilidade no (Município/Região/Estado) de (Nome do Município/Região/Estado), inscritas no Cadastro Único de Programas Sociais do Governo Federal - CadÚnico, com vistas à empregabilidade ou ao empreendedorismo, possibilitando-lhes inclusão socioeconômica.</textarea>
               <small class="hint">Texto editável, limitado a 1.000 caracteres.</small>
-              <small class="error-message" data-error-for="objeto_projeto"></small>
+              <small class="error-message" data-error-for="objetivo_geral_projeto"></small>
             </div>
 
             <div class="field field--full">
@@ -2860,7 +2860,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           quantidade_cursos: courses.length,
           total_participantes: totalParticipants,
           total_carga_horaria: totalWorkload,
-          objeto: document.getElementById("objeto_projeto").value.trim(),
+          objetivo_geral: document.getElementById("objetivo_geral_projeto").value.trim(),
           objetivos_especificos: collectSpecificObjectives(),
           possui_assistencia_tecnica_gerencial: assistanceCheckbox.checked,
           possui_evento_final: eventCheckbox.checked
@@ -3547,7 +3547,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       worksheet.getRow(1).height = 24;
 
       const rows = [
-        ["Objeto", exportData.projeto.objeto || ""],
+        ["objetivo_geral", exportData.projeto.objetivo_geral || ""],
         ...(exportData.projeto.objetivos_especificos || []).map(objective => [
           `Objetivo específico ${objective.numero}`,
           objective.texto
