@@ -1334,6 +1334,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
   <!-- ExcelJS 4.4.0: bundle local para funcionamento sem CDN. -->
   <script src="./assets/exceljs.min.js"></script>
+  <script src="./mock-data.js"></script>
   <script>
     "use strict";
 
@@ -3892,56 +3893,10 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
         setMockCheckbox(assistanceCheckbox, true);
         setMockCheckbox(eventCheckbox, true);
 
-        const courses = [
-          {
-            name: "Eletricista Instalador",
-            start: "03/2026",
-            end: "05/2026",
-            totalWorkload: 80,
-            dailyWorkload: 8,
-            participants: 100,
-            reserveMargin: 10,
-            weeklyMeetings: 5,
-            expenses: [
-              { typeId: "kit_participante", items: ["Caderno"], detail: "Caderno universitário de capa dura", code: "33.90.30", quantity: 1, unitPrice: 28.5 },
-              { typeId: "epi", items: ["Luva"], detail: "Luva isolante para atividades elétricas", code: "33.90.30", quantity: 1, unitPrice: 42 },
-              { typeId: "transporte", items: ["Transporte público"], detail: "", code: "33.90.33", quantity: 1, unitPrice: 5.5 },
-              { typeId: "alimentacao", items: ["Almoço para participantes"], detail: "Refeição individual completa", code: "33.90.39", quantity: 110, unitPrice: 24 }
-            ]
-          },
-          {
-            name: "Panificação e Confeitaria",
-            start: "04/2026",
-            end: "06/2026",
-            totalWorkload: 60,
-            dailyWorkload: 6,
-            participants: 48,
-            reserveMargin: 5,
-            weeklyMeetings: 3,
-            expenses: [
-              { typeId: "insumos_gerais", items: ["Forma para alimentos", "Assadeira"], detail: "Forma retangular de alumínio reforçado", code: "33.90.30", quantity: 12, unitPrice: 36 },
-              { typeId: "kit_trabalho", items: ["Fouet", "Avental"], detail: "Kit individual para práticas de panificação", code: "33.90.30", quantity: 1, unitPrice: 95 },
-              { typeId: "transporte", items: ["Transporte privado"], detail: "", code: "33.90.33", quantity: 1, unitPrice: 12 },
-              { typeId: "Outros", items: ["Instrutor", "Mentor"], detail: "Profissional com experiência em panificação", code: "33.90.39", quantity: 60, unitPrice: 85 }
-            ]
-          },
-          {
-            name: "Horticultura e Produção Sustentável",
-            start: "05/2026",
-            end: "07/2026",
-            totalWorkload: 40,
-            dailyWorkload: 4,
-            participants: 30,
-            reserveMargin: 8,
-            weeklyMeetings: 2,
-            expenses: [
-              { typeId: "epi", items: ["Bota", "Luva"], detail: "Equipamento de proteção para atividades de campo", code: "33.90.30", quantity: 1, unitPrice: 78 },
-              { typeId: "insumos_gerais", items: ["Muda", "Semente"], detail: "Mudas e sementes adaptadas à região demonstrativa", code: "33.90.30", quantity: 60, unitPrice: 8.5 },
-              { typeId: "alimentacao", items: ["Lanche"], detail: "Lanche individual para os participantes", code: "33.90.39", quantity: 33, unitPrice: 12 },
-              { typeId: "transporte", items: ["Transporte público"], detail: "", code: "33.90.33", quantity: 1, unitPrice: 5.5 }
-            ]
-          }
-        ];
+        if (!Array.isArray(window.MOCK_COURSES)) {
+          throw new Error("Os dados dos cursos do mock não foram carregados.");
+        }
+        const courses = window.MOCK_COURSES;
 
         courses.forEach((course, courseIndex) => {
           const card = document.querySelector(`.course-card[data-course-index="${courseIndex}"]`);
