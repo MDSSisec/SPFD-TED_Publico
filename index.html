@@ -3585,7 +3585,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       worksheet.getRow(1).height = 24;
 
       const rows = [
-        ["objetivo_geral", exportData.projeto.objetivo_geral || ""],
+        ["Objetivo geral", exportData.projeto.objetivo_geral || ""],
         ...(exportData.projeto.objetivos_especificos || []).map(objective => [
           `Objetivo específico ${objective.numero}`,
           objective.texto
