@@ -413,6 +413,12 @@
 
     .table-toolbar h3 { margin: 0; font-size: 1rem; }
 
+    .table-footer-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
     .table-wrap {
       overflow-x: auto;
       border: 1px solid var(--border);
@@ -1120,9 +1126,11 @@
           </div>
           <div class="table-toolbar">
             <h3>Despesas da Etapa 1.1</h3>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage11">+ Adicionar despesa</button>
           </div>
           <div id="stage11-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage11">+ Adicionar despesa</button>
+          </div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -1155,9 +1163,11 @@
           </div>
           <div class="table-toolbar">
             <h3>Despesas da Etapa 1.2</h3>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage12">+ Adicionar despesa</button>
           </div>
           <div id="stage12-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage12">+ Adicionar despesa</button>
+          </div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -1202,9 +1212,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
           <div class="table-toolbar">
             <h3>Despesas da Assistência Técnica e Gerencial</h3>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="assistance">+ Adicionar despesa</button>
           </div>
           <div id="assistance-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="assistance">+ Adicionar despesa</button>
+          </div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -1238,9 +1250,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           </div>
           <div class="table-toolbar">
             <h3>Despesas do evento final</h3>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="event">+ Adicionar despesa</button>
           </div>
           <div id="event-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="event">+ Adicionar despesa</button>
+          </div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -1682,9 +1696,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           </div>
           <div class="table-toolbar">
             <h4 class="subsection-title">2.2 — Detalhamento de gastos do curso</h4>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-course-expense="${index}">+ Adicionar despesa</button>
           </div>
           <div data-course-expenses="${index}">${emptyState("Nenhuma despesa adicionada a este curso.")}</div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-course-expense="${index}">+ Adicionar despesa</button>
+          </div>
         </div>`;
       return card;
     }
