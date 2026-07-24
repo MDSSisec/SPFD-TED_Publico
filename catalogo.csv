@@ -1,568 +1,568 @@
-﻿Categoria;Código do Elemento de Despesa;Unidade;TIPO;Item de Despesa Padronizado
-alimentacao;33.90.39;unidade;finalística;Almoço para participantes
-alimentacao;33.90.39;unidade;finalística;Lanche
-assistencia;33.90.39;hora;finalística;Mentor
-curso_outros;33.90.30, 33.90.39;unidade;finalística;Apostila
-curso_outros;33.90.39;hora;finalística;Assessoria especializada
-curso_outros;33.90.30, 33.90.39;unidade;finalística;Camiseta
-curso_outros;33.90.30, 33.90.39;unidade;finalística;Certificado
-curso_outros;33.90.39, 33.90.48;hora;finalística;Instrutor
-curso_outros;33.90.39;hora;finalística;Mentor
-curso_outros;33.90.39, 33.90.48;hora;finalística;Monitor
-curso_outros;33.90.39;hora;finalística;Palestrante
-curso_outros;33.90.39;unidade;finalística;Uniforme
-epi;33.90.39;unidade;finalística;Álcool em gel 70%
-epi;33.90.39;unidade;finalística;Álcool líquido 70%
-epi;00.00.00;unidade;finalística;Apito
-epi;00.00.00, 33.90.39;unidade;finalística;Avental
-epi;33.90.39, 33.90.39, 33.90.40, 00.00.00;unidade;finalística;Bota
-epi;33.90.39;unidade;finalística;Calça
-epi;33.90.39;unidade;finalística;Camisa
-epi;33.90.39;unidade;finalística;Caneleira
-epi;33.90.39, 00.00.00, 33.90.39;unidade;finalística;Capacete
-epi;33.90.39;unidade;finalística;Chuteira
-epi;33.90.39, 00.00.00;unidade;finalística;Cinturão de segurança
-epi;00.00.00;unidade;finalística;Colete de identificação
-epi;33.90.39;unidade;finalística;Coletor para perfurocortantes
-epi;00.00.00;unidade;finalística;Cone de sinalização
-epi;00.00.00;unidade;finalística;Crachá
-epi;00.00.00, 33.90.39;unidade;finalística;Detergente neutro
-epi;00.00.00;unidade;finalística;Extintor de incêndio
-epi;00.00.00;unidade;finalística;Fita de sinalização
-epi;00.00.00;unidade;finalística;Garrafa ou copo reutilizável
-epi;33.90.39;unidade;finalística;Jaleco
-epi;33.90.39;unidade;finalística;Joelheira
-epi;33.90.39;unidade;finalística;Kit
-epi;00.00.00;unidade;finalística;Lanterna
-epi;00.00.00, 33.90.39;unidade;finalística;Luva
-epi;33.90.39;unidade;finalística;Manga isolante
-epi;33.90.39;unidade;finalística;Mangote para soldagem
-epi;00.00.00, 33.90.39, 00.00.00, 33.90.39;unidade;finalística;Máscara
-epi;00.00.00;unidade;finalística;Mochila
-epi;00.00.00, 33.90.39, 33.90.39;unidade;finalística;Óculos de proteção
-epi;00.00.00, 33.90.39;unidade;finalística;Pano de limpeza
-epi;33.90.39;unidade;finalística;Papel-toalha
-epi;00.00.00;unidade;finalística;Perneira de proteção
-epi;33.90.39;unidade;finalística;Perneira para soldagem
-epi;00.00.00, 33.90.39;unidade;finalística;Propé descartável
-epi;33.90.39, 33.90.42, 00.00.00;unidade;finalística;Protetor auricular
-epi;33.90.39;unidade;finalística;Protetor bucal
-epi;00.00.00;unidade;finalística;Protetor de nuca
-epi;33.90.39;unidade;finalística;Protetor escrotal
-epi;33.90.39;unidade;finalística;Protetor facial contra arco elétrico
-epi;00.00.00;unidade;finalística;Protetor solar
-epi;33.90.39, 33.90.41;unidade;finalística;Respirador PFF2
-epi;00.00.00;unidade;finalística;Respirador semifacial
-epi;33.90.39;unidade;finalística;Sabonete líquido
-epi;33.90.39;unidade;finalística;Saco de lixo hospitalar infectante
-epi;33.90.39;unidade;finalística;Tábua de corte
-epi;33.90.40;unidade;finalística;Talabarte de segurança
-epi;33.90.39;unidade;finalística;Termômetro culinário
-epi;00.00.00;unidade;finalística;Toalha descartável
-epi;00.00.00, 33.90.39;unidade;finalística;Touca
-epi;33.90.39;unidade;finalística;Trava-quedas
-epi;33.90.39;unidade;finalística;Vestimenta de proteção
-event;33.90.39, 00.00.00;unidade;finalística;Coffee break para evento
-event;00.00.00;unidade;finalística;Coffee break para participantes e convidados
-event;33.90.39;unidade;finalística;Contratação
-event;00.00.00;unidade;finalística;Equipamento de projeção visual
-event;00.00.00;unidade;finalística;Equipe de apoio operacional e cerimonial
-event;00.00.00;unidade;finalística;Estrutura de palco com backdrop e decoração institucional
-event;00.00.00;unidade;finalística;Estrutura de palco e decoração
-event;33.90.39;unidade;finalística;Evento
-event;00.00.00;unidade;finalística;Locação de cadeira
-event;33.90.39;unidade;finalística;Locação de equipamento de som
-event;33.90.39;unidade;finalística;Locação de iluminação
-event;00.00.00;unidade;finalística;Locação de mesa
-event;00.00.00;unidade;finalística;Material gráfico (banners, faixas, credenciais e sinalização)
-event;00.00.00, 33.90.39;unidade;finalística;Serviço
-insumo_gerais;33.90.39;unidade;finalística;Abraçadeira
-insumo_gerais;00.00.00;unidade;finalística;Abridor de latas
-insumo_gerais;33.90.30;unidade;finalística;Acetona
-insumo_gerais;33.90.30;unidade;finalística;Acetona 500ml
-insumo_gerais;33.90.39;unidade;finalística;Adaptador
-insumo_gerais;33.90.39;unidade;finalística;Adubo
-insumo_gerais;00.00.00;unidade;finalística;Água mineral
-insumo_gerais;00.00.00;unidade;finalística;Água sanitária
-insumo_gerais;33.90.39;unidade;finalística;Agulha
-insumo_gerais;33.90.39;unidade;finalística;Álcool
-insumo_gerais;33.90.30;unidade;finalística;Algodão
-insumo_gerais;33.90.39, 33.90.30, 00.00.00;unidade;finalística;Alicate
-insumo_gerais;33.90.61, 33.90.62;unidade;finalística;Alimento
-insumo_gerais;33.90.39;unidade;finalística;Almofada
-insumo_gerais;33.90.30;unidade;finalística;Amolecedor de cutícula
-insumo_gerais;33.90.39;unidade;finalística;Anilina
-insumo_gerais;00.00.00;unidade;finalística;Aparelho de pressão
-insumo_gerais;33.90.39;unidade;finalística;Aquecedor de cera
-insumo_gerais;33.90.39;unidade;finalística;Arco de serra
-insumo_gerais;33.90.39;unidade;finalística;Ar-condicionado
-insumo_gerais;33.90.46;unidade;finalística;Área de prática
-insumo_gerais;33.90.39, 33.90.47;unidade;finalística;Areia
-insumo_gerais;33.90.50;unidade;finalística;Argamassa
-insumo_gerais;00.00.00;unidade;finalística;Argila
-insumo_gerais;33.90.39;unidade;finalística;Argola para chaveiro
-insumo_gerais;33.90.39;unidade;finalística;Armário
-insumo_gerais;33.90.39;unidade;finalística;Arroz
-insumo_gerais;33.90.39;unidade;finalística;Arruela lisa
-insumo_gerais;00.00.00, 33.90.51, 00.00.00;unidade;finalística;Assadeira
-insumo_gerais;00.00.00;unidade;finalística;Avental
-insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Bacia
-insumo_gerais;33.90.39;unidade;finalística;Balança
-insumo_gerais;33.90.54, 33.90.39;unidade;finalística;Balde
-insumo_gerais;33.90.46;unidade;finalística;Bancada
-insumo_gerais;00.00.00, 33.90.59;unidade;finalística;Bandeja
-insumo_gerais;00.00.00, 33.90.30, 33.90.39;unidade;finalística;Banner
-insumo_gerais;33.90.57;unidade;finalística;Barbante/linha
-insumo_gerais;33.90.39;unidade;finalística;Barra chata
-insumo_gerais;33.90.39;unidade;finalística;Barramento
-insumo_gerais;33.90.30;unidade;finalística;Base de unha
-insumo_gerais;33.90.39;unidade;finalística;Bastão de cola quente
-insumo_gerais;00.00.00;unidade;finalística;Batedeira
-insumo_gerais;33.90.39;unidade;finalística;Bateria
-insumo_gerais;33.90.39;unidade;finalística;Bilro
-insumo_gerais;00.00.00, 33.90.30;unidade;finalística;Bloco autoadesivo
-insumo_gerais;33.90.48;unidade;finalística;Bloco cerâmico
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Bloco de anotação
-insumo_gerais;33.90.39;unidade;finalística;Bloco de construção
-insumo_gerais;00.00.00;unidade;finalística;Bloco de montar educativo
-insumo_gerais;33.90.39;unidade;finalística;Bola de futebol
-insumo_gerais;00.00.00;unidade;finalística;Bolsa
-insumo_gerais;33.90.39;unidade;finalística;Bomba de vácuo
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Borne
-insumo_gerais;33.90.30, 00.00.00;unidade;finalística;Borrifador
-insumo_gerais;00.00.00;unidade;finalística;Botão de comando
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Botão elêtronico
-insumo_gerais;00.00.00, 33.90.48;unidade;finalística;Botijão de gás
-insumo_gerais;33.90.39;unidade;finalística;Breu para violino
-insumo_gerais;33.90.39, 33.90.49;unidade;finalística;Brita
-insumo_gerais;33.90.46;unidade;finalística;Broca
-insumo_gerais;33.90.52;unidade;finalística;Bucha de fixação
-insumo_gerais;00.00.00;unidade;finalística;Bússola
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Cabo/Fio
-insumo_gerais;33.90.40, 00.00.00, 33.90.42;unidade;finalística;Cadeira
-insumo_gerais;33.90.39;unidade;finalística;Caixa de ferramentas
-insumo_gerais;00.00.00;unidade;finalística;Caixa elétrica
-insumo_gerais;00.00.00;unidade;finalística;Caixa para transporte
-insumo_gerais;33.90.39;unidade;finalística;Cal
-insumo_gerais;00.00.00, 33.90.57, 33.90.58;unidade;finalística;Calculadora
-insumo_gerais;33.90.39;unidade;finalística;Campainha
-insumo_gerais;33.90.39;unidade;finalística;Canaleta
-insumo_gerais;00.00.00, 33.90.60;unidade;finalística;Caneta
-insumo_gerais;33.90.39;unidade;finalística;Cano
-insumo_gerais;33.90.39, 33.90.55;unidade;finalística;Carrinho de mão
-insumo_gerais;00.00.00;unidade;finalística;Cartão de memória
-insumo_gerais;00.00.00;unidade;finalística;Cartaz
-insumo_gerais;33.90.30, 33.90.39, 33.90.39;unidade;finalística;Cartolina
-insumo_gerais;33.90.39;unidade;finalística;Cavadeira articulada
-insumo_gerais;00.00.00;unidade;finalística;Cera
-insumo_gerais;33.90.39;unidade;finalística;Cesto
-insumo_gerais;00.00.00;unidade;finalística;Chaira
-insumo_gerais;33.90.51;unidade;finalística;Chaleira
-insumo_gerais;33.90.49, 33.90.39;unidade;finalística;Chapa de compensado
-insumo_gerais;33.90.39;unidade;finalística;Chave boia
-insumo_gerais;00.00.00;unidade;finalística;Chave de fenda
-insumo_gerais;33.90.39, 33.90.46, 00.00.00;unidade;finalística;Cimento
-insumo_gerais;33.90.39;unidade;finalística;Cinturão de segurança
-insumo_gerais;33.90.44;unidade;finalística;Cobertor
-insumo_gerais;00.00.00;unidade;finalística;Coffee break
-insumo_gerais;33.90.39, 33.90.53;unidade;finalística;Cola
-insumo_gerais;00.00.00;unidade;finalística;Coletor para perfurocortantes
-insumo_gerais;00.00.00, 33.90.54;unidade;finalística;Colher
-insumo_gerais;33.90.39;unidade;finalística;Colher de pedreiro
-insumo_gerais;00.00.00, 00.00.00, 33.90.57;unidade;finalística;Colher medidora
-insumo_gerais;00.00.00, 33.90.54;unidade;finalística;Colheres grandes
-insumo_gerais;33.90.39;unidade;finalística;Conduíte
-insumo_gerais;33.90.39;unidade;finalística;Condulete
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Conector
-insumo_gerais;33.90.39;unidade;finalística;Conector em barra
-insumo_gerais;00.00.00;unidade;finalística;Conservante
-insumo_gerais;00.00.00;unidade;finalística;Contator
-insumo_gerais;33.90.58;unidade;finalística;Copo
-insumo_gerais;00.00.00;unidade;finalística;Corante
-insumo_gerais;33.90.39;unidade;finalística;Corda para instrumento
-insumo_gerais;00.00.00;unidade;finalística;Cordão
-insumo_gerais;33.90.40;unidade;finalística;Cortador de piso
-insumo_gerais;33.90.39;unidade;finalística;Cosmético
-insumo_gerais;00.00.00;unidade;finalística;Credencial
-insumo_gerais;00.00.00;unidade;finalística;Cronômetro
-insumo_gerais;33.90.39;unidade;finalística;Curva
-insumo_gerais;33.90.39;unidade;finalística;Dermógrafo
-insumo_gerais;00.00.00;unidade;finalística;Descarte perfurocortante
-insumo_gerais;00.00.00;unidade;finalística;Descascador
-insumo_gerais;33.90.54, 33.90.42, 33.90.39, 33.90.41;unidade;finalística;Desempenadeira
-insumo_gerais;00.00.00;unidade;finalística;Desinfetante
-insumo_gerais;33.90.39;unidade;finalística;Detector de tensão por aproximação
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Detergente
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Disjuntor
-insumo_gerais;33.90.39;unidade;finalística;Eletrodo
-insumo_gerais;33.90.39;unidade;finalística;Eletrodutos
-insumo_gerais;00.00.00;unidade;finalística;Embalagem
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Enxada
-insumo_gerais;33.90.58;unidade;finalística;Escorredor
-insumo_gerais;33.90.39;unidade;finalística;Escova de limpeza
-insumo_gerais;00.00.00;unidade;finalística;Escumadeira
-insumo_gerais;00.00.00;unidade;finalística;Esfigmomanômetro
-insumo_gerais;33.90.30;unidade;finalística;Esfoliante
-insumo_gerais;33.90.30;unidade;finalística;Esmalte
-insumo_gerais;33.90.45;unidade;finalística;Espaçador de piso
-insumo_gerais;33.90.43, 33.90.56, 00.00.00;unidade;finalística;Espátula
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Esponja
-insumo_gerais;33.90.39, 33.90.43;unidade;finalística;Esquadro
-insumo_gerais;33.90.39;unidade;finalística;Estadiômetro
-insumo_gerais;00.00.00;unidade;finalística;Estanho em pasta
-insumo_gerais;33.90.39;unidade;finalística;Estante
-insumo_gerais;00.00.00;unidade;finalística;Esterco curtido
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Estetoscópio
-insumo_gerais;33.90.39;unidade;finalística;Estilete
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Etiqueta
-insumo_gerais;33.90.30;unidade;finalística;Extra brilho
-insumo_gerais;00.00.00, 33.90.53;unidade;finalística;Faca de cozinha
-insumo_gerais;33.90.39;unidade;finalística;Facão
-insumo_gerais;33.90.40;unidade;finalística;Feijão
-insumo_gerais;33.90.39;unidade;finalística;Ferro de soldar
-insumo_gerais;33.90.39;unidade;finalística;Fibra siliconada
-insumo_gerais;00.00.00;unidade;finalística;Fita
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Fita adesiva
-insumo_gerais;00.00.00;unidade;finalística;Fita dupla face
-insumo_gerais;00.00.00, 33.90.39, 33.90.42, 33.90.39;unidade;finalística;Fita isolante
-insumo_gerais;33.90.39;unidade;finalística;Flanela
-insumo_gerais;00.00.00;unidade;finalística;Fluxo de solda
-insumo_gerais;00.00.00, 33.90.48;unidade;finalística;Fogão/cooktop
-insumo_gerais;33.90.59;unidade;finalística;Folha impressa
-insumo_gerais;00.00.00;unidade;finalística;Fonte de alimentação
-insumo_gerais;00.00.00;unidade;finalística;Forma para alimentos
-insumo_gerais;33.90.40;unidade;finalística;Fotocélula
-insumo_gerais;00.00.00;unidade;finalística;Fouet
-insumo_gerais;33.90.39;unidade;finalística;Four-way
-insumo_gerais;00.00.00;unidade;finalística;Fralda descartavél
-insumo_gerais;00.00.00;unidade;finalística;Frasco conta-gotas
-insumo_gerais;00.00.00;unidade;finalística;Produto químico
-insumo_gerais;33.90.50, 00.00.00;unidade;finalística;Frigideira
-insumo_gerais;33.90.45;unidade;finalística;Frutas variadas
-insumo_gerais;00.00.00;unidade;finalística;Funil
-insumo_gerais;33.90.39, 33.90.45;unidade;finalística;Furadeira
-insumo_gerais;00.00.00;unidade;finalística;Garrafa
-insumo_gerais;33.90.39;unidade;finalística;Gás refrigerante
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Glicosímetro
-insumo_gerais;33.90.30;unidade;finalística;Glitter
-insumo_gerais;33.90.39;unidade;finalística;Grade
-insumo_gerais;33.90.39;unidade;finalística;Grampeador
-insumo_gerais;33.90.39;unidade;finalística;Grampo
-insumo_gerais;33.90.39;unidade;finalística;Impressora
-insumo_gerais;33.90.36;hora;finalística;Instrutor
-insumo_gerais;00.00.00;unidade;finalística;Insumo alimentício perecível
-insumo_gerais;33.90.39;unidade;finalística;Interfone residencial
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Interruptor
-insumo_gerais;33.90.39;unidade;finalística;Isolador elétrico
-insumo_gerais;33.90.45;unidade;finalística;Item decorativo
-insumo_gerais;33.90.58;unidade;finalística;Jarra
-insumo_gerais;33.90.39;unidade;finalística;Joelho hidráulico
-insumo_gerais;33.90.41;unidade;finalística;Jogo de cama
-insumo_gerais;00.00.00;unidade;finalística;Lamínula
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Lâmpada
-insumo_gerais;33.90.44;unidade;finalística;Legume
-insumo_gerais;00.00.00;unidade;finalística;Lenço umedecido
-insumo_gerais;33.90.39;unidade;finalística;Linha de costura
-insumo_gerais;00.00.00, 33.90.52;unidade;finalística;Liquidificador
-insumo_gerais;33.90.55;unidade;finalística;Lixa
-insumo_gerais;33.90.30;unidade;finalística;Lixa para unhas
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Lixeira
-insumo_gerais;33.90.40, 33.90.58, 33.90.39;unidade;finalística;Lona plástica
-insumo_gerais;33.90.39;unidade;finalística;Lupa de cabeça
-insumo_gerais;33.90.39;unidade;finalística;Lupa
-insumo_gerais;33.90.39;unidade;finalística;Maca portátil
-insumo_gerais;33.90.39;unidade;finalística;Maleta de maquiagem
-insumo_gerais;00.00.00;unidade;finalística;Malha dessoldadora
-insumo_gerais;33.90.39, 33.90.56, 00.00.00;unidade;finalística;Mangueira
-insumo_gerais;33.90.39;unidade;finalística;Manifold
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Mapa da comunidade
-insumo_gerais;00.00.00;unidade;finalística;Marcador
-insumo_gerais;33.90.39;unidade;finalística;Marreta
-insumo_gerais;33.90.39;unidade;finalística;Martelo
-insumo_gerais;00.00.00;unidade;finalística;Máscara descartável
-insumo_gerais;33.90.59;unidade;finalística;Massa corrida
-insumo_gerais;33.90.39, 33.90.46;unidade;finalística;Masseira
-insumo_gerais;33.90.39;unidade;finalística;Material para rede de distribuição
-insumo_gerais;33.90.39;unidade;finalística;Megôhmetro
-insumo_gerais;00.00.00, 33.90.41;unidade;finalística;Mesa
-insumo_gerais;00.00.00;unidade;finalística;Metanol
-insumo_gerais;33.90.39;unidade;finalística;Contator de potência
-insumo_gerais;33.90.39;hora;finalística;Monitor
-insumo_gerais;33.90.39;unidade;finalística;Motobomba centrífuga
-insumo_gerais;00.00.00;unidade;finalística;Muda
-insumo_gerais;33.90.39;unidade;finalística;Multímetro
-insumo_gerais;33.90.40;unidade;finalística;Nitrogênio
-insumo_gerais;33.90.39;unidade;finalística;Nível
-insumo_gerais;33.90.39;unidade;finalística;Notebook
-insumo_gerais;33.90.39, 33.90.30, 00.00.00;unidade;finalística;Óleo
-insumo_gerais;00.00.00;unidade;finalística;Organizador de cabos
-insumo_gerais;33.90.39;unidade;finalística;Material de construção
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Oxímetro
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Pá
-insumo_gerais;33.90.39;unidade;finalística;Material didático
-insumo_gerais;33.90.39;unidade;finalística;Material de maquiagem
-insumo_gerais;00.00.00;unidade;finalística;Palha
-insumo_gerais;33.90.39;unidade;finalística;Palheta
-insumo_gerais;33.90.49, 00.00.00;unidade;finalística;Panela
-insumo_gerais;33.90.39;unidade;finalística;Pano de chão
-insumo_gerais;00.00.00, 33.90.47;unidade;finalística;Pano de limpeza
-insumo_gerais;00.00.00;unidade;finalística;Pano de prato
-insumo_gerais;00.00.00, 33.90.61, 33.90.39;unidade;finalística;Papel A4
-insumo_gerais;00.00.00;unidade;finalística;Papel absorvente
-insumo_gerais;33.90.30;unidade;finalística;Papel grau
-insumo_gerais;33.90.63, 00.00.00;unidade;finalística;Papel higiênico
-insumo_gerais;00.00.00;unidade;finalística;Papel kraft
-insumo_gerais;00.00.00;unidade;finalística;Papel toalha
-insumo_gerais;00.00.00;unidade;finalística;Papel manteiga
-insumo_gerais;33.90.39;unidade;finalística;Paquímetro
-insumo_gerais;33.90.39, 33.90.51;unidade;finalística;Parafuso
-insumo_gerais;33.90.39;unidade;finalística;Passa-fio
-insumo_gerais;00.00.00;unidade;finalística;Pasta de arquivo
-insumo_gerais;00.00.00;unidade;finalística;Pasta organizadora
-insumo_gerais;00.00.00;unidade;finalística;Pegador de alimentos
-insumo_gerais;33.90.39;unidade;finalística;Perlon de malha
-insumo_gerais;00.00.00;unidade;finalística;Pinça de cozinha
-insumo_gerais;33.90.30;unidade;finalística;Pincel
-insumo_gerais;00.00.00;unidade;finalística;Pipeta plástica descartável
-insumo_gerais;33.90.52;unidade;finalística;Piso cerâmico
-insumo_gerais;33.90.39;unidade;finalística;Pistola de cola quente
-insumo_gerais;00.00.00;unidade;finalística;Placa para montagem de circuito
-insumo_gerais;33.90.42;unidade;finalística;Plaina manual
-insumo_gerais;33.90.39;unidade;finalística;Porta-fusível solar
-insumo_gerais;33.90.30;unidade;finalística;Post-it
-insumo_gerais;00.00.00;unidade;finalística;Pote
-insumo_gerais;33.90.39, 00.00.00, 33.90.58;unidade;finalística;Prancheta
-insumo_gerais;33.90.58;unidade;finalística;Prato
-insumo_gerais;33.90.50, 33.90.41;unidade;finalística;Prego
-insumo_gerais;33.90.39;unidade;finalística;Prensa-cabo
-insumo_gerais;33.90.39;unidade;finalística;Produtos de limpeza, higienização e organização (detergente, álcool, sanitizantes)
-insumo_gerais;33.90.39;unidade;finalística;Projetor
-insumo_gerais;33.90.39;unidade;finalística;Proteção/quadro
-insumo_gerais;00.00.00;unidade;finalística;Protetor solar
-insumo_gerais;33.90.39;unidade;finalística;Prumo
-insumo_gerais;00.00.00;unidade;finalística;Púlpito
-insumo_gerais;00.00.00;unidade;finalística;Pulverizador
-insumo_gerais;00.00.00;unidade;finalística;Quadro branco
-insumo_gerais;33.90.56;unidade;finalística;Quadro/painel elétrico
-insumo_gerais;00.00.00;unidade;finalística;Ralador/Zester
-insumo_gerais;00.00.00;unidade;finalística;Rastelo
-insumo_gerais;00.00.00;unidade;finalística;Reagente
-insumo_gerais;33.90.39;unidade;finalística;Reator
-insumo_gerais;00.00.00, 33.90.39;unidade;finalística;Regador
-insumo_gerais;33.90.39;unidade;finalística;Registro
-insumo_gerais;33.90.51;unidade;finalística;Rejunte
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Relé
-insumo_gerais;33.90.30;unidade;finalística;Removedor de esmalte
-insumo_gerais;00.00.00;unidade;finalística;Repelente
-insumo_gerais;33.90.53;unidade;finalística;Revestimento cerâmico
-insumo_gerais;00.00.00;unidade;finalística;Ring light
-insumo_gerais;00.00.00;unidade;finalística;Rodo
-insumo_gerais;33.90.57;unidade;finalística;Rolo de pintura
-insumo_gerais;00.00.00;unidade;finalística;Rolo de Solda
-insumo_gerais;00.00.00;unidade;finalística;Rolo Posicionador Napa
-insumo_gerais;00.00.00;unidade;finalística;Sabonete
-insumo_gerais;00.00.00;unidade;finalística;Saca-rolhas
-insumo_gerais;00.00.00, 33.90.64, 00.00.00;unidade;finalística;Saco de lixo
-insumo_gerais;33.90.39;unidade;finalística;Sal
-insumo_gerais;33.90.48;unidade;finalística;Sarrafo
-insumo_gerais;00.00.00;unidade;finalística;Semente
-insumo_gerais;33.90.41, 33.90.39, 00.00.00;unidade;finalística;Sensor
-insumo_gerais;33.90.39;unidade;finalística;Serra de fita
-insumo_gerais;33.90.39;unidade;finalística;Serra manual
-insumo_gerais;33.90.39, 33.90.40;unidade;finalística;Serrote
-insumo_gerais;33.90.39;unidade;finalística;Serviço
-insumo_gerais;33.90.39;unidade;finalística;Televisão
-insumo_gerais;00.00.00;unidade;finalística;Soda cáustica
-insumo_gerais;00.00.00;unidade;finalística;Solda em pasta
-insumo_gerais;33.90.39;unidade;finalística;Sombrite
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Soquete
-insumo_gerais;33.90.39, 33.90.41;unidade;finalística;Spray massageador
-insumo_gerais;33.90.39;unidade;finalística;Starter de partida
-insumo_gerais;00.00.00;unidade;finalística;Substrato
-insumo_gerais;00.00.00;unidade;finalística;Sugador de solda
-insumo_gerais;33.90.39;unidade;finalística;Suporte para almofada
-insumo_gerais;00.00.00;unidade;finalística;Suporte para solda
-insumo_gerais;33.90.39;unidade;finalística;Supressor de surto
-insumo_gerais;00.00.00;unidade;finalística;Tábuas uso geral
-insumo_gerais;33.90.39;unidade;finalística;Talabarte de segurança
-insumo_gerais;33.90.58;unidade;finalística;Talher
-insumo_gerais;33.90.39;unidade;finalística;Tecido
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Tela de sombreamento
-insumo_gerais;00.00.00;unidade;finalística;Teleprompter de mesa
-insumo_gerais;33.90.43;unidade;finalística;Temperos variados
-insumo_gerais;00.00.00;unidade;finalística;Temporizador
-insumo_gerais;33.90.39;unidade;finalística;Termocera
-insumo_gerais;00.00.00;unidade;finalística;Termômetro
-insumo_gerais;33.90.39, 00.00.00, 33.90.30;unidade;finalística;Tesoura
-insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Tigela
-insumo_gerais;33.90.39;unidade;finalística;Tinta para impressora
-insumo_gerais;00.00.00, 33.90.42;unidade;finalística;Toalha de banho
-insumo_gerais;00.00.00;unidade;finalística;Toalha de mesa
-insumo_gerais;33.90.39, 00.00.00;unidade;finalística;Tomada
-insumo_gerais;33.90.39;unidade;finalística;Torneira
-insumo_gerais;00.00.00, 33.90.43;unidade;finalística;Travesseiro
-insumo_gerais;33.90.39, 00.00.00, 00.00.00;unidade;finalística;Trena
-insumo_gerais;33.90.39;unidade;finalística;Trilho
-insumo_gerais;00.00.00;unidade;finalística;Tripé
-insumo_gerais;33.90.39;unidade;finalística;Tubo
-insumo_gerais;33.90.52;unidade;finalística;Utensílios básicos
-insumo_gerais;33.90.39;unidade;finalística;Vacuômetro
-insumo_gerais;33.90.39;unidade;finalística;Válvula
-insumo_gerais;33.90.41;unidade;finalística;Vareta de solda
-insumo_gerais;33.90.39;unidade;finalística;Ventilador
-kit_participante;33.90.39, 33.90.46;unidade;finalística;Apontador
-kit_participante;33.90.39;unidade;finalística;Apostila
-kit_participante;33.90.30, 33.90.39;unidade;finalística;Borracha
-kit_participante;33.90.30, 33.90.39, 33.90.39, 33.90.48, 33.90.30;unidade;finalística;Caderno
-kit_participante;33.90.30, 33.90.39;unidade;finalística;Caneta
-kit_participante;33.90.39, 33.90.44;unidade;finalística;Copo
-kit_participante;33.90.39;unidade;finalística;Ecobag
-kit_participante;33.90.39, 33.90.41, 33.90.39;unidade;finalística;Estojo
-kit_participante;33.90.39;unidade;finalística;Garrafa d'água
-kit_participante;33.90.30, 33.90.39;unidade;finalística;Lápis
-kit_participante;33.90.39;unidade;finalística;Mochila
-kit_participante;33.90.39, 33.90.40, 33.90.30, 33.90.30;unidade;finalística;Pasta
-kit_trabalho;33.90.39;unidade;kit;Adubo
-kit_trabalho;33.90.39;unidade;kit;Agulha
-kit_trabalho;33.90.30;unidade;kit;Algodão
-kit_trabalho;33.90.30, 00.00.00;unidade;kit;Alicate
-kit_trabalho;33.90.39;unidade;kit;Argola para chaveiro
-kit_trabalho;33.90.39;unidade;kit;Assadeira
-kit_trabalho;00.00.00;unidade;kit;Avental
-kit_trabalho;33.90.39;unidade;kit;Bacia
-kit_trabalho;33.90.39;unidade;kit;Balança
-kit_trabalho;33.90.39;unidade;kit;Bandeja
-kit_trabalho;00.00.00;unidade;kit;Banner
-kit_trabalho;33.90.30;unidade;kit;Base para unhas
-kit_trabalho;33.90.39;unidade;kit;Batedeira
-kit_trabalho;33.90.39;unidade;kit;Bilro
-kit_trabalho;00.00.00;unidade;kit;Bloco de anotações
-kit_trabalho;00.00.00;unidade;kit;Bolsa
-kit_trabalho;33.90.39;unidade;kit;Botijão de gás
-kit_trabalho;00.00.00, 33.90.39;unidade;kit;Cabo/Fio
-kit_trabalho;33.90.39;unidade;kit;Cadeira
-kit_trabalho;00.00.00;unidade;kit;Caderno
-kit_trabalho;33.90.39;unidade;kit;Caixa
-kit_trabalho;33.90.39;unidade;kit;Caixa d'água
-kit_trabalho;00.00.00;unidade;kit;Camisa
-kit_trabalho;00.00.00;unidade;kit;Caneta
-kit_trabalho;00.00.00;unidade;kit;Caneta testadora de tensão
-kit_trabalho;33.90.39;unidade;kit;Cartolina
-kit_trabalho;33.90.39;unidade;kit;Cavadeira
-kit_trabalho;00.00.00;unidade;kit;Chave de fenda
-kit_trabalho;00.00.00;unidade;kit;Chave de teste de tensão
-kit_trabalho;00.00.00;unidade;kit;Computador
-kit_trabalho;00.00.00;unidade;kit;Conector
-kit_trabalho;00.00.00;unidade;kit;Conta-gotas
-kit_trabalho;33.90.39;unidade;kit;Copo
-kit_trabalho;00.00.00;unidade;kit;Corante
-kit_trabalho;00.00.00;unidade;kit;Dispensador de álcool em gel
-kit_trabalho;00.00.00, 33.90.39;unidade;kit;Enxada
-kit_trabalho;00.00.00;unidade;kit;Escova para limpeza
-kit_trabalho;33.90.30;unidade;kit;Esmalte para unha
-kit_trabalho;00.00.00;unidade;kit;Espátula
-kit_trabalho;00.00.00;unidade;kit;Estojo
-kit_trabalho;33.90.30;unidade;kit;Extra brilho
-kit_trabalho;00.00.00, 33.90.39;unidade;kit;Facão
-kit_trabalho;00.00.00;unidade;kit;Ferramenta em geral
-kit_trabalho;33.90.39;unidade;kit;Fibra siliconada
-kit_trabalho;33.90.39;unidade;kit;Fita
-kit_trabalho;00.00.00;unidade;kit;Fita isolante
-kit_trabalho;00.00.00, 33.90.39;unidade;kit;Fita métrica
-kit_trabalho;33.90.39;unidade;kit;Fogão
-kit_trabalho;00.00.00;unidade;kit;Folder
-kit_trabalho;00.00.00;unidade;kit;Fouet
-kit_trabalho;33.90.39;unidade;kit;Freezer horizontal
-kit_trabalho;33.90.39;unidade;kit;Frigideira
-kit_trabalho;33.90.39;unidade;kit;Fritadeira elétrica industrial
-kit_trabalho;33.90.39;unidade;kit;Furadeira
-kit_trabalho;33.90.39;unidade;kit;Garrafa
-kit_trabalho;33.90.39;unidade;kit;Geladeira
-kit_trabalho;33.90.39;unidade;kit;Grade de madeira
-kit_trabalho;33.90.39;unidade;kit;Insumos para cozinha
-kit_trabalho;33.90.39;unidade;kit;Item de artesanato
-kit_trabalho;00.00.00;unidade;kit;Jaleco
-kit_trabalho;33.90.39;unidade;kit;Jarra
-kit_trabalho;00.00.00;unidade;kit;Jogo educativo
-kit_trabalho;00.00.00;unidade;kit;Lamínula
-kit_trabalho;00.00.00;unidade;kit;Lâmpada
-kit_trabalho;00.00.00;unidade;kit;Lápis
-kit_trabalho;00.00.00;unidade;kit;LED
-kit_trabalho;33.90.39;unidade;kit;Linha de costura
-kit_trabalho;33.90.39;unidade;kit;Liquidificador
-kit_trabalho;00.00.00;unidade;kit;Livro
-kit_trabalho;33.90.30;unidade;kit;Lixa industrial
-kit_trabalho;33.90.30, 00.00.00;unidade;kit;Lixa para unhas
-kit_trabalho;00.00.00;unidade;kit;Luva
-kit_trabalho;00.00.00;unidade;kit;Maleta
-kit_trabalho;00.00.00;unidade;kit;Mangueira
-kit_trabalho;00.00.00;unidade;kit;Marcador de lâmina
-kit_trabalho;00.00.00;unidade;kit;Máscara descartável
-kit_trabalho;33.90.39;unidade;kit;Material diverso
-kit_trabalho;33.90.39;unidade;kit;Mesa
-kit_trabalho;33.90.39;unidade;kit;Micro-ondas
-kit_trabalho;00.00.00;unidade;kit;Muda
-kit_trabalho;00.00.00;unidade;kit;Multímetro
-kit_trabalho;00.00.00;unidade;kit;Óculos de proteção
-kit_trabalho;33.90.30;unidade;kit;Óleo
-kit_trabalho;33.90.39;unidade;kit;Pá de bico
-kit_trabalho;00.00.00;unidade;kit;Palito
-kit_trabalho;33.90.39;unidade;kit;Panela
-kit_trabalho;33.90.39;unidade;kit;Pia industrial
-kit_trabalho;00.00.00;unidade;kit;Pipeta plástica
-kit_trabalho;00.00.00;unidade;kit;Pisseta plástica
-kit_trabalho;33.90.39;unidade;kit;Prato
-kit_trabalho;00.00.00;unidade;kit;Reagente
-kit_trabalho;33.90.39;unidade;kit;Regador
-kit_trabalho;00.00.00;unidade;kit;Resistor
-kit_trabalho;00.00.00;unidade;kit;Sabonete
-kit_trabalho;00.00.00;unidade;kit;Sementes
-kit_trabalho;00.00.00;unidade;kit;Soquete
-kit_trabalho;33.90.39;unidade;kit;Suporte para almofada
-kit_trabalho;33.90.39;unidade;kit;Tacho
-kit_trabalho;33.90.39;unidade;kit;Talheres
-kit_trabalho;33.90.39;unidade;kit;Tecido
-kit_trabalho;00.00.00;unidade;kit;Termômetro
-kit_trabalho;33.90.39, 00.00.00;unidade;kit;Tesoura
-kit_trabalho;00.00.00;unidade;kit;Toalha de mão
-kit_trabalho;00.00.00;unidade;kit;Touca de cabelo
-kit_trabalho;00.00.00;unidade;kit;Vaso plástico
-kit_trabalho;33.90.39;unidade;kit;Xícara
-stage11;33.90.39;hora;gestão;Apoio
-stage11;33.90.39;hora;gestão;Assessoria
-stage11;33.90.39;hora;gestão;Assistente
-stage11;33.90.48;hora;gestão;Auxiliar
-stage11;33.90.39;unidade;gestão;Camiseta
-stage11;33.90.39;hora;gestão;Coordenador 
-stage11;33.90.39;diária;finalística;Diária para equipe de gestão
-stage11;33.90.39;unidade;finalística;Locação de veículo
-stage11;33.90.39;hora;gestão;Mobilizador social
-stage11;33.90.39;hora;gestão;Monitor
-stage11;33.90.39;hora;finalística;Motorista
-stage11;33.90.48;hora;gestão;Orientador
-stage11;33.90.39;unidade;finalística;Serviço
-stage11;33.90.48;hora;gestão;Supervisor
-stage11;44.90.52;unidade;estruturação;Veículo
-stage12;00.00.00;unidade;estruturação;Ar-condicionado
-stage12;00.00.00;unidade;estruturação;Cadeira
-stage12;44.90.52, 00.00.00;unidade;estruturação;Caixa de som
-stage12;44.90.52;unidade;estruturação;Câmera
-stage12;44.90.52;unidade;estruturação;Carregador portátil
-stage12;33.90.39;unidade;finalística;Combustível
-stage12;44.90.52;unidade;estruturação;Equipamento para estruturação de espaço
-stage12;44.90.52, 00.00.00;unidade;estruturação;Extensão
-stage12;44.90.52, 00.00.00;unidade;estruturação;Filtro de linha
-stage12;00.00.00;unidade;estruturação;Impressora
-stage12;33.90.39;unidade;estruturação;Instrumento musical
-stage12;33.90.39;unidade;estruturação;Locação
-stage12;00.00.00;unidade;estruturação;Mesa de apoio
-stage12;44.90.52;unidade;estruturação;Mesa de som
-stage12;44.90.52, 00.00.00;unidade;estruturação;Microfone
-stage12;44.90.52, 00.00.00;unidade;estruturação;Notebook
-stage12;44.90.52, 00.00.00;unidade;estruturação;Projetor
-stage12;00.00.00;unidade;estruturação;Roteador Wi-Fi
-stage12;00.00.00;unidade;estruturação;Smart tv
-stage12;44.90.52;unidade;estruturação;Smartphone
-stage12;44.90.52, 00.00.00;unidade;estruturação;Tela de projeção
-transporte;00.00.00;unidade;finalística;Transporte privado
-transporte;00.00.00;unidade;finalística;Transporte público
+﻿Categoria;Unidade;TIPO;Item de Despesa Padronizado
+alimentacao;unidade;finalística;Almoço para participantes
+alimentacao;unidade;finalística;Lanche
+assistencia;hora;finalística;Mentor
+curso_outros;unidade;finalística;Apostila
+curso_outros;hora;finalística;Assessoria especializada
+curso_outros;unidade;finalística;Camiseta
+curso_outros;unidade;finalística;Certificado
+curso_outros;hora;finalística;Instrutor
+curso_outros;hora;finalística;Mentor
+curso_outros;hora;finalística;Monitor
+curso_outros;hora;finalística;Palestrante
+curso_outros;unidade;finalística;Uniforme
+epi;unidade;finalística;Álcool em gel 70%
+epi;unidade;finalística;Álcool líquido 70%
+epi;unidade;finalística;Apito
+epi;unidade;finalística;Avental
+epi;unidade;finalística;Bota
+epi;unidade;finalística;Calça
+epi;unidade;finalística;Camisa
+epi;unidade;finalística;Caneleira
+epi;unidade;finalística;Capacete
+epi;unidade;finalística;Chuteira
+epi;unidade;finalística;Cinturão de segurança
+epi;unidade;finalística;Colete de identificação
+epi;unidade;finalística;Coletor para perfurocortantes
+epi;unidade;finalística;Cone de sinalização
+epi;unidade;finalística;Crachá
+epi;unidade;finalística;Detergente neutro
+epi;unidade;finalística;Extintor de incêndio
+epi;unidade;finalística;Fita de sinalização
+epi;unidade;finalística;Garrafa ou copo reutilizável
+epi;unidade;finalística;Jaleco
+epi;unidade;finalística;Joelheira
+epi;unidade;finalística;Kit
+epi;unidade;finalística;Lanterna
+epi;unidade;finalística;Luva
+epi;unidade;finalística;Manga isolante
+epi;unidade;finalística;Mangote para soldagem
+epi;unidade;finalística;Máscara
+epi;unidade;finalística;Mochila
+epi;unidade;finalística;Óculos de proteção
+epi;unidade;finalística;Pano de limpeza
+epi;unidade;finalística;Papel-toalha
+epi;unidade;finalística;Perneira de proteção
+epi;unidade;finalística;Perneira para soldagem
+epi;unidade;finalística;Propé descartável
+epi;unidade;finalística;Protetor auricular
+epi;unidade;finalística;Protetor bucal
+epi;unidade;finalística;Protetor de nuca
+epi;unidade;finalística;Protetor escrotal
+epi;unidade;finalística;Protetor facial contra arco elétrico
+epi;unidade;finalística;Protetor solar
+epi;unidade;finalística;Respirador PFF2
+epi;unidade;finalística;Respirador semifacial
+epi;unidade;finalística;Sabonete líquido
+epi;unidade;finalística;Saco de lixo hospitalar infectante
+epi;unidade;finalística;Tábua de corte
+epi;unidade;finalística;Talabarte de segurança
+epi;unidade;finalística;Termômetro culinário
+epi;unidade;finalística;Toalha descartável
+epi;unidade;finalística;Touca
+epi;unidade;finalística;Trava-quedas
+epi;unidade;finalística;Vestimenta de proteção
+event;unidade;finalística;Coffee break para evento
+event;unidade;finalística;Coffee break para participantes e convidados
+event;unidade;finalística;Contratação
+event;unidade;finalística;Equipamento de projeção visual
+event;unidade;finalística;Equipe de apoio operacional e cerimonial
+event;unidade;finalística;Estrutura de palco com backdrop e decoração institucional
+event;unidade;finalística;Estrutura de palco e decoração
+event;unidade;finalística;Evento
+event;unidade;finalística;Locação de cadeira
+event;unidade;finalística;Locação de equipamento de som
+event;unidade;finalística;Locação de iluminação
+event;unidade;finalística;Locação de mesa
+event;unidade;finalística;Material gráfico (banners, faixas, credenciais e sinalização)
+event;unidade;finalística;Serviço
+insumo_gerais;unidade;finalística;Abraçadeira
+insumo_gerais;unidade;finalística;Abridor de latas
+insumo_gerais;unidade;finalística;Acetona
+insumo_gerais;unidade;finalística;Acetona 500ml
+insumo_gerais;unidade;finalística;Adaptador
+insumo_gerais;unidade;finalística;Adubo
+insumo_gerais;unidade;finalística;Água mineral
+insumo_gerais;unidade;finalística;Água sanitária
+insumo_gerais;unidade;finalística;Agulha
+insumo_gerais;unidade;finalística;Álcool
+insumo_gerais;unidade;finalística;Algodão
+insumo_gerais;unidade;finalística;Alicate
+insumo_gerais;unidade;finalística;Alimento
+insumo_gerais;unidade;finalística;Almofada
+insumo_gerais;unidade;finalística;Amolecedor de cutícula
+insumo_gerais;unidade;finalística;Anilina
+insumo_gerais;unidade;finalística;Aparelho de pressão
+insumo_gerais;unidade;finalística;Aquecedor de cera
+insumo_gerais;unidade;finalística;Arco de serra
+insumo_gerais;unidade;finalística;Ar-condicionado
+insumo_gerais;unidade;finalística;Área de prática
+insumo_gerais;unidade;finalística;Areia
+insumo_gerais;unidade;finalística;Argamassa
+insumo_gerais;unidade;finalística;Argila
+insumo_gerais;unidade;finalística;Argola para chaveiro
+insumo_gerais;unidade;finalística;Armário
+insumo_gerais;unidade;finalística;Arroz
+insumo_gerais;unidade;finalística;Arruela lisa
+insumo_gerais;unidade;finalística;Assadeira
+insumo_gerais;unidade;finalística;Avental
+insumo_gerais;unidade;finalística;Bacia
+insumo_gerais;unidade;finalística;Balança
+insumo_gerais;unidade;finalística;Balde
+insumo_gerais;unidade;finalística;Bancada
+insumo_gerais;unidade;finalística;Bandeja
+insumo_gerais;unidade;finalística;Banner
+insumo_gerais;unidade;finalística;Barbante/linha
+insumo_gerais;unidade;finalística;Barra chata
+insumo_gerais;unidade;finalística;Barramento
+insumo_gerais;unidade;finalística;Base de unha
+insumo_gerais;unidade;finalística;Bastão de cola quente
+insumo_gerais;unidade;finalística;Batedeira
+insumo_gerais;unidade;finalística;Bateria
+insumo_gerais;unidade;finalística;Bilro
+insumo_gerais;unidade;finalística;Bloco autoadesivo
+insumo_gerais;unidade;finalística;Bloco cerâmico
+insumo_gerais;unidade;finalística;Bloco de anotação
+insumo_gerais;unidade;finalística;Bloco de construção
+insumo_gerais;unidade;finalística;Bloco de montar educativo
+insumo_gerais;unidade;finalística;Bola de futebol
+insumo_gerais;unidade;finalística;Bolsa
+insumo_gerais;unidade;finalística;Bomba de vácuo
+insumo_gerais;unidade;finalística;Borne
+insumo_gerais;unidade;finalística;Borrifador
+insumo_gerais;unidade;finalística;Botão de comando
+insumo_gerais;unidade;finalística;Botão elêtronico
+insumo_gerais;unidade;finalística;Botijão de gás
+insumo_gerais;unidade;finalística;Breu para violino
+insumo_gerais;unidade;finalística;Brita
+insumo_gerais;unidade;finalística;Broca
+insumo_gerais;unidade;finalística;Bucha de fixação
+insumo_gerais;unidade;finalística;Bússola
+insumo_gerais;unidade;finalística;Cabo/Fio
+insumo_gerais;unidade;finalística;Cadeira
+insumo_gerais;unidade;finalística;Caixa de ferramentas
+insumo_gerais;unidade;finalística;Caixa elétrica
+insumo_gerais;unidade;finalística;Caixa para transporte
+insumo_gerais;unidade;finalística;Cal
+insumo_gerais;unidade;finalística;Calculadora
+insumo_gerais;unidade;finalística;Campainha
+insumo_gerais;unidade;finalística;Canaleta
+insumo_gerais;unidade;finalística;Caneta
+insumo_gerais;unidade;finalística;Cano
+insumo_gerais;unidade;finalística;Carrinho de mão
+insumo_gerais;unidade;finalística;Cartão de memória
+insumo_gerais;unidade;finalística;Cartaz
+insumo_gerais;unidade;finalística;Cartolina
+insumo_gerais;unidade;finalística;Cavadeira articulada
+insumo_gerais;unidade;finalística;Cera
+insumo_gerais;unidade;finalística;Cesto
+insumo_gerais;unidade;finalística;Chaira
+insumo_gerais;unidade;finalística;Chaleira
+insumo_gerais;unidade;finalística;Chapa de compensado
+insumo_gerais;unidade;finalística;Chave boia
+insumo_gerais;unidade;finalística;Chave de fenda
+insumo_gerais;unidade;finalística;Cimento
+insumo_gerais;unidade;finalística;Cinturão de segurança
+insumo_gerais;unidade;finalística;Cobertor
+insumo_gerais;unidade;finalística;Coffee break
+insumo_gerais;unidade;finalística;Cola
+insumo_gerais;unidade;finalística;Coletor para perfurocortantes
+insumo_gerais;unidade;finalística;Colher
+insumo_gerais;unidade;finalística;Colher de pedreiro
+insumo_gerais;unidade;finalística;Colher medidora
+insumo_gerais;unidade;finalística;Colheres grandes
+insumo_gerais;unidade;finalística;Conduíte
+insumo_gerais;unidade;finalística;Condulete
+insumo_gerais;unidade;finalística;Conector
+insumo_gerais;unidade;finalística;Conector em barra
+insumo_gerais;unidade;finalística;Conservante
+insumo_gerais;unidade;finalística;Contator
+insumo_gerais;unidade;finalística;Copo
+insumo_gerais;unidade;finalística;Corante
+insumo_gerais;unidade;finalística;Corda para instrumento
+insumo_gerais;unidade;finalística;Cordão
+insumo_gerais;unidade;finalística;Cortador de piso
+insumo_gerais;unidade;finalística;Cosmético
+insumo_gerais;unidade;finalística;Credencial
+insumo_gerais;unidade;finalística;Cronômetro
+insumo_gerais;unidade;finalística;Curva
+insumo_gerais;unidade;finalística;Dermógrafo
+insumo_gerais;unidade;finalística;Descarte perfurocortante
+insumo_gerais;unidade;finalística;Descascador
+insumo_gerais;unidade;finalística;Desempenadeira
+insumo_gerais;unidade;finalística;Desinfetante
+insumo_gerais;unidade;finalística;Detector de tensão por aproximação
+insumo_gerais;unidade;finalística;Detergente
+insumo_gerais;unidade;finalística;Disjuntor
+insumo_gerais;unidade;finalística;Eletrodo
+insumo_gerais;unidade;finalística;Eletrodutos
+insumo_gerais;unidade;finalística;Embalagem
+insumo_gerais;unidade;finalística;Enxada
+insumo_gerais;unidade;finalística;Escorredor
+insumo_gerais;unidade;finalística;Escova de limpeza
+insumo_gerais;unidade;finalística;Escumadeira
+insumo_gerais;unidade;finalística;Esfigmomanômetro
+insumo_gerais;unidade;finalística;Esfoliante
+insumo_gerais;unidade;finalística;Esmalte
+insumo_gerais;unidade;finalística;Espaçador de piso
+insumo_gerais;unidade;finalística;Espátula
+insumo_gerais;unidade;finalística;Esponja
+insumo_gerais;unidade;finalística;Esquadro
+insumo_gerais;unidade;finalística;Estadiômetro
+insumo_gerais;unidade;finalística;Estanho em pasta
+insumo_gerais;unidade;finalística;Estante
+insumo_gerais;unidade;finalística;Esterco curtido
+insumo_gerais;unidade;finalística;Estetoscópio
+insumo_gerais;unidade;finalística;Estilete
+insumo_gerais;unidade;finalística;Etiqueta
+insumo_gerais;unidade;finalística;Extra brilho
+insumo_gerais;unidade;finalística;Faca de cozinha
+insumo_gerais;unidade;finalística;Facão
+insumo_gerais;unidade;finalística;Feijão
+insumo_gerais;unidade;finalística;Ferro de soldar
+insumo_gerais;unidade;finalística;Fibra siliconada
+insumo_gerais;unidade;finalística;Fita
+insumo_gerais;unidade;finalística;Fita adesiva
+insumo_gerais;unidade;finalística;Fita dupla face
+insumo_gerais;unidade;finalística;Fita isolante
+insumo_gerais;unidade;finalística;Flanela
+insumo_gerais;unidade;finalística;Fluxo de solda
+insumo_gerais;unidade;finalística;Fogão/cooktop
+insumo_gerais;unidade;finalística;Folha impressa
+insumo_gerais;unidade;finalística;Fonte de alimentação
+insumo_gerais;unidade;finalística;Forma para alimentos
+insumo_gerais;unidade;finalística;Fotocélula
+insumo_gerais;unidade;finalística;Fouet
+insumo_gerais;unidade;finalística;Four-way
+insumo_gerais;unidade;finalística;Fralda descartavél
+insumo_gerais;unidade;finalística;Frasco conta-gotas
+insumo_gerais;unidade;finalística;Produto químico
+insumo_gerais;unidade;finalística;Frigideira
+insumo_gerais;unidade;finalística;Frutas variadas
+insumo_gerais;unidade;finalística;Funil
+insumo_gerais;unidade;finalística;Furadeira
+insumo_gerais;unidade;finalística;Garrafa
+insumo_gerais;unidade;finalística;Gás refrigerante
+insumo_gerais;unidade;finalística;Glicosímetro
+insumo_gerais;unidade;finalística;Glitter
+insumo_gerais;unidade;finalística;Grade
+insumo_gerais;unidade;finalística;Grampeador
+insumo_gerais;unidade;finalística;Grampo
+insumo_gerais;unidade;finalística;Impressora
+insumo_gerais;hora;finalística;Instrutor
+insumo_gerais;unidade;finalística;Insumo alimentício perecível
+insumo_gerais;unidade;finalística;Interfone residencial
+insumo_gerais;unidade;finalística;Interruptor
+insumo_gerais;unidade;finalística;Isolador elétrico
+insumo_gerais;unidade;finalística;Item decorativo
+insumo_gerais;unidade;finalística;Jarra
+insumo_gerais;unidade;finalística;Joelho hidráulico
+insumo_gerais;unidade;finalística;Jogo de cama
+insumo_gerais;unidade;finalística;Lamínula
+insumo_gerais;unidade;finalística;Lâmpada
+insumo_gerais;unidade;finalística;Legume
+insumo_gerais;unidade;finalística;Lenço umedecido
+insumo_gerais;unidade;finalística;Linha de costura
+insumo_gerais;unidade;finalística;Liquidificador
+insumo_gerais;unidade;finalística;Lixa
+insumo_gerais;unidade;finalística;Lixa para unhas
+insumo_gerais;unidade;finalística;Lixeira
+insumo_gerais;unidade;finalística;Lona plástica
+insumo_gerais;unidade;finalística;Lupa de cabeça
+insumo_gerais;unidade;finalística;Lupa
+insumo_gerais;unidade;finalística;Maca portátil
+insumo_gerais;unidade;finalística;Maleta de maquiagem
+insumo_gerais;unidade;finalística;Malha dessoldadora
+insumo_gerais;unidade;finalística;Mangueira
+insumo_gerais;unidade;finalística;Manifold
+insumo_gerais;unidade;finalística;Mapa da comunidade
+insumo_gerais;unidade;finalística;Marcador
+insumo_gerais;unidade;finalística;Marreta
+insumo_gerais;unidade;finalística;Martelo
+insumo_gerais;unidade;finalística;Máscara descartável
+insumo_gerais;unidade;finalística;Massa corrida
+insumo_gerais;unidade;finalística;Masseira
+insumo_gerais;unidade;finalística;Material para rede de distribuição
+insumo_gerais;unidade;finalística;Megôhmetro
+insumo_gerais;unidade;finalística;Mesa
+insumo_gerais;unidade;finalística;Metanol
+insumo_gerais;unidade;finalística;Contator de potência
+insumo_gerais;hora;finalística;Monitor
+insumo_gerais;unidade;finalística;Motobomba centrífuga
+insumo_gerais;unidade;finalística;Muda
+insumo_gerais;unidade;finalística;Multímetro
+insumo_gerais;unidade;finalística;Nitrogênio
+insumo_gerais;unidade;finalística;Nível
+insumo_gerais;unidade;finalística;Notebook
+insumo_gerais;unidade;finalística;Óleo
+insumo_gerais;unidade;finalística;Organizador de cabos
+insumo_gerais;unidade;finalística;Material de construção
+insumo_gerais;unidade;finalística;Oxímetro
+insumo_gerais;unidade;finalística;Pá
+insumo_gerais;unidade;finalística;Material didático
+insumo_gerais;unidade;finalística;Material de maquiagem
+insumo_gerais;unidade;finalística;Palha
+insumo_gerais;unidade;finalística;Palheta
+insumo_gerais;unidade;finalística;Panela
+insumo_gerais;unidade;finalística;Pano de chão
+insumo_gerais;unidade;finalística;Pano de limpeza
+insumo_gerais;unidade;finalística;Pano de prato
+insumo_gerais;unidade;finalística;Papel A4
+insumo_gerais;unidade;finalística;Papel absorvente
+insumo_gerais;unidade;finalística;Papel grau
+insumo_gerais;unidade;finalística;Papel higiênico
+insumo_gerais;unidade;finalística;Papel kraft
+insumo_gerais;unidade;finalística;Papel toalha
+insumo_gerais;unidade;finalística;Papel manteiga
+insumo_gerais;unidade;finalística;Paquímetro
+insumo_gerais;unidade;finalística;Parafuso
+insumo_gerais;unidade;finalística;Passa-fio
+insumo_gerais;unidade;finalística;Pasta de arquivo
+insumo_gerais;unidade;finalística;Pasta organizadora
+insumo_gerais;unidade;finalística;Pegador de alimentos
+insumo_gerais;unidade;finalística;Perlon de malha
+insumo_gerais;unidade;finalística;Pinça de cozinha
+insumo_gerais;unidade;finalística;Pincel
+insumo_gerais;unidade;finalística;Pipeta plástica descartável
+insumo_gerais;unidade;finalística;Piso cerâmico
+insumo_gerais;unidade;finalística;Pistola de cola quente
+insumo_gerais;unidade;finalística;Placa para montagem de circuito
+insumo_gerais;unidade;finalística;Plaina manual
+insumo_gerais;unidade;finalística;Porta-fusível solar
+insumo_gerais;unidade;finalística;Post-it
+insumo_gerais;unidade;finalística;Pote
+insumo_gerais;unidade;finalística;Prancheta
+insumo_gerais;unidade;finalística;Prato
+insumo_gerais;unidade;finalística;Prego
+insumo_gerais;unidade;finalística;Prensa-cabo
+insumo_gerais;unidade;finalística;Produtos de limpeza, higienização e organização (detergente, álcool, sanitizantes)
+insumo_gerais;unidade;finalística;Projetor
+insumo_gerais;unidade;finalística;Proteção/quadro
+insumo_gerais;unidade;finalística;Protetor solar
+insumo_gerais;unidade;finalística;Prumo
+insumo_gerais;unidade;finalística;Púlpito
+insumo_gerais;unidade;finalística;Pulverizador
+insumo_gerais;unidade;finalística;Quadro branco
+insumo_gerais;unidade;finalística;Quadro/painel elétrico
+insumo_gerais;unidade;finalística;Ralador/Zester
+insumo_gerais;unidade;finalística;Rastelo
+insumo_gerais;unidade;finalística;Reagente
+insumo_gerais;unidade;finalística;Reator
+insumo_gerais;unidade;finalística;Regador
+insumo_gerais;unidade;finalística;Registro
+insumo_gerais;unidade;finalística;Rejunte
+insumo_gerais;unidade;finalística;Relé
+insumo_gerais;unidade;finalística;Removedor de esmalte
+insumo_gerais;unidade;finalística;Repelente
+insumo_gerais;unidade;finalística;Revestimento cerâmico
+insumo_gerais;unidade;finalística;Ring light
+insumo_gerais;unidade;finalística;Rodo
+insumo_gerais;unidade;finalística;Rolo de pintura
+insumo_gerais;unidade;finalística;Rolo de Solda
+insumo_gerais;unidade;finalística;Rolo Posicionador Napa
+insumo_gerais;unidade;finalística;Sabonete
+insumo_gerais;unidade;finalística;Saca-rolhas
+insumo_gerais;unidade;finalística;Saco de lixo
+insumo_gerais;unidade;finalística;Sal
+insumo_gerais;unidade;finalística;Sarrafo
+insumo_gerais;unidade;finalística;Semente
+insumo_gerais;unidade;finalística;Sensor
+insumo_gerais;unidade;finalística;Serra de fita
+insumo_gerais;unidade;finalística;Serra manual
+insumo_gerais;unidade;finalística;Serrote
+insumo_gerais;unidade;finalística;Serviço
+insumo_gerais;unidade;finalística;Televisão
+insumo_gerais;unidade;finalística;Soda cáustica
+insumo_gerais;unidade;finalística;Solda em pasta
+insumo_gerais;unidade;finalística;Sombrite
+insumo_gerais;unidade;finalística;Soquete
+insumo_gerais;unidade;finalística;Spray massageador
+insumo_gerais;unidade;finalística;Starter de partida
+insumo_gerais;unidade;finalística;Substrato
+insumo_gerais;unidade;finalística;Sugador de solda
+insumo_gerais;unidade;finalística;Suporte para almofada
+insumo_gerais;unidade;finalística;Suporte para solda
+insumo_gerais;unidade;finalística;Supressor de surto
+insumo_gerais;unidade;finalística;Tábuas uso geral
+insumo_gerais;unidade;finalística;Talabarte de segurança
+insumo_gerais;unidade;finalística;Talher
+insumo_gerais;unidade;finalística;Tecido
+insumo_gerais;unidade;finalística;Tela de sombreamento
+insumo_gerais;unidade;finalística;Teleprompter de mesa
+insumo_gerais;unidade;finalística;Temperos variados
+insumo_gerais;unidade;finalística;Temporizador
+insumo_gerais;unidade;finalística;Termocera
+insumo_gerais;unidade;finalística;Termômetro
+insumo_gerais;unidade;finalística;Tesoura
+insumo_gerais;unidade;finalística;Tigela
+insumo_gerais;unidade;finalística;Tinta para impressora
+insumo_gerais;unidade;finalística;Toalha de banho
+insumo_gerais;unidade;finalística;Toalha de mesa
+insumo_gerais;unidade;finalística;Tomada
+insumo_gerais;unidade;finalística;Torneira
+insumo_gerais;unidade;finalística;Travesseiro
+insumo_gerais;unidade;finalística;Trena
+insumo_gerais;unidade;finalística;Trilho
+insumo_gerais;unidade;finalística;Tripé
+insumo_gerais;unidade;finalística;Tubo
+insumo_gerais;unidade;finalística;Utensílios básicos
+insumo_gerais;unidade;finalística;Vacuômetro
+insumo_gerais;unidade;finalística;Válvula
+insumo_gerais;unidade;finalística;Vareta de solda
+insumo_gerais;unidade;finalística;Ventilador
+kit_participante;unidade;finalística;Apontador
+kit_participante;unidade;finalística;Apostila
+kit_participante;unidade;finalística;Borracha
+kit_participante;unidade;finalística;Caderno
+kit_participante;unidade;finalística;Caneta
+kit_participante;unidade;finalística;Copo
+kit_participante;unidade;finalística;Ecobag
+kit_participante;unidade;finalística;Estojo
+kit_participante;unidade;finalística;Garrafa d'água
+kit_participante;unidade;finalística;Lápis
+kit_participante;unidade;finalística;Mochila
+kit_participante;unidade;finalística;Pasta
+kit_trabalho;unidade;kit;Adubo
+kit_trabalho;unidade;kit;Agulha
+kit_trabalho;unidade;kit;Algodão
+kit_trabalho;unidade;kit;Alicate
+kit_trabalho;unidade;kit;Argola para chaveiro
+kit_trabalho;unidade;kit;Assadeira
+kit_trabalho;unidade;kit;Avental
+kit_trabalho;unidade;kit;Bacia
+kit_trabalho;unidade;kit;Balança
+kit_trabalho;unidade;kit;Bandeja
+kit_trabalho;unidade;kit;Banner
+kit_trabalho;unidade;kit;Base para unhas
+kit_trabalho;unidade;kit;Batedeira
+kit_trabalho;unidade;kit;Bilro
+kit_trabalho;unidade;kit;Bloco de anotações
+kit_trabalho;unidade;kit;Bolsa
+kit_trabalho;unidade;kit;Botijão de gás
+kit_trabalho;unidade;kit;Cabo/Fio
+kit_trabalho;unidade;kit;Cadeira
+kit_trabalho;unidade;kit;Caderno
+kit_trabalho;unidade;kit;Caixa
+kit_trabalho;unidade;kit;Caixa d'água
+kit_trabalho;unidade;kit;Camisa
+kit_trabalho;unidade;kit;Caneta
+kit_trabalho;unidade;kit;Caneta testadora de tensão
+kit_trabalho;unidade;kit;Cartolina
+kit_trabalho;unidade;kit;Cavadeira
+kit_trabalho;unidade;kit;Chave de fenda
+kit_trabalho;unidade;kit;Chave de teste de tensão
+kit_trabalho;unidade;kit;Computador
+kit_trabalho;unidade;kit;Conector
+kit_trabalho;unidade;kit;Conta-gotas
+kit_trabalho;unidade;kit;Copo
+kit_trabalho;unidade;kit;Corante
+kit_trabalho;unidade;kit;Dispensador de álcool em gel
+kit_trabalho;unidade;kit;Enxada
+kit_trabalho;unidade;kit;Escova para limpeza
+kit_trabalho;unidade;kit;Esmalte para unha
+kit_trabalho;unidade;kit;Espátula
+kit_trabalho;unidade;kit;Estojo
+kit_trabalho;unidade;kit;Extra brilho
+kit_trabalho;unidade;kit;Facão
+kit_trabalho;unidade;kit;Ferramenta em geral
+kit_trabalho;unidade;kit;Fibra siliconada
+kit_trabalho;unidade;kit;Fita
+kit_trabalho;unidade;kit;Fita isolante
+kit_trabalho;unidade;kit;Fita métrica
+kit_trabalho;unidade;kit;Fogão
+kit_trabalho;unidade;kit;Folder
+kit_trabalho;unidade;kit;Fouet
+kit_trabalho;unidade;kit;Freezer horizontal
+kit_trabalho;unidade;kit;Frigideira
+kit_trabalho;unidade;kit;Fritadeira elétrica industrial
+kit_trabalho;unidade;kit;Furadeira
+kit_trabalho;unidade;kit;Garrafa
+kit_trabalho;unidade;kit;Geladeira
+kit_trabalho;unidade;kit;Grade de madeira
+kit_trabalho;unidade;kit;Insumos para cozinha
+kit_trabalho;unidade;kit;Item de artesanato
+kit_trabalho;unidade;kit;Jaleco
+kit_trabalho;unidade;kit;Jarra
+kit_trabalho;unidade;kit;Jogo educativo
+kit_trabalho;unidade;kit;Lamínula
+kit_trabalho;unidade;kit;Lâmpada
+kit_trabalho;unidade;kit;Lápis
+kit_trabalho;unidade;kit;LED
+kit_trabalho;unidade;kit;Linha de costura
+kit_trabalho;unidade;kit;Liquidificador
+kit_trabalho;unidade;kit;Livro
+kit_trabalho;unidade;kit;Lixa industrial
+kit_trabalho;unidade;kit;Lixa para unhas
+kit_trabalho;unidade;kit;Luva
+kit_trabalho;unidade;kit;Maleta
+kit_trabalho;unidade;kit;Mangueira
+kit_trabalho;unidade;kit;Marcador de lâmina
+kit_trabalho;unidade;kit;Máscara descartável
+kit_trabalho;unidade;kit;Material diverso
+kit_trabalho;unidade;kit;Mesa
+kit_trabalho;unidade;kit;Micro-ondas
+kit_trabalho;unidade;kit;Muda
+kit_trabalho;unidade;kit;Multímetro
+kit_trabalho;unidade;kit;Óculos de proteção
+kit_trabalho;unidade;kit;Óleo
+kit_trabalho;unidade;kit;Pá de bico
+kit_trabalho;unidade;kit;Palito
+kit_trabalho;unidade;kit;Panela
+kit_trabalho;unidade;kit;Pia industrial
+kit_trabalho;unidade;kit;Pipeta plástica
+kit_trabalho;unidade;kit;Pisseta plástica
+kit_trabalho;unidade;kit;Prato
+kit_trabalho;unidade;kit;Reagente
+kit_trabalho;unidade;kit;Regador
+kit_trabalho;unidade;kit;Resistor
+kit_trabalho;unidade;kit;Sabonete
+kit_trabalho;unidade;kit;Sementes
+kit_trabalho;unidade;kit;Soquete
+kit_trabalho;unidade;kit;Suporte para almofada
+kit_trabalho;unidade;kit;Tacho
+kit_trabalho;unidade;kit;Talheres
+kit_trabalho;unidade;kit;Tecido
+kit_trabalho;unidade;kit;Termômetro
+kit_trabalho;unidade;kit;Tesoura
+kit_trabalho;unidade;kit;Toalha de mão
+kit_trabalho;unidade;kit;Touca de cabelo
+kit_trabalho;unidade;kit;Vaso plástico
+kit_trabalho;unidade;kit;Xícara
+stage11;hora;gestão;Apoio
+stage11;hora;gestão;Assessoria
+stage11;hora;gestão;Assistente
+stage11;hora;gestão;Auxiliar
+stage11;unidade;gestão;Camiseta
+stage11;hora;gestão;Coordenador
+stage11;diária;finalística;Diária para equipe de gestão
+stage11;unidade;finalística;Locação de veículo
+stage11;hora;gestão;Mobilizador social
+stage11;hora;gestão;Monitor
+stage11;hora;finalística;Motorista
+stage11;hora;gestão;Orientador
+stage11;unidade;finalística;Serviço
+stage11;hora;gestão;Supervisor
+stage11;unidade;estruturação;Veículo
+stage12;unidade;estruturação;Ar-condicionado
+stage12;unidade;estruturação;Cadeira
+stage12;unidade;estruturação;Caixa de som
+stage12;unidade;estruturação;Câmera
+stage12;unidade;estruturação;Carregador portátil
+stage12;unidade;finalística;Combustível
+stage12;unidade;estruturação;Equipamento para estruturação de espaço
+stage12;unidade;estruturação;Extensão
+stage12;unidade;estruturação;Filtro de linha
+stage12;unidade;estruturação;Impressora
+stage12;unidade;estruturação;Instrumento musical
+stage12;unidade;estruturação;Locação
+stage12;unidade;estruturação;Mesa de apoio
+stage12;unidade;estruturação;Mesa de som
+stage12;unidade;estruturação;Microfone
+stage12;unidade;estruturação;Notebook
+stage12;unidade;estruturação;Projetor
+stage12;unidade;estruturação;Roteador Wi-Fi
+stage12;unidade;estruturação;Smart tv
+stage12;unidade;estruturação;Smartphone
+stage12;unidade;estruturação;Tela de projeção
+transporte;unidade;finalística;Transporte privado
+transporte;unidade;finalística;Transporte público

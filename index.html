@@ -1216,11 +1216,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           <small class="error-message" data-catalog-error="name"></small>
         </div>
         <div class="dialog-field">
-          <label class="required" for="catalog-item-code">Elemento de despesa</label>
-          <input id="catalog-item-code" type="text" maxlength="100" placeholder="Ex: 33.90.30" required />
-          <small class="error-message" data-catalog-error="code"></small>
-        </div>
-        <div class="dialog-field">
           <label class="required" for="catalog-item-unit">Tipo de unidade</label>
           <select id="catalog-item-unit" required>
             <option value="">Selecione</option>
@@ -1303,7 +1298,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const headers = lines[0].split(";").map(header => header.trim());
       const requiredHeaders = [
         "Categoria",
-        "Código do Elemento de Despesa",
         "Unidade",
         "TIPO",
         "Item de Despesa Padronizado"
@@ -1329,14 +1323,9 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         const existing = items.get(key) || {
           id: key,
           label,
-          codigos: [],
           unidades: [],
           tipo: normalizeExpenseType(row.TIPO)
         };
-        existing.codigos = [...new Set([
-          ...existing.codigos,
-          ...splitCatalogValues(row["Código do Elemento de Despesa"])
-        ])];
         existing.unidades = [...new Set([
           ...existing.unidades,
           ...splitCatalogValues(row.Unidade)
@@ -1345,7 +1334,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       });
 
       return [...items.values()]
-        .map(item => ({ ...item, codigo: item.codigos[0] || "" }))
         .sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
     }
 
@@ -1453,6 +1441,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     function maskMonthYear(input) {
       const digits = input.value.replace(/\D/g, "").slice(0, 6);
       input.value = digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits;
+    }
+
+    function maskExpenseCode(input) {
+      const digits = input.value.replace(/\D/g, "").slice(0, 6);
+      input.value = digits.match(/.{1,2}/g)?.join(".") || "";
     }
 
     function monthYearToComparable(value) {
@@ -1763,7 +1756,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         ${tableCellSelect("tipo_item_despesa", optionList(catalogs.tiposItemCurso), rowId, "Tipo do item")}
         ${tableCellCombobox("item_despesa", [], rowId, "Item", "Selecione o tipo primeiro", true, true)}
         ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
-        ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
+        ${tableCellInput("codigo_elemento_despesa", "text", rowId, { expenseCode: true, placeholder: "00.00.00" })}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
@@ -1781,7 +1774,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       tr.innerHTML = `
         ${tableCellCombobox("item_despesa", catalogs[kind], rowId, "Item")}
         ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
-        ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
+        ${tableCellInput("codigo_elemento_despesa", "text", rowId, { expenseCode: true, placeholder: "00.00.00" })}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
@@ -1866,7 +1859,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
     function tableCellInput(field, type, rowId, options = {}) {
       const id = `${rowId}_${field}`;
-      const classes = [options.currency ? "currency-input" : "", options.monthYear ? "month-year-input" : ""].filter(Boolean).join(" ");
+      const classes = [
+        options.currency ? "currency-input" : "",
+        options.monthYear ? "month-year-input" : "",
+        options.expenseCode ? "expense-code-input" : ""
+      ].filter(Boolean).join(" ");
       const attributes = [
         `id="${id}"`, `type="${type}"`, `data-field="${field}"`, `aria-label="${field.replaceAll("_", " ")}"`
       ];
@@ -1875,6 +1872,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       if (options.min != null) attributes.push(`min="${options.min}"`, `step="1"`, `inputmode="numeric"`);
       if (options.currency) attributes.push(`inputmode="numeric"`, `autocomplete="off"`, `placeholder="R$ 0,00"`);
       if (options.monthYear) attributes.push(`inputmode="numeric"`, `maxlength="7"`);
+      if (options.expenseCode) attributes.push(`inputmode="numeric"`, `maxlength="8"`, `autocomplete="off"`);
       if (options.placeholder) attributes.push(`placeholder="${escapeHtml(options.placeholder)}"`);
       if (options.value != null) attributes.push(`value="${escapeHtml(options.value)}"`);
       return `<td><input class="${classes}" ${attributes.join(" ")} /><small class="error-message" data-error-for="${id}"></small></td>`;
@@ -1949,7 +1947,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     function updateCourseDependencies(row) {
       const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
       const itemSelect = row.querySelector('[data-field="item_despesa"]');
-      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
       const addCatalogItemButton = row.querySelector("[data-add-catalog-item]");
       const type = catalogs.tiposItemCurso.find(item => item.id === typeSelect.value);
@@ -1958,8 +1955,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const itemInput = itemSelect.closest(".searchable-combobox").querySelector("[data-combobox-input]");
       itemInput.disabled = !type;
       setComboboxOptions(itemSelect, type?.itens || [], type ? "Selecione ou pesquise" : "Selecione o tipo primeiro");
-      codeSelect.disabled = true;
-      codeSelect.innerHTML = optionList([], "Selecione o item primeiro");
       unitSelect.disabled = true;
       unitSelect.innerHTML = optionList([], "Selecione o item primeiro");
       syncCourseExpenseQuantities(row.closest(".course-card"));
@@ -1968,14 +1963,10 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     function updateCourseItemDependencies(row) {
       const type = catalogs.tiposItemCurso.find(item => item.id === row.querySelector('[data-field="tipo_item_despesa"]').value);
       const selected = type?.itens.find(item => item.id === row.querySelector('[data-field="item_despesa"]').value);
-      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
-      codeSelect.disabled = !selected;
-      codeSelect.innerHTML = selected ? optionList(selected.codigos || [selected.codigo], "Selecione") : optionList([], "Selecione o item primeiro");
       unitSelect.disabled = true;
       unitSelect.innerHTML = selected ? optionList(selected.unidades, "Selecione") : optionList([], "Selecione o item primeiro");
       if (selected) {
-        codeSelect.value = selected.codigo;
         unitSelect.value = selected.unidades[0] || "";
       }
       syncCourseExpenseQuantities(row.closest(".course-card"));
@@ -1984,16 +1975,12 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     function updateStageDependencies(row) {
       const kind = row.dataset.stageKind;
       const item = catalogs[kind].find(entry => entry.id === row.querySelector('[data-field="item_despesa"]').value);
-      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
       const typeInput = row.querySelector('[data-field="tipo_despesa"]');
-      codeSelect.disabled = !item;
-      codeSelect.innerHTML = item ? optionList(item.codigos || [item.codigo]) : optionList([], "Selecione o item primeiro");
       unitSelect.disabled = true;
       unitSelect.innerHTML = item ? optionList(item.unidades) : optionList([], "Selecione o item primeiro");
       typeInput.value = item?.tipo || "";
       if (item) {
-        codeSelect.value = item.codigo;
         unitSelect.value = item.unidades[0] || "";
       }
       updateExpenseTotalsByType();
@@ -2071,10 +2058,9 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       if (!row || !config) return closeCatalogItemDialog();
 
       const name = document.getElementById("catalog-item-name").value.trim();
-      const code = document.getElementById("catalog-item-code").value.trim();
       const unit = document.getElementById("catalog-item-unit").value.trim();
       let valid = true;
-      [["name", name], ["code", code], ["unit", unit]].forEach(([field, value]) => {
+      [["name", name], ["unit", unit]].forEach(([field, value]) => {
         if (!value) {
           setCatalogItemError(field, "Preencha este campo.");
           valid = false;
@@ -2097,7 +2083,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
       const catalogRow = {
         Categoria: config.csvCategory,
-        "Código do Elemento de Despesa": code,
         Unidade: unit,
         TIPO: config.csvType,
         "Item de Despesa Padronizado": name
@@ -2106,7 +2091,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       catalogRows.push(catalogRow);
       category.itens.push(newItem);
       category.itens.sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
-      catalogCsvText = `${catalogCsvText.replace(/[\r\n]+$/, "")}\n${config.csvCategory};${code};${unit};${config.csvType};${name}\n`;
+      catalogCsvText = `${catalogCsvText.replace(/[\r\n]+$/, "")}\n${config.csvCategory};${unit};${config.csvType};${name}\n`;
 
       refreshCourseCategoryItems(categoryId);
       const targetSelect = row.querySelector('[data-field="item_despesa"]');
@@ -2325,6 +2310,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           setError(control, "Use o formato MM/AAAA.");
           return false;
         }
+      }
+
+      if (control.classList.contains("expense-code-input") && !/^\d{2}\.\d{2}\.\d{2}$/.test(control.value)) {
+        setError(control, "Use o formato XX.XX.XX.");
+        return false;
       }
 
       return true;
@@ -2550,7 +2540,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           tipo_item_label: category?.label || expense.tipo_item_label,
           item_id: `resumo_${typeId}`,
           item_label: courseSummaryLabels[typeId] || category?.label || expense.tipo_item_label,
-          codigo_elemento_despesa: expenseCodes.length === 1 ? expenseCodes[0] : "Diversos",
+          codigo_elemento_despesa: expenseCodes.join(", "),
           codigos_elemento_despesa: expenseCodes,
           unidade: courseSummaryUnits[typeId] || "unidade",
           quantidade_itens: quantity,
@@ -3550,6 +3540,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       }
       if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
+      if (control.classList.contains("expense-code-input")) maskExpenseCode(control);
       if (control.matches("input, select, textarea")) validateControl(control);
 
       if (["quantidade_participantes", "margem_reserva"].includes(control.dataset.field)) {
