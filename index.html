@@ -1791,13 +1791,14 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     }
 
     function calculateTransportQuantity(totalWorkload, participantCountWithReserve, dailyWorkload) {
-      const denominator = participantCountWithReserve * dailyWorkload;
-      const divisionResult = totalWorkload > 0 && denominator > 0
-        ? totalWorkload / denominator
+      const divisionResult = totalWorkload > 0 && dailyWorkload > 0 && participantCountWithReserve > 0
+        ? totalWorkload / dailyWorkload
         : 0;
-      const rawQuantity = divisionResult * 2;
+      const participantTrips = divisionResult * participantCountWithReserve;
+      const rawQuantity = participantTrips * 2;
       return {
         divisionResult,
+        participantTrips,
         rawQuantity,
         quantity: rawQuantity > 0 ? Math.ceil(rawQuantity) : 0
       };
@@ -1831,7 +1832,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           quantityInput.readOnly = true;
           detailInput.readOnly = true;
 
-          const { divisionResult, rawQuantity, quantity: transportQuantity } =
+          const { divisionResult, participantTrips, rawQuantity, quantity: transportQuantity } =
             calculateTransportQuantity(totalWorkload, itemCount, dailyWorkload);
 
           quantityInput.value = transportQuantity || "";
@@ -1844,12 +1845,17 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
               minimumFractionDigits: 0,
               maximumFractionDigits: 4
             });
+            const participantTripsText = participantTrips.toLocaleString("pt-BR", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 4
+            });
             const roundingText = Number.isInteger(rawQuantity)
               ? ""
               : `; ${rawQuantityText} arredondado para cima = ${transportQuantity}`;
             detailInput.value =
-              `${totalWorkload}h de carga horária total ÷ (${itemCount} participantes × ${dailyWorkload}h diárias) = ${divisionResultText}; ` +
-              `${divisionResultText} × 2 (ida e volta) = ${rawQuantityText}${roundingText}`;
+              `${totalWorkload}h de carga horária total ÷ ${dailyWorkload}h diárias = ${divisionResultText}; ` +
+              `${divisionResultText} × ${itemCount} participantes com margem = ${participantTripsText}; ` +
+              `${participantTripsText} × 2 (ida e volta) = ${rawQuantityText}${roundingText}`;
           } else {
             detailInput.value = "";
           }
