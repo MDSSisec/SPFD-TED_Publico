@@ -286,6 +286,29 @@
     .check-card label { margin: 0; cursor: pointer; }
     .check-card small { display: block; margin-top: 3px; color: var(--muted); font-weight: 400; }
 
+    .objectives-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .objective-card {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f9fafb;
+    }
+
+    .objective-card__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+
+    .objective-card__header label { margin: 0; }
+    .objective-card textarea { min-height: 105px; }
+
     /* ======================================================================
        4. CURSOS, TABELAS DE DESPESAS E AÇÕES
        ====================================================================== */
@@ -913,6 +936,56 @@
               <input id="quantidade_cursos" name="quantidade_cursos" type="number" min="1" step="1" inputmode="numeric" data-required="true" value="1" />
               <small class="hint">A seção de cursos será criada conforme esta quantidade.</small>
               <small class="error-message" data-error-for="quantidade_cursos"></small>
+            </div>
+
+            <div class="field field--full">
+              <label class="required" for="objeto_projeto">Objeto</label>
+              <textarea id="objeto_projeto" name="objeto_projeto" maxlength="1000" data-required="true">Promover a capacitação de pessoas em situação de vulnerabilidade no (Município/Região/Estado) de (Nome do Município/Região/Estado), inscritas no Cadastro Único de Programas Sociais do Governo Federal - CadÚnico, com vistas à empregabilidade ou ao empreendedorismo, possibilitando-lhes inclusão socioeconômica.</textarea>
+              <small class="hint">Texto editável, limitado a 1.000 caracteres.</small>
+              <small class="error-message" data-error-for="objeto_projeto"></small>
+            </div>
+
+            <div class="field field--full">
+              <h3 class="subsection-title">Objetivos específicos</h3>
+              <div class="objectives-list" id="specific-objectives">
+                <div class="objective-card" data-specific-objective data-objective-number="1">
+                  <div class="objective-card__header">
+                    <label class="required" for="objetivo_especifico_1">Objetivo específico 1</label>
+                  </div>
+                  <textarea id="objetivo_especifico_1" name="objetivo_especifico_1" data-required="true">Desenvolver competências técnicas e empreendedoras de pessoas inscritas no CadÚnico, visando ampliar as oportunidades de (re)inserção socioeconômica.</textarea>
+                  <small class="hint">Obrigatório e não removível.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_1"></small>
+                </div>
+
+                <div class="objective-card" data-specific-objective data-objective-number="2">
+                  <div class="objective-card__header">
+                    <label class="required" for="objetivo_especifico_2">Objetivo específico 2</label>
+                  </div>
+                  <textarea id="objetivo_especifico_2" name="objetivo_especifico_2" data-required="true">Aumentar a oferta de oportunidades de capacitação para mulheres inscritas no CadÚnico.</textarea>
+                  <small class="hint">Obrigatório e não removível.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_2"></small>
+                </div>
+
+                <div class="objective-card" data-specific-objective data-objective-number="3">
+                  <div class="objective-card__header">
+                    <label for="objetivo_especifico_3">Objetivo específico 3</label>
+                    <button class="btn btn-danger btn-sm" type="button" data-remove-objective>Remover objetivo</button>
+                  </div>
+                  <textarea id="objetivo_especifico_3" name="objetivo_especifico_3">Entregar kits de trabalho para o desenvolvimento profissional, contribuindo para a ampliação da capacidade de geração de renda dos participantes, fortalecendo o empreendedorismo e a autonomia financeira das famílias atendidas.</textarea>
+                  <small class="hint">Opcional. Aplicável quando houver entrega de kits de trabalho para todos os cursos.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_3"></small>
+                </div>
+
+                <div class="objective-card" data-specific-objective data-objective-number="4">
+                  <div class="objective-card__header">
+                    <label for="objetivo_especifico_4">Objetivo específico 4</label>
+                    <button class="btn btn-danger btn-sm" type="button" data-remove-objective>Remover objetivo</button>
+                  </div>
+                  <textarea id="objetivo_especifico_4" name="objetivo_especifico_4">Estruturar espaços de capacitação com a infraestrutura necessária para realização das ações de qualificação profissional.</textarea>
+                  <small class="hint">Opcional. Aplicável quando houver estruturação de espaços.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_4"></small>
+                </div>
+              </div>
             </div>
 
             <div class="field field--full">
@@ -2214,6 +2287,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       }
       if (value === "") return true;
 
+      if (control.maxLength > -1 && String(value).length > control.maxLength) {
+        setError(control, `Use no máximo ${control.maxLength} caracteres.`);
+        return false;
+      }
+
       if (control.matches("[data-combobox-input]") && !control.closest(".searchable-combobox").querySelector("select").value) {
         setError(control, "Selecione uma opção da lista.");
         return false;
@@ -2520,6 +2598,18 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       };
     }
 
+    function collectSpecificObjectives() {
+      return [...document.querySelectorAll("[data-specific-objective]")]
+        .map(container => {
+          const input = container.querySelector("textarea");
+          return {
+            numero: Number(container.dataset.objectiveNumber),
+            texto: input?.value.trim() || ""
+          };
+        })
+        .filter(objective => objective.texto);
+    }
+
     function buildExportData() {
       const collectedCourses = collectCourses();
       const courses = collectedCourses.map((course, index) => {
@@ -2606,6 +2696,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           quantidade_cursos: courses.length,
           total_participantes: totalParticipants,
           total_carga_horaria: totalWorkload,
+          objeto: document.getElementById("objeto_projeto").value.trim(),
+          objetivos_especificos: collectSpecificObjectives(),
           possui_assistencia_tecnica_gerencial: assistanceCheckbox.checked,
           possui_evento_final: eventCheckbox.checked
         },
@@ -3275,6 +3367,54 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       return worksheet;
     }
 
+    function buildObjectivesWorksheet(workbook, exportData) {
+      const sheetName = "Objetivo geral e específicos";
+      removeWorksheetIfPresent(workbook, sheetName);
+      const worksheet = workbook.addWorksheet(sheetName);
+      worksheet.getColumn(1).width = 28;
+      worksheet.getColumn(2).width = 105;
+
+      worksheet.mergeCells("A1:B1");
+      worksheet.getCell("A1").value = sheetName;
+      applyGeneralTableStyle(worksheet.getCell("A1"), {
+        bold: true,
+        horizontal: "center"
+      });
+      worksheet.getRow(1).height = 24;
+
+      const rows = [
+        ["Objeto", exportData.projeto.objeto || ""],
+        ...(exportData.projeto.objetivos_especificos || []).map(objective => [
+          `Objetivo específico ${objective.numero}`,
+          objective.texto
+        ])
+      ];
+
+      rows.forEach(([label, text], index) => {
+        const rowNumber = index + 2;
+        const labelCell = worksheet.getCell(`A${rowNumber}`);
+        const textCell = worksheet.getCell(`B${rowNumber}`);
+        labelCell.value = label;
+        textCell.value = text;
+        applyGeneralTableStyle(labelCell, {
+          bold: true,
+          fillColor: "FFD9EAF7"
+        });
+        applyGeneralTableStyle(textCell);
+        worksheet.getRow(rowNumber).height = Math.max(42, Math.ceil(String(text).length / 95) * 17);
+      });
+
+      worksheet.views = [{ state: "frozen", ySplit: 1, activeCell: "A2" }];
+      worksheet.pageSetup = {
+        orientation: "landscape",
+        fitToPage: true,
+        fitToWidth: 1,
+        fitToHeight: 0,
+        margins: { left: 0.5, right: 0.5, top: 0.6, bottom: 0.6, header: 0.2, footer: 0.2 }
+      };
+      return worksheet;
+    }
+
     function buildGeneralDataWorksheets(workbook, exportData) {
       const coursesSheet = buildGeneralCoursesWorksheet(workbook, exportData);
       const projectSheet = buildGeneralProjectWorksheet(
@@ -3282,7 +3422,8 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
         exportData,
         coursesSheet.totalRow
       );
-      return { coursesSheet: coursesSheet.worksheet, projectSheet };
+      const objectivesSheet = buildObjectivesWorksheet(workbook, exportData);
+      return { coursesSheet: coursesSheet.worksheet, projectSheet, objectivesSheet };
     }
 
     async function createSpreadsheetWorkbook(exportData = buildExportData()) {
@@ -3482,6 +3623,13 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
     }
 
     function handleFormClick(event) {
+      const removeObjectiveButton = event.target.closest("[data-remove-objective]");
+      if (removeObjectiveButton) {
+        removeObjectiveButton.closest("[data-specific-objective]")?.remove();
+        state.json = null;
+        return;
+      }
+
       const catalogItemButton = event.target.closest("[data-add-catalog-item]");
       if (catalogItemButton) {
         openCatalogItemDialog(catalogItemButton.closest("tr"));
