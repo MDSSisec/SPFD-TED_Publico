@@ -1614,7 +1614,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
             ${courseField(index, "nome_curso", "Nome do Curso", "text", { full: true, max: 255 })}
             ${courseField(index, "inicio_curso", "Início do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
             ${courseField(index, "fim_curso", "Fim do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
-            ${courseField(index, "carga_horaria_total", "Carga horária total", "number", { min: 1, suffix: "horas" })}
+            ${courseField(index, "carga_horaria_total", "Carga horária total", "number", {
+              min: 40,
+              suffix: "horas",
+              rangeError: "Informe uma carga horária total inteira de, no mínimo, 40 horas."
+            })}
             ${courseField(index, "quantidade_participantes", "Quantidade de participantes", "number", { min: 1 })}
             ${courseField(index, "margem_reserva", "Margem de Reserva", "number", {
               min: 5, max: 10, value: 5, suffix: "%",
