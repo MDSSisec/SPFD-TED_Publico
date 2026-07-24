@@ -1449,7 +1449,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         ["kit_trabalho", "Kit trabalho"],
         ["alimentacao", "Alimentação"],
         ["transporte", "Transporte"],
-        ["curso_outros", "Outros"]
+        ["curso_outros", "Diversas"]
       ];
 
       return {
@@ -1457,8 +1457,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         tiposItemCurso: courseCategories.map(([csvCategory, label]) => {
           const itens = mergeCatalogItems(rowsByCategory(csvCategory));
           return {
-            id: csvCategory === "insumo_gerais" ? "insumos_gerais" :
-              csvCategory === "curso_outros" ? "Outros" : csvCategory,
+            id: csvCategory === "insumo_gerais" ? "insumos_gerais" : csvCategory,
             label,
             tipo: itens[0]?.tipo || "",
             itens
