@@ -2108,6 +2108,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       } else if (existing.length > desired) {
         existing.slice(desired).forEach(card => card.remove());
       }
+      [...container.querySelectorAll(".course-card")].forEach(ensureInitialTransportExpense);
       updateAssistanceParticipantSummary();
     }
 
@@ -2301,6 +2302,20 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       existingRows.push(courseExpenseRow(courseIndex));
       container.replaceChildren(...existingRows);
       renderCourseExpenseTable(container);
+    }
+
+    function ensureInitialTransportExpense(card) {
+      const container = card.querySelector("[data-course-expenses]");
+      const existingTransportRow = [...container.querySelectorAll("tbody tr")].find(row =>
+        row.querySelector('[data-field="tipo_item_despesa"]')?.value === "transporte"
+      );
+      if (existingTransportRow) return;
+
+      addCourseExpense(Number(card.dataset.courseIndex));
+      const row = [...container.querySelectorAll("tbody tr")].at(-1);
+      const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+      typeSelect.value = "transporte";
+      typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
     }
 
     function addStageRow(kind) {
@@ -3996,6 +4011,12 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
         candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
         candidate.querySelector('[data-field="item_despesa"]')?.value === item.id
       );
+      if (!row) {
+        row = [...container.querySelectorAll("tbody tr")].find(candidate =>
+          candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+          !candidate.querySelector('[data-field="item_despesa"]')?.value
+        );
+      }
 
       if (!row) {
         addCourseExpense(courseIndex);
@@ -4004,6 +4025,9 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
         typeSelect.value = category.id;
         typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
 
+        const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        chooseComboboxOption(itemSelect.closest(".searchable-combobox"), item.id);
+      } else if (!row.querySelector('[data-field="item_despesa"]').value) {
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
         chooseComboboxOption(itemSelect.closest(".searchable-combobox"), item.id);
       }
