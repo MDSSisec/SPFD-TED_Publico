@@ -62,18 +62,13 @@ epi;unid.;finalística;Toalha descartável
 epi;unid.;finalística;Touca
 epi;unid.;finalística;Trava-quedas
 epi;unid.;finalística;Vestimenta de proteção
-event;unid.;finalística;Coffee break para evento
-event;unid.;finalística;Coffee break para participantes e convidados
+event;unid.;finalística;Alimentação
 event;unid.;finalística;Contratação
-event;unid.;finalística;Equipamento de projeção visual
+event;unid.;finalística;Equipamento para evento
 event;unid.;finalística;Equipe de apoio operacional e cerimonial
-event;unid.;finalística;Estrutura de palco com backdrop e decoração institucional
 event;unid.;finalística;Estrutura de palco e decoração
 event;unid.;finalística;Evento
-event;unid.;finalística;Locação de cadeira
-event;unid.;finalística;Locação de equipamento de som
-event;unid.;finalística;Locação de iluminação
-event;unid.;finalística;Locação de mesa
+event;unid.;finalística;Locação
 event;unid.;finalística;Material gráfico (banners, faixas, credenciais e sinalização)
 event;unid.;finalística;Serviço
 insumo_gerais;unid.;finalística;Abraçadeira
@@ -534,11 +529,10 @@ stage11;hora;gestão;Assistente
 stage11;hora;gestão;Auxiliar
 stage11;unid.;gestão;Camiseta
 stage11;hora;gestão;Coordenador
-stage11;diária;finalística;Diária para equipe de gestão
-stage11;unid.;finalística;Locação de veículo
+stage11;diária;finalística;Equipe
+stage11;unid.;finalística;Locação
 stage11;hora;gestão;Mobilizador social
 stage11;hora;gestão;Monitor
-stage11;hora;finalística;Motorista
 stage11;hora;gestão;Orientador
 stage11;unid.;finalística;Serviço
 stage11;hora;gestão;Supervisor
@@ -551,7 +545,6 @@ stage12;unid.;estruturação;Carregador portátil
 stage12;unid.;finalística;Combustível
 stage12;unid.;estruturação;Equipamento para estruturação de espaço
 stage12;unid.;estruturação;Extensão
-stage12;unid.;estruturação;Filtro de linha
 stage12;unid.;estruturação;Impressora
 stage12;unid.;estruturação;Instrumento musical
 stage12;unid.;estruturação;Locação
