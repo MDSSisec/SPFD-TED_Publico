@@ -3043,6 +3043,17 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       );
     }
 
+    function projectMetaFromTemplate(template, project) {
+      const meta = replaceSpreadsheetMarkers(template, {
+        TOTAL_PARTICIPANTES: project.total_participantes
+      });
+      if (project.possui_assistencia_tecnica_gerencial) return meta;
+
+      return meta
+        .replace(/,\s*e\s+assist[eê]ncia\s+t[eé]cnica\s+e\s+gerencial/gi, "")
+        .replace(/\s+([.,;:!?])/g, "$1");
+    }
+
     function fillSummaryExpenseRow(worksheet, rowNumber, expense, stageNumber, itemIndex) {
       const cells = worksheet.getRow(rowNumber);
       if (!expense) {
@@ -3231,9 +3242,10 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       }
 
       const lastStageRow = nextRow - 1;
-      worksheet.getCell("A2").value = replaceSpreadsheetMarkers(fixedTexts.meta, {
-        TOTAL_PARTICIPANTES: exportData.projeto.total_participantes
-      });
+      worksheet.getCell("A2").value = projectMetaFromTemplate(
+        fixedTexts.meta,
+        exportData.projeto
+      );
       if (lastStageRow > 2) worksheet.mergeCells(`A2:A${lastStageRow}`);
 
       applyRowPrototype(worksheet, nextRow, prototypes.projectTotal);
