@@ -45,7 +45,8 @@
         { typeId: "insumos_gerais", items: ["Disjuntor"], detail: "Disjuntor termomagnético para aulas práticas", code: "33.90.30", quantity: 30, unitPrice: 22 },
         { typeId: "insumos_gerais", items: ["Fita isolante"], detail: "Fita isolante antichama", code: "33.90.30", quantity: 110, unitPrice: 9 },
         { typeId: "insumos_gerais", items: ["Tomada"], detail: "Tomada padrão brasileiro para montagem didática", code: "33.90.30", quantity: 60, unitPrice: 14 },
-        { typeId: "alimentacao", items: ["Almoço para participantes"], detail: "Refeição individual completa", code: "33.90.39", quantity: 110, unitPrice: 24 },
+        { typeId: "alimentacao", items: ["Almoço para participantes"], detail: "Refeição individual completa", code: "33.90.39", quantity: 1100, unitPrice: 24 },
+        { typeId: "alimentacao", items: ["Lanche"], detail: "Lanche individual para os participantes", code: "33.90.39", quantity: 2200, unitPrice: 12 },
         { typeId: "transporte", items: ["Transporte público"], detail: "", code: "33.90.33", quantity: 1, unitPrice: 5.5 },
         { typeId: "curso_outros", items: ["Instrutor"], detail: "Instrutor habilitado em instalações elétricas", code: "33.90.39", quantity: 80, unitPrice: 110 }
       ]
@@ -71,7 +72,8 @@
         { typeId: "kit_trabalho", items: ["Fouet"], detail: "Batedor manual em aço inoxidável", code: "33.90.30", quantity: 1, unitPrice: 24 },
         { typeId: "insumos_gerais", items: ["Forma para alimentos"], detail: "Forma para preparo e cocção de alimentos", code: "33.90.30", quantity: 12, unitPrice: 36 },
         { typeId: "insumos_gerais", items: ["Assadeira"], detail: "Assadeira para uso nas aulas práticas", code: "33.90.30", quantity: 12, unitPrice: 42 },
-        { typeId: "alimentacao", items: ["Lanche"], detail: "Lanche individual para os participantes", code: "33.90.39", quantity: 50, unitPrice: 12 },
+        { typeId: "alimentacao", items: ["Almoço para participantes"], detail: "Refeição individual completa", code: "33.90.39", quantity: 510, unitPrice: 24 },
+        { typeId: "alimentacao", items: ["Lanche"], detail: "Lanche individual para os participantes", code: "33.90.39", quantity: 1020, unitPrice: 12 },
         { typeId: "transporte", items: ["Transporte privado"], detail: "", code: "33.90.33", quantity: 1, unitPrice: 12 },
         { typeId: "curso_outros", items: ["Instrutor"], detail: "Instrutor com experiência em panificação e confeitaria", code: "33.90.39", quantity: 60, unitPrice: 85 },
         { typeId: "curso_outros", items: ["Monitor"], detail: "Monitor para apoio às atividades práticas em laboratório", code: "33.90.39", quantity: 30, unitPrice: 45 }
@@ -100,7 +102,7 @@
         { typeId: "insumos_gerais", items: ["Muda"], detail: "Mudas adaptadas à região demonstrativa", code: "33.90.30", quantity: 90, unitPrice: 8.5 },
         { typeId: "insumos_gerais", items: ["Semente"], detail: "Sementes de hortaliças variadas", code: "33.90.30", quantity: 60, unitPrice: 6.5 },
         { typeId: "insumos_gerais", items: ["Substrato"], detail: "Substrato preparado para produção de mudas", code: "33.90.30", quantity: 30, unitPrice: 22 },
-        { typeId: "alimentacao", items: ["Lanche"], detail: "Lanche individual para os participantes", code: "33.90.39", quantity: 33, unitPrice: 12 },
+        { typeId: "alimentacao", items: ["Lanche"], detail: "Lanche individual para os participantes", code: "33.90.39", quantity: 330, unitPrice: 12 },
         { typeId: "transporte", items: ["Transporte público"], detail: "", code: "33.90.33", quantity: 1, unitPrice: 5.5 },
         { typeId: "curso_outros", items: ["Instrutor"], detail: "Instrutor com experiência em horticultura sustentável", code: "33.90.39", quantity: 40, unitPrice: 90 }
       ]

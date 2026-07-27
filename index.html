@@ -1850,6 +1850,135 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       };
     }
 
+    const courseFoodItemIds = {
+      snack: "lanche",
+      lunch: "almoco_para_participantes"
+    };
+
+    function requiredCourseFoodItemIds(dailyWorkload) {
+      if ([2, 4].includes(dailyWorkload)) return [courseFoodItemIds.snack];
+      if ([6, 8].includes(dailyWorkload)) {
+        return [courseFoodItemIds.snack, courseFoodItemIds.lunch];
+      }
+      return [];
+    }
+
+    function availableCourseItems(type, row) {
+      if (type?.id !== "alimentacao") return type?.itens || [];
+      const card = row.closest(".course-card");
+      const dailyWorkload = Number(
+        card?.querySelector('[data-field="carga_horaria_diaria"]')?.value
+      );
+      const currentItemId = row.querySelector('[data-field="item_despesa"]')?.value;
+      const selectedInOtherRows = new Set(
+        [...card.querySelectorAll('[data-course-expenses] tbody tr')]
+          .filter(candidate => candidate !== row)
+          .filter(candidate =>
+            candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === type.id
+          )
+          .map(candidate => candidate.querySelector('[data-field="item_despesa"]')?.value)
+          .filter(Boolean)
+      );
+
+      return type.itens.filter(item => {
+        if ([2, 4].includes(dailyWorkload) && item.id === courseFoodItemIds.lunch) return false;
+        return item.id === currentItemId || !selectedInOtherRows.has(item.id);
+      });
+    }
+
+    function calculateFoodQuantity(totalWorkload, participantCountWithReserve, dailyWorkload, itemId) {
+      const classDays = totalWorkload > 0 && dailyWorkload > 0
+        ? totalWorkload / dailyWorkload
+        : 0;
+      const baseQuantity = classDays * participantCountWithReserve;
+      const multiplier = itemId === courseFoodItemIds.snack && [6, 8].includes(dailyWorkload)
+        ? 2
+        : 1;
+      const rawQuantity = baseQuantity * multiplier;
+      const nearestInteger = Math.round(rawQuantity);
+      const quantity = Math.abs(rawQuantity - nearestInteger) < 1e-9
+        ? nearestInteger
+        : Math.ceil(rawQuantity);
+
+      return {
+        classDays,
+        baseQuantity,
+        multiplier,
+        rawQuantity,
+        quantity: rawQuantity > 0 ? quantity : 0
+      };
+    }
+
+    function syncCourseFoodExpenses(card, dailyWorkload) {
+      if (!card || card.dataset.foodExpenseSync === "true") return;
+
+      const requiredItemIds = requiredCourseFoodItemIds(dailyWorkload);
+      if (!requiredItemIds.length) return;
+
+      const category = catalogs.tiposItemCurso.find(item => item.id === "alimentacao");
+      if (!category) return;
+
+      const container = card.querySelector("[data-course-expenses]");
+      const rows = () => [...container.querySelectorAll("tbody tr")];
+      card.dataset.foodExpenseSync = "true";
+
+      try {
+        if ([2, 4].includes(dailyWorkload)) {
+          const lunchRows = rows().filter(row =>
+            row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+            row.querySelector('[data-field="item_despesa"]')?.value === courseFoodItemIds.lunch
+          );
+          if (lunchRows.length) {
+            lunchRows.forEach(row => row.remove());
+            renderCourseExpenseTable(container);
+          }
+        }
+
+        rows()
+          .filter(row =>
+            row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id
+          )
+          .forEach(row => {
+            const itemSelect = row.querySelector('[data-field="item_despesa"]');
+            const selectedItemId = itemSelect.value;
+            const availableItems = availableCourseItems(category, row);
+            setComboboxOptions(itemSelect, availableItems);
+            if (availableItems.some(item => item.id === selectedItemId)) {
+              itemSelect.value = selectedItemId;
+              syncComboboxDisplay(itemSelect);
+            }
+          });
+
+        requiredItemIds.forEach(itemId => {
+          const alreadyIncluded = rows().some(row =>
+            row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+            row.querySelector('[data-field="item_despesa"]')?.value === itemId
+          );
+          if (alreadyIncluded) return;
+
+          let row = rows().find(candidate =>
+            candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+            !candidate.querySelector('[data-field="item_despesa"]')?.value
+          );
+          if (!row) {
+            addCourseExpense(Number(card.dataset.courseIndex));
+            row = rows().at(-1);
+          }
+
+          const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+          if (typeSelect.value !== category.id) {
+            typeSelect.value = category.id;
+            typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+
+          const itemSelect = row.querySelector('[data-field="item_despesa"]');
+          chooseComboboxOption(itemSelect.closest(".searchable-combobox"), itemId);
+        });
+      } finally {
+        delete card.dataset.foodExpenseSync;
+      }
+    }
+
     function syncCourseExpenseQuantities(card) {
       if (!card) return;
 
@@ -1858,6 +1987,9 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const totalWorkload = Number(card.querySelector('[data-field="carga_horaria_total"]')?.value);
       const dailyWorkload = Number(card.querySelector('[data-field="carga_horaria_diaria"]')?.value);
       const itemCount = calculateParticipantCountWithReserve(participantCount, reserveMargin);
+      const requiredFoodItemIds = requiredCourseFoodItemIds(dailyWorkload);
+
+      syncCourseFoodExpenses(card, dailyWorkload);
 
       card.querySelectorAll('[data-course-expenses] tbody tr').forEach(row => {
         const typeId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
@@ -1869,7 +2001,36 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         const usesReserve = ["kit_participante", "epi"].includes(typeId);
         const usesParticipantCount = typeId === "kit_trabalho";
         const usesTransportCalculation = typeId === "transporte" && Boolean(itemId);
+        const usesFoodCalculation =
+          typeId === "alimentacao" && requiredFoodItemIds.includes(itemId);
         const hadTransportCalculation = row.dataset.transportCalculation === "true";
+        const hadFoodCalculation = row.dataset.foodCalculation === "true";
+
+        if (usesFoodCalculation) {
+          if (hadTransportCalculation) {
+            delete row.dataset.transportCalculation;
+            detailInput.value = "";
+          }
+          row.dataset.foodCalculation = "true";
+          quantityInput.readOnly = true;
+          detailInput.readOnly = false;
+
+          const { quantity: foodQuantity } = calculateFoodQuantity(
+            totalWorkload,
+            itemCount,
+            dailyWorkload,
+            itemId
+          );
+          quantityInput.value = foodQuantity || "";
+          clearError(quantityInput);
+          recalculateRow(row);
+          return;
+        }
+
+        if (hadFoodCalculation) {
+          delete row.dataset.foodCalculation;
+          quantityInput.value = "";
+        }
 
         if (usesTransportCalculation) {
           row.dataset.transportCalculation = "true";
@@ -2160,7 +2321,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       itemSelect.disabled = !type;
       const itemInput = itemSelect.closest(".searchable-combobox").querySelector("[data-combobox-input]");
       itemInput.disabled = !type;
-      setComboboxOptions(itemSelect, type?.itens || [], type ? "Selecione ou pesquise" : "Selecione o tipo primeiro");
+      setComboboxOptions(
+        itemSelect,
+        availableCourseItems(type, row),
+        type ? "Selecione ou pesquise" : "Selecione o tipo primeiro"
+      );
       unitSelect.disabled = true;
       unitSelect.innerHTML = optionList([], "Selecione o item primeiro");
       syncCourseExpenseQuantities(row.closest(".course-card"));
@@ -3823,19 +3988,25 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
     }
 
     function addMockCourseExpense(courseIndex, expense, fallbackIndex = 0) {
-      addCourseExpense(courseIndex);
       const container = document.querySelector(`[data-course-expenses="${courseIndex}"]`);
-      const row = [...container.querySelectorAll("tbody tr")].at(-1);
-      const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
       const category = catalogs.tiposItemCurso.find(item => item.id === expense.typeId);
       if (!category) throw new Error(`Categoria ${expense.typeId} não encontrada para o mock.`);
-
-      typeSelect.value = category.id;
-      typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
-
       const item = findMockCatalogItem(category.itens, expense.items, fallbackIndex);
-      const itemSelect = row.querySelector('[data-field="item_despesa"]');
-      chooseComboboxOption(itemSelect.closest(".searchable-combobox"), item.id);
+      let row = [...container.querySelectorAll("tbody tr")].find(candidate =>
+        candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+        candidate.querySelector('[data-field="item_despesa"]')?.value === item.id
+      );
+
+      if (!row) {
+        addCourseExpense(courseIndex);
+        row = [...container.querySelectorAll("tbody tr")].at(-1);
+        const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+        typeSelect.value = category.id;
+        typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
+
+        const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        chooseComboboxOption(itemSelect.closest(".searchable-combobox"), item.id);
+      }
 
       const detailInput = row.querySelector('[data-field="detalhamento_item"]');
       if (!detailInput.readOnly) setMockInputValue(detailInput, expense.detail);
@@ -4179,9 +4350,13 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       if (remove) {
         const row = remove.closest("tr");
         const courseContainer = row.closest("[data-course-expenses]");
+        const courseCard = row.closest(".course-card");
         const kind = row.dataset.stageKind;
         row.remove();
-        if (courseContainer) renderCourseExpenseTable(courseContainer);
+        if (courseContainer) {
+          renderCourseExpenseTable(courseContainer);
+          syncCourseExpenseQuantities(courseCard);
+        }
         if (kind) renderStageTable(kind);
         return;
       }
