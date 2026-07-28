@@ -1198,6 +1198,10 @@
             <span>Subtotal</span>
             <strong id="financial-subtotal">R$ 0,00</strong>
           </div>
+          <div class="financial-metric">
+            <span>Custo unitário por participante</span>
+            <strong id="financial-participant-unit-cost">R$ 0,00</strong>
+          </div>
           <div class="financial-percentage" id="financial-management-compliance">
             <div class="financial-percentage__header">
               <span>Percentual de Gestão</span>
@@ -2346,6 +2350,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       }
       [...container.querySelectorAll(".course-card")].forEach(ensureInitialTransportExpense);
       updateAssistanceParticipantSummary();
+      updateExpenseTotalsByType();
     }
 
     function emptyState(message) {
@@ -2765,6 +2770,12 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       }).format(value)}%`;
     }
 
+    function calculateParticipantUnitCost(totalWorkload, totalParticipants, managementFinalisticTotal) {
+      return managementFinalisticTotal > 0
+        ? roundCurrencyValue(totalWorkload * totalParticipants / managementFinalisticTotal)
+        : 0;
+    }
+
     function updateFinancialPercentage(kind, percentage, subtotal, compliant, successMessage, dangerMessage) {
       const container = document.getElementById(`financial-${kind}-compliance`);
       const output = document.getElementById(`financial-${kind}-percent`);
@@ -2792,6 +2803,15 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const subtotal = valorTotalGestaoFinalistica;
       const managementPercentage = subtotal > 0 ? (valorTotalGestao / subtotal) * 100 : 0;
       const finalisticPercentage = subtotal > 0 ? (valorTotalFinalistica / subtotal) * 100 : 0;
+      const totalParticipants = totalCourseParticipantsFromForm();
+      const totalWorkload = [...document.querySelectorAll(
+        '.course-card [data-field="carga_horaria_total"]'
+      )].reduce((total, input) => total + (Number(input.value) || 0), 0);
+      const participantUnitCost = calculateParticipantUnitCost(
+        totalWorkload,
+        totalParticipants,
+        subtotal
+      );
       const rawRemaining = informedTotal - valorTotalProjetoCalculado;
       const remaining = Math.abs(rawRemaining) < 0.005 ? 0 : rawRemaining;
 
@@ -2799,6 +2819,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       document.getElementById("financial-finalistic").textContent = formatBRL(valorTotalFinalistica);
       document.getElementById("financial-management").textContent = formatBRL(valorTotalGestao);
       document.getElementById("financial-subtotal").textContent = formatBRL(subtotal);
+      document.getElementById("financial-participant-unit-cost").textContent =
+        formatBRL(participantUnitCost);
       document.getElementById("financial-structuring").textContent = formatBRL(valorTotalEstruturacao);
       document.getElementById("financial-kits").textContent = formatBRL(valorTotalKit);
       document.getElementById("financial-kits-row").hidden = !possuiDespesasKit;
@@ -3406,9 +3428,11 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const kitTotal = totalsByExpenseType.Kit || 0;
       const calculatedProjectTotal = sumExpenseValues(allExpenses);
       const managementFinalisticTotal = roundCurrencyValue(managementTotal + finalisticTotal);
-      const participantUnitCost = managementFinalisticTotal > 0
-        ? roundCurrencyValue(totalWorkload * totalParticipants / managementFinalisticTotal)
-        : 0;
+      const participantUnitCost = calculateParticipantUnitCost(
+        totalWorkload,
+        totalParticipants,
+        managementFinalisticTotal
+      );
       const assistanceStageNumber = `1.${courses.length + 3}`;
       const eventStageNumber = `1.${courses.length + (assistanceCheckbox.checked ? 4 : 3)}`;
 
@@ -4597,6 +4621,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
         const courseCard = control.closest(".course-card");
         if (courseCard) updateCourseDuration(courseCard);
         if (courseCard) syncCourseExpenseQuantities(courseCard);
+        updateFinancialDashboard();
       }
 
       const row = control.closest("tr");
