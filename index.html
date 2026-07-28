@@ -54,6 +54,16 @@
       margin: 0 auto;
     }
 
+    .app-header__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .app-header__copy { min-width: 0; }
+
     .app-header h1 {
       max-width: 860px;
       margin: 0;
@@ -66,6 +76,15 @@
       margin: 10px 0 0;
       color: rgba(255,255,255,.86);
     }
+
+    .app-header .btn.btn-mock {
+      flex: 0 0 auto;
+      border-color: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.12);
+      color: #fff;
+    }
+
+    .app-header .btn.btn-mock:hover { background: rgba(255,255,255,.22); }
 
     .app-shell {
       display: grid;
@@ -214,7 +233,8 @@
 
     input[type="text"],
     input[type="number"],
-    select {
+    select,
+    textarea {
       width: 100%;
       min-height: 44px;
       padding: 9px 12px;
@@ -226,13 +246,22 @@
       transition: border-color .15s, box-shadow .15s;
     }
 
-    input:focus, select:focus {
+    input:focus, select:focus, textarea:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(19, 81, 180, .14);
     }
 
+    textarea { min-height: 130px; resize: vertical; }
+
     input[readonly] { background: #f2f4f7; color: #475467; }
     select:disabled { background: #f2f4f7; color: #667085; }
+    select[data-field="unidade"] {
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 12px;
+      pointer-events: none;
+      cursor: default;
+    }
 
     .input-with-suffix { position: relative; }
     .input-with-suffix input { padding-right: 70px; }
@@ -276,6 +305,91 @@
     .check-card label { margin: 0; cursor: pointer; }
     .check-card small { display: block; margin-top: 3px; color: var(--muted); font-weight: 400; }
 
+    .objectives-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .objective-card {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f9fafb;
+    }
+
+    .objective-card__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+
+    .objective-card__header label { margin: 0; }
+    .objective-card textarea { min-height: 105px; }
+    .objective-card[hidden] { display: none; }
+
+    .objective-restore-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .objective-restore-actions .btn[hidden] { display: none; }
+
+    .radio-fieldset {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .radio-fieldset legend {
+      margin-bottom: 7px;
+      font-size: .91rem;
+      font-weight: 650;
+    }
+
+    .radio-options {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(65px, 1fr));
+      gap: 8px;
+    }
+
+    .radio-option {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      min-height: 44px;
+      margin: 0;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .radio-option:has(input:checked) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(19, 81, 180, .1);
+    }
+
+    .radio-option input {
+      width: 17px;
+      height: 17px;
+      margin: 0;
+      accent-color: var(--primary);
+    }
+
+    .daily-workload-field:has(input[type="hidden"].is-invalid) .radio-options {
+      border-radius: 8px;
+      box-shadow: 0 0 0 3px rgba(180,35,24,.1);
+    }
+
     /* ======================================================================
        4. CURSOS, TABELAS DE DESPESAS E AÇÕES
        ====================================================================== */
@@ -317,6 +431,12 @@
     }
 
     .table-toolbar h3 { margin: 0; font-size: 1rem; }
+
+    .table-footer-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
 
     .table-wrap {
       overflow-x: auto;
@@ -390,6 +510,7 @@
     }
 
     .wizard-actions__right { display: flex; gap: 10px; }
+    .wizard-actions .btn[hidden] { display: none; }
 
     /* ======================================================================
        5. RESUMOS, MENSAGENS E DIÁLOGO DE EXPORTAÇÃO
@@ -400,6 +521,8 @@
       gap: 12px;
       margin: 0 0 22px;
     }
+
+    [data-stage-period] { margin-bottom: 22px; }
 
     .summary-card {
       padding: 14px 16px;
@@ -443,6 +566,30 @@
     .dialog-header h2 { margin: 0; font-size: 1.25rem; }
     .dialog-body { padding: 18px 22px; overflow: auto; }
     .dialog-footer { display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border); }
+    .catalog-item-control {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      width: 100%;
+      min-width: 0;
+    }
+    .catalog-item-control .searchable-combobox {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .catalog-item-action {
+      flex: 0 0 24px;
+      width: 24px;
+      min-height: 24px;
+      height: 24px;
+      margin: 0;
+      padding: 0;
+      border-radius: 50%;
+      font-size: .95rem;
+      line-height: 1;
+    }
+    .catalog-item-action[hidden] { display: none; }
+    .dialog-field + .dialog-field { margin-top: 16px; }
     pre {
       margin: 0;
       padding: 16px;
@@ -622,44 +769,46 @@
       font-size: .76rem;
     }
 
-    /* Distribuição proporcional das oito colunas das despesas dos cursos. */
+    /* Distribuição proporcional das nove colunas das despesas dos cursos. */
     [data-course-expenses] th:nth-child(1),
-    [data-course-expenses] td:nth-child(1) { width: 14%; }
+    [data-course-expenses] td:nth-child(1) { width: 12%; }
     [data-course-expenses] th:nth-child(2),
-    [data-course-expenses] td:nth-child(2) { width: 20%; }
+    [data-course-expenses] td:nth-child(2) { width: 17%; }
     [data-course-expenses] th:nth-child(3),
-    [data-course-expenses] td:nth-child(3) { width: 14%; }
+    [data-course-expenses] td:nth-child(3) { width: 20%; }
     [data-course-expenses] th:nth-child(4),
-    [data-course-expenses] td:nth-child(4) { width: 12%; }
+    [data-course-expenses] td:nth-child(4) { width: 10%; }
     [data-course-expenses] th:nth-child(5),
     [data-course-expenses] td:nth-child(5) { width: 8%; }
     [data-course-expenses] th:nth-child(6),
-    [data-course-expenses] td:nth-child(6) { width: 12%; }
+    [data-course-expenses] td:nth-child(6) { width: 7%; }
     [data-course-expenses] th:nth-child(7),
-    [data-course-expenses] td:nth-child(7) { width: 12%; }
+    [data-course-expenses] td:nth-child(7) { width: 10%; }
     [data-course-expenses] th:nth-child(8),
-    [data-course-expenses] td:nth-child(8) { width: 8%; }
+    [data-course-expenses] td:nth-child(8) { width: 10%; }
+    [data-course-expenses] th:nth-child(9),
+    [data-course-expenses] td:nth-child(9) { width: 6%; }
 
-    /* Distribuição proporcional das onze colunas das despesas das etapas. */
+    /* Distribuição proporcional das dez colunas das despesas das etapas. */
     #stage11-table th:nth-child(1), #stage11-table td:nth-child(1),
     #stage12-table th:nth-child(1), #stage12-table td:nth-child(1),
-    #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 15%; }
+    #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 18%; }
 
     #stage11-table th:nth-child(2), #stage11-table td:nth-child(2),
     #stage12-table th:nth-child(2), #stage12-table td:nth-child(2),
-    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 10%; }
+    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 20%; }
 
     #stage11-table th:nth-child(3), #stage11-table td:nth-child(3),
     #stage12-table th:nth-child(3), #stage12-table td:nth-child(3),
-    #event-table th:nth-child(3), #event-table td:nth-child(3) { width: 8%; }
+    #event-table th:nth-child(3), #event-table td:nth-child(3) { width: 10%; }
 
     #stage11-table th:nth-child(4), #stage11-table td:nth-child(4),
     #stage12-table th:nth-child(4), #stage12-table td:nth-child(4),
-    #event-table th:nth-child(4), #event-table td:nth-child(4) { width: 6%; }
+    #event-table th:nth-child(4), #event-table td:nth-child(4) { width: 8%; }
 
     #stage11-table th:nth-child(5), #stage11-table td:nth-child(5),
     #stage12-table th:nth-child(5), #stage12-table td:nth-child(5),
-    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 10%; }
+    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 7%; }
 
     #stage11-table th:nth-child(6), #stage11-table td:nth-child(6),
     #stage12-table th:nth-child(6), #stage12-table td:nth-child(6),
@@ -671,19 +820,26 @@
 
     #stage11-table th:nth-child(8), #stage11-table td:nth-child(8),
     #stage12-table th:nth-child(8), #stage12-table td:nth-child(8),
-    #event-table th:nth-child(8), #event-table td:nth-child(8) { width: 8%; }
+    #event-table th:nth-child(8), #event-table td:nth-child(8) { width: 7%; }
 
     #stage11-table th:nth-child(9), #stage11-table td:nth-child(9),
     #stage12-table th:nth-child(9), #stage12-table td:nth-child(9),
-    #event-table th:nth-child(9), #event-table td:nth-child(9) { width: 8%; }
+    #event-table th:nth-child(9), #event-table td:nth-child(9) { width: 5%; }
 
     #stage11-table th:nth-child(10), #stage11-table td:nth-child(10),
     #stage12-table th:nth-child(10), #stage12-table td:nth-child(10),
-    #event-table th:nth-child(10), #event-table td:nth-child(10) { width: 7%; }
+    #event-table th:nth-child(10), #event-table td:nth-child(10) { width: 5%; }
 
-    #stage11-table th:nth-child(11), #stage11-table td:nth-child(11),
-    #stage12-table th:nth-child(11), #stage12-table td:nth-child(11),
-    #event-table th:nth-child(11), #event-table td:nth-child(11) { width: 8%; }
+    #assistance-table th:nth-child(1), #assistance-table td:nth-child(1) { width: 18%; }
+    #assistance-table th:nth-child(2), #assistance-table td:nth-child(2) { width: 20%; }
+    #assistance-table th:nth-child(3), #assistance-table td:nth-child(3) { width: 10%; }
+    #assistance-table th:nth-child(4), #assistance-table td:nth-child(4) { width: 8%; }
+    #assistance-table th:nth-child(5), #assistance-table td:nth-child(5) { width: 7%; }
+    #assistance-table th:nth-child(6), #assistance-table td:nth-child(6) { width: 10%; }
+    #assistance-table th:nth-child(7), #assistance-table td:nth-child(7) { width: 10%; }
+    #assistance-table th:nth-child(8), #assistance-table td:nth-child(8) { width: 7%; }
+    #assistance-table th:nth-child(9), #assistance-table td:nth-child(9) { width: 5%; }
+    #assistance-table th:nth-child(10), #assistance-table td:nth-child(10) { width: 5%; }
 
     /* Em telas intermediárias, o menu fica acima para liberar a largura inteira. */
     @media (max-width: 1180px) {
@@ -746,46 +902,55 @@
 
       [data-course-expenses] td:nth-child(1)::before { content: "Tipo do item"; }
       [data-course-expenses] td:nth-child(2)::before { content: "Item"; }
-      [data-course-expenses] td:nth-child(3)::before { content: "Elemento"; }
-      [data-course-expenses] td:nth-child(4)::before { content: "Unidade"; }
-      [data-course-expenses] td:nth-child(5)::before { content: "Quantidade"; }
-      [data-course-expenses] td:nth-child(6)::before { content: "Valor unitário"; }
-      [data-course-expenses] td:nth-child(7)::before { content: "Valor total"; }
-      [data-course-expenses] td:nth-child(8)::before { content: "Ações"; }
+      [data-course-expenses] td:nth-child(3)::before { content: "Detalhamento do item"; }
+      [data-course-expenses] td:nth-child(4)::before { content: "Elemento"; }
+      [data-course-expenses] td:nth-child(5)::before { content: "Unidade"; }
+      [data-course-expenses] td:nth-child(6)::before { content: "Quantidade"; }
+      [data-course-expenses] td:nth-child(7)::before { content: "Valor unitário"; }
+      [data-course-expenses] td:nth-child(8)::before { content: "Valor total"; }
+      [data-course-expenses] td:nth-child(9)::before { content: "Ações"; }
 
       #stage11-table td:nth-child(1)::before,
       #stage12-table td:nth-child(1)::before,
       #event-table td:nth-child(1)::before { content: "Item"; }
       #stage11-table td:nth-child(2)::before,
       #stage12-table td:nth-child(2)::before,
-      #event-table td:nth-child(2)::before { content: "Elemento"; }
+      #event-table td:nth-child(2)::before { content: "Detalhamento do item"; }
       #stage11-table td:nth-child(3)::before,
       #stage12-table td:nth-child(3)::before,
-      #event-table td:nth-child(3)::before { content: "Unidade"; }
+      #event-table td:nth-child(3)::before { content: "Elemento"; }
       #stage11-table td:nth-child(4)::before,
       #stage12-table td:nth-child(4)::before,
-      #event-table td:nth-child(4)::before { content: "Quantidade"; }
+      #event-table td:nth-child(4)::before { content: "Unidade"; }
       #stage11-table td:nth-child(5)::before,
       #stage12-table td:nth-child(5)::before,
-      #event-table td:nth-child(5)::before { content: "Valor unitário"; }
+      #event-table td:nth-child(5)::before { content: "Quantidade"; }
       #stage11-table td:nth-child(6)::before,
       #stage12-table td:nth-child(6)::before,
-      #event-table td:nth-child(6)::before { content: "Valor total"; }
+      #event-table td:nth-child(6)::before { content: "Valor unitário"; }
       #stage11-table td:nth-child(7)::before,
       #stage12-table td:nth-child(7)::before,
-      #event-table td:nth-child(7)::before { content: "Fonte"; }
+      #event-table td:nth-child(7)::before { content: "Valor total"; }
       #stage11-table td:nth-child(8)::before,
       #stage12-table td:nth-child(8)::before,
-      #event-table td:nth-child(8)::before { content: "Início"; }
+      #event-table td:nth-child(8)::before { content: "Fonte"; }
       #stage11-table td:nth-child(9)::before,
       #stage12-table td:nth-child(9)::before,
-      #event-table td:nth-child(9)::before { content: "Fim"; }
+      #event-table td:nth-child(9)::before { content: "Tipo"; }
       #stage11-table td:nth-child(10)::before,
       #stage12-table td:nth-child(10)::before,
-      #event-table td:nth-child(10)::before { content: "Tipo"; }
-      #stage11-table td:nth-child(11)::before,
-      #stage12-table td:nth-child(11)::before,
-      #event-table td:nth-child(11)::before { content: "Ações"; }
+      #event-table td:nth-child(10)::before { content: "Ações"; }
+
+      #assistance-table td:nth-child(1)::before { content: "Item"; }
+      #assistance-table td:nth-child(2)::before { content: "Detalhamento do item"; }
+      #assistance-table td:nth-child(3)::before { content: "Elemento"; }
+      #assistance-table td:nth-child(4)::before { content: "Unidade"; }
+      #assistance-table td:nth-child(5)::before { content: "Quantidade"; }
+      #assistance-table td:nth-child(6)::before { content: "Valor unitário"; }
+      #assistance-table td:nth-child(7)::before { content: "Valor total"; }
+      #assistance-table td:nth-child(8)::before { content: "Fonte"; }
+      #assistance-table td:nth-child(9)::before { content: "Tipo"; }
+      #assistance-table td:nth-child(10)::before { content: "Ações"; }
 
       td:last-child .btn { width: auto; }
     }
@@ -807,8 +972,11 @@
   <!-- Cabeçalho da aplicação -->
   <header class="app-header">
     <div class="app-header__inner">
-      <h1>Prova de conceito: Formulário de detalhamento de despesas TED</h1>
-      <p>Preencha as etapas do projeto. Os campos são validados em tempo real e, ao final, os dados poderão ser exportados em JSON e planilha.</p>
+      <div class="app-header__copy">
+        <h1>Prova de conceito: Formulário de detalhamento de despesas TED</h1>
+        <p>Preencha as etapas do projeto. Os campos são validados em tempo real e, ao final, os dados poderão ser exportados em JSON e planilha.</p>
+      </div>
+      <button type="button" class="btn btn-mock" id="generate-mock">Gerar Mock</button>
     </div>
   </header>
 
@@ -828,6 +996,9 @@
       <button type="button" data-step-target="despesas_etapa_1_2">
         <span class="step-index">4</span><span class="step-label">Estruturação e Equipamento</span>
       </button>
+      <button type="button" data-step-target="assistencia_tecnica_gerencial" hidden>
+        <span class="step-index">5</span><span class="step-label">Realização de Assistência Técnica e Gerencial aos Empreendedores</span>
+      </button>
       <button type="button" data-step-target="despesas_evento_final" hidden>
         <span class="step-index">5</span><span class="step-label">Evento de lançamento e encerramento</span>
       </button>
@@ -840,7 +1011,7 @@
         <section class="panel wizard-section" id="dados_gerais_projeto" data-section>
           <p class="eyebrow">Etapa 1 de 5</p>
           <h2 class="section-title">Dados gerais do projeto</h2>
-          <p class="section-description">Informe o orçamento total, a quantidade de cursos e se haverá evento de certificação.</p>
+          <p class="section-description">Informe o orçamento total, a quantidade de cursos e as etapas opcionais do projeto.</p>
 
           <div class="grid">
             <div class="field">
@@ -855,6 +1026,70 @@
               <input id="quantidade_cursos" name="quantidade_cursos" type="number" min="1" step="1" inputmode="numeric" data-required="true" value="1" />
               <small class="hint">A seção de cursos será criada conforme esta quantidade.</small>
               <small class="error-message" data-error-for="quantidade_cursos"></small>
+            </div>
+
+            <div class="field field--full">
+              <label class="required" for="objetivo_geral_projeto">Objetivo geral do projeto</label>
+              <textarea id="objetivo_geral_projeto" name="objetivo_geral_projeto" maxlength="1000" data-required="true">Promover a capacitação de pessoas em situação de vulnerabilidade no (Município/Região/Estado) de (Nome do Município/Região/Estado), inscritas no Cadastro Único de Programas Sociais do Governo Federal - CadÚnico, com vistas à empregabilidade ou ao empreendedorismo, possibilitando-lhes inclusão socioeconômica.</textarea>
+              <small class="hint">Texto editável, limitado a 1.000 caracteres.</small>
+              <small class="error-message" data-error-for="objetivo_geral_projeto"></small>
+            </div>
+
+            <div class="field field--full">
+              <h3 class="subsection-title">Objetivos específicos</h3>
+              <div class="objectives-list" id="specific-objectives">
+                <div class="objective-card" data-specific-objective data-objective-number="1">
+                  <div class="objective-card__header">
+                    <label class="required" for="objetivo_especifico_1">Objetivo específico 1</label>
+                  </div>
+                  <textarea id="objetivo_especifico_1" name="objetivo_especifico_1" data-required="true">Desenvolver competências técnicas e empreendedoras de pessoas inscritas no CadÚnico, visando ampliar as oportunidades de (re)inserção socioeconômica.</textarea>
+                  <small class="hint">Obrigatório e não removível.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_1"></small>
+                </div>
+
+                <div class="objective-card" data-specific-objective data-objective-number="2">
+                  <div class="objective-card__header">
+                    <label class="required" for="objetivo_especifico_2">Objetivo específico 2</label>
+                  </div>
+                  <textarea id="objetivo_especifico_2" name="objetivo_especifico_2" data-required="true">Aumentar a oferta de oportunidades de capacitação para mulheres inscritas no CadÚnico.</textarea>
+                  <small class="hint">Obrigatório e não removível.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_2"></small>
+                </div>
+
+                <div class="objective-card" data-specific-objective data-objective-number="3">
+                  <div class="objective-card__header">
+                    <label for="objetivo_especifico_3">Objetivo específico 3</label>
+                    <button class="btn btn-danger btn-sm" type="button" data-remove-objective>Remover objetivo</button>
+                  </div>
+                  <textarea id="objetivo_especifico_3" name="objetivo_especifico_3">Estruturar espaços de capacitação com a infraestrutura necessária para realização das ações de qualificação profissional.</textarea>
+                  <small class="hint">Opcional. Aplicável quando houver entrega de kits de trabalho para todos os cursos.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_3"></small>
+                </div>
+
+                <div class="objective-card" data-specific-objective data-objective-number="4">
+                  <div class="objective-card__header">
+                    <label for="objetivo_especifico_4">Objetivo específico 4</label>
+                    <button class="btn btn-danger btn-sm" type="button" data-remove-objective>Remover objetivo</button>
+                  </div>
+                  <textarea id="objetivo_especifico_4" name="objetivo_especifico_4">Entregar kits de trabalho para o desenvolvimento profissional, contribuindo para a ampliação da capacidade de geração de renda dos participantes, fortalecendo o empreendedorismo e a autonomia financeira das famílias atendidas. </textarea>
+                  <small class="hint">Opcional. Aplicável quando houver estruturação de espaços.</small>
+                  <small class="error-message" data-error-for="objetivo_especifico_4"></small>
+                </div>
+              </div>
+              <div class="objective-restore-actions" aria-live="polite">
+                <button class="btn btn-secondary btn-sm" type="button" data-restore-objective="3" hidden>Adicionar objetivo específico 3</button>
+                <button class="btn btn-secondary btn-sm" type="button" data-restore-objective="4" hidden>Adicionar objetivo específico 4</button>
+              </div>
+            </div>
+
+            <div class="field field--full">
+              <div class="check-card">
+                <input id="possui_assistencia_tecnica_gerencial" name="possui_assistencia_tecnica_gerencial" type="checkbox" />
+                <label for="possui_assistencia_tecnica_gerencial">
+                  Projeto terá Assistência Técnica e Gerencial?
+                  <small>Ao marcar, a etapa de assistência será exibida depois dos cursos e passará a ser validada.</small>
+                </label>
+              </div>
             </div>
 
             <div class="field field--full">
@@ -894,6 +1129,18 @@
           <p class="eyebrow">Etapa 3 de 5</p>
           <h2 class="section-title">Planejamento, Mobilização, Execução e Monitoramento — Etapa 1.1</h2>
           <p class="section-description">Detalhe as despesas para planejar, executar, monitorar, mobilizar, sensibilizar e divulgar as ações do projeto, incluindo contratações, bens e insumos.</p>
+          <div class="grid" data-stage-period="stage11">
+            <div class="field">
+              <label class="required" for="stage11_inicio_etapa">Início da etapa</label>
+              <input id="stage11_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage11_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="stage11_fim_etapa">Fim da etapa</label>
+              <input id="stage11_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage11_fim_etapa"></small>
+            </div>
+          </div>
           <div class="summary-strip">
             <div class="summary-card"><span>Itens adicionados</span><strong id="stage11-count">0</strong></div>
             <div class="summary-card"><span>Total da etapa</span><strong id="stage11-total">R$ 0,00</strong></div>
@@ -901,9 +1148,11 @@
           </div>
           <div class="table-toolbar">
             <h3>Despesas da Etapa 1.1</h3>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage11">+ Adicionar despesa</button>
           </div>
           <div id="stage11-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage11">+ Adicionar despesa</button>
+          </div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -917,6 +1166,18 @@
           <p class="eyebrow">Etapa 4 de 5</p>
           <h2 class="section-title">Estruturação e Equipamento dos Espaços — Etapa 1.2</h2>
           <p class="section-description">Detalhe as despesas para estruturar os espaços de capacitação e adquirir os equipamentos necessários às ações de qualificação profissional.</p>
+          <div class="grid" data-stage-period="stage12">
+            <div class="field">
+              <label class="required" for="stage12_inicio_etapa">Início da etapa</label>
+              <input id="stage12_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage12_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="stage12_fim_etapa">Fim da etapa</label>
+              <input id="stage12_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="stage12_fim_etapa"></small>
+            </div>
+          </div>
           <div class="summary-strip">
             <div class="summary-card"><span>Itens adicionados</span><strong id="stage12-count">0</strong></div>
             <div class="summary-card"><span>Total da etapa</span><strong id="stage12-total">R$ 0,00</strong></div>
@@ -924,9 +1185,60 @@
           </div>
           <div class="table-toolbar">
             <h3>Despesas da Etapa 1.2</h3>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage12">+ Adicionar despesa</button>
           </div>
           <div id="stage12-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="stage12">+ Adicionar despesa</button>
+          </div>
+
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
+            <div class="wizard-actions__right">
+              <button class="btn btn-primary" type="button" data-next>Próxima etapa</button>
+              <button class="btn btn-primary" type="button" data-finish hidden>Finalizar e gerar arquivos</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wizard-section" id="assistencia_tecnica_gerencial" data-section hidden>
+          <p class="eyebrow">Etapa 5 de 6</p>
+          <h2 class="section-title">Realização de Assistência Técnica e Gerencial aos Empreendedores</h2>
+          <p class="section-description">Detalhe as despesas necessárias para executar as ações de assistência técnica e gerencial aos empreendedores, incluindo recursos humanos, materiais, serviços, deslocamentos e demais insumos necessários à realização das atividades.</p>
+
+          <div class="field field--full">
+            <label class="required" for="tematica_assistencia">Temática da assistência</label>
+            <textarea id="tematica_assistencia" name="tematica_assistencia" data-required="true">Assistência Técnica: (informar a temática relacionada à assistência técnica);
+
+Assistência Gerencial: (informar a temática relacionada à Assistência Gerencial — exemplo: gestão financeira; organização da produção; comercialização e marketing; elaboração de planos de negócios.)</textarea>
+            <small class="error-message" data-error-for="tematica_assistencia"></small>
+          </div>
+
+          <div class="grid" data-stage-period="assistance">
+            <div class="field">
+              <label class="required" for="assistance_inicio_etapa">Início da etapa</label>
+              <input id="assistance_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="assistance_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="assistance_fim_etapa">Fim da etapa</label>
+              <input id="assistance_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="assistance_fim_etapa"></small>
+            </div>
+          </div>
+
+          <div class="summary-strip">
+            <div class="summary-card"><span>Itens adicionados</span><strong id="assistance-count">0</strong></div>
+            <div class="summary-card"><span>Total da etapa</span><strong id="assistance-total">R$ 0,00</strong></div>
+            <div class="summary-card"><span>Participantes atendidos</span><strong id="assistance-participants">0</strong></div>
+          </div>
+
+          <div class="table-toolbar">
+            <h3>Despesas da Assistência Técnica e Gerencial</h3>
+          </div>
+          <div id="assistance-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="assistance">+ Adicionar despesa</button>
+          </div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -941,6 +1253,18 @@
           <p class="eyebrow">Etapa 5 de 5</p>
           <h2 class="section-title">Celebração, Certificação e Encerramento — Etapa Final</h2>
           <p class="section-description">Detalhe as despesas dos eventos de celebração do termo, certificação, avaliação dos avanços e encerramento com entrega de certificados.</p>
+          <div class="grid" data-stage-period="event">
+            <div class="field">
+              <label class="required" for="event_inicio_etapa">Início da etapa</label>
+              <input id="event_inicio_etapa" type="text" class="month-year-input" data-field="inicio_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="event_inicio_etapa"></small>
+            </div>
+            <div class="field">
+              <label class="required" for="event_fim_etapa">Fim da etapa</label>
+              <input id="event_fim_etapa" type="text" class="month-year-input" data-field="fim_etapa" data-required="true" inputmode="numeric" maxlength="7" placeholder="MM/AAAA" />
+              <small class="error-message" data-error-for="event_fim_etapa"></small>
+            </div>
+          </div>
           <div class="summary-strip">
             <div class="summary-card"><span>Itens adicionados</span><strong id="event-count">0</strong></div>
             <div class="summary-card"><span>Total da etapa</span><strong id="event-total">R$ 0,00</strong></div>
@@ -948,9 +1272,11 @@
           </div>
           <div class="table-toolbar">
             <h3>Despesas do evento final</h3>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="event">+ Adicionar despesa</button>
           </div>
           <div id="event-table"></div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-stage-row="event">+ Adicionar despesa</button>
+          </div>
 
           <div class="wizard-actions">
             <button class="btn btn-ghost" type="button" data-prev>Voltar</button>
@@ -977,8 +1303,38 @@
     </div>
   </dialog>
 
+  <dialog id="catalog-item-dialog">
+    <div class="dialog-header"><h2>Cadastrar item no catálogo</h2></div>
+    <form id="catalog-item-form" novalidate>
+      <div class="dialog-body">
+        <p class="section-description">O item ficará disponível imediatamente. Como a aplicação é estática, será baixado um <strong>catalogo.csv</strong> atualizado para substituir o arquivo do repositório.</p>
+        <div class="dialog-field">
+          <label for="catalog-item-category">Categoria</label>
+          <input id="catalog-item-category" type="text" readonly />
+        </div>
+        <div class="dialog-field">
+          <label class="required" for="catalog-item-name">Nome do item</label>
+          <input id="catalog-item-name" type="text" maxlength="255" required />
+          <small class="error-message" data-catalog-error="name"></small>
+        </div>
+        <div class="dialog-field">
+          <label class="required" for="catalog-item-unit">Tipo de unidade</label>
+          <select id="catalog-item-unit" required>
+            <option value="">Selecione</option>
+          </select>
+          <small class="error-message" data-catalog-error="unit"></small>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" class="btn btn-ghost" id="cancel-catalog-item">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Cadastrar e baixar catálogo</button>
+      </div>
+    </form>
+  </dialog>
+
   <!-- ExcelJS 4.4.0: bundle local para funcionamento sem CDN. -->
   <script src="./assets/exceljs.min.js"></script>
+  <script src="./mock-data.js"></script>
   <script>
     "use strict";
 
@@ -998,12 +1354,19 @@
 
 
     let catalogs = {};
+    let catalogRows = [];
+    let catalogCsvText = "";
 
     /* =========================================================
        CATÁLOGO CARREGADO DO CSV
        A aplicação só é inicializada depois que catalogo.csv é carregado.
        ========================================================= */
     const catalogCsvUrl = "./catalogo.csv";
+    const customCourseCategoryConfig = {
+      kit_trabalho: { csvCategory: "kit_trabalho", label: "Kit Trabalho", csvType: "kit" },
+      epi: { csvCategory: "epi", label: "EPI", csvType: "finalística" },
+      insumos_gerais: { csvCategory: "insumo_gerais", label: "Insumos Gerais", csvType: "finalística" }
+    };
 
     function splitCatalogValues(value) {
       return [...new Set(String(value || "")
@@ -1038,7 +1401,6 @@
       const headers = lines[0].split(";").map(header => header.trim());
       const requiredHeaders = [
         "Categoria",
-        "Código do Elemento de Despesa",
         "Unidade",
         "TIPO",
         "Item de Despesa Padronizado"
@@ -1064,14 +1426,9 @@
         const existing = items.get(key) || {
           id: key,
           label,
-          codigos: [],
           unidades: [],
           tipo: normalizeExpenseType(row.TIPO)
         };
-        existing.codigos = [...new Set([
-          ...existing.codigos,
-          ...splitCatalogValues(row["Código do Elemento de Despesa"])
-        ])];
         existing.unidades = [...new Set([
           ...existing.unidades,
           ...splitCatalogValues(row.Unidade)
@@ -1080,7 +1437,6 @@
       });
 
       return [...items.values()]
-        .map(item => ({ ...item, codigo: item.codigos[0] || "" }))
         .sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
     }
 
@@ -1091,7 +1447,9 @@
         ["insumo_gerais", "Insumos gerais"],
         ["epi", "EPI"],
         ["kit_trabalho", "Kit trabalho"],
-        ["curso_outros", "Outros"]
+        ["alimentacao", "Alimentação"],
+        ["transporte", "Transporte"],
+        ["curso_outros", "Diversas"]
       ];
 
       return {
@@ -1099,8 +1457,7 @@
         tiposItemCurso: courseCategories.map(([csvCategory, label]) => {
           const itens = mergeCatalogItems(rowsByCategory(csvCategory));
           return {
-            id: csvCategory === "insumo_gerais" ? "insumos_gerais" :
-              csvCategory === "curso_outros" ? "Outros" : csvCategory,
+            id: csvCategory === "insumo_gerais" ? "insumos_gerais" : csvCategory,
             label,
             tipo: itens[0]?.tipo || "",
             itens
@@ -1108,6 +1465,7 @@
         }),
         stage11: mergeCatalogItems(rowsByCategory("stage11")),
         stage12: mergeCatalogItems(rowsByCategory("stage12")),
+        assistance: mergeCatalogItems(rowsByCategory("assistencia")),
         event: mergeCatalogItems(rowsByCategory("event"))
       };
     }
@@ -1115,7 +1473,9 @@
     async function loadCatalogs(url = catalogCsvUrl) {
       const response = await fetch(url, { cache: "no-cache" });
       if (!response.ok) throw new Error(`Não foi possível carregar o catálogo (${response.status}).`);
-      catalogs = buildCatalogsFromCsv(parseCatalogCsv(await response.text()));
+      catalogCsvText = await response.text();
+      catalogRows = parseCatalogCsv(catalogCsvText);
+      catalogs = buildCatalogsFromCsv(catalogRows);
     }
 
     /* ======================================================================
@@ -1125,7 +1485,8 @@
       currentStep: "dados_gerais_projeto",
       completedSteps: new Set(),
       json: null,
-      rowCounter: 0
+      rowCounter: 0,
+      catalogTargetRow: null
     };
 
     let valorTotalGestao = 0;
@@ -1139,9 +1500,14 @@
 
     const form = document.getElementById("project-form");
     const eventCheckbox = document.getElementById("possui_evento_certificacao");
+    const assistanceCheckbox = document.getElementById("possui_assistencia_tecnica_gerencial");
     const quantityCourses = document.getElementById("quantidade_cursos");
     const statusBanner = document.getElementById("form-status");
     const jsonDialog = document.getElementById("json-dialog");
+    const catalogItemDialog = document.getElementById("catalog-item-dialog");
+    const catalogItemForm = document.getElementById("catalog-item-form");
+    const assistanceThemeInput = document.getElementById("tematica_assistencia");
+    const assistanceThemeTemplate = assistanceThemeInput.defaultValue.trim();
 
     /* ======================================================================
        3. UTILITÁRIOS DE FORMATAÇÃO E CONVERSÃO
@@ -1177,6 +1543,11 @@
     function maskMonthYear(input) {
       const digits = input.value.replace(/\D/g, "").slice(0, 6);
       input.value = digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits;
+    }
+
+    function maskExpenseCode(input) {
+      const digits = input.value.replace(/\D/g, "").slice(0, 6);
+      input.value = digits.match(/.{1,2}/g)?.join(".") || "";
     }
 
     function monthYearToComparable(value) {
@@ -1218,6 +1589,10 @@
         else button.removeAttribute("aria-current");
         button.classList.toggle("is-complete", state.completedSteps.has(target));
       });
+      visible.forEach((stepId, index) => {
+        const stepIndex = document.querySelector(`[data-step-target="${stepId}"] .step-index`);
+        if (stepIndex) stepIndex.textContent = String(index + 1);
+      });
 
       const currentIndex = visible.indexOf(state.currentStep);
       document.querySelectorAll("[data-section] .eyebrow").forEach(eyebrow => {
@@ -1232,6 +1607,13 @@
       const stage12IsLast = visible.at(-1) === "despesas_etapa_1_2";
       nextButton.hidden = stage12IsLast;
       finishButton.hidden = !stage12IsLast;
+
+      const assistanceSection = document.getElementById("assistencia_tecnica_gerencial");
+      const assistanceNextButton = assistanceSection.querySelector("[data-next]");
+      const assistanceFinishButton = assistanceSection.querySelector("[data-finish]");
+      const assistanceIsLast = visible.at(-1) === "assistencia_tecnica_gerencial";
+      assistanceNextButton.hidden = assistanceIsLast;
+      assistanceFinishButton.hidden = !assistanceIsLast;
 
       return currentIndex;
     }
@@ -1267,13 +1649,14 @@
           <div class="grid">
             ${courseField(index, "nome_curso", "Nome do Curso", "text", { full: true, max: 255 })}
             ${courseField(index, "inicio_curso", "Início do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
-            <div class="field">
-              <label for="curso_${index}_fim_curso">Fim do curso</label>
-              <input id="curso_${index}_fim_curso" name="curso_${index}_fim_curso" type="text" class="month-year-input" data-field="fim_curso" placeholder="MM/AAAA" readonly />
-              <small class="hint">Calculado automaticamente: 12 meses após o início.</small>
-              <small class="error-message" data-error-for="curso_${index}_fim_curso"></small>
-            </div>
-            ${courseField(index, "carga_horaria_total", "Carga horária total", "number", { min: 1, suffix: "horas" })}
+            ${courseField(index, "fim_curso", "Fim do curso", "text", { monthYear: true, placeholder: "MM/AAAA" })}
+            ${courseField(index, "carga_horaria_total", "Carga horária total", "number", {
+              min: 40,
+              step: 10,
+              multipleOf: 10,
+              suffix: "horas",
+              rangeError: "Informe um número inteiro, igual ou superior a 40, terminado em 0."
+            })}
             ${courseField(index, "quantidade_participantes", "Quantidade de participantes", "number", { min: 1 })}
             ${courseField(index, "margem_reserva", "Margem de Reserva", "number", {
               min: 5, max: 10, value: 5, suffix: "%",
@@ -1282,7 +1665,7 @@
               hint: "Informe a quantidade de participantes para visualizar o impacto da margem.",
               rangeError: "A margem de reserva deve ser um valor entre 5% e 10%."
             })}
-            ${courseField(index, "carga_horaria_diaria", "Carga horária diária", "number", { min: 2, max: 8, suffix: "horas" })}
+            ${courseDailyWorkloadField(index)}
             <div class="field">
               <label for="curso_${index}_duracao_dias">Dias de duração do curso</label>
               <div class="input-with-suffix">
@@ -1335,9 +1718,11 @@
           </div>
           <div class="table-toolbar">
             <h4 class="subsection-title">2.2 — Detalhamento de gastos do curso</h4>
-            <button class="btn btn-secondary btn-sm" type="button" data-add-course-expense="${index}">+ Adicionar despesa</button>
           </div>
           <div data-course-expenses="${index}">${emptyState("Nenhuma despesa adicionada a este curso.")}</div>
+          <div class="table-footer-actions">
+            <button class="btn btn-secondary btn-sm" type="button" data-add-course-expense="${index}">+ Adicionar despesa</button>
+          </div>
         </div>`;
       return card;
     }
@@ -1347,7 +1732,7 @@
       const attrs = [
         `id="${fieldId}"`, `name="${fieldId}"`, `type="${type}"`, `data-field="${id}"`, `data-required="true"`
       ];
-      if (type === "number") attrs.push(`step="1"`, `inputmode="numeric"`);
+      if (type === "number") attrs.push(`step="${options.step || 1}"`, `inputmode="numeric"`);
       if (options.monthYear) attrs.push(`class="month-year-input"`, `inputmode="numeric"`, `maxlength="7"`);
       if (options.min != null) attrs.push(`min="${options.min}"`);
       if (options.max != null) attrs.push(`max="${options.max}"`);
@@ -1355,6 +1740,7 @@
       if (options.value != null) attrs.push(`value="${escapeHtml(options.value)}"`);
       if (options.placeholder) attrs.push(`placeholder="${escapeHtml(options.placeholder)}"`);
       if (options.rangeError) attrs.push(`data-range-error="${escapeHtml(options.rangeError)}"`);
+      if (options.multipleOf != null) attrs.push(`data-multiple-of="${options.multipleOf}"`);
       const wrapper = options.suffix ? "input-with-suffix" : "";
       const tooltipId = `${fieldId}_tooltip`;
       return `
@@ -1369,6 +1755,28 @@
           </div>
           ${options.hint ? `<small class="hint" ${options.hintAttribute || ""}>${escapeHtml(options.hint)}</small>` : ""}
           <small class="error-message" data-error-for="${fieldId}"></small>
+        </div>`;
+    }
+
+    function courseDailyWorkloadField(index) {
+      const fieldId = `curso_${index}_carga_horaria_diaria`;
+      const fieldName = `${fieldId}_opcao`;
+      const options = [8, 6, 4, 2];
+      return `
+        <div class="field daily-workload-field">
+          <fieldset class="radio-fieldset">
+            <legend class="required">Carga horária diária</legend>
+            <input id="${fieldId}" type="hidden" data-field="carga_horaria_diaria" data-required="true" />
+            <div class="radio-options">
+              ${options.map(hours => `
+                <label class="radio-option">
+                  <input type="radio" name="${fieldName}" value="${hours}"
+                    data-field="carga_horaria_diaria" data-daily-workload-option />
+                  <span>${hours}h</span>
+                </label>`).join("")}
+            </div>
+            <small class="error-message" data-error-for="${fieldId}"></small>
+          </fieldset>
         </div>`;
     }
 
@@ -1405,6 +1813,14 @@
         : "Informe a quantidade de participantes.";
     }
 
+    function calculateParticipantCountWithReserve(participantCount, reserveMargin) {
+      if (!Number.isFinite(participantCount) || participantCount <= 0 ||
+          !Number.isFinite(reserveMargin) || reserveMargin < 0) {
+        return 0;
+      }
+      return Math.ceil(participantCount * (100 + reserveMargin) / 100);
+    }
+
     function updateReserveImpact(card) {
       const participantCount = Number(card.querySelector('[data-field="quantidade_participantes"]')?.value);
       const reserveMargin = Number(card.querySelector('[data-field="margem_reserva"]')?.value);
@@ -1413,10 +1829,153 @@
 
       if (Number.isInteger(participantCount) && participantCount > 0 &&
           Number.isInteger(reserveMargin) && reserveMargin >= 5 && reserveMargin <= 10) {
-        const itemCount = Math.ceil(participantCount * (1 + reserveMargin / 100));
+        const itemCount = calculateParticipantCountWithReserve(participantCount, reserveMargin);
         impactHint.textContent = `Com esta margem, o sistema calculará a compra de ${itemCount} itens para ${participantCount} participantes.`;
       } else {
         impactHint.textContent = "Informe valores válidos de participantes e margem para visualizar o cálculo.";
+      }
+    }
+
+    function calculateTransportQuantity(totalWorkload, participantCountWithReserve, dailyWorkload) {
+      const divisionResult = totalWorkload > 0 && dailyWorkload > 0 && participantCountWithReserve > 0
+        ? totalWorkload / dailyWorkload
+        : 0;
+      const participantTrips = divisionResult * participantCountWithReserve;
+      const rawQuantity = participantTrips * 2;
+      return {
+        divisionResult,
+        participantTrips,
+        rawQuantity,
+        quantity: rawQuantity > 0 ? Math.ceil(rawQuantity) : 0
+      };
+    }
+
+    const courseFoodItemIds = {
+      snack: "lanche",
+      lunch: "almoco_para_participantes"
+    };
+
+    function requiredCourseFoodItemIds(dailyWorkload) {
+      if ([2, 4].includes(dailyWorkload)) return [courseFoodItemIds.snack];
+      if ([6, 8].includes(dailyWorkload)) {
+        return [courseFoodItemIds.snack, courseFoodItemIds.lunch];
+      }
+      return [];
+    }
+
+    function availableCourseItems(type, row) {
+      if (type?.id !== "alimentacao") return type?.itens || [];
+      const card = row.closest(".course-card");
+      const dailyWorkload = Number(
+        card?.querySelector('[data-field="carga_horaria_diaria"]')?.value
+      );
+      const currentItemId = row.querySelector('[data-field="item_despesa"]')?.value;
+      const selectedInOtherRows = new Set(
+        [...card.querySelectorAll('[data-course-expenses] tbody tr')]
+          .filter(candidate => candidate !== row)
+          .filter(candidate =>
+            candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === type.id
+          )
+          .map(candidate => candidate.querySelector('[data-field="item_despesa"]')?.value)
+          .filter(Boolean)
+      );
+
+      return type.itens.filter(item => {
+        if ([2, 4].includes(dailyWorkload) && item.id === courseFoodItemIds.lunch) return false;
+        return item.id === currentItemId || !selectedInOtherRows.has(item.id);
+      });
+    }
+
+    function calculateFoodQuantity(totalWorkload, participantCountWithReserve, dailyWorkload, itemId) {
+      const classDays = totalWorkload > 0 && dailyWorkload > 0
+        ? totalWorkload / dailyWorkload
+        : 0;
+      const baseQuantity = classDays * participantCountWithReserve;
+      const multiplier = itemId === courseFoodItemIds.snack && [6, 8].includes(dailyWorkload)
+        ? 2
+        : 1;
+      const rawQuantity = baseQuantity * multiplier;
+      const nearestInteger = Math.round(rawQuantity);
+      const quantity = Math.abs(rawQuantity - nearestInteger) < 1e-9
+        ? nearestInteger
+        : Math.ceil(rawQuantity);
+
+      return {
+        classDays,
+        baseQuantity,
+        multiplier,
+        rawQuantity,
+        quantity: rawQuantity > 0 ? quantity : 0
+      };
+    }
+
+    function syncCourseFoodExpenses(card, dailyWorkload) {
+      if (!card || card.dataset.foodExpenseSync === "true") return;
+
+      const requiredItemIds = requiredCourseFoodItemIds(dailyWorkload);
+      if (!requiredItemIds.length) return;
+
+      const category = catalogs.tiposItemCurso.find(item => item.id === "alimentacao");
+      if (!category) return;
+
+      const container = card.querySelector("[data-course-expenses]");
+      const rows = () => [...container.querySelectorAll("tbody tr")];
+      card.dataset.foodExpenseSync = "true";
+
+      try {
+        if ([2, 4].includes(dailyWorkload)) {
+          const lunchRows = rows().filter(row =>
+            row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+            row.querySelector('[data-field="item_despesa"]')?.value === courseFoodItemIds.lunch
+          );
+          if (lunchRows.length) {
+            lunchRows.forEach(row => row.remove());
+            renderCourseExpenseTable(container);
+          }
+        }
+
+        rows()
+          .filter(row =>
+            row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id
+          )
+          .forEach(row => {
+            const itemSelect = row.querySelector('[data-field="item_despesa"]');
+            const selectedItemId = itemSelect.value;
+            const availableItems = availableCourseItems(category, row);
+            setComboboxOptions(itemSelect, availableItems);
+            if (availableItems.some(item => item.id === selectedItemId)) {
+              itemSelect.value = selectedItemId;
+              syncComboboxDisplay(itemSelect);
+            }
+          });
+
+        requiredItemIds.forEach(itemId => {
+          const alreadyIncluded = rows().some(row =>
+            row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+            row.querySelector('[data-field="item_despesa"]')?.value === itemId
+          );
+          if (alreadyIncluded) return;
+
+          let row = rows().find(candidate =>
+            candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+            !candidate.querySelector('[data-field="item_despesa"]')?.value
+          );
+          if (!row) {
+            addCourseExpense(Number(card.dataset.courseIndex));
+            row = rows().at(-1);
+          }
+
+          const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+          if (typeSelect.value !== category.id) {
+            typeSelect.value = category.id;
+            typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+
+          const itemSelect = row.querySelector('[data-field="item_despesa"]');
+          chooseComboboxOption(itemSelect.closest(".searchable-combobox"), itemId);
+        });
+      } finally {
+        delete card.dataset.foodExpenseSync;
       }
     }
 
@@ -1425,23 +1984,116 @@
 
       const participantCount = Number(card.querySelector('[data-field="quantidade_participantes"]')?.value);
       const reserveMargin = Number(card.querySelector('[data-field="margem_reserva"]')?.value);
-      const itemCount = Number.isFinite(participantCount) && Number.isFinite(reserveMargin)
-        ? Math.ceil(participantCount * (1 + reserveMargin / 100))
-        : 0;
+      const totalWorkload = Number(card.querySelector('[data-field="carga_horaria_total"]')?.value);
+      const dailyWorkload = Number(card.querySelector('[data-field="carga_horaria_diaria"]')?.value);
+      const itemCount = calculateParticipantCountWithReserve(participantCount, reserveMargin);
+      const requiredFoodItemIds = requiredCourseFoodItemIds(dailyWorkload);
+
+      syncCourseFoodExpenses(card, dailyWorkload);
 
       card.querySelectorAll('[data-course-expenses] tbody tr').forEach(row => {
         const typeId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+        const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
         const quantityInput = row.querySelector('[data-field="quantidade_itens"]');
-        if (!quantityInput) return;
+        const detailInput = row.querySelector('[data-field="detalhamento_item"]');
+        if (!quantityInput || !detailInput) return;
 
         const usesReserve = ["kit_participante", "epi"].includes(typeId);
         const usesParticipantCount = typeId === "kit_trabalho";
+        const usesTransportCalculation = typeId === "transporte" && Boolean(itemId);
+        const usesFoodCalculation =
+          typeId === "alimentacao" && requiredFoodItemIds.includes(itemId);
+        const hadTransportCalculation = row.dataset.transportCalculation === "true";
+        const hadFoodCalculation = row.dataset.foodCalculation === "true";
+
+        if (usesFoodCalculation) {
+          if (hadTransportCalculation) {
+            delete row.dataset.transportCalculation;
+            detailInput.value = "";
+          }
+          row.dataset.foodCalculation = "true";
+          quantityInput.readOnly = true;
+          detailInput.readOnly = false;
+
+          const { quantity: foodQuantity } = calculateFoodQuantity(
+            totalWorkload,
+            itemCount,
+            dailyWorkload,
+            itemId
+          );
+          quantityInput.value = foodQuantity || "";
+          clearError(quantityInput);
+          recalculateRow(row);
+          return;
+        }
+
+        if (hadFoodCalculation) {
+          delete row.dataset.foodCalculation;
+          quantityInput.value = "";
+        }
+
+        if (usesTransportCalculation) {
+          row.dataset.transportCalculation = "true";
+          quantityInput.readOnly = true;
+          detailInput.readOnly = true;
+
+          const { divisionResult, participantTrips, rawQuantity, quantity: transportQuantity } =
+            calculateTransportQuantity(totalWorkload, itemCount, dailyWorkload);
+
+          quantityInput.value = transportQuantity || "";
+          if (transportQuantity) {
+            const divisionResultText = divisionResult.toLocaleString("pt-BR", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 4
+            });
+            const rawQuantityText = rawQuantity.toLocaleString("pt-BR", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 4
+            });
+            const participantTripsText = participantTrips.toLocaleString("pt-BR", {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 4
+            });
+            const roundingText = Number.isInteger(rawQuantity)
+              ? ""
+              : `; ${rawQuantityText} arredondado para cima = ${transportQuantity}`;
+            detailInput.value =
+              `${totalWorkload}h de carga horária total ÷ ${dailyWorkload}h diárias = ${divisionResultText}; ` +
+              `${divisionResultText} × ${itemCount} participantes com margem = ${participantTripsText}; ` +
+              `${participantTripsText} × 2 (ida e volta) = ${rawQuantityText}${roundingText}`;
+          } else {
+            detailInput.value = "";
+          }
+
+          clearError(quantityInput);
+          clearError(detailInput);
+          recalculateRow(row);
+          return;
+        }
+
+        if (hadTransportCalculation) {
+          delete row.dataset.transportCalculation;
+          quantityInput.value = "";
+          detailInput.value = "";
+        }
+
         quantityInput.readOnly = usesReserve || usesParticipantCount;
+        detailInput.readOnly = false;
 
         if (usesReserve) quantityInput.value = itemCount > 0 ? itemCount : "";
         if (usesParticipantCount) quantityInput.value = participantCount > 0 ? participantCount : "";
-        if (usesReserve || usesParticipantCount) recalculateRow(row);
+        if (usesReserve || usesParticipantCount || hadTransportCalculation) recalculateRow(row);
       });
+    }
+
+    function totalCourseParticipantsFromForm() {
+      return [...document.querySelectorAll('.course-card [data-field="quantidade_participantes"]')]
+        .reduce((total, input) => total + (Number(input.value) || 0), 0);
+    }
+
+    function updateAssistanceParticipantSummary() {
+      document.getElementById("assistance-participants").textContent =
+        String(totalCourseParticipantsFromForm());
     }
 
     function syncCourses() {
@@ -1456,6 +2108,8 @@
       } else if (existing.length > desired) {
         existing.slice(desired).forEach(card => card.remove());
       }
+      [...container.querySelectorAll(".course-card")].forEach(ensureInitialTransportExpense);
+      updateAssistanceParticipantSummary();
     }
 
     function emptyState(message) {
@@ -1468,8 +2122,9 @@
       tr.dataset.rowId = rowId;
       tr.innerHTML = `
         ${tableCellSelect("tipo_item_despesa", optionList(catalogs.tiposItemCurso), rowId, "Tipo do item")}
-        ${tableCellCombobox("item_despesa", [], rowId, "Item", "Selecione o tipo primeiro", true)}
-        ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
+        ${tableCellCombobox("item_despesa", [], rowId, "Item", "Selecione o tipo primeiro", true, true)}
+        ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
+        ${tableCellInput("codigo_elemento_despesa", "text", rowId, { expenseCode: true, placeholder: "00.00.00" })}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
@@ -1486,14 +2141,13 @@
       tr.dataset.stageKind = kind;
       tr.innerHTML = `
         ${tableCellCombobox("item_despesa", catalogs[kind], rowId, "Item")}
-        ${tableCellSelect("codigo_elemento_despesa", optionList([], "Selecione o item primeiro"), rowId, "Código", true)}
+        ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
+        ${tableCellInput("codigo_elemento_despesa", "text", rowId, { expenseCode: true, placeholder: "00.00.00" })}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
         ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
         ${tableCellSelect("fonte_recurso", optionList(catalogs.fontesRecurso), rowId, "Fonte")}
-        ${tableCellInput("inicio_etapa", "text", rowId, { monthYear: true, placeholder: "MM/AAAA" })}
-        ${tableCellInput("fim_etapa", "text", rowId, { monthYear: true, placeholder: "MM/AAAA" })}
         ${tableCellInput("tipo_despesa", "text", rowId, { readonly: true })}
         <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
       return tr;
@@ -1504,18 +2158,18 @@
       return `<td><select id="${id}" data-field="${field}" data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""}>${options}</select><small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
-    function tableCellCombobox(field, items, rowId, label, placeholder = "Selecione ou pesquise", disabled = false) {
+    function tableCellCombobox(field, items, rowId, label, placeholder = "Selecione ou pesquise", disabled = false, allowItemCreation = false) {
       const id = `${rowId}_${field}`;
       const sourceId = `${id}_value`;
       const listId = `${id}_options`;
-      return `<td><div class="searchable-combobox">
+      return `<td><div class="${allowItemCreation ? "catalog-item-control" : ""}"><div class="searchable-combobox">
         <input id="${id}" class="searchable-combobox-input" type="text" role="combobox"
           aria-autocomplete="list" aria-controls="${listId}" aria-expanded="false"
           placeholder="${escapeHtml(placeholder)}" autocomplete="off"
           data-combobox-input data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""} />
         <div id="${listId}" class="searchable-combobox-list" role="listbox" hidden></div>
         <select id="${sourceId}" class="searchable-combobox-source" data-field="${field}" tabindex="-1" aria-hidden="true" ${disabled ? "disabled" : ""}>${optionList(items, placeholder)}</select>
-      </div><small class="error-message" data-error-for="${id}"></small></td>`;
+      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary catalog-item-action" data-add-catalog-item aria-label="Cadastrar Item" title="Cadastrar Item" hidden>+</button>` : ""}</div><small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
     function renderComboboxOptions(wrapper, search = "") {
@@ -1573,7 +2227,11 @@
 
     function tableCellInput(field, type, rowId, options = {}) {
       const id = `${rowId}_${field}`;
-      const classes = [options.currency ? "currency-input" : "", options.monthYear ? "month-year-input" : ""].filter(Boolean).join(" ");
+      const classes = [
+        options.currency ? "currency-input" : "",
+        options.monthYear ? "month-year-input" : "",
+        options.expenseCode ? "expense-code-input" : ""
+      ].filter(Boolean).join(" ");
       const attributes = [
         `id="${id}"`, `type="${type}"`, `data-field="${field}"`, `aria-label="${field.replaceAll("_", " ")}"`
       ];
@@ -1582,6 +2240,7 @@
       if (options.min != null) attributes.push(`min="${options.min}"`, `step="1"`, `inputmode="numeric"`);
       if (options.currency) attributes.push(`inputmode="numeric"`, `autocomplete="off"`, `placeholder="R$ 0,00"`);
       if (options.monthYear) attributes.push(`inputmode="numeric"`, `maxlength="7"`);
+      if (options.expenseCode) attributes.push(`inputmode="numeric"`, `maxlength="8"`, `autocomplete="off"`);
       if (options.placeholder) attributes.push(`placeholder="${escapeHtml(options.placeholder)}"`);
       if (options.value != null) attributes.push(`value="${escapeHtml(options.value)}"`);
       return `<td><input class="${classes}" ${attributes.join(" ")} /><small class="error-message" data-error-for="${id}"></small></td>`;
@@ -1609,7 +2268,7 @@
       table.className = "table-wrap";
       table.innerHTML = `<table>
         <thead><tr>
-          <th>Tipo do item *</th><th>Item *</th><th>Elemento *</th><th>Unidade *</th>
+          <th>Tipo do item *</th><th>Item *</th><th>Detalhamento do item *</th><th>Elemento *</th><th>Unidade *</th>
           <th>Qtd. *</th><th>Valor unitário *</th><th>Valor total</th><th>Ações</th>
         </tr></thead><tbody></tbody></table>`;
       rows.forEach(row => table.querySelector("tbody").appendChild(row));
@@ -1627,9 +2286,9 @@
         wrapper.className = "table-wrap";
         wrapper.innerHTML = `<table>
           <thead><tr>
-            <th>Item *</th><th>Elemento *</th><th>Unidade *</th><th>Qtd. *</th>
+            <th>Item *</th><th>Detalhamento do item *</th><th>Elemento *</th><th>Unidade *</th><th>Qtd. *</th>
             <th>Valor unitário *</th><th>Valor total</th><th>Fonte *</th>
-            <th>Início *</th><th>Fim *</th><th>Tipo</th><th>Ações</th>
+            <th>Tipo</th><th>Ações</th>
           </tr></thead><tbody></tbody></table>`;
         rows.forEach(row => wrapper.querySelector("tbody").appendChild(row));
         container.replaceChildren(wrapper);
@@ -1645,6 +2304,20 @@
       renderCourseExpenseTable(container);
     }
 
+    function ensureInitialTransportExpense(card) {
+      const container = card.querySelector("[data-course-expenses]");
+      const existingTransportRow = [...container.querySelectorAll("tbody tr")].find(row =>
+        row.querySelector('[data-field="tipo_item_despesa"]')?.value === "transporte"
+      );
+      if (existingTransportRow) return;
+
+      addCourseExpense(Number(card.dataset.courseIndex));
+      const row = [...container.querySelectorAll("tbody tr")].at(-1);
+      const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+      typeSelect.value = "transporte";
+      typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
     function addStageRow(kind) {
       const container = document.getElementById(`${kind}-table`);
       const rows = getExpenseDataRows(container);
@@ -1656,15 +2329,18 @@
     function updateCourseDependencies(row) {
       const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
       const itemSelect = row.querySelector('[data-field="item_despesa"]');
-      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
+      const addCatalogItemButton = row.querySelector("[data-add-catalog-item]");
       const type = catalogs.tiposItemCurso.find(item => item.id === typeSelect.value);
+      if (addCatalogItemButton) addCatalogItemButton.hidden = !customCourseCategoryConfig[typeSelect.value];
       itemSelect.disabled = !type;
       const itemInput = itemSelect.closest(".searchable-combobox").querySelector("[data-combobox-input]");
       itemInput.disabled = !type;
-      setComboboxOptions(itemSelect, type?.itens || [], type ? "Selecione ou pesquise" : "Selecione o tipo primeiro");
-      codeSelect.disabled = true;
-      codeSelect.innerHTML = optionList([], "Selecione o item primeiro");
+      setComboboxOptions(
+        itemSelect,
+        availableCourseItems(type, row),
+        type ? "Selecione ou pesquise" : "Selecione o tipo primeiro"
+      );
       unitSelect.disabled = true;
       unitSelect.innerHTML = optionList([], "Selecione o item primeiro");
       syncCourseExpenseQuantities(row.closest(".course-card"));
@@ -1673,14 +2349,10 @@
     function updateCourseItemDependencies(row) {
       const type = catalogs.tiposItemCurso.find(item => item.id === row.querySelector('[data-field="tipo_item_despesa"]').value);
       const selected = type?.itens.find(item => item.id === row.querySelector('[data-field="item_despesa"]').value);
-      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
-      codeSelect.disabled = !selected;
-      codeSelect.innerHTML = selected ? optionList(selected.codigos || [selected.codigo], "Selecione") : optionList([], "Selecione o item primeiro");
       unitSelect.disabled = true;
       unitSelect.innerHTML = selected ? optionList(selected.unidades, "Selecione") : optionList([], "Selecione o item primeiro");
       if (selected) {
-        codeSelect.value = selected.codigo;
         unitSelect.value = selected.unidades[0] || "";
       }
       syncCourseExpenseQuantities(row.closest(".course-card"));
@@ -1689,19 +2361,131 @@
     function updateStageDependencies(row) {
       const kind = row.dataset.stageKind;
       const item = catalogs[kind].find(entry => entry.id === row.querySelector('[data-field="item_despesa"]').value);
-      const codeSelect = row.querySelector('[data-field="codigo_elemento_despesa"]');
       const unitSelect = row.querySelector('[data-field="unidade"]');
       const typeInput = row.querySelector('[data-field="tipo_despesa"]');
-      codeSelect.disabled = !item;
-      codeSelect.innerHTML = item ? optionList(item.codigos || [item.codigo]) : optionList([], "Selecione o item primeiro");
       unitSelect.disabled = true;
       unitSelect.innerHTML = item ? optionList(item.unidades) : optionList([], "Selecione o item primeiro");
       typeInput.value = item?.tipo || "";
       if (item) {
-        codeSelect.value = item.codigo;
         unitSelect.value = item.unidades[0] || "";
       }
       updateExpenseTotalsByType();
+    }
+
+    function clearCatalogItemErrors() {
+      catalogItemForm.querySelectorAll(".is-invalid").forEach(control => control.classList.remove("is-invalid"));
+      catalogItemForm.querySelectorAll("[data-catalog-error]").forEach(error => { error.textContent = ""; });
+    }
+
+    function setCatalogItemError(field, message) {
+      const control = document.getElementById(`catalog-item-${field}`);
+      control?.classList.add("is-invalid");
+      const error = catalogItemForm.querySelector(`[data-catalog-error="${field}"]`);
+      if (error) error.textContent = message;
+    }
+
+    function catalogUnitOptions() {
+      const units = [...new Set(catalogRows.flatMap(row => splitCatalogValues(row.Unidade)))]
+        .sort((a, b) => a.localeCompare(b, "pt-BR"));
+      return optionList(units);
+    }
+
+    function openCatalogItemDialog(row) {
+      const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+      const config = customCourseCategoryConfig[categoryId];
+      if (!config) return;
+      state.catalogTargetRow = row;
+      catalogItemForm.reset();
+      clearCatalogItemErrors();
+      document.getElementById("catalog-item-category").value = config.label;
+      document.getElementById("catalog-item-unit").innerHTML = catalogUnitOptions();
+      catalogItemDialog.showModal();
+      document.getElementById("catalog-item-name").focus();
+    }
+
+    function closeCatalogItemDialog() {
+      catalogItemDialog.close();
+      state.catalogTargetRow = null;
+    }
+
+    function refreshCourseCategoryItems(categoryId) {
+      const category = catalogs.tiposItemCurso.find(item => item.id === categoryId);
+      if (!category) return;
+      document.querySelectorAll('[data-course-expenses] tbody tr').forEach(row => {
+        if (row.querySelector('[data-field="tipo_item_despesa"]')?.value !== categoryId) return;
+        const select = row.querySelector('[data-field="item_despesa"]');
+        const previousValue = select.value;
+        select.innerHTML = optionList(category.itens, "Selecione ou pesquise");
+        select.value = previousValue;
+        syncComboboxDisplay(select);
+        renderComboboxOptions(select.closest(".searchable-combobox"));
+      });
+    }
+
+    function downloadUpdatedCatalog() {
+      const blob = new Blob([catalogCsvText], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "catalogo.csv";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function addCatalogItem(event) {
+      event.preventDefault();
+      clearCatalogItemErrors();
+
+      const row = state.catalogTargetRow;
+      const categoryId = row?.querySelector('[data-field="tipo_item_despesa"]')?.value;
+      const config = customCourseCategoryConfig[categoryId];
+      if (!row || !config) return closeCatalogItemDialog();
+
+      const name = document.getElementById("catalog-item-name").value.trim();
+      const unit = document.getElementById("catalog-item-unit").value.trim();
+      let valid = true;
+      [["name", name], ["unit", unit]].forEach(([field, value]) => {
+        if (!value) {
+          setCatalogItemError(field, "Preencha este campo.");
+          valid = false;
+        } else if (/[;\r\n]/.test(value)) {
+          setCatalogItemError(field, "Não use ponto e vírgula ou quebra de linha.");
+          valid = false;
+        }
+      });
+
+      const category = catalogs.tiposItemCurso.find(item => item.id === categoryId);
+      const newItemId = catalogId(name);
+      if (name && category?.itens.some(item => item.id === newItemId)) {
+        setCatalogItemError("name", "Este item já existe na categoria.");
+        valid = false;
+      }
+      if (!valid) {
+        catalogItemForm.querySelector(".is-invalid")?.focus();
+        return;
+      }
+
+      const catalogRow = {
+        Categoria: config.csvCategory,
+        Unidade: unit,
+        TIPO: config.csvType,
+        "Item de Despesa Padronizado": name
+      };
+      const newItem = mergeCatalogItems([catalogRow])[0];
+      catalogRows.push(catalogRow);
+      category.itens.push(newItem);
+      category.itens.sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
+      catalogCsvText = `${catalogCsvText.replace(/[\r\n]+$/, "")}\n${config.csvCategory};${unit};${config.csvType};${name}\n`;
+
+      refreshCourseCategoryItems(categoryId);
+      const targetSelect = row.querySelector('[data-field="item_despesa"]');
+      chooseComboboxOption(targetSelect.closest(".searchable-combobox"), newItem.id);
+      catalogItemDialog.close();
+      state.catalogTargetRow = null;
+      downloadUpdatedCatalog();
+      setStatus(`Item "${name}" cadastrado. Substitua o catalogo.csv pela versão baixada para persistir a alteração.`, "success");
     }
 
     /* ======================================================================
@@ -1744,7 +2528,7 @@
         totalsByFundingSource.SISEC += total;
       });
 
-      document.querySelectorAll("#stage11-table tbody tr, #stage12-table tbody tr, #event-table tbody tr").forEach(row => {
+      document.querySelectorAll("#stage11-table tbody tr, #stage12-table tbody tr, #assistance-table tbody tr, #event-table tbody tr").forEach(row => {
         const type = row.querySelector('[data-field="tipo_despesa"]')?.value;
         const fundingSource = row.querySelector('[data-field="fonte_recurso"]')?.value;
         const total = Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0);
@@ -1760,23 +2544,6 @@
       valorTotalProjetoCalculado = valorTotalGestao + valorTotalFinalistica + valorTotalEstruturacao + valorTotalKit;
       valorTotalSISEC = totalsByFundingSource.SISEC;
       valorTotalContrapartida = totalsByFundingSource.Contrapartida;
-    }
-
-    function updateCoursePeriod(card) {
-      const start = card.querySelector('[data-field="inicio_curso"]');
-      const end = card.querySelector('[data-field="fim_curso"]');
-      if (!start || !end) return;
-
-      const comparable = monthYearToComparable(start.value);
-      if (comparable == null) {
-        end.value = "";
-        return;
-      }
-
-      const endDate = comparable + 12;
-      const month = ((endDate - 1) % 12) + 1;
-      const year = Math.floor((endDate - 1) / 12);
-      end.value = `${String(month).padStart(2, "0")}/${year}`;
     }
 
     /* =========================================================
@@ -1891,6 +2658,11 @@
       }
       if (value === "") return true;
 
+      if (control.maxLength > -1 && String(value).length > control.maxLength) {
+        setError(control, `Use no máximo ${control.maxLength} caracteres.`);
+        return false;
+      }
+
       if (control.matches("[data-combobox-input]") && !control.closest(".searchable-combobox").querySelector("select").value) {
         setError(control, "Selecione uma opção da lista.");
         return false;
@@ -1917,6 +2689,11 @@
           setError(control, control.dataset.rangeError || `O valor máximo é ${control.max}.`);
           return false;
         }
+        const multipleOf = Number(control.dataset.multipleOf);
+        if (multipleOf > 0 && number % multipleOf !== 0) {
+          setError(control, control.dataset.rangeError || `Informe um múltiplo de ${multipleOf}.`);
+          return false;
+        }
       }
 
       if (control.classList.contains("month-year-input")) {
@@ -1926,14 +2703,30 @@
         }
       }
 
+      if (control.classList.contains("expense-code-input") && !/^\d{2}\.\d{2}\.\d{2}$/.test(control.value)) {
+        setError(control, "Use o formato XX.XX.XX.");
+        return false;
+      }
+
       return true;
     }
 
     function validatePeriods(section) {
       let valid = true;
-      section.querySelectorAll("tbody tr").forEach(row => {
-        const start = row.querySelector('[data-field="inicio_etapa"]');
-        const end = row.querySelector('[data-field="fim_etapa"]');
+      section.querySelectorAll(".course-card").forEach(card => {
+        const start = card.querySelector('[data-field="inicio_curso"]');
+        const end = card.querySelector('[data-field="fim_curso"]');
+        if (!start || !end || !start.value || !end.value) return;
+        const startValue = monthYearToComparable(start.value);
+        const endValue = monthYearToComparable(end.value);
+        if (startValue != null && endValue != null && endValue < startValue) {
+          setError(end, "O fim do curso não pode ser anterior ao início do curso.");
+          valid = false;
+        }
+      });
+      section.querySelectorAll("[data-stage-period]").forEach(period => {
+        const start = period.querySelector('[data-field="inicio_etapa"]');
+        const end = period.querySelector('[data-field="fim_etapa"]');
         if (!start || !end || !start.value || !end.value) return;
         const startValue = monthYearToComparable(start.value);
         const endValue = monthYearToComparable(end.value);
@@ -1949,7 +2742,7 @@
       const section = document.getElementById(stepId);
       const navButton = document.querySelector(`[data-step-target="${stepId}"]`);
       if (!section || !navButton || navButton.hidden) return true;
-      const controls = [...section.querySelectorAll("input, select")].filter(control => control.type !== "button");
+      const controls = [...section.querySelectorAll("input, select, textarea")].filter(control => control.type !== "button");
       let valid = true;
       controls.forEach(control => { if (!validateControl(control, { ignoreVisibility: true })) valid = false; });
       section.querySelectorAll(".course-card").forEach(updateClassDistribution);
@@ -1976,15 +2769,22 @@
       return select?.selectedOptions?.[0]?.textContent || "";
     }
 
+    function detailedItemLabel(itemLabel, itemDetail) {
+      const detail = String(itemDetail || "").trim();
+      return detail ? `${itemLabel} (${detail})` : itemLabel;
+    }
+
     function collectCourseExpenses(card) {
       return [...card.querySelectorAll("[data-course-expenses] tbody tr")].map(row => {
         const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        const itemDetail = row.querySelector('[data-field="detalhamento_item"]').value.trim();
         return {
           tipo_item_id: typeSelect.value,
           tipo_item_label: selectedText(typeSelect),
           item_id: itemSelect.value,
-          item_label: selectedText(itemSelect),
+          item_label: detailedItemLabel(selectedText(itemSelect), itemDetail),
+          detalhamento_item: itemDetail,
           codigo_elemento_despesa: row.querySelector('[data-field="codigo_elemento_despesa"]').value,
           unidade: row.querySelector('[data-field="unidade"]').value,
           quantidade_itens: Number(row.querySelector('[data-field="quantidade_itens"]').value),
@@ -2017,20 +2817,31 @@
       });
     }
 
+    function collectStagePeriod(kind) {
+      const period = document.querySelector(`[data-stage-period="${kind}"]`);
+      return {
+        inicio: period?.querySelector('[data-field="inicio_etapa"]')?.value || "",
+        fim: period?.querySelector('[data-field="fim_etapa"]')?.value || ""
+      };
+    }
+
     function collectStage(kind) {
+      const period = collectStagePeriod(kind);
       return [...document.querySelectorAll(`#${kind}-table tbody tr`)].map(row => {
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        const itemDetail = row.querySelector('[data-field="detalhamento_item"]').value.trim();
         return {
           item_id: itemSelect.value,
-          item_label: selectedText(itemSelect),
+          item_label: detailedItemLabel(selectedText(itemSelect), itemDetail),
+          detalhamento_item: itemDetail,
           codigo_elemento_despesa: row.querySelector('[data-field="codigo_elemento_despesa"]').value,
           unidade: row.querySelector('[data-field="unidade"]').value,
           quantidade_itens: Number(row.querySelector('[data-field="quantidade_itens"]').value),
           valor_unitario: currencyValue(row.querySelector('[data-field="valor_unitario"]')),
           valor_total: Number(row.querySelector('[data-field="valor_total"]').dataset.value || 0),
           fonte_recurso: row.querySelector('[data-field="fonte_recurso"]').value,
-          inicio_etapa: row.querySelector('[data-field="inicio_etapa"]').value,
-          fim_etapa: row.querySelector('[data-field="fim_etapa"]').value,
+          inicio_etapa: period.inicio,
+          fim_etapa: period.fim,
           tipo_despesa: row.querySelector('[data-field="tipo_despesa"]').value
         };
       });
@@ -2051,9 +2862,9 @@
     };
 
     const courseSummaryUnits = {
-      kit_participante: "unidade",
-      insumos_gerais: "unidade",
-      epi: "unidade",
+      kit_participante: "unid.",
+      insumos_gerais: "unid.",
+      epi: "unid.",
       kit_trabalho: "kit"
     };
 
@@ -2076,7 +2887,7 @@
       const reserveMargin = Number(generalData.margem_reserva || 0);
 
       if (["kit_participante", "epi"].includes(typeId)) {
-        return Math.ceil(participants * (1 + reserveMargin / 100));
+        return calculateParticipantCountWithReserve(participants, reserveMargin);
       }
       if (typeId === "kit_trabalho") return participants;
       return 1;
@@ -2120,9 +2931,9 @@
           tipo_item_label: category?.label || expense.tipo_item_label,
           item_id: `resumo_${typeId}`,
           item_label: courseSummaryLabels[typeId] || category?.label || expense.tipo_item_label,
-          codigo_elemento_despesa: expenseCodes.length === 1 ? expenseCodes[0] : "Diversos",
+          codigo_elemento_despesa: expenseCodes.join(", "),
           codigos_elemento_despesa: expenseCodes,
-          unidade: courseSummaryUnits[typeId] || "unidade",
+          unidade: courseSummaryUnits[typeId] || "unid.",
           quantidade_itens: quantity,
           valor_unitario: quantity > 0 ? total / quantity : 0,
           valor_total: total,
@@ -2151,6 +2962,34 @@
         despesas: expenses,
         valor_total: sumExpenseValues(expenses)
       };
+    }
+
+    function buildAssistanceStageData(stageNumber, expenses, totalParticipants) {
+      const period = collectStagePeriod("assistance");
+      return {
+        numero_etapa: stageNumber,
+        dados_gerais: {
+          quantidade_participantes: totalParticipants,
+          tematica_assistencia: assistanceThemeInput.value.trim(),
+          inicio_etapa: period.inicio,
+          fim_etapa: period.fim
+        },
+        despesas: expenses,
+        valor_total: sumExpenseValues(expenses)
+      };
+    }
+
+    function collectSpecificObjectives() {
+      return [...document.querySelectorAll("[data-specific-objective]")]
+        .filter(container => !container.hidden)
+        .map(container => {
+          const input = container.querySelector("textarea");
+          return {
+            numero: Number(container.dataset.objectiveNumber),
+            texto: input?.value.trim() || ""
+          };
+        })
+        .filter(objective => objective.texto);
     }
 
     function buildExportData() {
@@ -2185,11 +3024,13 @@
 
       const stage11Expenses = collectStage("stage11");
       const stage12Expenses = collectStage("stage12");
+      const assistanceExpenses = assistanceCheckbox.checked ? collectStage("assistance") : [];
       const eventExpenses = eventCheckbox.checked ? collectStage("event") : [];
       const allExpenses = [
         ...stage11Expenses,
         ...stage12Expenses,
         ...courses.flatMap(course => course.despesas_detalhadas),
+        ...assistanceExpenses,
         ...eventExpenses
       ];
       const totalsByExpenseType = allExpenses.reduce((totals, expense) => {
@@ -2227,6 +3068,8 @@
       const participantUnitCost = managementFinalisticTotal > 0
         ? roundCurrencyValue(totalWorkload * totalParticipants / managementFinalisticTotal)
         : 0;
+      const assistanceStageNumber = `1.${courses.length + 3}`;
+      const eventStageNumber = `1.${courses.length + (assistanceCheckbox.checked ? 4 : 3)}`;
 
       return {
         projeto: {
@@ -2235,6 +3078,9 @@
           quantidade_cursos: courses.length,
           total_participantes: totalParticipants,
           total_carga_horaria: totalWorkload,
+          objetivo_geral: document.getElementById("objetivo_geral_projeto").value.trim(),
+          objetivos_especificos: collectSpecificObjectives(),
+          possui_assistencia_tecnica_gerencial: assistanceCheckbox.checked,
           possui_evento_final: eventCheckbox.checked
         },
         resumo_financeiro: {
@@ -2251,8 +3097,11 @@
         etapas: {
           etapa_1_1: buildStageData("1.1", stage11Expenses),
           etapa_1_2: buildStageData("1.2", stage12Expenses),
+          assistencia_tecnica_gerencial: assistanceCheckbox.checked
+            ? buildAssistanceStageData(assistanceStageNumber, assistanceExpenses, totalParticipants)
+            : null,
           etapa_final: eventCheckbox.checked
-            ? buildStageData(`1.${courses.length + 3}`, eventExpenses)
+            ? buildStageData(eventStageNumber, eventExpenses)
             : null
         },
         cursos: courses
@@ -2374,6 +3223,17 @@
       );
     }
 
+    function projectMetaFromTemplate(template, project) {
+      const meta = replaceSpreadsheetMarkers(template, {
+        TOTAL_PARTICIPANTES: project.total_participantes
+      });
+      if (project.possui_assistencia_tecnica_gerencial) return meta;
+
+      return meta
+        .replace(/,\s*e\s+assist[eê]ncia\s+t[eé]cnica\s+e\s+gerencial/gi, "")
+        .replace(/\s+([.,;:!?])/g, "$1");
+    }
+
     function fillSummaryExpenseRow(worksheet, rowNumber, expense, stageNumber, itemIndex) {
       const cells = worksheet.getRow(rowNumber);
       if (!expense) {
@@ -2407,6 +3267,20 @@
         QUANTIDADE_PARTICIPANTES: generalData.quantidade_participantes,
         MARGEM_RESERVA: generalData.margem_reserva,
         QUANTIDADE_TURMAS: generalData.quantidade_turmas
+      });
+    }
+
+    const assistanceSpreadsheetDescription = `Etapa {{NUMERO_ETAPA}} - Realizar Assistência Técnica e Gerencial para {{QUANTIDADE_PARTICIPANTES}} empreendedoras/es, nas seguintes temáticas:
+
+{{TEMATICA_ASSISTENCIA}}
+
+Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprovados por meio de Relatórios, sendo a comprovação conforme previsto no item 24 do TRP.`;
+
+    function assistanceDescription(assistance) {
+      return replaceSpreadsheetMarkers(assistanceSpreadsheetDescription, {
+        NUMERO_ETAPA: assistance.numero_etapa,
+        QUANTIDADE_PARTICIPANTES: assistance.dados_gerais.quantidade_participantes,
+        TEMATICA_ASSISTENCIA: assistance.dados_gerais.tematica_assistencia
       });
     }
 
@@ -2458,7 +3332,8 @@
         description,
         expenses,
         itemPrototype,
-        totalPrototype
+        totalPrototype,
+        period = null
       }) => {
         const rowsToWrite = expenses.length ? expenses : [null];
         const firstExpenseRow = nextRow;
@@ -2467,6 +3342,10 @@
           applyRowPrototype(worksheet, nextRow, itemPrototype);
           worksheet.getCell(`B${nextRow}`).value = index === 0 ? description : null;
           fillSummaryExpenseRow(worksheet, nextRow, expense, stageNumber, index);
+          if (!expense && period) {
+            setSpreadsheetPeriodCell(worksheet.getCell(`J${nextRow}`), period.inicio);
+            setSpreadsheetPeriodCell(worksheet.getCell(`K${nextRow}`), period.fim);
+          }
           nextRow += 1;
         });
 
@@ -2515,6 +3394,21 @@
         allDetailedExpenses.push(...course.despesas_detalhadas);
       });
 
+      if (exportData.etapas.assistencia_tecnica_gerencial) {
+        const assistance = exportData.etapas.assistencia_tecnica_gerencial;
+        appendBlock({
+          stageNumber: assistance.numero_etapa,
+          description: assistanceDescription(assistance),
+          expenses: assistance.despesas,
+          itemPrototype: prototypes.eventItem,
+          totalPrototype: prototypes.eventTotal,
+          period: {
+            inicio: assistance.dados_gerais.inicio_etapa,
+            fim: assistance.dados_gerais.fim_etapa
+          }
+        });
+      }
+
       if (exportData.etapas.etapa_final) {
         appendBlock({
           stageNumber: exportData.etapas.etapa_final.numero_etapa,
@@ -2528,9 +3422,10 @@
       }
 
       const lastStageRow = nextRow - 1;
-      worksheet.getCell("A2").value = replaceSpreadsheetMarkers(fixedTexts.meta, {
-        TOTAL_PARTICIPANTES: exportData.projeto.total_participantes
-      });
+      worksheet.getCell("A2").value = projectMetaFromTemplate(
+        fixedTexts.meta,
+        exportData.projeto
+      );
       if (lastStageRow > 2) worksheet.mergeCells(`A2:A${lastStageRow}`);
 
       applyRowPrototype(worksheet, nextRow, prototypes.projectTotal);
@@ -2866,6 +3761,54 @@
       return worksheet;
     }
 
+    function buildObjectivesWorksheet(workbook, exportData) {
+      const sheetName = "Objetivo geral e específicos";
+      removeWorksheetIfPresent(workbook, sheetName);
+      const worksheet = workbook.addWorksheet(sheetName);
+      worksheet.getColumn(1).width = 28;
+      worksheet.getColumn(2).width = 105;
+
+      worksheet.mergeCells("A1:B1");
+      worksheet.getCell("A1").value = sheetName;
+      applyGeneralTableStyle(worksheet.getCell("A1"), {
+        bold: true,
+        horizontal: "center"
+      });
+      worksheet.getRow(1).height = 24;
+
+      const rows = [
+        ["Objetivo geral", exportData.projeto.objetivo_geral || ""],
+        ...(exportData.projeto.objetivos_especificos || []).map(objective => [
+          `Objetivo específico ${objective.numero}`,
+          objective.texto
+        ])
+      ];
+
+      rows.forEach(([label, text], index) => {
+        const rowNumber = index + 2;
+        const labelCell = worksheet.getCell(`A${rowNumber}`);
+        const textCell = worksheet.getCell(`B${rowNumber}`);
+        labelCell.value = label;
+        textCell.value = text;
+        applyGeneralTableStyle(labelCell, {
+          bold: true,
+          fillColor: "FFD9EAF7"
+        });
+        applyGeneralTableStyle(textCell);
+        worksheet.getRow(rowNumber).height = Math.max(42, Math.ceil(String(text).length / 95) * 17);
+      });
+
+      worksheet.views = [{ state: "frozen", ySplit: 1, activeCell: "A2" }];
+      worksheet.pageSetup = {
+        orientation: "landscape",
+        fitToPage: true,
+        fitToWidth: 1,
+        fitToHeight: 0,
+        margins: { left: 0.5, right: 0.5, top: 0.6, bottom: 0.6, header: 0.2, footer: 0.2 }
+      };
+      return worksheet;
+    }
+
     function buildGeneralDataWorksheets(workbook, exportData) {
       const coursesSheet = buildGeneralCoursesWorksheet(workbook, exportData);
       const projectSheet = buildGeneralProjectWorksheet(
@@ -2873,7 +3816,8 @@
         exportData,
         coursesSheet.totalRow
       );
-      return { coursesSheet: coursesSheet.worksheet, projectSheet };
+      const objectivesSheet = buildObjectivesWorksheet(workbook, exportData);
+      return { coursesSheet: coursesSheet.worksheet, projectSheet, objectivesSheet };
     }
 
     async function createSpreadsheetWorkbook(exportData = buildExportData()) {
@@ -2934,6 +3878,30 @@
       else downloadSpreadsheet();
     }
 
+    function handleAssistanceSection() {
+      const section = document.getElementById("assistencia_tecnica_gerencial");
+      const navButton = document.querySelector('[data-step-target="assistencia_tecnica_gerencial"]');
+      if (assistanceCheckbox.checked) {
+        navButton.hidden = false;
+        if (!assistanceThemeInput.value.trim()) assistanceThemeInput.value = assistanceThemeTemplate;
+        updateAssistanceParticipantSummary();
+      } else {
+        document.getElementById("assistance-table").innerHTML = emptyState("Nenhuma despesa adicionada nesta etapa.");
+        document.querySelectorAll('[data-stage-period="assistance"] input').forEach(input => {
+          input.value = "";
+          clearError(input);
+        });
+        assistanceThemeInput.value = assistanceThemeTemplate;
+        clearError(assistanceThemeInput);
+        updateStageSummary("assistance");
+        navButton.hidden = true;
+        state.completedSteps.delete("assistencia_tecnica_gerencial");
+        if (state.currentStep === "assistencia_tecnica_gerencial") showStep("despesas_etapa_1_2");
+      }
+      section.hidden = state.currentStep !== "assistencia_tecnica_gerencial";
+      updateNavigation();
+    }
+
     function handleEventSection() {
       const section = document.getElementById("despesas_evento_final");
       const navButton = document.querySelector('[data-step-target="despesas_evento_final"]');
@@ -2941,14 +3909,302 @@
         navButton.hidden = false;
       } else {
         document.getElementById("event-table").innerHTML = emptyState("Nenhuma despesa adicionada nesta etapa.");
+        document.querySelectorAll('[data-stage-period="event"] input').forEach(input => {
+          input.value = "";
+          clearError(input);
+        });
         updateStageSummary("event");
         navButton.hidden = true;
         state.completedSteps.delete("despesas_evento_final");
-        if (state.currentStep === "despesas_evento_final") showStep("despesas_etapa_1_2");
+        if (state.currentStep === "despesas_evento_final") {
+          showStep(assistanceCheckbox.checked ? "assistencia_tecnica_gerencial" : "despesas_etapa_1_2");
+        }
       }
       // Mantém visível somente a seção que corresponde à etapa atual.
       section.hidden = state.currentStep !== "despesas_evento_final";
       updateNavigation();
+    }
+
+    function setMockInputValue(control, value, options = {}) {
+      if (!control) throw new Error("Campo do mock não encontrado.");
+      control.value = String(value);
+      control.dispatchEvent(new Event("input", { bubbles: true }));
+      if (options.change) control.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
+    function getMockField(id) {
+      const control = document.getElementById(id);
+      if (!control) throw new Error(`Campo "${id}" do mock não encontrado.`);
+      return control;
+    }
+
+    function setMockCurrency(control, value) {
+      setMockInputValue(control, Math.round(Number(value) * 100));
+    }
+
+    function setMockCheckbox(control, checked) {
+      control.checked = Boolean(checked);
+      control.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
+    function findMockCatalogItem(items, preferredLabels = [], fallbackIndex = 0) {
+      const preferredIds = preferredLabels.map(catalogId);
+      const preferred = items.find(item => preferredIds.includes(item.id));
+      if (preferred) return preferred;
+      if (!items.length) throw new Error("Não há itens disponíveis na categoria necessária ao mock.");
+      return items[fallbackIndex % items.length];
+    }
+
+    function resetFormForMock() {
+      form.reset();
+      state.json = null;
+      state.rowCounter = 0;
+      state.completedSteps.clear();
+      state.currentStep = "dados_gerais_projeto";
+
+      form.querySelectorAll(".currency-input").forEach(input => {
+        delete input.dataset.value;
+      });
+      form.querySelectorAll(".is-invalid").forEach(control => clearError(control));
+
+      document.getElementById("courses-container").replaceChildren();
+      ["stage11", "stage12", "assistance", "event"].forEach(kind => {
+        document.getElementById(`${kind}-table`).replaceChildren();
+        renderStageTable(kind);
+      });
+
+      document.querySelectorAll('[data-objective-number="3"], [data-objective-number="4"]').forEach(card => {
+        card.hidden = false;
+        const input = card.querySelector("textarea");
+        if (input) input.disabled = false;
+      });
+      document.querySelectorAll("[data-restore-objective]").forEach(button => {
+        button.hidden = true;
+      });
+    }
+
+    function fillMockCourseGeneralData(card, course) {
+      const field = name => card.querySelector(`[data-field="${name}"]`);
+      setMockInputValue(field("nome_curso"), course.name);
+      setMockInputValue(field("inicio_curso"), course.start);
+      setMockInputValue(field("fim_curso"), course.end);
+      setMockInputValue(field("carga_horaria_total"), course.totalWorkload);
+      setMockInputValue(field("quantidade_participantes"), course.participants);
+      setMockInputValue(field("margem_reserva"), course.reserveMargin);
+      setMockInputValue(field("quantidade_encontros_semanais"), course.weeklyMeetings);
+
+      const dailyOption = card.querySelector(
+        `[data-daily-workload-option][value="${course.dailyWorkload}"]`
+      );
+      if (!dailyOption) throw new Error("Opção de carga horária diária do mock não encontrada.");
+      dailyOption.checked = true;
+      dailyOption.dispatchEvent(new Event("input", { bubbles: true }));
+      dailyOption.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
+    function addMockCourseExpense(courseIndex, expense, fallbackIndex = 0) {
+      const container = document.querySelector(`[data-course-expenses="${courseIndex}"]`);
+      const category = catalogs.tiposItemCurso.find(item => item.id === expense.typeId);
+      if (!category) throw new Error(`Categoria ${expense.typeId} não encontrada para o mock.`);
+      const item = findMockCatalogItem(category.itens, expense.items, fallbackIndex);
+      let row = [...container.querySelectorAll("tbody tr")].find(candidate =>
+        candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+        candidate.querySelector('[data-field="item_despesa"]')?.value === item.id
+      );
+      if (!row) {
+        row = [...container.querySelectorAll("tbody tr")].find(candidate =>
+          candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+          !candidate.querySelector('[data-field="item_despesa"]')?.value
+        );
+      }
+
+      if (!row) {
+        addCourseExpense(courseIndex);
+        row = [...container.querySelectorAll("tbody tr")].at(-1);
+        const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+        typeSelect.value = category.id;
+        typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
+
+        const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        chooseComboboxOption(itemSelect.closest(".searchable-combobox"), item.id);
+      } else if (!row.querySelector('[data-field="item_despesa"]').value) {
+        const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        chooseComboboxOption(itemSelect.closest(".searchable-combobox"), item.id);
+      }
+
+      const detailInput = row.querySelector('[data-field="detalhamento_item"]');
+      if (!detailInput.readOnly) setMockInputValue(detailInput, expense.detail);
+      setMockInputValue(row.querySelector('[data-field="codigo_elemento_despesa"]'), expense.code);
+
+      const quantityInput = row.querySelector('[data-field="quantidade_itens"]');
+      if (!quantityInput.readOnly) setMockInputValue(quantityInput, expense.quantity);
+      setMockCurrency(row.querySelector('[data-field="valor_unitario"]'), expense.unitPrice);
+    }
+
+    function setMockStagePeriod(kind, start, end) {
+      const period = document.querySelector(`[data-stage-period="${kind}"]`);
+      setMockInputValue(period.querySelector('[data-field="inicio_etapa"]'), start);
+      setMockInputValue(period.querySelector('[data-field="fim_etapa"]'), end);
+    }
+
+    function addMockStageExpense(kind, expense, fallbackIndex = 0) {
+      addStageRow(kind);
+      const row = [...document.querySelectorAll(`#${kind}-table tbody tr`)].at(-1);
+      const item = findMockCatalogItem(catalogs[kind], expense.items, fallbackIndex);
+      const itemSelect = row.querySelector('[data-field="item_despesa"]');
+      chooseComboboxOption(itemSelect.closest(".searchable-combobox"), item.id);
+
+      setMockInputValue(row.querySelector('[data-field="detalhamento_item"]'), expense.detail);
+      setMockInputValue(row.querySelector('[data-field="codigo_elemento_despesa"]'), expense.code);
+      setMockInputValue(row.querySelector('[data-field="quantidade_itens"]'), expense.quantity);
+      setMockCurrency(row.querySelector('[data-field="valor_unitario"]'), expense.unitPrice);
+
+      const source = row.querySelector('[data-field="fonte_recurso"]');
+      source.value = expense.source;
+      source.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
+    function generateMock() {
+      const confirmed = window.confirm(
+        "Gerar o mock substituirá todo o preenchimento atual do formulário. Deseja continuar?"
+      );
+      if (!confirmed) return;
+
+      try {
+        resetFormForMock();
+
+        setMockCurrency(getMockField("custo_total_projeto"), 450000);
+        setMockInputValue(
+          getMockField("objetivo_geral_projeto"),
+          "Promover qualificação profissional e inclusão produtiva de pessoas inscritas no CadÚnico na Região Demonstrativa, ampliando oportunidades de emprego e empreendedorismo."
+        );
+        setMockInputValue(
+          getMockField("objetivo_especifico_1"),
+          "Desenvolver competências técnicas e empreendedoras para ampliar as oportunidades de inserção socioeconômica dos participantes."
+        );
+        setMockInputValue(
+          getMockField("objetivo_especifico_2"),
+          "Ampliar a oferta de capacitação profissional para mulheres inscritas no CadÚnico."
+        );
+        setMockInputValue(
+          getMockField("objetivo_especifico_3"),
+          "Entregar kits de trabalho adequados às formações ofertadas, fortalecendo a autonomia financeira dos participantes."
+        );
+        setMockInputValue(
+          getMockField("objetivo_especifico_4"),
+          "Estruturar espaços demonstrativos com os equipamentos necessários às ações de qualificação profissional."
+        );
+
+        setMockInputValue(quantityCourses, 3, { change: true });
+        setMockCheckbox(assistanceCheckbox, true);
+        setMockCheckbox(eventCheckbox, true);
+
+        if (!Array.isArray(window.MOCK_COURSES)) {
+          throw new Error("Os dados dos cursos do mock não foram carregados.");
+        }
+        const courses = window.MOCK_COURSES;
+
+        courses.forEach((course, courseIndex) => {
+          const card = document.querySelector(`.course-card[data-course-index="${courseIndex}"]`);
+          fillMockCourseGeneralData(card, course);
+          course.expenses.forEach((expense, expenseIndex) => {
+            addMockCourseExpense(courseIndex, expense, expenseIndex);
+          });
+        });
+
+        setMockStagePeriod("stage11", "02/2026", "08/2026");
+        addMockStageExpense("stage11", {
+          items: ["Coordenador", "Serviço"],
+          detail: "Coordenação e acompanhamento das ações do projeto",
+          code: "33.90.39",
+          quantity: 7,
+          unitPrice: 4800,
+          source: "SISEC"
+        });
+        addMockStageExpense("stage11", {
+          items: ["Camiseta", "Material gráfico"],
+          detail: "Material de identificação e divulgação do projeto",
+          code: "33.90.30",
+          quantity: 180,
+          unitPrice: 32,
+          source: "Contrapartida"
+        }, 1);
+
+        setMockStagePeriod("stage12", "02/2026", "04/2026");
+        addMockStageExpense("stage12", {
+          items: ["Notebook"],
+          detail: "Notebook para apoio às atividades formativas",
+          code: "44.90.52",
+          quantity: 3,
+          unitPrice: 4200,
+          source: "SISEC"
+        });
+        addMockStageExpense("stage12", {
+          items: ["Projetor"],
+          detail: "Projetor multimídia com resolução Full HD",
+          code: "44.90.52",
+          quantity: 2,
+          unitPrice: 3500,
+          source: "SISEC"
+        }, 1);
+
+        setMockInputValue(
+          assistanceThemeInput,
+          "Assistência Técnica: melhoria dos processos produtivos e adequação das atividades profissionais;\n\nAssistência Gerencial: gestão financeira, comercialização, marketing e elaboração de planos de negócios."
+        );
+        setMockStagePeriod("assistance", "06/2026", "09/2026");
+        addMockStageExpense("assistance", {
+          items: ["Mentor"],
+          detail: "Mentoria técnica e gerencial individual e coletiva",
+          code: "33.90.39",
+          quantity: 120,
+          unitPrice: 150,
+          source: "SISEC"
+        });
+
+        setMockStagePeriod("event", "09/2026", "09/2026");
+        addMockStageExpense("event", {
+          items: ["Coffee break para evento", "Coffee break para participantes e convidados"],
+          detail: "Coffee break individual para participantes e convidados",
+          code: "33.90.39",
+          quantity: 220,
+          unitPrice: 28,
+          source: "SISEC"
+        });
+        addMockStageExpense("event", {
+          items: ["Serviço", "Evento"],
+          detail: "Serviço de organização, recepção e apoio ao evento final",
+          code: "33.90.39",
+          quantity: 1,
+          unitPrice: 8500,
+          source: "Contrapartida"
+        }, 1);
+
+        document.querySelectorAll(".course-card").forEach(card => {
+          updateCourseDuration(card);
+          updateReserveImpact(card);
+          updateClassDistribution(card);
+          syncCourseExpenseQuantities(card);
+          updateCourseSummary(card.querySelector("[data-course-expenses]"));
+        });
+        ["stage11", "stage12", "assistance", "event"].forEach(updateStageSummary);
+        updateAssistanceParticipantSummary();
+        updateExpenseTotalsByType();
+
+        const invalidSteps = visibleSteps().filter(stepId => !validateStep(stepId, false));
+        showStep(invalidSteps[0] || "dados_gerais_projeto", { scroll: false });
+        if (invalidSteps.length) {
+          setStatus("O mock foi preenchido, mas há campos que precisam ser revisados.", "error");
+          document.getElementById(invalidSteps[0]).querySelector(".is-invalid")?.focus();
+          return;
+        }
+
+        setStatus("Mock gerado com sucesso. Todos os campos permanecem editáveis.", "success");
+      } catch (error) {
+        console.error(error);
+        showStep("dados_gerais_projeto", { scroll: false });
+        setStatus(`Não foi possível gerar o mock: ${error.message}`, "error");
+      }
     }
 
     /* ======================================================================
@@ -2970,7 +4226,18 @@
       }
       if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
-      if (control.matches("input, select")) validateControl(control);
+      if (control.classList.contains("expense-code-input")) maskExpenseCode(control);
+      if (control.matches("[data-daily-workload-option]")) {
+        const dailyWorkload = control.closest(".daily-workload-field")
+          ?.querySelector('input[type="hidden"][data-field="carga_horaria_diaria"]');
+        if (dailyWorkload) dailyWorkload.value = control.value;
+      }
+      if (control.matches("input, select, textarea")) validateControl(control);
+      if (control.matches("[data-daily-workload-option]")) {
+        const dailyWorkload = control.closest(".daily-workload-field")
+          ?.querySelector('input[type="hidden"][data-field="carga_horaria_diaria"]');
+        if (dailyWorkload) validateControl(dailyWorkload);
+      }
 
       if (["quantidade_participantes", "margem_reserva"].includes(control.dataset.field)) {
         const courseCard = control.closest(".course-card");
@@ -2980,17 +4247,14 @@
         if (control.dataset.field === "quantidade_participantes") {
           if (courseCard) updateClassDistribution(courseCard);
           if (courseContainer) updateCourseSummary(courseContainer);
+          updateAssistanceParticipantSummary();
         }
       }
 
       if (["carga_horaria_total", "carga_horaria_diaria"].includes(control.dataset.field)) {
         const courseCard = control.closest(".course-card");
         if (courseCard) updateCourseDuration(courseCard);
-      }
-
-      if (control.dataset.field === "inicio_curso") {
-        const courseCard = control.closest(".course-card");
-        if (courseCard) updateCoursePeriod(courseCard);
+        if (courseCard) syncCourseExpenseQuantities(courseCard);
       }
 
       const row = control.closest("tr");
@@ -3000,6 +4264,7 @@
     function handleFormChange(event) {
       const control = event.target;
       if (control === quantityCourses) syncCourses();
+      if (control === assistanceCheckbox) handleAssistanceSection();
       if (control === eventCheckbox) handleEventSection();
       const row = control.closest("tr");
       if (!row) return;
@@ -3046,6 +4311,46 @@
     }
 
     function handleFormClick(event) {
+      const restoreObjectiveButton = event.target.closest("[data-restore-objective]");
+      if (restoreObjectiveButton) {
+        const objectiveNumber = restoreObjectiveButton.dataset.restoreObjective;
+        const objectiveCard = document.querySelector(
+          `[data-specific-objective][data-objective-number="${objectiveNumber}"]`
+        );
+        const objectiveInput = objectiveCard?.querySelector("textarea");
+        if (objectiveCard && objectiveInput) {
+          objectiveCard.hidden = false;
+          objectiveInput.disabled = false;
+          restoreObjectiveButton.hidden = true;
+          state.json = null;
+          objectiveInput.focus();
+        }
+        return;
+      }
+
+      const removeObjectiveButton = event.target.closest("[data-remove-objective]");
+      if (removeObjectiveButton) {
+        const objectiveCard = removeObjectiveButton.closest("[data-specific-objective]");
+        const objectiveInput = objectiveCard?.querySelector("textarea");
+        const restoreButton = document.querySelector(
+          `[data-restore-objective="${objectiveCard?.dataset.objectiveNumber}"]`
+        );
+        if (objectiveCard && objectiveInput && restoreButton) {
+          objectiveCard.hidden = true;
+          objectiveInput.disabled = true;
+          clearError(objectiveInput);
+          restoreButton.hidden = false;
+        }
+        state.json = null;
+        return;
+      }
+
+      const catalogItemButton = event.target.closest("[data-add-catalog-item]");
+      if (catalogItemButton) {
+        openCatalogItemDialog(catalogItemButton.closest("tr"));
+        return;
+      }
+
       const comboboxOption = event.target.closest("[data-combobox-option]");
       if (comboboxOption) {
         chooseComboboxOption(comboboxOption.closest(".searchable-combobox"), comboboxOption.dataset.comboboxOption);
@@ -3069,9 +4374,13 @@
       if (remove) {
         const row = remove.closest("tr");
         const courseContainer = row.closest("[data-course-expenses]");
+        const courseCard = row.closest(".course-card");
         const kind = row.dataset.stageKind;
         row.remove();
-        if (courseContainer) renderCourseExpenseTable(courseContainer);
+        if (courseContainer) {
+          renderCourseExpenseTable(courseContainer);
+          syncCourseExpenseQuantities(courseCard);
+        }
         if (kind) renderStageTable(kind);
         return;
       }
@@ -3122,9 +4431,13 @@
       document.querySelectorAll("[data-step-target]").forEach(button => {
         button.addEventListener("click", handleStepNavigation);
       });
+      document.getElementById("generate-mock").addEventListener("click", generateMock);
       document.getElementById("close-dialog").addEventListener("click", () => jsonDialog.close());
       document.getElementById("download-json").addEventListener("click", downloadJson);
       document.getElementById("download-xlsx").addEventListener("click", downloadSpreadsheet);
+      catalogItemForm.addEventListener("submit", addCatalogItem);
+      document.getElementById("cancel-catalog-item").addEventListener("click", closeCatalogItemDialog);
+      catalogItemDialog.addEventListener("close", () => { state.catalogTargetRow = null; });
     }
 
     /* ======================================================================
@@ -3135,7 +4448,8 @@
         await loadCatalogs();
         bindEvents();
         syncCourses();
-        ["stage11", "stage12", "event"].forEach(renderStageTable);
+        ["stage11", "stage12", "assistance", "event"].forEach(renderStageTable);
+        handleAssistanceSection();
         handleEventSection();
         showStep("dados_gerais_projeto", { scroll: false });
       } catch (error) {
