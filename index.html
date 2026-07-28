@@ -962,6 +962,180 @@
       }
     }
 
+    /* Painel lateral de acompanhamento financeiro. */
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      display: grid;
+      gap: 12px;
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+
+    .sidebar .stepper {
+      position: static;
+      align-self: auto;
+      box-shadow: none;
+    }
+
+    .financial-dashboard {
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .financial-dashboard h2 {
+      margin: 0 0 12px;
+      font-size: .88rem;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .financial-dashboard__list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .financial-metric {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 4px 8px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #eaecf0;
+      font-size: .76rem;
+    }
+
+    .financial-metric span { color: var(--muted); }
+
+    .financial-metric strong {
+      color: var(--text);
+      font-size: .78rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .financial-metric small {
+      grid-column: 1 / -1;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .financial-metric--subtotal,
+    .financial-metric--total {
+      font-weight: 700;
+    }
+
+    .financial-metric--remaining {
+      padding: 9px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--background);
+    }
+
+    .financial-percentage {
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--background);
+    }
+
+    .financial-percentage__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: .76rem;
+    }
+
+    .financial-percentage small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .68rem;
+      line-height: 1.25;
+    }
+
+    .financial-progress {
+      height: 6px;
+      margin-top: 6px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e4e7ec;
+    }
+
+    .financial-progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--primary);
+      transition: width .2s ease, background-color .2s ease;
+    }
+
+    .financial-percentage.is-success,
+    .financial-metric--remaining.is-success {
+      border-color: #86efac;
+      background: var(--success-bg);
+    }
+
+    .financial-percentage.is-success .financial-progress span { background: var(--success); }
+    .financial-percentage.is-success strong,
+    .financial-percentage.is-success small,
+    .financial-metric--remaining.is-success strong,
+    .financial-metric--remaining.is-success small { color: var(--success); }
+
+    .financial-percentage.is-danger,
+    .financial-metric--remaining.is-danger {
+      border-color: #fda29b;
+      background: var(--danger-bg);
+    }
+
+    .financial-percentage.is-danger .financial-progress span { background: var(--danger); }
+    .financial-percentage.is-danger strong,
+    .financial-percentage.is-danger small,
+    .financial-metric--remaining.is-danger strong,
+    .financial-metric--remaining.is-danger small { color: var(--danger); }
+
+    .financial-metric--remaining.is-info {
+      border-color: #84adff;
+      background: var(--primary-light);
+    }
+
+    .financial-metric--remaining.is-info strong,
+    .financial-metric--remaining.is-info small { color: var(--primary-dark); }
+
+    @media (max-width: 1180px) {
+      .sidebar {
+        position: static;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .financial-dashboard__list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .financial-metric,
+      .financial-percentage {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .financial-dashboard__list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .financial-dashboard__list { grid-template-columns: 1fr; }
+    }
+
     /* ====================== FIM DO AJUSTE ====================== */
 
   </style>
@@ -982,27 +1156,88 @@
 
   <!-- Navegação e formulário principal -->
   <div class="app-shell">
-    <nav class="stepper" aria-label="Etapas do formulário">
-      <p class="stepper__title">Etapas</p>
-      <button type="button" data-step-target="dados_gerais_projeto" aria-current="step">
-        <span class="step-index">1</span><span class="step-label">Dados gerais</span>
-      </button>
-      <button type="button" data-step-target="detalhamento_cursos">
-        <span class="step-index">2</span><span class="step-label">Cursos</span>
-      </button>
-      <button type="button" data-step-target="despesas_etapa_1_1">
-        <span class="step-index">3</span><span class="step-label">Planejamento e execução</span>
-      </button>
-      <button type="button" data-step-target="despesas_etapa_1_2">
-        <span class="step-index">4</span><span class="step-label">Estruturação e Equipamento</span>
-      </button>
-      <button type="button" data-step-target="assistencia_tecnica_gerencial" hidden>
-        <span class="step-index">5</span><span class="step-label">Realização de Assistência Técnica e Gerencial aos Empreendedores</span>
-      </button>
-      <button type="button" data-step-target="despesas_evento_final" hidden>
-        <span class="step-index">5</span><span class="step-label">Evento de lançamento e encerramento</span>
-      </button>
-    </nav>
+    <aside class="sidebar">
+      <nav class="stepper" aria-label="Etapas do formulário">
+        <p class="stepper__title">Etapas</p>
+        <button type="button" data-step-target="dados_gerais_projeto" aria-current="step">
+          <span class="step-index">1</span><span class="step-label">Dados gerais</span>
+        </button>
+        <button type="button" data-step-target="detalhamento_cursos">
+          <span class="step-index">2</span><span class="step-label">Cursos</span>
+        </button>
+        <button type="button" data-step-target="despesas_etapa_1_1">
+          <span class="step-index">3</span><span class="step-label">Planejamento e execução</span>
+        </button>
+        <button type="button" data-step-target="despesas_etapa_1_2">
+          <span class="step-index">4</span><span class="step-label">Estruturação e Equipamento</span>
+        </button>
+        <button type="button" data-step-target="assistencia_tecnica_gerencial" hidden>
+          <span class="step-index">5</span><span class="step-label">Realização de Assistência Técnica e Gerencial aos Empreendedores</span>
+        </button>
+        <button type="button" data-step-target="despesas_evento_final" hidden>
+          <span class="step-index">5</span><span class="step-label">Evento de lançamento e encerramento</span>
+        </button>
+      </nav>
+
+      <section class="financial-dashboard" aria-labelledby="financial-dashboard-title" aria-live="polite">
+        <h2 id="financial-dashboard-title">Acompanhamento financeiro</h2>
+        <div class="financial-dashboard__list">
+          <div class="financial-metric">
+            <span>Valor total do projeto informado</span>
+            <strong id="financial-informed">R$ 0,00</strong>
+          </div>
+          <div class="financial-metric">
+            <span>Despesas finalísticas</span>
+            <strong id="financial-finalistic">R$ 0,00</strong>
+          </div>
+          <div class="financial-metric">
+            <span>Despesas de gestão</span>
+            <strong id="financial-management">R$ 0,00</strong>
+          </div>
+          <div class="financial-metric financial-metric--subtotal">
+            <span>Subtotal</span>
+            <strong id="financial-subtotal">R$ 0,00</strong>
+          </div>
+          <div class="financial-percentage" id="financial-management-compliance">
+            <div class="financial-percentage__header">
+              <span>Percentual de Gestão</span>
+              <strong id="financial-management-percent">0%</strong>
+            </div>
+            <div class="financial-progress" role="progressbar" aria-label="Percentual de Gestão" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span id="financial-management-bar"></span>
+            </div>
+            <small id="financial-management-message">Aguardando despesas.</small>
+          </div>
+          <div class="financial-percentage" id="financial-finalistic-compliance">
+            <div class="financial-percentage__header">
+              <span>Percentual Finalístico</span>
+              <strong id="financial-finalistic-percent">0%</strong>
+            </div>
+            <div class="financial-progress" role="progressbar" aria-label="Percentual Finalístico" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span id="financial-finalistic-bar"></span>
+            </div>
+            <small id="financial-finalistic-message">Aguardando despesas.</small>
+          </div>
+          <div class="financial-metric">
+            <span>Estruturação</span>
+            <strong id="financial-structuring">R$ 0,00</strong>
+          </div>
+          <div class="financial-metric" id="financial-kits-row" hidden>
+            <span>Despesas de kits</span>
+            <strong id="financial-kits">R$ 0,00</strong>
+          </div>
+          <div class="financial-metric financial-metric--total">
+            <span>Total calculado</span>
+            <strong id="financial-calculated">R$ 0,00</strong>
+          </div>
+          <div class="financial-metric financial-metric--remaining" id="financial-remaining-compliance">
+            <span>Valor restante</span>
+            <strong id="financial-remaining">R$ 0,00</strong>
+            <small id="financial-remaining-message">Informe o orçamento do projeto.</small>
+          </div>
+        </div>
+      </section>
+    </aside>
 
     <main>
       <div id="form-status" class="status-banner" role="alert" aria-live="polite"></div>
@@ -1497,6 +1732,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     let valorTotalProjetoCalculado = 0;
     let valorTotalSISEC = 0;
     let valorTotalContrapartida = 0;
+    let possuiDespesasKit = false;
 
     const form = document.getElementById("project-form");
     const eventCheckbox = document.getElementById("possui_evento_certificacao");
@@ -2356,6 +2592,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         unitSelect.value = selected.unidades[0] || "";
       }
       syncCourseExpenseQuantities(row.closest(".course-card"));
+      updateExpenseTotalsByType();
     }
 
     function updateStageDependencies(row) {
@@ -2508,6 +2745,101 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       }
     }
 
+    function expenseTypeFromCatalog(row) {
+      const courseTypeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+      const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
+
+      if (courseTypeSelect) {
+        const category = catalogs.tiposItemCurso.find(entry => entry.id === courseTypeSelect.value);
+        return category?.itens.find(item => item.id === itemId)?.tipo || "";
+      }
+
+      const kind = row.dataset.stageKind;
+      return catalogs[kind]?.find(item => item.id === itemId)?.tipo || "";
+    }
+
+    function formatFinancialPercentage(value) {
+      return `${new Intl.NumberFormat("pt-BR", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      }).format(value)}%`;
+    }
+
+    function updateFinancialPercentage(kind, percentage, subtotal, compliant, successMessage, dangerMessage) {
+      const container = document.getElementById(`financial-${kind}-compliance`);
+      const output = document.getElementById(`financial-${kind}-percent`);
+      const bar = document.getElementById(`financial-${kind}-bar`);
+      const message = document.getElementById(`financial-${kind}-message`);
+      const progress = bar.closest('[role="progressbar"]');
+      const visualPercentage = Math.min(100, Math.max(0, percentage));
+
+      output.textContent = formatFinancialPercentage(percentage);
+      bar.style.width = `${visualPercentage}%`;
+      progress.setAttribute("aria-valuenow", String(Number(percentage.toFixed(2))));
+      container.classList.remove("is-success", "is-danger");
+
+      if (subtotal <= 0) {
+        message.textContent = "Aguardando despesas.";
+        return;
+      }
+
+      container.classList.add(compliant ? "is-success" : "is-danger");
+      message.textContent = compliant ? successMessage : dangerMessage;
+    }
+
+    function updateFinancialDashboard() {
+      const informedTotal = currencyValue(document.getElementById("custo_total_projeto"));
+      const subtotal = valorTotalGestaoFinalistica;
+      const managementPercentage = subtotal > 0 ? (valorTotalGestao / subtotal) * 100 : 0;
+      const finalisticPercentage = subtotal > 0 ? (valorTotalFinalistica / subtotal) * 100 : 0;
+      const rawRemaining = informedTotal - valorTotalProjetoCalculado;
+      const remaining = Math.abs(rawRemaining) < 0.005 ? 0 : rawRemaining;
+
+      document.getElementById("financial-informed").textContent = formatBRL(informedTotal);
+      document.getElementById("financial-finalistic").textContent = formatBRL(valorTotalFinalistica);
+      document.getElementById("financial-management").textContent = formatBRL(valorTotalGestao);
+      document.getElementById("financial-subtotal").textContent = formatBRL(subtotal);
+      document.getElementById("financial-structuring").textContent = formatBRL(valorTotalEstruturacao);
+      document.getElementById("financial-kits").textContent = formatBRL(valorTotalKit);
+      document.getElementById("financial-kits-row").hidden = !possuiDespesasKit;
+      document.getElementById("financial-calculated").textContent = formatBRL(valorTotalProjetoCalculado);
+      document.getElementById("financial-remaining").textContent = formatBRL(remaining);
+
+      updateFinancialPercentage(
+        "management",
+        managementPercentage,
+        subtotal,
+        managementPercentage <= 40,
+        "Dentro do limite de 40%.",
+        "Alerta: Gestão acima de 40%."
+      );
+      updateFinancialPercentage(
+        "finalistic",
+        finalisticPercentage,
+        subtotal,
+        finalisticPercentage >= 60,
+        "Atende ao mínimo de 60%.",
+        "Alerta: Finalísticas abaixo de 60%."
+      );
+
+      const remainingContainer = document.getElementById("financial-remaining-compliance");
+      const remainingMessage = document.getElementById("financial-remaining-message");
+      remainingContainer.classList.remove("is-success", "is-danger", "is-info");
+
+      if (remaining > 0) {
+        remainingContainer.classList.add("is-success");
+        remainingMessage.textContent = "Saldo disponível.";
+      } else if (remaining < 0) {
+        remainingContainer.classList.add("is-danger");
+        remainingMessage.textContent = "Orçamento ultrapassado.";
+      } else if (informedTotal > 0 || valorTotalProjetoCalculado > 0) {
+        remainingContainer.classList.add("is-info");
+        remainingMessage.textContent = "Projeto totalmente detalhado.";
+      } else {
+        remainingMessage.textContent = "Informe o orçamento do projeto.";
+      }
+    }
+
     function updateExpenseTotalsByType() {
       const totals = {
         Gestao: 0,
@@ -2519,20 +2851,22 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         SISEC: 0,
         Contrapartida: 0
       };
+      let hasKitExpenses = false;
 
       document.querySelectorAll("[data-course-expenses] tbody tr").forEach(row => {
-        const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
-        const category = catalogs.tiposItemCurso.find(entry => entry.id === categoryId);
+        const type = expenseTypeFromCatalog(row);
         const total = Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0);
-        if (category?.tipo in totals) totals[category.tipo] += total;
+        if (type in totals) totals[type] += total;
+        if (type === "Kit") hasKitExpenses = true;
         totalsByFundingSource.SISEC += total;
       });
 
       document.querySelectorAll("#stage11-table tbody tr, #stage12-table tbody tr, #assistance-table tbody tr, #event-table tbody tr").forEach(row => {
-        const type = row.querySelector('[data-field="tipo_despesa"]')?.value;
+        const type = expenseTypeFromCatalog(row);
         const fundingSource = row.querySelector('[data-field="fonte_recurso"]')?.value;
         const total = Number(row.querySelector('[data-field="valor_total"]')?.dataset.value || 0);
         if (type in totals) totals[type] += total;
+        if (type === "Kit") hasKitExpenses = true;
         if (fundingSource in totalsByFundingSource) totalsByFundingSource[fundingSource] += total;
       });
 
@@ -2544,6 +2878,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       valorTotalProjetoCalculado = valorTotalGestao + valorTotalFinalistica + valorTotalEstruturacao + valorTotalKit;
       valorTotalSISEC = totalsByFundingSource.SISEC;
       valorTotalContrapartida = totalsByFundingSource.Contrapartida;
+      possuiDespesasKit = hasKitExpenses;
+      updateFinancialDashboard();
     }
 
     /* =========================================================
@@ -2829,6 +3165,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const period = collectStagePeriod(kind);
       return [...document.querySelectorAll(`#${kind}-table tbody tr`)].map(row => {
         const itemSelect = row.querySelector('[data-field="item_despesa"]');
+        const catalogItem = catalogs[kind].find(item => item.id === itemSelect.value);
         const itemDetail = row.querySelector('[data-field="detalhamento_item"]').value.trim();
         return {
           item_id: itemSelect.value,
@@ -2842,7 +3179,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           fonte_recurso: row.querySelector('[data-field="fonte_recurso"]').value,
           inicio_etapa: period.inicio,
           fim_etapa: period.fim,
-          tipo_despesa: row.querySelector('[data-field="tipo_despesa"]').value
+          tipo_despesa: catalogItem?.tipo || ""
         };
       });
     }
@@ -2924,6 +3261,9 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         const fundingSources = uniqueNonEmptyValues(
           groupedExpenses.map(item => item.fonte_recurso)
         );
+        const expenseTypes = uniqueNonEmptyValues(
+          groupedExpenses.map(item => item.tipo_despesa)
+        );
 
         lines.push({
           agrupado: true,
@@ -2940,7 +3280,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           fonte_recurso: fundingSources.length === 1 ? fundingSources[0] : "Múltiplas",
           inicio_etapa: generalData.inicio_curso || "",
           fim_etapa: generalData.fim_curso || "",
-          tipo_despesa: category?.tipo || expense.tipo_despesa || "",
+          tipo_despesa: expenseTypes[0] || "",
           itens_origem: groupedExpenses.map(item => item.item_id)
         });
       });
@@ -2998,11 +3338,12 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         const stageNumber = `1.${index + 3}`;
         const detailedExpenses = course.despesas.map(expense => {
           const category = catalogs.tiposItemCurso.find(item => item.id === expense.tipo_item_id);
+          const catalogItem = category?.itens.find(item => item.id === expense.item_id);
           return {
             ...expense,
             inicio_etapa: course.dados_gerais.inicio_curso,
             fim_etapa: course.dados_gerais.fim_curso,
-            tipo_despesa: category?.tipo || ""
+            tipo_despesa: catalogItem?.tipo || ""
           };
         });
         const normalizedCourse = {
@@ -4225,6 +4566,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
         openCombobox(wrapper, control.value);
       }
       if (control.classList.contains("currency-input")) setCurrencyFromDigits(control);
+      if (control.id === "custo_total_projeto") updateFinancialDashboard();
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
       if (control.classList.contains("expense-code-input")) maskExpenseCode(control);
       if (control.matches("[data-daily-workload-option]")) {
