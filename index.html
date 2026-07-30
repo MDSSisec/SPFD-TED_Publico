@@ -1187,7 +1187,7 @@
             <strong id="financial-informed">R$ 0,00</strong>
           </div>
           <div class="financial-metric">
-            <span>Custo unitário por participante</span>
+            <span>Custo participante/hora médio</span>
             <strong id="financial-participant-unit-cost">R$ 0,00</strong>
           </div>
           <div class="financial-metric">
@@ -4115,7 +4115,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
           result: financial.total_projeto
         }],
         ["TOTAL DO PROJETO INFORMADO", exportData.projeto.custo_total_informado],
-        ["Custo unitario por participante", {
+        ["Custo participante/hora médio", {
           formula: `IF(B4=0,0,'Dados gerais cursos'!B${coursesTotalRow}*'Dados gerais cursos'!C${coursesTotalRow}/B4)`,
           result: financial.custo_unitario_por_participante
         }]
