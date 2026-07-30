@@ -8,7 +8,6 @@
     { items: ["Caderno"], detail: "Caderno universitário de capa dura", unitPrice: 28.5 },
     { items: ["Caneta"], detail: "Caneta esferográfica azul", unitPrice: 3.8 },
     { items: ["Copo"], detail: "Copo reutilizável de 400 ml", unitPrice: 12 },
-    { items: ["Ecobag"], detail: "Ecobag personalizada em algodão", unitPrice: 19.5 },
     { items: ["Estojo"], detail: "Estojo escolar com fechamento em zíper", unitPrice: 16 },
     { items: ["Garrafa d'água"], detail: "Garrafa reutilizável de 600 ml", unitPrice: 24 },
     { items: ["Lápis"], detail: "Lápis preto nº 2", unitPrice: 2.5 },
