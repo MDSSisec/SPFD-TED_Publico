@@ -1638,7 +1638,16 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const lines = text.replace(/^\uFEFF/, "").split(/\r?\n/).filter(line => line.trim());
       if (lines.length < 2) throw new Error("O catálogo CSV está vazio.");
 
-      const headers = lines[0].split(";").map(header => header.trim());
+      const headerAliases = {
+        categoria: "Categoria",
+        unidade: "Unidade",
+        tipo_despesa: "TIPO",
+        descricao_item: "Item de Despesa Padronizado"
+      };
+      const headers = lines[0].split(";").map(header => {
+        const trimmed = header.trim();
+        return headerAliases[trimmed] || trimmed;
+      });
       const requiredHeaders = [
         "Categoria",
         "Unidade",
@@ -2240,12 +2249,24 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         if (!quantityInput || !detailInput) return;
 
         const usesReserve = ["kit_participante", "epi"].includes(typeId);
-        const usesParticipantCount = typeId === "kit_trabalho";
+        const usesCertificateParticipantCount =
+          typeId === "curso_outros" && itemId === "certificado";
+        const usesParticipantCount =
+          typeId === "kit_trabalho" || usesCertificateParticipantCount;
         const usesTransportCalculation = typeId === "transporte" && Boolean(itemId);
         const usesFoodCalculation =
           typeId === "alimentacao" && requiredFoodItemIds.includes(itemId);
         const hadTransportCalculation = row.dataset.transportCalculation === "true";
         const hadFoodCalculation = row.dataset.foodCalculation === "true";
+        const hadCertificateCalculation = row.dataset.certificateCalculation === "true";
+
+        if (hadCertificateCalculation && !usesCertificateParticipantCount) {
+          delete row.dataset.certificateCalculation;
+          quantityInput.value = "";
+        }
+        if (usesCertificateParticipantCount) {
+          row.dataset.certificateCalculation = "true";
+        }
 
         if (usesFoodCalculation) {
           if (hadTransportCalculation) {
@@ -2323,7 +2344,10 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
         if (usesReserve) quantityInput.value = itemCount > 0 ? itemCount : "";
         if (usesParticipantCount) quantityInput.value = participantCount > 0 ? participantCount : "";
-        if (usesReserve || usesParticipantCount || hadTransportCalculation) recalculateRow(row);
+        if (usesReserve || usesParticipantCount || hadTransportCalculation ||
+            hadCertificateCalculation) {
+          recalculateRow(row);
+        }
       });
     }
 
