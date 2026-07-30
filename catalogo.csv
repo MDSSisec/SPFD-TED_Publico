@@ -1,4 +1,4 @@
-﻿Categoria;Unidade;TIPO;Item de Despesa Padronizado
+﻿categoria;unidade;tipo_despesa;descricao_item
 alimentacao;unid.;finalística;Almoço para participantes
 alimentacao;unid.;finalística;Lanche
 assistencia;hora;finalística;Mentor
