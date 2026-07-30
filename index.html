@@ -1642,20 +1642,20 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       if (lines.length < 2) throw new Error("O catálogo CSV está vazio.");
 
       const headerAliases = {
-        categoria: "Categoria",
-        unidade: "Unidade",
-        tipo_despesa: "TIPO",
-        descricao_item: "Item de Despesa Padronizado"
+        Categoria: "categoria",
+        Unidade: "unidade",
+        TIPO: "tipo_despesa",
+        "Item de Despesa Padronizado": "descricao_item"
       };
       const headers = lines[0].split(";").map(header => {
         const trimmed = header.trim();
         return headerAliases[trimmed] || trimmed;
       });
       const requiredHeaders = [
-        "Categoria",
-        "Unidade",
-        "TIPO",
-        "Item de Despesa Padronizado"
+        "categoria",
+        "unidade",
+        "tipo_despesa",
+        "descricao_item"
       ];
       if (!requiredHeaders.every(header => headers.includes(header))) {
         throw new Error("O catálogo CSV não possui as colunas obrigatórias.");
@@ -1670,20 +1670,28 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       });
     }
 
+    function serializeCatalogCsv(rows) {
+      const headers = ["categoria", "unidade", "tipo_despesa", "descricao_item"];
+      return [
+        headers.join(";"),
+        ...rows.map(row => headers.map(header => String(row[header] || "").trim()).join(";"))
+      ].join("\n");
+    }
+
     function mergeCatalogItems(rows) {
       const items = new Map();
       rows.forEach(row => {
-        const label = row["Item de Despesa Padronizado"];
+        const label = row.descricao_item;
         const key = catalogId(label);
         const existing = items.get(key) || {
           id: key,
           label,
           unidades: [],
-          tipo: normalizeExpenseType(row.TIPO)
+          tipo: normalizeExpenseType(row.tipo_despesa)
         };
         existing.unidades = [...new Set([
           ...existing.unidades,
-          ...splitCatalogValues(row.Unidade)
+          ...splitCatalogValues(row.unidade)
         ])];
         items.set(key, existing);
       });
@@ -1693,7 +1701,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     }
 
     function buildCatalogsFromCsv(rows) {
-      const rowsByCategory = category => rows.filter(row => row.Categoria === category);
+      const rowsByCategory = category => rows.filter(row => row.categoria === category);
       const courseCategories = [
         ["kit_participante", "Kit participante"],
         ["insumo_gerais", "Insumos gerais"],
@@ -1725,8 +1733,9 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     async function loadCatalogs(url = catalogCsvUrl) {
       const response = await fetch(url, { cache: "no-cache" });
       if (!response.ok) throw new Error(`Não foi possível carregar o catálogo (${response.status}).`);
-      catalogCsvText = await response.text();
-      catalogRows = parseCatalogCsv(catalogCsvText);
+      const sourceCsvText = await response.text();
+      catalogRows = parseCatalogCsv(sourceCsvText);
+      catalogCsvText = serializeCatalogCsv(catalogRows);
       catalogs = buildCatalogsFromCsv(catalogRows);
     }
 
@@ -2647,7 +2656,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     }
 
     function catalogUnitOptions() {
-      const units = [...new Set(catalogRows.flatMap(row => splitCatalogValues(row.Unidade)))]
+      const units = [...new Set(catalogRows.flatMap(row => splitCatalogValues(row.unidade)))]
         .sort((a, b) => a.localeCompare(b, "pt-BR"));
       return optionList(units);
     }
@@ -2730,16 +2739,16 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       }
 
       const catalogRow = {
-        Categoria: config.csvCategory,
-        Unidade: unit,
-        TIPO: config.csvType,
-        "Item de Despesa Padronizado": name
+        categoria: config.csvCategory,
+        unidade: unit,
+        tipo_despesa: config.csvType,
+        descricao_item: name
       };
       const newItem = mergeCatalogItems([catalogRow])[0];
       catalogRows.push(catalogRow);
       category.itens.push(newItem);
       category.itens.sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
-      catalogCsvText = `${catalogCsvText.replace(/[\r\n]+$/, "")}\n${config.csvCategory};${unit};${config.csvType};${name}\n`;
+      catalogCsvText = serializeCatalogCsv(catalogRows);
 
       refreshCourseCategoryItems(categoryId);
       const targetSelect = row.querySelector('[data-field="item_despesa"]');
