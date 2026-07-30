@@ -764,6 +764,10 @@
       font-size: .76rem;
     }
 
+    [data-remove-row][hidden] {
+      display: none;
+    }
+
     /* Distribuição proporcional das nove colunas das despesas dos cursos. */
     [data-course-expenses] th:nth-child(1),
     [data-course-expenses] td:nth-child(1) { width: 12%; }
@@ -2684,7 +2688,10 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           <th>Tipo do item *</th><th>Item *</th><th>Detalhamento do item *</th><th>Elemento *</th><th>Unidade *</th>
           <th>Qtd. *</th><th>Valor unitário *</th><th>Valor total</th><th>Ações</th>
         </tr></thead><tbody></tbody></table>`;
-      rows.forEach(row => table.querySelector("tbody").appendChild(row));
+      rows.forEach(row => {
+        updateCourseRemovalAction(row);
+        table.querySelector("tbody").appendChild(row);
+      });
       container.replaceChildren(table);
       updateCourseSummary(container);
     }
@@ -2747,6 +2754,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const unitSelect = row.querySelector('[data-field="unidade"]');
       const addCatalogItemButton = row.querySelector("[data-add-catalog-item]");
       const type = catalogs.tiposItemCurso.find(item => item.id === typeSelect.value);
+      updateCourseRemovalAction(row);
       if (addCatalogItemButton) addCatalogItemButton.hidden = !customCourseCategoryConfig[typeSelect.value];
       itemSelect.disabled = !type;
       const itemInput = itemSelect.closest(".searchable-combobox").querySelector("[data-combobox-input]");
@@ -2759,6 +2767,15 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       unitSelect.disabled = true;
       unitSelect.innerHTML = optionList([], "Selecione o item primeiro");
       syncCourseExpenseQuantities(row.closest(".course-card"));
+    }
+
+    function updateCourseRemovalAction(row) {
+      const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+      const removeButton = row.querySelector("[data-remove-row]");
+      if (!removeButton) return;
+      const isParticipantKit = categoryId === "kit_participante";
+      removeButton.hidden = isParticipantKit;
+      removeButton.disabled = isParticipantKit;
     }
 
     function updateCourseItemDependencies(row) {
@@ -2831,8 +2848,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
       const item = courseCatalogItem(categoryId, itemId);
 
-      if (categoryId === "kit_participante" && item?.obrigatorio) {
-        return { blocked: true, label: item.label };
+      if (categoryId === "kit_participante") {
+        return { blocked: true, label: item?.label || "Item do Kit participante" };
       }
       if (categoryId === "transporte" && requiredCatalogItems("transporte").length) {
         return {
