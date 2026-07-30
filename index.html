@@ -1575,6 +1575,29 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     </form>
   </dialog>
 
+  <dialog id="required-removal-dialog">
+    <div class="dialog-header"><h2>Justificativa para remoção</h2></div>
+    <form id="required-removal-form" novalidate>
+      <div class="dialog-body">
+        <p class="section-description">
+          O item <strong id="required-removal-item"></strong> é obrigatório.
+          Sua remoção excepcional exige uma justificativa formal.
+        </p>
+        <div class="dialog-field">
+          <label class="required" for="required-removal-justification">Justificativa</label>
+          <textarea id="required-removal-justification" maxlength="1000" data-required="true"
+            placeholder="Informe a justificativa formal para a remoção."></textarea>
+          <small class="hint">Máximo de 1.000 caracteres.</small>
+          <small class="error-message" data-error-for="required-removal-justification"></small>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" class="btn btn-ghost" id="cancel-required-removal">Cancelar</button>
+        <button type="submit" class="btn btn-danger">Confirmar remoção</button>
+      </div>
+    </form>
+  </dialog>
+
   <!-- ExcelJS 4.4.0: bundle local para funcionamento sem CDN. -->
   <script src="./assets/exceljs.min.js"></script>
   <script src="./mock-data.js"></script>
@@ -1758,7 +1781,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       completedSteps: new Set(),
       json: null,
       rowCounter: 0,
-      catalogTargetRow: null
+      catalogTargetRow: null,
+      requiredRemovalTarget: null
     };
 
     let valorTotalGestao = 0;
@@ -1779,6 +1803,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     const jsonDialog = document.getElementById("json-dialog");
     const catalogItemDialog = document.getElementById("catalog-item-dialog");
     const catalogItemForm = document.getElementById("catalog-item-form");
+    const requiredRemovalDialog = document.getElementById("required-removal-dialog");
+    const requiredRemovalForm = document.getElementById("required-removal-form");
     const assistanceThemeInput = document.getElementById("tematica_assistencia");
     const assistanceThemeTemplate = assistanceThemeInput.defaultValue.trim();
 
@@ -2128,14 +2154,55 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       return courseCatalogCategory(categoryId)?.itens.find(item => item.id === itemId);
     }
 
-    function requiredCourseFoodItemIds(dailyWorkload) {
+    const requiredRemovalRules = {
+      transporte: {
+        property: "justificativaRemocaoTransporte",
+        label: "Transporte"
+      },
+      lanche: {
+        property: "justificativaRemocaoLanche",
+        label: "Lanche"
+      },
+      almoco_para_participantes: {
+        property: "justificativaRemocaoAlmoco",
+        label: "Almoço"
+      },
+      certificado: {
+        property: "justificativaRemocaoCertificado",
+        label: "Certificado"
+      }
+    };
+
+    function courseRemovalJustifications(card) {
+      if (!card.requiredRemovalJustifications) card.requiredRemovalJustifications = {};
+      return card.requiredRemovalJustifications;
+    }
+
+    function hasRequiredRemovalJustification(card, ruleId) {
+      const property = requiredRemovalRules[ruleId]?.property;
+      return Boolean(property && courseRemovalJustifications(card)[property]);
+    }
+
+    function clearRequiredRemovalJustification(card, ruleId) {
+      const property = requiredRemovalRules[ruleId]?.property;
+      if (property) delete courseRemovalJustifications(card)[property];
+    }
+
+    function requiredCourseFoodItemIds(dailyWorkload, card = null) {
       const requiredIds = new Set(requiredCatalogItems("alimentacao").map(item => item.id));
+      const withoutJustifiedRemovals = itemIds => card
+        ? itemIds.filter(itemId => !hasRequiredRemovalJustification(card, itemId))
+        : itemIds;
       if (dailyWorkload >= 2 && dailyWorkload <= 4) {
-        return requiredIds.has(courseFoodItemIds.snack) ? [courseFoodItemIds.snack] : [];
+        return withoutJustifiedRemovals(
+          requiredIds.has(courseFoodItemIds.snack) ? [courseFoodItemIds.snack] : []
+        );
       }
       if (dailyWorkload > 4 && dailyWorkload <= 8) {
-        return [courseFoodItemIds.snack, courseFoodItemIds.lunch]
-          .filter(itemId => requiredIds.has(itemId));
+        return withoutJustifiedRemovals(
+          [courseFoodItemIds.snack, courseFoodItemIds.lunch]
+            .filter(itemId => requiredIds.has(itemId))
+        );
       }
       return [];
     }
@@ -2193,9 +2260,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     function syncCourseFoodExpenses(card, dailyWorkload) {
       if (!card || card.dataset.foodExpenseSync === "true") return;
 
-      const requiredItemIds = requiredCourseFoodItemIds(dailyWorkload);
-      if (!requiredItemIds.length) return;
-
+      const requiredItemIds = requiredCourseFoodItemIds(dailyWorkload, card);
       const category = catalogs.tiposItemCurso.find(item => item.id === "alimentacao");
       if (!category) return;
 
@@ -2214,6 +2279,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
             renderCourseExpenseTable(container);
           }
         }
+
+        if (!requiredItemIds.length) return;
 
         rows()
           .filter(row =>
@@ -2294,9 +2361,12 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         ["kit_participante", "curso_outros"].forEach(categoryId => {
           const category = courseCatalogCategory(categoryId);
           if (!category) return;
-          requiredCatalogItems(categoryId).forEach(item =>
-            ensureRequiredCourseItem(card, category, item.id)
-          );
+          requiredCatalogItems(categoryId)
+            .filter(item =>
+              categoryId === "kit_participante" ||
+              !hasRequiredRemovalJustification(card, item.id)
+            )
+            .forEach(item => ensureRequiredCourseItem(card, category, item.id));
         });
         ensureInitialTransportExpense(card);
       } finally {
@@ -2312,7 +2382,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const totalWorkload = Number(card.querySelector('[data-field="carga_horaria_total"]')?.value);
       const dailyWorkload = Number(card.querySelector('[data-field="carga_horaria_diaria"]')?.value);
       const itemCount = calculateParticipantCountWithReserve(participantCount, reserveMargin);
-      const requiredFoodItemIds = requiredCourseFoodItemIds(dailyWorkload);
+      const requiredFoodItemIds = requiredCourseFoodItemIds(dailyWorkload, card);
 
       syncRequiredCourseExpenses(card);
       syncCourseFoodExpenses(card, dailyWorkload);
@@ -2649,6 +2719,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
     function ensureInitialTransportExpense(card) {
       if (!requiredCatalogItems("transporte").length) return;
+      if (hasRequiredRemovalJustification(card, "transporte")) return;
       const container = card.querySelector("[data-course-expenses]");
       const existingTransportRow = [...container.querySelectorAll("tbody tr")].find(row =>
         row.querySelector('[data-field="tipo_item_despesa"]')?.value === "transporte"
@@ -2751,6 +2822,95 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     function closeCatalogItemDialog() {
       catalogItemDialog.close();
       state.catalogTargetRow = null;
+    }
+
+    function requiredRemovalRuleForRow(row) {
+      const card = row.closest(".course-card");
+      if (!card) return null;
+      const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+      const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
+      const item = courseCatalogItem(categoryId, itemId);
+
+      if (categoryId === "kit_participante" && item?.obrigatorio) {
+        return { blocked: true, label: item.label };
+      }
+      if (categoryId === "transporte" && requiredCatalogItems("transporte").length) {
+        return {
+          id: "transporte",
+          ...requiredRemovalRules.transporte,
+          label: item?.label || requiredRemovalRules.transporte.label
+        };
+      }
+      if (categoryId === "alimentacao") {
+        const dailyWorkload = Number(
+          card.querySelector('[data-field="carga_horaria_diaria"]')?.value
+        );
+        if (requiredCourseFoodItemIds(dailyWorkload).includes(itemId)) {
+          return { id: itemId, ...requiredRemovalRules[itemId], label: item?.label };
+        }
+      }
+      if (categoryId === "curso_outros" && itemId === "certificado" && item?.obrigatorio) {
+        return { id: itemId, ...requiredRemovalRules.certificado, label: item.label };
+      }
+      return null;
+    }
+
+    function removeExpenseRow(row, { synchronizeCourse = true } = {}) {
+      const courseContainer = row.closest("[data-course-expenses]");
+      const courseCard = row.closest(".course-card");
+      const kind = row.dataset.stageKind;
+      row.remove();
+      if (courseContainer) {
+        renderCourseExpenseTable(courseContainer);
+        if (synchronizeCourse) syncCourseExpenseQuantities(courseCard);
+      }
+      if (kind) renderStageTable(kind);
+    }
+
+    function openRequiredRemovalDialog(row, rule) {
+      state.requiredRemovalTarget = { row, rule };
+      requiredRemovalForm.reset();
+      clearError(document.getElementById("required-removal-justification"));
+      document.getElementById("required-removal-item").textContent = rule.label;
+      requiredRemovalDialog.showModal();
+      document.getElementById("required-removal-justification").focus();
+    }
+
+    function closeRequiredRemovalDialog() {
+      requiredRemovalDialog.close();
+      state.requiredRemovalTarget = null;
+    }
+
+    function confirmRequiredRemoval(event) {
+      event.preventDefault();
+      const justificationInput = document.getElementById("required-removal-justification");
+      if (!validateControl(justificationInput, { ignoreVisibility: true })) {
+        justificationInput.focus();
+        return;
+      }
+
+      const target = state.requiredRemovalTarget;
+      if (!target?.row?.isConnected) return closeRequiredRemovalDialog();
+      const card = target.row.closest(".course-card");
+      courseRemovalJustifications(card)[target.rule.property] = justificationInput.value.trim();
+      removeExpenseRow(target.row);
+      requiredRemovalDialog.close();
+      state.requiredRemovalTarget = null;
+      setStatus(`${target.rule.label} removido mediante justificativa formal.`, "success");
+    }
+
+    function clearRemovalJustificationForSelection(row) {
+      const card = row.closest(".course-card");
+      if (!card) return;
+      const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+      const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
+      if (categoryId === "transporte") clearRequiredRemovalJustification(card, "transporte");
+      if (categoryId === "alimentacao" && requiredRemovalRules[itemId]) {
+        clearRequiredRemovalJustification(card, itemId);
+      }
+      if (categoryId === "curso_outros" && itemId === "certificado") {
+        clearRequiredRemovalJustification(card, "certificado");
+      }
     }
 
     function refreshCourseCategoryItems(categoryId) {
@@ -4748,11 +4908,15 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       const row = control.closest("tr");
       if (!row) return;
       if (control.dataset.field === "tipo_item_despesa") {
+        clearRemovalJustificationForSelection(row);
         updateCourseDependencies(row);
         const courseContainer = row.closest("[data-course-expenses]");
         if (courseContainer) updateCourseSummary(courseContainer);
       }
-      if (control.dataset.field === "item_despesa" && row.querySelector('[data-field="tipo_item_despesa"]')) updateCourseItemDependencies(row);
+      if (control.dataset.field === "item_despesa" && row.querySelector('[data-field="tipo_item_despesa"]')) {
+        clearRemovalJustificationForSelection(row);
+        updateCourseItemDependencies(row);
+      }
       if (control.dataset.field === "item_despesa" && row.dataset.stageKind) updateStageDependencies(row);
       if (control.dataset.field === "fonte_recurso") updateExpenseTotalsByType();
     }
@@ -4852,15 +5016,16 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       const remove = event.target.closest("[data-remove-row]");
       if (remove) {
         const row = remove.closest("tr");
-        const courseContainer = row.closest("[data-course-expenses]");
-        const courseCard = row.closest(".course-card");
-        const kind = row.dataset.stageKind;
-        row.remove();
-        if (courseContainer) {
-          renderCourseExpenseTable(courseContainer);
-          syncCourseExpenseQuantities(courseCard);
+        const requiredRemovalRule = requiredRemovalRuleForRow(row);
+        if (requiredRemovalRule?.blocked) {
+          setStatus(`${requiredRemovalRule.label} pertence ao Kit participante e não pode ser removido.`, "error");
+          return;
         }
-        if (kind) renderStageTable(kind);
+        if (requiredRemovalRule) {
+          openRequiredRemovalDialog(row, requiredRemovalRule);
+          return;
+        }
+        removeExpenseRow(row);
         return;
       }
 
@@ -4917,6 +5082,9 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       catalogItemForm.addEventListener("submit", addCatalogItem);
       document.getElementById("cancel-catalog-item").addEventListener("click", closeCatalogItemDialog);
       catalogItemDialog.addEventListener("close", () => { state.catalogTargetRow = null; });
+      requiredRemovalForm.addEventListener("submit", confirmRequiredRemoval);
+      document.getElementById("cancel-required-removal").addEventListener("click", closeRequiredRemovalDialog);
+      requiredRemovalDialog.addEventListener("close", () => { state.requiredRemovalTarget = null; });
     }
 
     /* ======================================================================

@@ -21,6 +21,15 @@
     ...item
   }));
 
+  const certificate = {
+    typeId: "curso_outros",
+    items: ["Certificado"],
+    detail: "Certificado individual de conclusão do curso",
+    code: "33.90.39",
+    quantity: 1,
+    unitPrice: 8
+  };
+
   window.MOCK_COURSES = [
     {
       name: "Eletricista Instalador",
@@ -33,6 +42,7 @@
       weeklyMeetings: 5,
       expenses: [
         ...participantKit,
+        certificate,
         { typeId: "epi", items: ["Capacete"], detail: "Capacete de segurança classe B", code: "33.90.30", quantity: 1, unitPrice: 46 },
         { typeId: "epi", items: ["Luva"], detail: "Luva isolante para atividades elétricas", code: "33.90.30", quantity: 1, unitPrice: 42 },
         { typeId: "epi", items: ["Óculos de proteção"], detail: "Óculos de segurança com proteção lateral", code: "33.90.30", quantity: 1, unitPrice: 18 },
@@ -62,6 +72,7 @@
       weeklyMeetings: 3,
       expenses: [
         ...participantKit,
+        certificate,
         { typeId: "epi", items: ["Avental"], detail: "Avental de proteção para manipulação de alimentos", code: "33.90.30", quantity: 1, unitPrice: 32 },
         { typeId: "epi", items: ["Luva"], detail: "Luva de proteção para atividades culinárias", code: "33.90.30", quantity: 1, unitPrice: 18 },
         { typeId: "epi", items: ["Máscara"], detail: "Máscara descartável para manipulação de alimentos", code: "33.90.30", quantity: 1, unitPrice: 2.5 },
@@ -90,6 +101,7 @@
       weeklyMeetings: 2,
       expenses: [
         ...participantKit,
+        certificate,
         { typeId: "epi", items: ["Bota"], detail: "Bota de segurança impermeável para atividades de campo", code: "33.90.30", quantity: 1, unitPrice: 78 },
         { typeId: "epi", items: ["Luva"], detail: "Luva de proteção para manejo de solo e plantas", code: "33.90.30", quantity: 1, unitPrice: 24 },
         { typeId: "epi", items: ["Óculos de proteção"], detail: "Óculos de proteção para atividades de campo", code: "33.90.30", quantity: 1, unitPrice: 18 },
