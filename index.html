@@ -788,57 +788,51 @@
     [data-course-expenses] th:nth-child(9),
     [data-course-expenses] td:nth-child(9) { width: 6%; }
 
-    /* Distribuição proporcional das dez colunas das despesas das etapas. */
+    /* Distribuição proporcional das nove colunas visíveis das despesas das etapas. */
     #stage11-table th:nth-child(1), #stage11-table td:nth-child(1),
     #stage12-table th:nth-child(1), #stage12-table td:nth-child(1),
+    #assistance-table th:nth-child(1), #assistance-table td:nth-child(1),
     #event-table th:nth-child(1), #event-table td:nth-child(1) { width: 18%; }
 
     #stage11-table th:nth-child(2), #stage11-table td:nth-child(2),
     #stage12-table th:nth-child(2), #stage12-table td:nth-child(2),
-    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 20%; }
+    #assistance-table th:nth-child(2), #assistance-table td:nth-child(2),
+    #event-table th:nth-child(2), #event-table td:nth-child(2) { width: 22%; }
 
     #stage11-table th:nth-child(3), #stage11-table td:nth-child(3),
     #stage12-table th:nth-child(3), #stage12-table td:nth-child(3),
-    #event-table th:nth-child(3), #event-table td:nth-child(3) { width: 10%; }
+    #assistance-table th:nth-child(3), #assistance-table td:nth-child(3),
+    #event-table th:nth-child(3), #event-table td:nth-child(3) { width: 11%; }
 
     #stage11-table th:nth-child(4), #stage11-table td:nth-child(4),
     #stage12-table th:nth-child(4), #stage12-table td:nth-child(4),
-    #event-table th:nth-child(4), #event-table td:nth-child(4) { width: 8%; }
+    #assistance-table th:nth-child(4), #assistance-table td:nth-child(4),
+    #event-table th:nth-child(4), #event-table td:nth-child(4) { width: 9%; }
 
     #stage11-table th:nth-child(5), #stage11-table td:nth-child(5),
     #stage12-table th:nth-child(5), #stage12-table td:nth-child(5),
-    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 7%; }
+    #assistance-table th:nth-child(5), #assistance-table td:nth-child(5),
+    #event-table th:nth-child(5), #event-table td:nth-child(5) { width: 8%; }
 
     #stage11-table th:nth-child(6), #stage11-table td:nth-child(6),
     #stage12-table th:nth-child(6), #stage12-table td:nth-child(6),
+    #assistance-table th:nth-child(6), #assistance-table td:nth-child(6),
     #event-table th:nth-child(6), #event-table td:nth-child(6) { width: 10%; }
 
     #stage11-table th:nth-child(7), #stage11-table td:nth-child(7),
     #stage12-table th:nth-child(7), #stage12-table td:nth-child(7),
+    #assistance-table th:nth-child(7), #assistance-table td:nth-child(7),
     #event-table th:nth-child(7), #event-table td:nth-child(7) { width: 10%; }
 
     #stage11-table th:nth-child(8), #stage11-table td:nth-child(8),
     #stage12-table th:nth-child(8), #stage12-table td:nth-child(8),
+    #assistance-table th:nth-child(8), #assistance-table td:nth-child(8),
     #event-table th:nth-child(8), #event-table td:nth-child(8) { width: 7%; }
 
     #stage11-table th:nth-child(9), #stage11-table td:nth-child(9),
     #stage12-table th:nth-child(9), #stage12-table td:nth-child(9),
+    #assistance-table th:nth-child(9), #assistance-table td:nth-child(9),
     #event-table th:nth-child(9), #event-table td:nth-child(9) { width: 5%; }
-
-    #stage11-table th:nth-child(10), #stage11-table td:nth-child(10),
-    #stage12-table th:nth-child(10), #stage12-table td:nth-child(10),
-    #event-table th:nth-child(10), #event-table td:nth-child(10) { width: 5%; }
-
-    #assistance-table th:nth-child(1), #assistance-table td:nth-child(1) { width: 18%; }
-    #assistance-table th:nth-child(2), #assistance-table td:nth-child(2) { width: 20%; }
-    #assistance-table th:nth-child(3), #assistance-table td:nth-child(3) { width: 10%; }
-    #assistance-table th:nth-child(4), #assistance-table td:nth-child(4) { width: 8%; }
-    #assistance-table th:nth-child(5), #assistance-table td:nth-child(5) { width: 7%; }
-    #assistance-table th:nth-child(6), #assistance-table td:nth-child(6) { width: 10%; }
-    #assistance-table th:nth-child(7), #assistance-table td:nth-child(7) { width: 10%; }
-    #assistance-table th:nth-child(8), #assistance-table td:nth-child(8) { width: 7%; }
-    #assistance-table th:nth-child(9), #assistance-table td:nth-child(9) { width: 5%; }
-    #assistance-table th:nth-child(10), #assistance-table td:nth-child(10) { width: 5%; }
 
     /* Em telas intermediárias, o menu fica acima para liberar a largura inteira. */
     @media (max-width: 1180px) {
@@ -935,10 +929,7 @@
       #event-table td:nth-child(8)::before { content: "Fonte"; }
       #stage11-table td:nth-child(9)::before,
       #stage12-table td:nth-child(9)::before,
-      #event-table td:nth-child(9)::before { content: "Tipo"; }
-      #stage11-table td:nth-child(10)::before,
-      #stage12-table td:nth-child(10)::before,
-      #event-table td:nth-child(10)::before { content: "Ações"; }
+      #event-table td:nth-child(9)::before { content: "Ações"; }
 
       #assistance-table td:nth-child(1)::before { content: "Item"; }
       #assistance-table td:nth-child(2)::before { content: "Detalhamento do item"; }
@@ -948,8 +939,7 @@
       #assistance-table td:nth-child(6)::before { content: "Valor unitário"; }
       #assistance-table td:nth-child(7)::before { content: "Valor total"; }
       #assistance-table td:nth-child(8)::before { content: "Fonte"; }
-      #assistance-table td:nth-child(9)::before { content: "Tipo"; }
-      #assistance-table td:nth-child(10)::before { content: "Ações"; }
+      #assistance-table td:nth-child(9)::before { content: "Ações"; }
 
       td:last-child .btn { width: auto; }
     }
@@ -2557,7 +2547,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       tr.dataset.rowId = rowId;
       tr.dataset.stageKind = kind;
       tr.innerHTML = `
-        ${tableCellCombobox("item_despesa", catalogs[kind], rowId, "Item")}
+        ${stageItemCell(kind, rowId)}
         ${tableCellInput("detalhamento_item", "text", rowId, { placeholder: "Descreva características do item, Ex: Luva de descartavel Latex Natural S/Pó" })}
         ${tableCellInput("codigo_elemento_despesa", "text", rowId, { expenseCode: true, placeholder: "00.00.00" })}
         ${tableCellSelect("unidade", optionList([], "Selecione o item primeiro"), rowId, "Unidade", true)}
@@ -2565,9 +2555,16 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
         ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
         ${tableCellSelect("fonte_recurso", optionList(catalogs.fontesRecurso), rowId, "Fonte")}
-        ${tableCellInput("tipo_despesa", "text", rowId, { readonly: true })}
         <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
       return tr;
+    }
+
+    function stageItemCell(kind, rowId) {
+      const itemCell = tableCellCombobox("item_despesa", catalogs[kind], rowId, "Item");
+      return itemCell.replace(
+        "</td>",
+        `<input type="hidden" data-field="tipo_despesa" /></td>`
+      );
     }
 
     function tableCellSelect(field, options, rowId, label, disabled = false) {
@@ -2708,7 +2705,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           <thead><tr>
             <th>Item *</th><th>Detalhamento do item *</th><th>Elemento *</th><th>Unidade *</th><th>Qtd. *</th>
             <th>Valor unitário *</th><th>Valor total</th><th>Fonte *</th>
-            <th>Tipo</th><th>Ações</th>
+            <th>Ações</th>
           </tr></thead><tbody></tbody></table>`;
         rows.forEach(row => wrapper.querySelector("tbody").appendChild(row));
         container.replaceChildren(wrapper);

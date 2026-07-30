@@ -1,4 +1,4 @@
-﻿categoria;unidade;tipo_despesa;descricao_item;obrigatorio
+categoria;unidade;tipo_despesa;descricao_item;obrigatorio
 alimentacao;unid.;finalística;Almoço para participantes;true
 alimentacao;unid.;finalística;Lanche;true
 assistencia;hora;finalística;Mentor;false
