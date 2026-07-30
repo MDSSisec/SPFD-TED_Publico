@@ -1,560 +1,560 @@
-﻿categoria;unidade;tipo_despesa;descricao_item
-alimentacao;unid.;finalística;Almoço para participantes
-alimentacao;unid.;finalística;Lanche
-assistencia;hora;finalística;Mentor
-curso_outros;unid.;finalística;Apostila
-curso_outros;hora;finalística;Assessoria especializada
-curso_outros;unid.;finalística;Camiseta
-curso_outros;unid.;finalística;Certificado
-curso_outros;hora;finalística;Instrutor
-curso_outros;hora;finalística;Mentor
-curso_outros;hora;finalística;Monitor
-curso_outros;hora;finalística;Palestrante
-curso_outros;unid.;finalística;Uniforme
-epi;unid.;finalística;Álcool em gel 70%
-epi;unid.;finalística;Álcool líquido 70%
-epi;unid.;finalística;Apito
-epi;unid.;finalística;Avental
-epi;unid.;finalística;Bota
-epi;unid.;finalística;Calça
-epi;unid.;finalística;Camisa
-epi;unid.;finalística;Caneleira
-epi;unid.;finalística;Capacete
-epi;unid.;finalística;Chuteira
-epi;unid.;finalística;Cinturão de segurança
-epi;unid.;finalística;Colete de identificação
-epi;unid.;finalística;Coletor para perfurocortantes
-epi;unid.;finalística;Cone de sinalização
-epi;unid.;finalística;Crachá
-epi;unid.;finalística;Detergente neutro
-epi;unid.;finalística;Extintor de incêndio
-epi;unid.;finalística;Fita de sinalização
-epi;unid.;finalística;Garrafa ou copo reutilizável
-epi;unid.;finalística;Jaleco
-epi;unid.;finalística;Joelheira
-epi;unid.;finalística;Kit
-epi;unid.;finalística;Lanterna
-epi;unid.;finalística;Luva
-epi;unid.;finalística;Manga isolante
-epi;unid.;finalística;Mangote para soldagem
-epi;unid.;finalística;Máscara
-epi;unid.;finalística;Mochila
-epi;unid.;finalística;Óculos de proteção
-epi;unid.;finalística;Pano de limpeza
-epi;unid.;finalística;Papel-toalha
-epi;unid.;finalística;Perneira de proteção
-epi;unid.;finalística;Perneira para soldagem
-epi;unid.;finalística;Propé descartável
-epi;unid.;finalística;Protetor auricular
-epi;unid.;finalística;Protetor bucal
-epi;unid.;finalística;Protetor de nuca
-epi;unid.;finalística;Protetor escrotal
-epi;unid.;finalística;Protetor facial contra arco elétrico
-epi;unid.;finalística;Protetor solar
-epi;unid.;finalística;Respirador PFF2
-epi;unid.;finalística;Respirador semifacial
-epi;unid.;finalística;Sabonete líquido
-epi;unid.;finalística;Saco de lixo hospitalar infectante
-epi;unid.;finalística;Tábua de corte
-epi;unid.;finalística;Talabarte de segurança
-epi;unid.;finalística;Termômetro culinário
-epi;unid.;finalística;Toalha descartável
-epi;unid.;finalística;Touca
-epi;unid.;finalística;Trava-quedas
-epi;unid.;finalística;Vestimenta de proteção
-event;unid.;finalística;Alimentação
-event;unid.;finalística;Contratação
-event;unid.;finalística;Equipamento para evento
-event;unid.;finalística;Equipe de apoio operacional e cerimonial
-event;unid.;finalística;Estrutura de palco e decoração
-event;unid.;finalística;Evento
-event;unid.;finalística;Locação
-event;unid.;finalística;Material gráfico (banners, faixas, credenciais e sinalização)
-event;unid.;finalística;Serviço
-insumo_gerais;unid.;finalística;Abraçadeira
-insumo_gerais;unid.;finalística;Abridor de latas
-insumo_gerais;unid.;finalística;Acetona
-insumo_gerais;unid.;finalística;Adaptador
-insumo_gerais;unid.;finalística;Adubo
-insumo_gerais;unid.;finalística;Água mineral
-insumo_gerais;unid.;finalística;Água sanitária
-insumo_gerais;unid.;finalística;Agulha
-insumo_gerais;unid.;finalística;Álcool
-insumo_gerais;unid.;finalística;Algodão
-insumo_gerais;unid.;finalística;Alicate
-insumo_gerais;unid.;finalística;Alimento
-insumo_gerais;unid.;finalística;Almofada
-insumo_gerais;unid.;finalística;Amolecedor de cutícula
-insumo_gerais;unid.;finalística;Anilina
-insumo_gerais;unid.;finalística;Aparelho de pressão
-insumo_gerais;unid.;finalística;Aquecedor de cera
-insumo_gerais;unid.;finalística;Arco de serra
-insumo_gerais;unid.;finalística;Ar-condicionado
-insumo_gerais;unid.;finalística;Área de prática
-insumo_gerais;unid.;finalística;Areia
-insumo_gerais;unid.;finalística;Argamassa
-insumo_gerais;unid.;finalística;Argila
-insumo_gerais;unid.;finalística;Argola para chaveiro
-insumo_gerais;unid.;finalística;Armário
-insumo_gerais;unid.;finalística;Arroz
-insumo_gerais;unid.;finalística;Arruela lisa
-insumo_gerais;unid.;finalística;Assadeira
-insumo_gerais;unid.;finalística;Avental
-insumo_gerais;unid.;finalística;Bacia
-insumo_gerais;unid.;finalística;Balança
-insumo_gerais;unid.;finalística;Balde
-insumo_gerais;unid.;finalística;Bancada
-insumo_gerais;unid.;finalística;Bandeja
-insumo_gerais;unid.;finalística;Banner
-insumo_gerais;unid.;finalística;Barbante/linha
-insumo_gerais;unid.;finalística;Barra chata
-insumo_gerais;unid.;finalística;Barramento
-insumo_gerais;unid.;finalística;Base de unha
-insumo_gerais;unid.;finalística;Bastão de cola quente
-insumo_gerais;unid.;finalística;Batedeira
-insumo_gerais;unid.;finalística;Bateria
-insumo_gerais;unid.;finalística;Bilro
-insumo_gerais;unid.;finalística;Bloco autoadesivo
-insumo_gerais;unid.;finalística;Bloco cerâmico
-insumo_gerais;unid.;finalística;Bloco de anotação
-insumo_gerais;unid.;finalística;Bloco de construção
-insumo_gerais;unid.;finalística;Bloco de montar educativo
-insumo_gerais;unid.;finalística;Bola de futebol
-insumo_gerais;unid.;finalística;Bolsa
-insumo_gerais;unid.;finalística;Bomba de vácuo
-insumo_gerais;unid.;finalística;Borne
-insumo_gerais;unid.;finalística;Borrifador
-insumo_gerais;unid.;finalística;Botão de comando
-insumo_gerais;unid.;finalística;Botão elêtronico
-insumo_gerais;unid.;finalística;Botijão de gás
-insumo_gerais;unid.;finalística;Breu para violino
-insumo_gerais;unid.;finalística;Brita
-insumo_gerais;unid.;finalística;Broca
-insumo_gerais;unid.;finalística;Bucha de fixação
-insumo_gerais;unid.;finalística;Bússola
-insumo_gerais;unid.;finalística;Cabo/Fio
-insumo_gerais;unid.;finalística;Cadeira
-insumo_gerais;unid.;finalística;Caixa de ferramentas
-insumo_gerais;unid.;finalística;Caixa elétrica
-insumo_gerais;unid.;finalística;Caixa para transporte
-insumo_gerais;unid.;finalística;Cal
-insumo_gerais;unid.;finalística;Calculadora
-insumo_gerais;unid.;finalística;Campainha
-insumo_gerais;unid.;finalística;Canaleta
-insumo_gerais;unid.;finalística;Caneta
-insumo_gerais;unid.;finalística;Cano
-insumo_gerais;unid.;finalística;Carrinho de mão
-insumo_gerais;unid.;finalística;Cartão de memória
-insumo_gerais;unid.;finalística;Cartaz
-insumo_gerais;unid.;finalística;Cartolina
-insumo_gerais;unid.;finalística;Cavadeira articulada
-insumo_gerais;unid.;finalística;Cera
-insumo_gerais;unid.;finalística;Cesto
-insumo_gerais;unid.;finalística;Chaira
-insumo_gerais;unid.;finalística;Chaleira
-insumo_gerais;unid.;finalística;Chapa de compensado
-insumo_gerais;unid.;finalística;Chave boia
-insumo_gerais;unid.;finalística;Chave de fenda
-insumo_gerais;unid.;finalística;Cimento
-insumo_gerais;unid.;finalística;Cinturão de segurança
-insumo_gerais;unid.;finalística;Cobertor
-insumo_gerais;unid.;finalística;Coffee break
-insumo_gerais;unid.;finalística;Cola
-insumo_gerais;unid.;finalística;Coletor para perfurocortantes
-insumo_gerais;unid.;finalística;Colher
-insumo_gerais;unid.;finalística;Colher de pedreiro
-insumo_gerais;unid.;finalística;Colher medidora
-insumo_gerais;unid.;finalística;Colheres grandes
-insumo_gerais;unid.;finalística;Conduíte
-insumo_gerais;unid.;finalística;Condulete
-insumo_gerais;unid.;finalística;Conector
-insumo_gerais;unid.;finalística;Conector em barra
-insumo_gerais;unid.;finalística;Conservante
-insumo_gerais;unid.;finalística;Contator
-insumo_gerais;unid.;finalística;Copo
-insumo_gerais;unid.;finalística;Corante
-insumo_gerais;unid.;finalística;Corda para instrumento
-insumo_gerais;unid.;finalística;Cordão
-insumo_gerais;unid.;finalística;Cortador de piso
-insumo_gerais;unid.;finalística;Cosmético
-insumo_gerais;unid.;finalística;Credencial
-insumo_gerais;unid.;finalística;Cronômetro
-insumo_gerais;unid.;finalística;Curva
-insumo_gerais;unid.;finalística;Dermógrafo
-insumo_gerais;unid.;finalística;Descarte perfurocortante
-insumo_gerais;unid.;finalística;Descascador
-insumo_gerais;unid.;finalística;Desempenadeira
-insumo_gerais;unid.;finalística;Desinfetante
-insumo_gerais;unid.;finalística;Detector de tensão por aproximação
-insumo_gerais;unid.;finalística;Detergente
-insumo_gerais;unid.;finalística;Disjuntor
-insumo_gerais;unid.;finalística;Eletrodo
-insumo_gerais;unid.;finalística;Eletrodutos
-insumo_gerais;unid.;finalística;Embalagem
-insumo_gerais;unid.;finalística;Enxada
-insumo_gerais;unid.;finalística;Escorredor
-insumo_gerais;unid.;finalística;Escova de limpeza
-insumo_gerais;unid.;finalística;Escumadeira
-insumo_gerais;unid.;finalística;Esfigmomanômetro
-insumo_gerais;unid.;finalística;Esfoliante
-insumo_gerais;unid.;finalística;Esmalte
-insumo_gerais;unid.;finalística;Espaçador de piso
-insumo_gerais;unid.;finalística;Espátula
-insumo_gerais;unid.;finalística;Esponja
-insumo_gerais;unid.;finalística;Esquadro
-insumo_gerais;unid.;finalística;Estadiômetro
-insumo_gerais;unid.;finalística;Estanho em pasta
-insumo_gerais;unid.;finalística;Estante
-insumo_gerais;unid.;finalística;Esterco curtido
-insumo_gerais;unid.;finalística;Estetoscópio
-insumo_gerais;unid.;finalística;Estilete
-insumo_gerais;unid.;finalística;Etiqueta
-insumo_gerais;unid.;finalística;Extra brilho
-insumo_gerais;unid.;finalística;Faca de cozinha
-insumo_gerais;unid.;finalística;Facão
-insumo_gerais;unid.;finalística;Feijão
-insumo_gerais;unid.;finalística;Ferro de soldar
-insumo_gerais;unid.;finalística;Fibra siliconada
-insumo_gerais;unid.;finalística;Fita
-insumo_gerais;unid.;finalística;Fita adesiva
-insumo_gerais;unid.;finalística;Fita dupla face
-insumo_gerais;unid.;finalística;Fita isolante
-insumo_gerais;unid.;finalística;Flanela
-insumo_gerais;unid.;finalística;Fluxo de solda
-insumo_gerais;unid.;finalística;Fogão/cooktop
-insumo_gerais;unid.;finalística;Folha impressa
-insumo_gerais;unid.;finalística;Fonte de alimentação
-insumo_gerais;unid.;finalística;Forma para alimentos
-insumo_gerais;unid.;finalística;Fotocélula
-insumo_gerais;unid.;finalística;Fouet
-insumo_gerais;unid.;finalística;Four-way
-insumo_gerais;unid.;finalística;Fralda descartavél
-insumo_gerais;unid.;finalística;Frasco conta-gotas
-insumo_gerais;unid.;finalística;Produto químico
-insumo_gerais;unid.;finalística;Frigideira
-insumo_gerais;unid.;finalística;Frutas variadas
-insumo_gerais;unid.;finalística;Funil
-insumo_gerais;unid.;finalística;Furadeira
-insumo_gerais;unid.;finalística;Garrafa
-insumo_gerais;unid.;finalística;Gás refrigerante
-insumo_gerais;unid.;finalística;Glicosímetro
-insumo_gerais;unid.;finalística;Glitter
-insumo_gerais;unid.;finalística;Grade
-insumo_gerais;unid.;finalística;Grampeador
-insumo_gerais;unid.;finalística;Grampo
-insumo_gerais;unid.;finalística;Impressora
-insumo_gerais;hora;finalística;Instrutor
-insumo_gerais;unid.;finalística;Insumo alimentício perecível
-insumo_gerais;unid.;finalística;Interfone residencial
-insumo_gerais;unid.;finalística;Interruptor
-insumo_gerais;unid.;finalística;Isolador elétrico
-insumo_gerais;unid.;finalística;Item decorativo
-insumo_gerais;unid.;finalística;Jarra
-insumo_gerais;unid.;finalística;Joelho hidráulico
-insumo_gerais;unid.;finalística;Jogo de cama
-insumo_gerais;unid.;finalística;Lamínula
-insumo_gerais;unid.;finalística;Lâmpada
-insumo_gerais;unid.;finalística;Legume
-insumo_gerais;unid.;finalística;Lenço umedecido
-insumo_gerais;unid.;finalística;Linha de costura
-insumo_gerais;unid.;finalística;Liquidificador
-insumo_gerais;unid.;finalística;Lixa
-insumo_gerais;unid.;finalística;Lixa para unhas
-insumo_gerais;unid.;finalística;Lixeira
-insumo_gerais;unid.;finalística;Lona plástica
-insumo_gerais;unid.;finalística;Lupa de cabeça
-insumo_gerais;unid.;finalística;Lupa
-insumo_gerais;unid.;finalística;Maca portátil
-insumo_gerais;unid.;finalística;Maleta de maquiagem
-insumo_gerais;unid.;finalística;Malha dessoldadora
-insumo_gerais;unid.;finalística;Mangueira
-insumo_gerais;unid.;finalística;Manifold
-insumo_gerais;unid.;finalística;Mapa da comunidade
-insumo_gerais;unid.;finalística;Marcador
-insumo_gerais;unid.;finalística;Marreta
-insumo_gerais;unid.;finalística;Martelo
-insumo_gerais;unid.;finalística;Máscara descartável
-insumo_gerais;unid.;finalística;Massa corrida
-insumo_gerais;unid.;finalística;Masseira
-insumo_gerais;unid.;finalística;Material para rede de distribuição
-insumo_gerais;unid.;finalística;Megôhmetro
-insumo_gerais;unid.;finalística;Mesa
-insumo_gerais;unid.;finalística;Metanol
-insumo_gerais;unid.;finalística;Contator de potência
-insumo_gerais;hora;finalística;Monitor
-insumo_gerais;unid.;finalística;Motobomba centrífuga
-insumo_gerais;unid.;finalística;Muda
-insumo_gerais;unid.;finalística;Multímetro
-insumo_gerais;unid.;finalística;Nitrogênio
-insumo_gerais;unid.;finalística;Nível
-insumo_gerais;unid.;finalística;Notebook
-insumo_gerais;unid.;finalística;Óleo
-insumo_gerais;unid.;finalística;Organizador de cabos
-insumo_gerais;unid.;finalística;Material de construção
-insumo_gerais;unid.;finalística;Oxímetro
-insumo_gerais;unid.;finalística;Pá
-insumo_gerais;unid.;finalística;Material didático
-insumo_gerais;unid.;finalística;Material de maquiagem
-insumo_gerais;unid.;finalística;Palha
-insumo_gerais;unid.;finalística;Palheta
-insumo_gerais;unid.;finalística;Panela
-insumo_gerais;unid.;finalística;Pano de chão
-insumo_gerais;unid.;finalística;Pano de limpeza
-insumo_gerais;unid.;finalística;Pano de prato
-insumo_gerais;unid.;finalística;Papel A4
-insumo_gerais;unid.;finalística;Papel absorvente
-insumo_gerais;unid.;finalística;Papel grau
-insumo_gerais;unid.;finalística;Papel higiênico
-insumo_gerais;unid.;finalística;Papel kraft
-insumo_gerais;unid.;finalística;Papel toalha
-insumo_gerais;unid.;finalística;Papel manteiga
-insumo_gerais;unid.;finalística;Paquímetro
-insumo_gerais;unid.;finalística;Parafuso
-insumo_gerais;unid.;finalística;Passa-fio
-insumo_gerais;unid.;finalística;Pasta de arquivo
-insumo_gerais;unid.;finalística;Pasta organizadora
-insumo_gerais;unid.;finalística;Pegador de alimentos
-insumo_gerais;unid.;finalística;Perlon de malha
-insumo_gerais;unid.;finalística;Pinça de cozinha
-insumo_gerais;unid.;finalística;Pincel
-insumo_gerais;unid.;finalística;Pipeta plástica descartável
-insumo_gerais;unid.;finalística;Piso cerâmico
-insumo_gerais;unid.;finalística;Pistola de cola quente
-insumo_gerais;unid.;finalística;Placa para montagem de circuito
-insumo_gerais;unid.;finalística;Plaina manual
-insumo_gerais;unid.;finalística;Porta-fusível solar
-insumo_gerais;unid.;finalística;Post-it
-insumo_gerais;unid.;finalística;Pote
-insumo_gerais;unid.;finalística;Prancheta
-insumo_gerais;unid.;finalística;Prato
-insumo_gerais;unid.;finalística;Prego
-insumo_gerais;unid.;finalística;Prensa-cabo
-insumo_gerais;unid.;finalística;Produtos de limpeza, higienização e organização (detergente, álcool, sanitizantes)
-insumo_gerais;unid.;finalística;Projetor
-insumo_gerais;unid.;finalística;Proteção/quadro
-insumo_gerais;unid.;finalística;Protetor solar
-insumo_gerais;unid.;finalística;Prumo
-insumo_gerais;unid.;finalística;Púlpito
-insumo_gerais;unid.;finalística;Pulverizador
-insumo_gerais;unid.;finalística;Quadro branco
-insumo_gerais;unid.;finalística;Quadro/painel elétrico
-insumo_gerais;unid.;finalística;Ralador/Zester
-insumo_gerais;unid.;finalística;Rastelo
-insumo_gerais;unid.;finalística;Reagente
-insumo_gerais;unid.;finalística;Reator
-insumo_gerais;unid.;finalística;Regador
-insumo_gerais;unid.;finalística;Registro
-insumo_gerais;unid.;finalística;Rejunte
-insumo_gerais;unid.;finalística;Relé
-insumo_gerais;unid.;finalística;Removedor de esmalte
-insumo_gerais;unid.;finalística;Repelente
-insumo_gerais;unid.;finalística;Revestimento cerâmico
-insumo_gerais;unid.;finalística;Ring light
-insumo_gerais;unid.;finalística;Rodo
-insumo_gerais;unid.;finalística;Rolo de pintura
-insumo_gerais;unid.;finalística;Rolo de Solda
-insumo_gerais;unid.;finalística;Rolo Posicionador Napa
-insumo_gerais;unid.;finalística;Sabonete
-insumo_gerais;unid.;finalística;Saca-rolhas
-insumo_gerais;unid.;finalística;Saco de lixo
-insumo_gerais;unid.;finalística;Sal
-insumo_gerais;unid.;finalística;Sarrafo
-insumo_gerais;unid.;finalística;Semente
-insumo_gerais;unid.;finalística;Sensor
-insumo_gerais;unid.;finalística;Serra de fita
-insumo_gerais;unid.;finalística;Serra manual
-insumo_gerais;unid.;finalística;Serrote
-insumo_gerais;unid.;finalística;Serviço
-insumo_gerais;unid.;finalística;Televisão
-insumo_gerais;unid.;finalística;Soda cáustica
-insumo_gerais;unid.;finalística;Solda em pasta
-insumo_gerais;unid.;finalística;Sombrite
-insumo_gerais;unid.;finalística;Soquete
-insumo_gerais;unid.;finalística;Spray massageador
-insumo_gerais;unid.;finalística;Starter de partida
-insumo_gerais;unid.;finalística;Substrato
-insumo_gerais;unid.;finalística;Sugador de solda
-insumo_gerais;unid.;finalística;Suporte para almofada
-insumo_gerais;unid.;finalística;Suporte para solda
-insumo_gerais;unid.;finalística;Supressor de surto
-insumo_gerais;unid.;finalística;Tábuas uso geral
-insumo_gerais;unid.;finalística;Talabarte de segurança
-insumo_gerais;unid.;finalística;Talher
-insumo_gerais;unid.;finalística;Tecido
-insumo_gerais;unid.;finalística;Tela de sombreamento
-insumo_gerais;unid.;finalística;Teleprompter de mesa
-insumo_gerais;unid.;finalística;Temperos variados
-insumo_gerais;unid.;finalística;Temporizador
-insumo_gerais;unid.;finalística;Termocera
-insumo_gerais;unid.;finalística;Termômetro
-insumo_gerais;unid.;finalística;Tesoura
-insumo_gerais;unid.;finalística;Tigela
-insumo_gerais;unid.;finalística;Tinta para impressora
-insumo_gerais;unid.;finalística;Toalha de banho
-insumo_gerais;unid.;finalística;Toalha de mesa
-insumo_gerais;unid.;finalística;Tomada
-insumo_gerais;unid.;finalística;Torneira
-insumo_gerais;unid.;finalística;Travesseiro
-insumo_gerais;unid.;finalística;Trena
-insumo_gerais;unid.;finalística;Trilho
-insumo_gerais;unid.;finalística;Tripé
-insumo_gerais;unid.;finalística;Tubo
-insumo_gerais;unid.;finalística;Utensílios básicos
-insumo_gerais;unid.;finalística;Vacuômetro
-insumo_gerais;unid.;finalística;Válvula
-insumo_gerais;unid.;finalística;Vareta de solda
-insumo_gerais;unid.;finalística;Ventilador
-kit_participante;unid.;finalística;Apontador
-kit_participante;unid.;finalística;Apostila
-kit_participante;unid.;finalística;Borracha
-kit_participante;unid.;finalística;Caderno
-kit_participante;unid.;finalística;Caneta
-kit_participante;unid.;finalística;Copo
-kit_participante;unid.;finalística;Ecobag
-kit_participante;unid.;finalística;Estojo
-kit_participante;unid.;finalística;Garrafa d'água
-kit_participante;unid.;finalística;Lápis
-kit_participante;unid.;finalística;Mochila
-kit_participante;unid.;finalística;Pasta
-kit_trabalho;unid.;kit;Adubo
-kit_trabalho;unid.;kit;Agulha
-kit_trabalho;unid.;kit;Algodão
-kit_trabalho;unid.;kit;Alicate
-kit_trabalho;unid.;kit;Argola para chaveiro
-kit_trabalho;unid.;kit;Assadeira
-kit_trabalho;unid.;kit;Avental
-kit_trabalho;unid.;kit;Bacia
-kit_trabalho;unid.;kit;Balança
-kit_trabalho;unid.;kit;Bandeja
-kit_trabalho;unid.;kit;Banner
-kit_trabalho;unid.;kit;Base para unhas
-kit_trabalho;unid.;kit;Batedeira
-kit_trabalho;unid.;kit;Bilro
-kit_trabalho;unid.;kit;Bloco de anotações
-kit_trabalho;unid.;kit;Bolsa
-kit_trabalho;unid.;kit;Botijão de gás
-kit_trabalho;unid.;kit;Cabo/Fio
-kit_trabalho;unid.;kit;Cadeira
-kit_trabalho;unid.;kit;Caderno
-kit_trabalho;unid.;kit;Caixa
-kit_trabalho;unid.;kit;Caixa d'água
-kit_trabalho;unid.;kit;Camisa
-kit_trabalho;unid.;kit;Caneta
-kit_trabalho;unid.;kit;Caneta testadora de tensão
-kit_trabalho;unid.;kit;Cartolina
-kit_trabalho;unid.;kit;Cavadeira
-kit_trabalho;unid.;kit;Chave de fenda
-kit_trabalho;unid.;kit;Chave de teste de tensão
-kit_trabalho;unid.;kit;Computador
-kit_trabalho;unid.;kit;Conector
-kit_trabalho;unid.;kit;Conta-gotas
-kit_trabalho;unid.;kit;Copo
-kit_trabalho;unid.;kit;Corante
-kit_trabalho;unid.;kit;Dispensador de álcool em gel
-kit_trabalho;unid.;kit;Enxada
-kit_trabalho;unid.;kit;Escova para limpeza
-kit_trabalho;unid.;kit;Esmalte para unha
-kit_trabalho;unid.;kit;Espátula
-kit_trabalho;unid.;kit;Estojo
-kit_trabalho;unid.;kit;Extra brilho
-kit_trabalho;unid.;kit;Facão
-kit_trabalho;unid.;kit;Ferramenta em geral
-kit_trabalho;unid.;kit;Fibra siliconada
-kit_trabalho;unid.;kit;Fita
-kit_trabalho;unid.;kit;Fita isolante
-kit_trabalho;unid.;kit;Fita métrica
-kit_trabalho;unid.;kit;Fogão
-kit_trabalho;unid.;kit;Folder
-kit_trabalho;unid.;kit;Fouet
-kit_trabalho;unid.;kit;Freezer horizontal
-kit_trabalho;unid.;kit;Frigideira
-kit_trabalho;unid.;kit;Fritadeira elétrica industrial
-kit_trabalho;unid.;kit;Furadeira
-kit_trabalho;unid.;kit;Garrafa
-kit_trabalho;unid.;kit;Geladeira
-kit_trabalho;unid.;kit;Grade de madeira
-kit_trabalho;unid.;kit;Insumos para cozinha
-kit_trabalho;unid.;kit;Item de artesanato
-kit_trabalho;unid.;kit;Jaleco
-kit_trabalho;unid.;kit;Jarra
-kit_trabalho;unid.;kit;Jogo educativo
-kit_trabalho;unid.;kit;Lamínula
-kit_trabalho;unid.;kit;Lâmpada
-kit_trabalho;unid.;kit;Lápis
-kit_trabalho;unid.;kit;LED
-kit_trabalho;unid.;kit;Linha de costura
-kit_trabalho;unid.;kit;Liquidificador
-kit_trabalho;unid.;kit;Livro
-kit_trabalho;unid.;kit;Lixa industrial
-kit_trabalho;unid.;kit;Lixa para unhas
-kit_trabalho;unid.;kit;Luva
-kit_trabalho;unid.;kit;Maleta
-kit_trabalho;unid.;kit;Mangueira
-kit_trabalho;unid.;kit;Marcador de lâmina
-kit_trabalho;unid.;kit;Máscara descartável
-kit_trabalho;unid.;kit;Material diverso
-kit_trabalho;unid.;kit;Mesa
-kit_trabalho;unid.;kit;Micro-ondas
-kit_trabalho;unid.;kit;Muda
-kit_trabalho;unid.;kit;Multímetro
-kit_trabalho;unid.;kit;Óculos de proteção
-kit_trabalho;unid.;kit;Óleo
-kit_trabalho;unid.;kit;Pá de bico
-kit_trabalho;unid.;kit;Palito
-kit_trabalho;unid.;kit;Panela
-kit_trabalho;unid.;kit;Pia industrial
-kit_trabalho;unid.;kit;Pipeta plástica
-kit_trabalho;unid.;kit;Pisseta plástica
-kit_trabalho;unid.;kit;Prato
-kit_trabalho;unid.;kit;Reagente
-kit_trabalho;unid.;kit;Regador
-kit_trabalho;unid.;kit;Resistor
-kit_trabalho;unid.;kit;Sabonete
-kit_trabalho;unid.;kit;Sementes
-kit_trabalho;unid.;kit;Soquete
-kit_trabalho;unid.;kit;Suporte para almofada
-kit_trabalho;unid.;kit;Tacho
-kit_trabalho;unid.;kit;Talheres
-kit_trabalho;unid.;kit;Tecido
-kit_trabalho;unid.;kit;Termômetro
-kit_trabalho;unid.;kit;Tesoura
-kit_trabalho;unid.;kit;Toalha de mão
-kit_trabalho;unid.;kit;Touca de cabelo
-kit_trabalho;unid.;kit;Vaso plástico
-kit_trabalho;unid.;kit;Xícara
-stage11;hora;gestão;Apoio
-stage11;hora;gestão;Assessoria
-stage11;hora;gestão;Assistente
-stage11;hora;gestão;Auxiliar
-stage11;unid.;gestão;Camiseta
-stage11;hora;gestão;Coordenador
-stage11;diária;finalística;Equipe
-stage11;unid.;finalística;Locação
-stage11;hora;gestão;Mobilizador social
-stage11;hora;gestão;Monitor
-stage11;hora;gestão;Orientador
-stage11;unid.;finalística;Serviço
-stage11;hora;gestão;Supervisor
-stage11;unid.;estruturação;Veículo
-stage12;unid.;estruturação;Ar-condicionado
-stage12;unid.;estruturação;Cadeira
-stage12;unid.;estruturação;Caixa de som
-stage12;unid.;estruturação;Câmera
-stage12;unid.;estruturação;Carregador portátil
-stage12;unid.;finalística;Combustível
-stage12;unid.;estruturação;Equipamento para estruturação de espaço
-stage12;unid.;estruturação;Extensão
-stage12;unid.;estruturação;Impressora
-stage12;unid.;estruturação;Instrumento musical
-stage12;unid.;estruturação;Locação
-stage12;unid.;estruturação;Mesa de apoio
-stage12;unid.;estruturação;Mesa de som
-stage12;unid.;estruturação;Microfone
-stage12;unid.;estruturação;Notebook
-stage12;unid.;estruturação;Projetor
-stage12;unid.;estruturação;Roteador Wi-Fi
-stage12;unid.;estruturação;Smart tv
-stage12;unid.;estruturação;Smartphone
-stage12;unid.;estruturação;Tela de projeção
-transporte;unid.;finalística;Transporte privado
-transporte;unid.;finalística;Transporte público
+﻿categoria;unidade;tipo_despesa;descricao_item;obrigatorio
+alimentacao;unid.;finalística;Almoço para participantes;true
+alimentacao;unid.;finalística;Lanche;true
+assistencia;hora;finalística;Mentor;false
+curso_outros;unid.;finalística;Apostila;false
+curso_outros;hora;finalística;Assessoria especializada;false
+curso_outros;unid.;finalística;Camiseta;false
+curso_outros;unid.;finalística;Certificado;true
+curso_outros;hora;finalística;Instrutor;false
+curso_outros;hora;finalística;Mentor;false
+curso_outros;hora;finalística;Monitor;false
+curso_outros;hora;finalística;Palestrante;false
+curso_outros;unid.;finalística;Uniforme;false
+epi;unid.;finalística;Álcool em gel 70%;false
+epi;unid.;finalística;Álcool líquido 70%;false
+epi;unid.;finalística;Apito;false
+epi;unid.;finalística;Avental;false
+epi;unid.;finalística;Bota;false
+epi;unid.;finalística;Calça;false
+epi;unid.;finalística;Camisa;false
+epi;unid.;finalística;Caneleira;false
+epi;unid.;finalística;Capacete;false
+epi;unid.;finalística;Chuteira;false
+epi;unid.;finalística;Cinturão de segurança;false
+epi;unid.;finalística;Colete de identificação;false
+epi;unid.;finalística;Coletor para perfurocortantes;false
+epi;unid.;finalística;Cone de sinalização;false
+epi;unid.;finalística;Crachá;false
+epi;unid.;finalística;Detergente neutro;false
+epi;unid.;finalística;Extintor de incêndio;false
+epi;unid.;finalística;Fita de sinalização;false
+epi;unid.;finalística;Garrafa ou copo reutilizável;false
+epi;unid.;finalística;Jaleco;false
+epi;unid.;finalística;Joelheira;false
+epi;unid.;finalística;Kit;false
+epi;unid.;finalística;Lanterna;false
+epi;unid.;finalística;Luva;false
+epi;unid.;finalística;Manga isolante;false
+epi;unid.;finalística;Mangote para soldagem;false
+epi;unid.;finalística;Máscara;false
+epi;unid.;finalística;Mochila;false
+epi;unid.;finalística;Óculos de proteção;false
+epi;unid.;finalística;Pano de limpeza;false
+epi;unid.;finalística;Papel-toalha;false
+epi;unid.;finalística;Perneira de proteção;false
+epi;unid.;finalística;Perneira para soldagem;false
+epi;unid.;finalística;Propé descartável;false
+epi;unid.;finalística;Protetor auricular;false
+epi;unid.;finalística;Protetor bucal;false
+epi;unid.;finalística;Protetor de nuca;false
+epi;unid.;finalística;Protetor escrotal;false
+epi;unid.;finalística;Protetor facial contra arco elétrico;false
+epi;unid.;finalística;Protetor solar;false
+epi;unid.;finalística;Respirador PFF2;false
+epi;unid.;finalística;Respirador semifacial;false
+epi;unid.;finalística;Sabonete líquido;false
+epi;unid.;finalística;Saco de lixo hospitalar infectante;false
+epi;unid.;finalística;Tábua de corte;false
+epi;unid.;finalística;Talabarte de segurança;false
+epi;unid.;finalística;Termômetro culinário;false
+epi;unid.;finalística;Toalha descartável;false
+epi;unid.;finalística;Touca;false
+epi;unid.;finalística;Trava-quedas;false
+epi;unid.;finalística;Vestimenta de proteção;false
+event;unid.;finalística;Alimentação;false
+event;unid.;finalística;Contratação;false
+event;unid.;finalística;Equipamento para evento;false
+event;unid.;finalística;Equipe de apoio operacional e cerimonial;false
+event;unid.;finalística;Estrutura de palco e decoração;false
+event;unid.;finalística;Evento;false
+event;unid.;finalística;Locação;false
+event;unid.;finalística;Material gráfico (banners, faixas, credenciais e sinalização);false
+event;unid.;finalística;Serviço;false
+insumo_gerais;unid.;finalística;Abraçadeira;false
+insumo_gerais;unid.;finalística;Abridor de latas;false
+insumo_gerais;unid.;finalística;Acetona;false
+insumo_gerais;unid.;finalística;Adaptador;false
+insumo_gerais;unid.;finalística;Adubo;false
+insumo_gerais;unid.;finalística;Água mineral;false
+insumo_gerais;unid.;finalística;Água sanitária;false
+insumo_gerais;unid.;finalística;Agulha;false
+insumo_gerais;unid.;finalística;Álcool;false
+insumo_gerais;unid.;finalística;Algodão;false
+insumo_gerais;unid.;finalística;Alicate;false
+insumo_gerais;unid.;finalística;Alimento;false
+insumo_gerais;unid.;finalística;Almofada;false
+insumo_gerais;unid.;finalística;Amolecedor de cutícula;false
+insumo_gerais;unid.;finalística;Anilina;false
+insumo_gerais;unid.;finalística;Aparelho de pressão;false
+insumo_gerais;unid.;finalística;Aquecedor de cera;false
+insumo_gerais;unid.;finalística;Arco de serra;false
+insumo_gerais;unid.;finalística;Ar-condicionado;false
+insumo_gerais;unid.;finalística;Área de prática;false
+insumo_gerais;unid.;finalística;Areia;false
+insumo_gerais;unid.;finalística;Argamassa;false
+insumo_gerais;unid.;finalística;Argila;false
+insumo_gerais;unid.;finalística;Argola para chaveiro;false
+insumo_gerais;unid.;finalística;Armário;false
+insumo_gerais;unid.;finalística;Arroz;false
+insumo_gerais;unid.;finalística;Arruela lisa;false
+insumo_gerais;unid.;finalística;Assadeira;false
+insumo_gerais;unid.;finalística;Avental;false
+insumo_gerais;unid.;finalística;Bacia;false
+insumo_gerais;unid.;finalística;Balança;false
+insumo_gerais;unid.;finalística;Balde;false
+insumo_gerais;unid.;finalística;Bancada;false
+insumo_gerais;unid.;finalística;Bandeja;false
+insumo_gerais;unid.;finalística;Banner;false
+insumo_gerais;unid.;finalística;Barbante/linha;false
+insumo_gerais;unid.;finalística;Barra chata;false
+insumo_gerais;unid.;finalística;Barramento;false
+insumo_gerais;unid.;finalística;Base de unha;false
+insumo_gerais;unid.;finalística;Bastão de cola quente;false
+insumo_gerais;unid.;finalística;Batedeira;false
+insumo_gerais;unid.;finalística;Bateria;false
+insumo_gerais;unid.;finalística;Bilro;false
+insumo_gerais;unid.;finalística;Bloco autoadesivo;false
+insumo_gerais;unid.;finalística;Bloco cerâmico;false
+insumo_gerais;unid.;finalística;Bloco de anotação;false
+insumo_gerais;unid.;finalística;Bloco de construção;false
+insumo_gerais;unid.;finalística;Bloco de montar educativo;false
+insumo_gerais;unid.;finalística;Bola de futebol;false
+insumo_gerais;unid.;finalística;Bolsa;false
+insumo_gerais;unid.;finalística;Bomba de vácuo;false
+insumo_gerais;unid.;finalística;Borne;false
+insumo_gerais;unid.;finalística;Borrifador;false
+insumo_gerais;unid.;finalística;Botão de comando;false
+insumo_gerais;unid.;finalística;Botão elêtronico;false
+insumo_gerais;unid.;finalística;Botijão de gás;false
+insumo_gerais;unid.;finalística;Breu para violino;false
+insumo_gerais;unid.;finalística;Brita;false
+insumo_gerais;unid.;finalística;Broca;false
+insumo_gerais;unid.;finalística;Bucha de fixação;false
+insumo_gerais;unid.;finalística;Bússola;false
+insumo_gerais;unid.;finalística;Cabo/Fio;false
+insumo_gerais;unid.;finalística;Cadeira;false
+insumo_gerais;unid.;finalística;Caixa de ferramentas;false
+insumo_gerais;unid.;finalística;Caixa elétrica;false
+insumo_gerais;unid.;finalística;Caixa para transporte;false
+insumo_gerais;unid.;finalística;Cal;false
+insumo_gerais;unid.;finalística;Calculadora;false
+insumo_gerais;unid.;finalística;Campainha;false
+insumo_gerais;unid.;finalística;Canaleta;false
+insumo_gerais;unid.;finalística;Caneta;false
+insumo_gerais;unid.;finalística;Cano;false
+insumo_gerais;unid.;finalística;Carrinho de mão;false
+insumo_gerais;unid.;finalística;Cartão de memória;false
+insumo_gerais;unid.;finalística;Cartaz;false
+insumo_gerais;unid.;finalística;Cartolina;false
+insumo_gerais;unid.;finalística;Cavadeira articulada;false
+insumo_gerais;unid.;finalística;Cera;false
+insumo_gerais;unid.;finalística;Cesto;false
+insumo_gerais;unid.;finalística;Chaira;false
+insumo_gerais;unid.;finalística;Chaleira;false
+insumo_gerais;unid.;finalística;Chapa de compensado;false
+insumo_gerais;unid.;finalística;Chave boia;false
+insumo_gerais;unid.;finalística;Chave de fenda;false
+insumo_gerais;unid.;finalística;Cimento;false
+insumo_gerais;unid.;finalística;Cinturão de segurança;false
+insumo_gerais;unid.;finalística;Cobertor;false
+insumo_gerais;unid.;finalística;Coffee break;false
+insumo_gerais;unid.;finalística;Cola;false
+insumo_gerais;unid.;finalística;Coletor para perfurocortantes;false
+insumo_gerais;unid.;finalística;Colher;false
+insumo_gerais;unid.;finalística;Colher de pedreiro;false
+insumo_gerais;unid.;finalística;Colher medidora;false
+insumo_gerais;unid.;finalística;Colheres grandes;false
+insumo_gerais;unid.;finalística;Conduíte;false
+insumo_gerais;unid.;finalística;Condulete;false
+insumo_gerais;unid.;finalística;Conector;false
+insumo_gerais;unid.;finalística;Conector em barra;false
+insumo_gerais;unid.;finalística;Conservante;false
+insumo_gerais;unid.;finalística;Contator;false
+insumo_gerais;unid.;finalística;Copo;false
+insumo_gerais;unid.;finalística;Corante;false
+insumo_gerais;unid.;finalística;Corda para instrumento;false
+insumo_gerais;unid.;finalística;Cordão;false
+insumo_gerais;unid.;finalística;Cortador de piso;false
+insumo_gerais;unid.;finalística;Cosmético;false
+insumo_gerais;unid.;finalística;Credencial;false
+insumo_gerais;unid.;finalística;Cronômetro;false
+insumo_gerais;unid.;finalística;Curva;false
+insumo_gerais;unid.;finalística;Dermógrafo;false
+insumo_gerais;unid.;finalística;Descarte perfurocortante;false
+insumo_gerais;unid.;finalística;Descascador;false
+insumo_gerais;unid.;finalística;Desempenadeira;false
+insumo_gerais;unid.;finalística;Desinfetante;false
+insumo_gerais;unid.;finalística;Detector de tensão por aproximação;false
+insumo_gerais;unid.;finalística;Detergente;false
+insumo_gerais;unid.;finalística;Disjuntor;false
+insumo_gerais;unid.;finalística;Eletrodo;false
+insumo_gerais;unid.;finalística;Eletrodutos;false
+insumo_gerais;unid.;finalística;Embalagem;false
+insumo_gerais;unid.;finalística;Enxada;false
+insumo_gerais;unid.;finalística;Escorredor;false
+insumo_gerais;unid.;finalística;Escova de limpeza;false
+insumo_gerais;unid.;finalística;Escumadeira;false
+insumo_gerais;unid.;finalística;Esfigmomanômetro;false
+insumo_gerais;unid.;finalística;Esfoliante;false
+insumo_gerais;unid.;finalística;Esmalte;false
+insumo_gerais;unid.;finalística;Espaçador de piso;false
+insumo_gerais;unid.;finalística;Espátula;false
+insumo_gerais;unid.;finalística;Esponja;false
+insumo_gerais;unid.;finalística;Esquadro;false
+insumo_gerais;unid.;finalística;Estadiômetro;false
+insumo_gerais;unid.;finalística;Estanho em pasta;false
+insumo_gerais;unid.;finalística;Estante;false
+insumo_gerais;unid.;finalística;Esterco curtido;false
+insumo_gerais;unid.;finalística;Estetoscópio;false
+insumo_gerais;unid.;finalística;Estilete;false
+insumo_gerais;unid.;finalística;Etiqueta;false
+insumo_gerais;unid.;finalística;Extra brilho;false
+insumo_gerais;unid.;finalística;Faca de cozinha;false
+insumo_gerais;unid.;finalística;Facão;false
+insumo_gerais;unid.;finalística;Feijão;false
+insumo_gerais;unid.;finalística;Ferro de soldar;false
+insumo_gerais;unid.;finalística;Fibra siliconada;false
+insumo_gerais;unid.;finalística;Fita;false
+insumo_gerais;unid.;finalística;Fita adesiva;false
+insumo_gerais;unid.;finalística;Fita dupla face;false
+insumo_gerais;unid.;finalística;Fita isolante;false
+insumo_gerais;unid.;finalística;Flanela;false
+insumo_gerais;unid.;finalística;Fluxo de solda;false
+insumo_gerais;unid.;finalística;Fogão/cooktop;false
+insumo_gerais;unid.;finalística;Folha impressa;false
+insumo_gerais;unid.;finalística;Fonte de alimentação;false
+insumo_gerais;unid.;finalística;Forma para alimentos;false
+insumo_gerais;unid.;finalística;Fotocélula;false
+insumo_gerais;unid.;finalística;Fouet;false
+insumo_gerais;unid.;finalística;Four-way;false
+insumo_gerais;unid.;finalística;Fralda descartavél;false
+insumo_gerais;unid.;finalística;Frasco conta-gotas;false
+insumo_gerais;unid.;finalística;Produto químico;false
+insumo_gerais;unid.;finalística;Frigideira;false
+insumo_gerais;unid.;finalística;Frutas variadas;false
+insumo_gerais;unid.;finalística;Funil;false
+insumo_gerais;unid.;finalística;Furadeira;false
+insumo_gerais;unid.;finalística;Garrafa;false
+insumo_gerais;unid.;finalística;Gás refrigerante;false
+insumo_gerais;unid.;finalística;Glicosímetro;false
+insumo_gerais;unid.;finalística;Glitter;false
+insumo_gerais;unid.;finalística;Grade;false
+insumo_gerais;unid.;finalística;Grampeador;false
+insumo_gerais;unid.;finalística;Grampo;false
+insumo_gerais;unid.;finalística;Impressora;false
+insumo_gerais;hora;finalística;Instrutor;false
+insumo_gerais;unid.;finalística;Insumo alimentício perecível;false
+insumo_gerais;unid.;finalística;Interfone residencial;false
+insumo_gerais;unid.;finalística;Interruptor;false
+insumo_gerais;unid.;finalística;Isolador elétrico;false
+insumo_gerais;unid.;finalística;Item decorativo;false
+insumo_gerais;unid.;finalística;Jarra;false
+insumo_gerais;unid.;finalística;Joelho hidráulico;false
+insumo_gerais;unid.;finalística;Jogo de cama;false
+insumo_gerais;unid.;finalística;Lamínula;false
+insumo_gerais;unid.;finalística;Lâmpada;false
+insumo_gerais;unid.;finalística;Legume;false
+insumo_gerais;unid.;finalística;Lenço umedecido;false
+insumo_gerais;unid.;finalística;Linha de costura;false
+insumo_gerais;unid.;finalística;Liquidificador;false
+insumo_gerais;unid.;finalística;Lixa;false
+insumo_gerais;unid.;finalística;Lixa para unhas;false
+insumo_gerais;unid.;finalística;Lixeira;false
+insumo_gerais;unid.;finalística;Lona plástica;false
+insumo_gerais;unid.;finalística;Lupa de cabeça;false
+insumo_gerais;unid.;finalística;Lupa;false
+insumo_gerais;unid.;finalística;Maca portátil;false
+insumo_gerais;unid.;finalística;Maleta de maquiagem;false
+insumo_gerais;unid.;finalística;Malha dessoldadora;false
+insumo_gerais;unid.;finalística;Mangueira;false
+insumo_gerais;unid.;finalística;Manifold;false
+insumo_gerais;unid.;finalística;Mapa da comunidade;false
+insumo_gerais;unid.;finalística;Marcador;false
+insumo_gerais;unid.;finalística;Marreta;false
+insumo_gerais;unid.;finalística;Martelo;false
+insumo_gerais;unid.;finalística;Máscara descartável;false
+insumo_gerais;unid.;finalística;Massa corrida;false
+insumo_gerais;unid.;finalística;Masseira;false
+insumo_gerais;unid.;finalística;Material para rede de distribuição;false
+insumo_gerais;unid.;finalística;Megôhmetro;false
+insumo_gerais;unid.;finalística;Mesa;false
+insumo_gerais;unid.;finalística;Metanol;false
+insumo_gerais;unid.;finalística;Contator de potência;false
+insumo_gerais;hora;finalística;Monitor;false
+insumo_gerais;unid.;finalística;Motobomba centrífuga;false
+insumo_gerais;unid.;finalística;Muda;false
+insumo_gerais;unid.;finalística;Multímetro;false
+insumo_gerais;unid.;finalística;Nitrogênio;false
+insumo_gerais;unid.;finalística;Nível;false
+insumo_gerais;unid.;finalística;Notebook;false
+insumo_gerais;unid.;finalística;Óleo;false
+insumo_gerais;unid.;finalística;Organizador de cabos;false
+insumo_gerais;unid.;finalística;Material de construção;false
+insumo_gerais;unid.;finalística;Oxímetro;false
+insumo_gerais;unid.;finalística;Pá;false
+insumo_gerais;unid.;finalística;Material didático;false
+insumo_gerais;unid.;finalística;Material de maquiagem;false
+insumo_gerais;unid.;finalística;Palha;false
+insumo_gerais;unid.;finalística;Palheta;false
+insumo_gerais;unid.;finalística;Panela;false
+insumo_gerais;unid.;finalística;Pano de chão;false
+insumo_gerais;unid.;finalística;Pano de limpeza;false
+insumo_gerais;unid.;finalística;Pano de prato;false
+insumo_gerais;unid.;finalística;Papel A4;false
+insumo_gerais;unid.;finalística;Papel absorvente;false
+insumo_gerais;unid.;finalística;Papel grau;false
+insumo_gerais;unid.;finalística;Papel higiênico;false
+insumo_gerais;unid.;finalística;Papel kraft;false
+insumo_gerais;unid.;finalística;Papel toalha;false
+insumo_gerais;unid.;finalística;Papel manteiga;false
+insumo_gerais;unid.;finalística;Paquímetro;false
+insumo_gerais;unid.;finalística;Parafuso;false
+insumo_gerais;unid.;finalística;Passa-fio;false
+insumo_gerais;unid.;finalística;Pasta de arquivo;false
+insumo_gerais;unid.;finalística;Pasta organizadora;false
+insumo_gerais;unid.;finalística;Pegador de alimentos;false
+insumo_gerais;unid.;finalística;Perlon de malha;false
+insumo_gerais;unid.;finalística;Pinça de cozinha;false
+insumo_gerais;unid.;finalística;Pincel;false
+insumo_gerais;unid.;finalística;Pipeta plástica descartável;false
+insumo_gerais;unid.;finalística;Piso cerâmico;false
+insumo_gerais;unid.;finalística;Pistola de cola quente;false
+insumo_gerais;unid.;finalística;Placa para montagem de circuito;false
+insumo_gerais;unid.;finalística;Plaina manual;false
+insumo_gerais;unid.;finalística;Porta-fusível solar;false
+insumo_gerais;unid.;finalística;Post-it;false
+insumo_gerais;unid.;finalística;Pote;false
+insumo_gerais;unid.;finalística;Prancheta;false
+insumo_gerais;unid.;finalística;Prato;false
+insumo_gerais;unid.;finalística;Prego;false
+insumo_gerais;unid.;finalística;Prensa-cabo;false
+insumo_gerais;unid.;finalística;Produtos de limpeza, higienização e organização (detergente, álcool, sanitizantes);false
+insumo_gerais;unid.;finalística;Projetor;false
+insumo_gerais;unid.;finalística;Proteção/quadro;false
+insumo_gerais;unid.;finalística;Protetor solar;false
+insumo_gerais;unid.;finalística;Prumo;false
+insumo_gerais;unid.;finalística;Púlpito;false
+insumo_gerais;unid.;finalística;Pulverizador;false
+insumo_gerais;unid.;finalística;Quadro branco;false
+insumo_gerais;unid.;finalística;Quadro/painel elétrico;false
+insumo_gerais;unid.;finalística;Ralador/Zester;false
+insumo_gerais;unid.;finalística;Rastelo;false
+insumo_gerais;unid.;finalística;Reagente;false
+insumo_gerais;unid.;finalística;Reator;false
+insumo_gerais;unid.;finalística;Regador;false
+insumo_gerais;unid.;finalística;Registro;false
+insumo_gerais;unid.;finalística;Rejunte;false
+insumo_gerais;unid.;finalística;Relé;false
+insumo_gerais;unid.;finalística;Removedor de esmalte;false
+insumo_gerais;unid.;finalística;Repelente;false
+insumo_gerais;unid.;finalística;Revestimento cerâmico;false
+insumo_gerais;unid.;finalística;Ring light;false
+insumo_gerais;unid.;finalística;Rodo;false
+insumo_gerais;unid.;finalística;Rolo de pintura;false
+insumo_gerais;unid.;finalística;Rolo de Solda;false
+insumo_gerais;unid.;finalística;Rolo Posicionador Napa;false
+insumo_gerais;unid.;finalística;Sabonete;false
+insumo_gerais;unid.;finalística;Saca-rolhas;false
+insumo_gerais;unid.;finalística;Saco de lixo;false
+insumo_gerais;unid.;finalística;Sal;false
+insumo_gerais;unid.;finalística;Sarrafo;false
+insumo_gerais;unid.;finalística;Semente;false
+insumo_gerais;unid.;finalística;Sensor;false
+insumo_gerais;unid.;finalística;Serra de fita;false
+insumo_gerais;unid.;finalística;Serra manual;false
+insumo_gerais;unid.;finalística;Serrote;false
+insumo_gerais;unid.;finalística;Serviço;false
+insumo_gerais;unid.;finalística;Televisão;false
+insumo_gerais;unid.;finalística;Soda cáustica;false
+insumo_gerais;unid.;finalística;Solda em pasta;false
+insumo_gerais;unid.;finalística;Sombrite;false
+insumo_gerais;unid.;finalística;Soquete;false
+insumo_gerais;unid.;finalística;Spray massageador;false
+insumo_gerais;unid.;finalística;Starter de partida;false
+insumo_gerais;unid.;finalística;Substrato;false
+insumo_gerais;unid.;finalística;Sugador de solda;false
+insumo_gerais;unid.;finalística;Suporte para almofada;false
+insumo_gerais;unid.;finalística;Suporte para solda;false
+insumo_gerais;unid.;finalística;Supressor de surto;false
+insumo_gerais;unid.;finalística;Tábuas uso geral;false
+insumo_gerais;unid.;finalística;Talabarte de segurança;false
+insumo_gerais;unid.;finalística;Talher;false
+insumo_gerais;unid.;finalística;Tecido;false
+insumo_gerais;unid.;finalística;Tela de sombreamento;false
+insumo_gerais;unid.;finalística;Teleprompter de mesa;false
+insumo_gerais;unid.;finalística;Temperos variados;false
+insumo_gerais;unid.;finalística;Temporizador;false
+insumo_gerais;unid.;finalística;Termocera;false
+insumo_gerais;unid.;finalística;Termômetro;false
+insumo_gerais;unid.;finalística;Tesoura;false
+insumo_gerais;unid.;finalística;Tigela;false
+insumo_gerais;unid.;finalística;Tinta para impressora;false
+insumo_gerais;unid.;finalística;Toalha de banho;false
+insumo_gerais;unid.;finalística;Toalha de mesa;false
+insumo_gerais;unid.;finalística;Tomada;false
+insumo_gerais;unid.;finalística;Torneira;false
+insumo_gerais;unid.;finalística;Travesseiro;false
+insumo_gerais;unid.;finalística;Trena;false
+insumo_gerais;unid.;finalística;Trilho;false
+insumo_gerais;unid.;finalística;Tripé;false
+insumo_gerais;unid.;finalística;Tubo;false
+insumo_gerais;unid.;finalística;Utensílios básicos;false
+insumo_gerais;unid.;finalística;Vacuômetro;false
+insumo_gerais;unid.;finalística;Válvula;false
+insumo_gerais;unid.;finalística;Vareta de solda;false
+insumo_gerais;unid.;finalística;Ventilador;false
+kit_participante;unid.;finalística;Apontador;true
+kit_participante;unid.;finalística;Apostila;true
+kit_participante;unid.;finalística;Borracha;true
+kit_participante;unid.;finalística;Caderno;true
+kit_participante;unid.;finalística;Caneta;true
+kit_participante;unid.;finalística;Copo;true
+kit_participante;unid.;finalística;Ecobag;true
+kit_participante;unid.;finalística;Estojo;true
+kit_participante;unid.;finalística;Garrafa d'água;true
+kit_participante;unid.;finalística;Lápis;true
+kit_participante;unid.;finalística;Mochila;true
+kit_participante;unid.;finalística;Pasta;true
+kit_trabalho;unid.;kit;Adubo;false
+kit_trabalho;unid.;kit;Agulha;false
+kit_trabalho;unid.;kit;Algodão;false
+kit_trabalho;unid.;kit;Alicate;false
+kit_trabalho;unid.;kit;Argola para chaveiro;false
+kit_trabalho;unid.;kit;Assadeira;false
+kit_trabalho;unid.;kit;Avental;false
+kit_trabalho;unid.;kit;Bacia;false
+kit_trabalho;unid.;kit;Balança;false
+kit_trabalho;unid.;kit;Bandeja;false
+kit_trabalho;unid.;kit;Banner;false
+kit_trabalho;unid.;kit;Base para unhas;false
+kit_trabalho;unid.;kit;Batedeira;false
+kit_trabalho;unid.;kit;Bilro;false
+kit_trabalho;unid.;kit;Bloco de anotações;false
+kit_trabalho;unid.;kit;Bolsa;false
+kit_trabalho;unid.;kit;Botijão de gás;false
+kit_trabalho;unid.;kit;Cabo/Fio;false
+kit_trabalho;unid.;kit;Cadeira;false
+kit_trabalho;unid.;kit;Caderno;false
+kit_trabalho;unid.;kit;Caixa;false
+kit_trabalho;unid.;kit;Caixa d'água;false
+kit_trabalho;unid.;kit;Camisa;false
+kit_trabalho;unid.;kit;Caneta;false
+kit_trabalho;unid.;kit;Caneta testadora de tensão;false
+kit_trabalho;unid.;kit;Cartolina;false
+kit_trabalho;unid.;kit;Cavadeira;false
+kit_trabalho;unid.;kit;Chave de fenda;false
+kit_trabalho;unid.;kit;Chave de teste de tensão;false
+kit_trabalho;unid.;kit;Computador;false
+kit_trabalho;unid.;kit;Conector;false
+kit_trabalho;unid.;kit;Conta-gotas;false
+kit_trabalho;unid.;kit;Copo;false
+kit_trabalho;unid.;kit;Corante;false
+kit_trabalho;unid.;kit;Dispensador de álcool em gel;false
+kit_trabalho;unid.;kit;Enxada;false
+kit_trabalho;unid.;kit;Escova para limpeza;false
+kit_trabalho;unid.;kit;Esmalte para unha;false
+kit_trabalho;unid.;kit;Espátula;false
+kit_trabalho;unid.;kit;Estojo;false
+kit_trabalho;unid.;kit;Extra brilho;false
+kit_trabalho;unid.;kit;Facão;false
+kit_trabalho;unid.;kit;Ferramenta em geral;false
+kit_trabalho;unid.;kit;Fibra siliconada;false
+kit_trabalho;unid.;kit;Fita;false
+kit_trabalho;unid.;kit;Fita isolante;false
+kit_trabalho;unid.;kit;Fita métrica;false
+kit_trabalho;unid.;kit;Fogão;false
+kit_trabalho;unid.;kit;Folder;false
+kit_trabalho;unid.;kit;Fouet;false
+kit_trabalho;unid.;kit;Freezer horizontal;false
+kit_trabalho;unid.;kit;Frigideira;false
+kit_trabalho;unid.;kit;Fritadeira elétrica industrial;false
+kit_trabalho;unid.;kit;Furadeira;false
+kit_trabalho;unid.;kit;Garrafa;false
+kit_trabalho;unid.;kit;Geladeira;false
+kit_trabalho;unid.;kit;Grade de madeira;false
+kit_trabalho;unid.;kit;Insumos para cozinha;false
+kit_trabalho;unid.;kit;Item de artesanato;false
+kit_trabalho;unid.;kit;Jaleco;false
+kit_trabalho;unid.;kit;Jarra;false
+kit_trabalho;unid.;kit;Jogo educativo;false
+kit_trabalho;unid.;kit;Lamínula;false
+kit_trabalho;unid.;kit;Lâmpada;false
+kit_trabalho;unid.;kit;Lápis;false
+kit_trabalho;unid.;kit;LED;false
+kit_trabalho;unid.;kit;Linha de costura;false
+kit_trabalho;unid.;kit;Liquidificador;false
+kit_trabalho;unid.;kit;Livro;false
+kit_trabalho;unid.;kit;Lixa industrial;false
+kit_trabalho;unid.;kit;Lixa para unhas;false
+kit_trabalho;unid.;kit;Luva;false
+kit_trabalho;unid.;kit;Maleta;false
+kit_trabalho;unid.;kit;Mangueira;false
+kit_trabalho;unid.;kit;Marcador de lâmina;false
+kit_trabalho;unid.;kit;Máscara descartável;false
+kit_trabalho;unid.;kit;Material diverso;false
+kit_trabalho;unid.;kit;Mesa;false
+kit_trabalho;unid.;kit;Micro-ondas;false
+kit_trabalho;unid.;kit;Muda;false
+kit_trabalho;unid.;kit;Multímetro;false
+kit_trabalho;unid.;kit;Óculos de proteção;false
+kit_trabalho;unid.;kit;Óleo;false
+kit_trabalho;unid.;kit;Pá de bico;false
+kit_trabalho;unid.;kit;Palito;false
+kit_trabalho;unid.;kit;Panela;false
+kit_trabalho;unid.;kit;Pia industrial;false
+kit_trabalho;unid.;kit;Pipeta plástica;false
+kit_trabalho;unid.;kit;Pisseta plástica;false
+kit_trabalho;unid.;kit;Prato;false
+kit_trabalho;unid.;kit;Reagente;false
+kit_trabalho;unid.;kit;Regador;false
+kit_trabalho;unid.;kit;Resistor;false
+kit_trabalho;unid.;kit;Sabonete;false
+kit_trabalho;unid.;kit;Sementes;false
+kit_trabalho;unid.;kit;Soquete;false
+kit_trabalho;unid.;kit;Suporte para almofada;false
+kit_trabalho;unid.;kit;Tacho;false
+kit_trabalho;unid.;kit;Talheres;false
+kit_trabalho;unid.;kit;Tecido;false
+kit_trabalho;unid.;kit;Termômetro;false
+kit_trabalho;unid.;kit;Tesoura;false
+kit_trabalho;unid.;kit;Toalha de mão;false
+kit_trabalho;unid.;kit;Touca de cabelo;false
+kit_trabalho;unid.;kit;Vaso plástico;false
+kit_trabalho;unid.;kit;Xícara;false
+stage11;hora;gestão;Apoio;false
+stage11;hora;gestão;Assessoria;false
+stage11;hora;gestão;Assistente;false
+stage11;hora;gestão;Auxiliar;false
+stage11;unid.;gestão;Camiseta;false
+stage11;hora;gestão;Coordenador;false
+stage11;diária;finalística;Equipe;false
+stage11;unid.;finalística;Locação;false
+stage11;hora;gestão;Mobilizador social;false
+stage11;hora;gestão;Monitor;false
+stage11;hora;gestão;Orientador;false
+stage11;unid.;finalística;Serviço;false
+stage11;hora;gestão;Supervisor;false
+stage11;unid.;estruturação;Veículo;false
+stage12;unid.;estruturação;Ar-condicionado;false
+stage12;unid.;estruturação;Cadeira;false
+stage12;unid.;estruturação;Caixa de som;false
+stage12;unid.;estruturação;Câmera;false
+stage12;unid.;estruturação;Carregador portátil;false
+stage12;unid.;finalística;Combustível;false
+stage12;unid.;estruturação;Equipamento para estruturação de espaço;false
+stage12;unid.;estruturação;Extensão;false
+stage12;unid.;estruturação;Impressora;false
+stage12;unid.;estruturação;Instrumento musical;false
+stage12;unid.;estruturação;Locação;false
+stage12;unid.;estruturação;Mesa de apoio;false
+stage12;unid.;estruturação;Mesa de som;false
+stage12;unid.;estruturação;Microfone;false
+stage12;unid.;estruturação;Notebook;false
+stage12;unid.;estruturação;Projetor;false
+stage12;unid.;estruturação;Roteador Wi-Fi;false
+stage12;unid.;estruturação;Smart tv;false
+stage12;unid.;estruturação;Smartphone;false
+stage12;unid.;estruturação;Tela de projeção;false
+transporte;unid.;finalística;Transporte privado;true
+transporte;unid.;finalística;Transporte público;true

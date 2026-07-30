@@ -1645,7 +1645,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         Categoria: "categoria",
         Unidade: "unidade",
         TIPO: "tipo_despesa",
-        "Item de Despesa Padronizado": "descricao_item"
+        "Item de Despesa Padronizado": "descricao_item",
+        "Obrigatório": "obrigatorio"
       };
       const headers = lines[0].split(";").map(header => {
         const trimmed = header.trim();
@@ -1655,7 +1656,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         "categoria",
         "unidade",
         "tipo_despesa",
-        "descricao_item"
+        "descricao_item",
+        "obrigatorio"
       ];
       if (!requiredHeaders.every(header => headers.includes(header))) {
         throw new Error("O catálogo CSV não possui as colunas obrigatórias.");
@@ -1666,15 +1668,22 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         if (values.length !== headers.length) {
           throw new Error(`Linha ${lineIndex + 2} inválida no catálogo CSV.`);
         }
-        return Object.fromEntries(headers.map((header, index) => [header, values[index].trim()]));
+        const row = Object.fromEntries(headers.map((header, index) => [header, values[index].trim()]));
+        if (!["true", "false"].includes(row.obrigatorio.toLowerCase())) {
+          throw new Error(`Linha ${lineIndex + 2} possui um marcador de obrigatoriedade inválido.`);
+        }
+        row.obrigatorio = row.obrigatorio.toLowerCase() === "true";
+        return row;
       });
     }
 
     function serializeCatalogCsv(rows) {
-      const headers = ["categoria", "unidade", "tipo_despesa", "descricao_item"];
+      const headers = ["categoria", "unidade", "tipo_despesa", "descricao_item", "obrigatorio"];
       return [
         headers.join(";"),
-        ...rows.map(row => headers.map(header => String(row[header] || "").trim()).join(";"))
+        ...rows.map(row => headers.map(header =>
+          header === "obrigatorio" ? String(row[header] === true) : String(row[header] || "").trim()
+        ).join(";"))
       ].join("\n");
     }
 
@@ -1687,8 +1696,10 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           id: key,
           label,
           unidades: [],
-          tipo: normalizeExpenseType(row.tipo_despesa)
+          tipo: normalizeExpenseType(row.tipo_despesa),
+          obrigatorio: row.obrigatorio === true
         };
+        existing.obrigatorio ||= row.obrigatorio === true;
         existing.unidades = [...new Set([
           ...existing.unidades,
           ...splitCatalogValues(row.unidade)
@@ -2105,10 +2116,26 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       lunch: "almoco_para_participantes"
     };
 
+    function courseCatalogCategory(categoryId) {
+      return catalogs.tiposItemCurso.find(category => category.id === categoryId);
+    }
+
+    function requiredCatalogItems(categoryId) {
+      return courseCatalogCategory(categoryId)?.itens.filter(item => item.obrigatorio) || [];
+    }
+
+    function courseCatalogItem(categoryId, itemId) {
+      return courseCatalogCategory(categoryId)?.itens.find(item => item.id === itemId);
+    }
+
     function requiredCourseFoodItemIds(dailyWorkload) {
-      if (dailyWorkload >= 2 && dailyWorkload <= 4) return [courseFoodItemIds.snack];
+      const requiredIds = new Set(requiredCatalogItems("alimentacao").map(item => item.id));
+      if (dailyWorkload >= 2 && dailyWorkload <= 4) {
+        return requiredIds.has(courseFoodItemIds.snack) ? [courseFoodItemIds.snack] : [];
+      }
       if (dailyWorkload > 4 && dailyWorkload <= 8) {
-        return [courseFoodItemIds.snack, courseFoodItemIds.lunch];
+        return [courseFoodItemIds.snack, courseFoodItemIds.lunch]
+          .filter(itemId => requiredIds.has(itemId));
       }
       return [];
     }
@@ -2233,6 +2260,50 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       }
     }
 
+    function ensureRequiredCourseItem(card, category, itemId) {
+      const container = card.querySelector("[data-course-expenses]");
+      const rows = () => [...container.querySelectorAll("tbody tr")];
+      if (rows().some(row =>
+        row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+        row.querySelector('[data-field="item_despesa"]')?.value === itemId
+      )) return;
+
+      let row = rows().find(candidate =>
+        candidate.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
+        !candidate.querySelector('[data-field="item_despesa"]')?.value
+      );
+      if (!row) {
+        addCourseExpense(Number(card.dataset.courseIndex));
+        row = rows().at(-1);
+      }
+
+      const typeSelect = row.querySelector('[data-field="tipo_item_despesa"]');
+      if (typeSelect.value !== category.id) {
+        typeSelect.value = category.id;
+        typeSelect.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+      const itemSelect = row.querySelector('[data-field="item_despesa"]');
+      chooseComboboxOption(itemSelect.closest(".searchable-combobox"), itemId);
+    }
+
+    function syncRequiredCourseExpenses(card) {
+      if (!card || card.dataset.requiredExpenseSync === "true") return;
+      card.dataset.requiredExpenseSync = "true";
+
+      try {
+        ["kit_participante", "curso_outros"].forEach(categoryId => {
+          const category = courseCatalogCategory(categoryId);
+          if (!category) return;
+          requiredCatalogItems(categoryId).forEach(item =>
+            ensureRequiredCourseItem(card, category, item.id)
+          );
+        });
+        ensureInitialTransportExpense(card);
+      } finally {
+        delete card.dataset.requiredExpenseSync;
+      }
+    }
+
     function syncCourseExpenseQuantities(card) {
       if (!card) return;
 
@@ -2243,6 +2314,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const itemCount = calculateParticipantCountWithReserve(participantCount, reserveMargin);
       const requiredFoodItemIds = requiredCourseFoodItemIds(dailyWorkload);
 
+      syncRequiredCourseExpenses(card);
       syncCourseFoodExpenses(card, dailyWorkload);
 
       card.querySelectorAll('[data-course-expenses] tbody tr').forEach(row => {
@@ -2254,7 +2326,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
         const usesReserve = ["kit_participante", "epi"].includes(typeId);
         const usesCertificateParticipantCount =
-          typeId === "curso_outros" && itemId === "certificado";
+          typeId === "curso_outros" && itemId === "certificado" &&
+          courseCatalogItem(typeId, itemId)?.obrigatorio === true;
         const usesParticipantCount =
           typeId === "kit_trabalho" || usesCertificateParticipantCount;
         const usesTransportCalculation = typeId === "transporte" && Boolean(itemId);
@@ -2377,7 +2450,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       } else if (existing.length > desired) {
         existing.slice(desired).forEach(card => card.remove());
       }
-      [...container.querySelectorAll(".course-card")].forEach(ensureInitialTransportExpense);
+      [...container.querySelectorAll(".course-card")].forEach(syncRequiredCourseExpenses);
       updateAssistanceParticipantSummary();
       updateExpenseTotalsByType();
     }
@@ -2575,6 +2648,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     }
 
     function ensureInitialTransportExpense(card) {
+      if (!requiredCatalogItems("transporte").length) return;
       const container = card.querySelector("[data-course-expenses]");
       const existingTransportRow = [...container.querySelectorAll("tbody tr")].find(row =>
         row.querySelector('[data-field="tipo_item_despesa"]')?.value === "transporte"
@@ -2742,7 +2816,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         categoria: config.csvCategory,
         unidade: unit,
         tipo_despesa: config.csvType,
-        descricao_item: name
+        descricao_item: name,
+        obrigatorio: false
       };
       const newItem = mergeCatalogItems([catalogRow])[0];
       catalogRows.push(catalogRow);
@@ -3153,6 +3228,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const section = document.getElementById(stepId);
       const navButton = document.querySelector(`[data-step-target="${stepId}"]`);
       if (!section || !navButton || navButton.hidden) return true;
+      section.querySelectorAll(".course-card").forEach(syncCourseExpenseQuantities);
       const controls = [...section.querySelectorAll("input, select, textarea")].filter(control => control.type !== "button");
       let valid = true;
       controls.forEach(control => { if (!validateControl(control, { ignoreVisibility: true })) valid = false; });
