@@ -1031,7 +1031,8 @@
       font-weight: 700;
     }
 
-    .financial-metric--remaining {
+    .financial-metric--remaining,
+    .financial-metric--validated {
       padding: 9px;
       border: 1px solid var(--border);
       border-radius: 9px;
@@ -1078,7 +1079,8 @@
     }
 
     .financial-percentage.is-success,
-    .financial-metric--remaining.is-success {
+    .financial-metric--remaining.is-success,
+    .financial-metric--validated.is-success {
       border-color: #86efac;
       background: var(--success-bg);
     }
@@ -1087,10 +1089,13 @@
     .financial-percentage.is-success strong,
     .financial-percentage.is-success small,
     .financial-metric--remaining.is-success strong,
-    .financial-metric--remaining.is-success small { color: var(--success); }
+    .financial-metric--remaining.is-success small,
+    .financial-metric--validated.is-success strong,
+    .financial-metric--validated.is-success small { color: var(--success); }
 
     .financial-percentage.is-danger,
-    .financial-metric--remaining.is-danger {
+    .financial-metric--remaining.is-danger,
+    .financial-metric--validated.is-danger {
       border-color: #fda29b;
       background: var(--danger-bg);
     }
@@ -1099,7 +1104,9 @@
     .financial-percentage.is-danger strong,
     .financial-percentage.is-danger small,
     .financial-metric--remaining.is-danger strong,
-    .financial-metric--remaining.is-danger small { color: var(--danger); }
+    .financial-metric--remaining.is-danger small,
+    .financial-metric--validated.is-danger strong,
+    .financial-metric--validated.is-danger small { color: var(--danger); }
 
     .financial-metric--remaining.is-info {
       border-color: #84adff;
@@ -1186,9 +1193,10 @@
             <span>Valor total do projeto informado</span>
             <strong id="financial-informed">R$ 0,00</strong>
           </div>
-          <div class="financial-metric">
+          <div class="financial-metric financial-metric--validated" id="financial-participant-unit-cost-compliance">
             <span>Custo participante/hora médio</span>
             <strong id="financial-participant-unit-cost">R$ 0,00</strong>
+            <small id="financial-participant-unit-cost-message">Aguardando dados para o cálculo.</small>
           </div>
           <div class="financial-metric">
             <span>Despesas finalísticas</span>
@@ -2823,6 +2831,24 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       message.textContent = compliant ? successMessage : dangerMessage;
     }
 
+    function updateParticipantUnitCostCompliance(value, totalWorkload, totalParticipants, subtotal) {
+      const container = document.getElementById("financial-participant-unit-cost-compliance");
+      const message = document.getElementById("financial-participant-unit-cost-message");
+      const hasSufficientData = totalWorkload > 0 && totalParticipants > 0 && subtotal > 0;
+      container.classList.remove("is-success", "is-danger");
+
+      if (!hasSufficientData) {
+        message.textContent = "Aguardando dados para o cálculo.";
+        return;
+      }
+
+      const withinLimit = value <= 25;
+      container.classList.add(withinLimit ? "is-success" : "is-danger");
+      message.textContent = withinLimit
+        ? "Dentro do limite de R$ 25,00."
+        : "Alerta: custo acima de R$ 25,00.";
+    }
+
     function updateFinancialDashboard() {
       const informedTotal = currencyValue(document.getElementById("custo_total_projeto"));
       const subtotal = valorTotalGestaoFinalistica;
@@ -2846,6 +2872,12 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       document.getElementById("financial-subtotal").textContent = formatBRL(subtotal);
       document.getElementById("financial-participant-unit-cost").textContent =
         formatBRL(participantUnitCost);
+      updateParticipantUnitCostCompliance(
+        participantUnitCost,
+        totalWorkload,
+        totalParticipants,
+        subtotal
+      );
       document.getElementById("financial-structuring").textContent = formatBRL(valorTotalEstruturacao);
       document.getElementById("financial-kits").textContent = formatBRL(valorTotalKit);
       document.getElementById("financial-kits-row").hidden = !possuiDespesasKit;
