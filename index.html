@@ -385,11 +385,6 @@
       accent-color: var(--primary);
     }
 
-    .daily-workload-field:has(input[type="hidden"].is-invalid) .radio-options {
-      border-radius: 8px;
-      box-shadow: 0 0 0 3px rgba(180,35,24,.1);
-    }
-
     /* ======================================================================
        4. CURSOS, TABELAS DE DESPESAS E AÇÕES
        ====================================================================== */
@@ -2017,25 +2012,13 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     }
 
     function courseDailyWorkloadField(index) {
-      const fieldId = `curso_${index}_carga_horaria_diaria`;
-      const fieldName = `${fieldId}_opcao`;
-      const options = [8, 6, 4, 2];
-      return `
-        <div class="field daily-workload-field">
-          <fieldset class="radio-fieldset">
-            <legend class="required">Carga horária diária</legend>
-            <input id="${fieldId}" type="hidden" data-field="carga_horaria_diaria" data-required="true" />
-            <div class="radio-options">
-              ${options.map(hours => `
-                <label class="radio-option">
-                  <input type="radio" name="${fieldName}" value="${hours}"
-                    data-field="carga_horaria_diaria" data-daily-workload-option />
-                  <span>${hours}h</span>
-                </label>`).join("")}
-            </div>
-            <small class="error-message" data-error-for="${fieldId}"></small>
-          </fieldset>
-        </div>`;
+      return courseField(index, "carga_horaria_diaria", "Carga horária diária", "number", {
+        min: 2,
+        max: 8,
+        step: 1,
+        suffix: "horas",
+        rangeError: "Informe um número inteiro entre 2 e 8 horas."
+      });
     }
 
     function updateCourseDuration(card) {
@@ -2114,8 +2097,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     };
 
     function requiredCourseFoodItemIds(dailyWorkload) {
-      if ([2, 4].includes(dailyWorkload)) return [courseFoodItemIds.snack];
-      if ([6, 8].includes(dailyWorkload)) {
+      if (dailyWorkload >= 2 && dailyWorkload <= 4) return [courseFoodItemIds.snack];
+      if (dailyWorkload > 4 && dailyWorkload <= 8) {
         return [courseFoodItemIds.snack, courseFoodItemIds.lunch];
       }
       return [];
@@ -2139,7 +2122,10 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       );
 
       return type.itens.filter(item => {
-        if ([2, 4].includes(dailyWorkload) && item.id === courseFoodItemIds.lunch) return false;
+        if (dailyWorkload >= 2 && dailyWorkload <= 4 &&
+            item.id === courseFoodItemIds.lunch) {
+          return false;
+        }
         return item.id === currentItemId || !selectedInOtherRows.has(item.id);
       });
     }
@@ -2149,7 +2135,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         ? totalWorkload / dailyWorkload
         : 0;
       const baseQuantity = classDays * participantCountWithReserve;
-      const multiplier = itemId === courseFoodItemIds.snack && [6, 8].includes(dailyWorkload)
+      const multiplier = itemId === courseFoodItemIds.snack &&
+        dailyWorkload > 4 && dailyWorkload <= 8
         ? 2
         : 1;
       const rawQuantity = baseQuantity * multiplier;
@@ -2181,7 +2168,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       card.dataset.foodExpenseSync = "true";
 
       try {
-        if ([2, 4].includes(dailyWorkload)) {
+        if (dailyWorkload >= 2 && dailyWorkload <= 4) {
           const lunchRows = rows().filter(row =>
             row.querySelector('[data-field="tipo_item_despesa"]')?.value === category.id &&
             row.querySelector('[data-field="item_despesa"]')?.value === courseFoodItemIds.lunch
@@ -4413,15 +4400,8 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       setMockInputValue(field("carga_horaria_total"), course.totalWorkload);
       setMockInputValue(field("quantidade_participantes"), course.participants);
       setMockInputValue(field("margem_reserva"), course.reserveMargin);
+      setMockInputValue(field("carga_horaria_diaria"), course.dailyWorkload);
       setMockInputValue(field("quantidade_encontros_semanais"), course.weeklyMeetings);
-
-      const dailyOption = card.querySelector(
-        `[data-daily-workload-option][value="${course.dailyWorkload}"]`
-      );
-      if (!dailyOption) throw new Error("Opção de carga horária diária do mock não encontrada.");
-      dailyOption.checked = true;
-      dailyOption.dispatchEvent(new Event("input", { bubbles: true }));
-      dailyOption.dispatchEvent(new Event("change", { bubbles: true }));
     }
 
     function addMockCourseExpense(courseIndex, expense, fallbackIndex = 0) {
@@ -4650,17 +4630,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
       if (control.id === "custo_total_projeto") updateFinancialDashboard();
       if (control.classList.contains("month-year-input")) maskMonthYear(control);
       if (control.classList.contains("expense-code-input")) maskExpenseCode(control);
-      if (control.matches("[data-daily-workload-option]")) {
-        const dailyWorkload = control.closest(".daily-workload-field")
-          ?.querySelector('input[type="hidden"][data-field="carga_horaria_diaria"]');
-        if (dailyWorkload) dailyWorkload.value = control.value;
-      }
       if (control.matches("input, select, textarea")) validateControl(control);
-      if (control.matches("[data-daily-workload-option]")) {
-        const dailyWorkload = control.closest(".daily-workload-field")
-          ?.querySelector('input[type="hidden"][data-field="carga_horaria_diaria"]');
-        if (dailyWorkload) validateControl(dailyWorkload);
-      }
 
       if (["quantidade_participantes", "margem_reserva"].includes(control.dataset.field)) {
         const courseCard = control.closest(".course-card");
