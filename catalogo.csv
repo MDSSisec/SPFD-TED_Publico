@@ -535,25 +535,9 @@ stage11;hora;gestão;Orientador;false
 stage11;unid.;finalística;Serviço;false
 stage11;hora;gestão;Supervisor;false
 stage11;unid.;estruturação;Veículo;false
-stage12;unid.;estruturação;Ar-condicionado;false
-stage12;unid.;estruturação;Cadeira;false
-stage12;unid.;estruturação;Caixa de som;false
-stage12;unid.;estruturação;Câmera;false
-stage12;unid.;estruturação;Carregador portátil;false
 stage12;unid.;finalística;Combustível;false
 stage12;unid.;estruturação;Equipamento para estruturação de espaço;false
-stage12;unid.;estruturação;Extensão;false
-stage12;unid.;estruturação;Impressora;false
-stage12;unid.;estruturação;Instrumento musical;false
+stage12;unid.;estruturação;Móvel para estruturação de espaço;false
 stage12;unid.;estruturação;Locação;false
-stage12;unid.;estruturação;Mesa de apoio;false
-stage12;unid.;estruturação;Mesa de som;false
-stage12;unid.;estruturação;Microfone;false
-stage12;unid.;estruturação;Notebook;false
-stage12;unid.;estruturação;Projetor;false
-stage12;unid.;estruturação;Roteador Wi-Fi;false
-stage12;unid.;estruturação;Smart tv;false
-stage12;unid.;estruturação;Smartphone;false
-stage12;unid.;estruturação;Tela de projeção;false
 transporte;unid.;finalística;Transporte privado;true
 transporte;unid.;finalística;Transporte público;true
