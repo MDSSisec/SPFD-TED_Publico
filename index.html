@@ -2160,6 +2160,10 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       certificado: {
         property: "justificativaRemocaoCertificado",
         label: "Certificado"
+      },
+      apostila: {
+        property: "justificativaRemocaoApostila",
+        label: "Apostila"
       }
     };
 
@@ -2359,7 +2363,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           requiredCatalogItems(categoryId)
             .filter(item =>
               categoryId === "kit_participante"
-                ? !removedParticipantKitItems(card).has(item.id)
+                ? !removedParticipantKitItems(card).has(item.id) &&
+                  !hasRequiredRemovalJustification(card, item.id)
                 : !hasRequiredRemovalJustification(card, item.id)
             )
             .forEach(item => ensureRequiredCourseItem(card, category, item.id));
@@ -2834,6 +2839,13 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
       const item = courseCatalogItem(categoryId, itemId);
 
+      if (categoryId === "kit_participante" && itemId === "apostila") {
+        return {
+          id: itemId,
+          ...requiredRemovalRules.apostila,
+          label: item?.label || requiredRemovalRules.apostila.label
+        };
+      }
       if (categoryId === "transporte" && requiredCatalogItems("transporte").length) {
         return {
           id: "transporte",
@@ -2906,6 +2918,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
       if (categoryId === "kit_participante" && itemId) {
         removedParticipantKitItems(card).delete(itemId);
+        if (itemId === "apostila") clearRequiredRemovalJustification(card, "apostila");
       }
       if (categoryId === "transporte") clearRequiredRemovalJustification(card, "transporte");
       if (categoryId === "alimentacao" && requiredRemovalRules[itemId]) {
@@ -5022,7 +5035,7 @@ Produto {{NUMERO_ETAPA}} - Assistência Técnica e Gerencial realizada, comprova
         const card = row.closest(".course-card");
         const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
         const itemId = row.querySelector('[data-field="item_despesa"]')?.value;
-        if (card && categoryId === "kit_participante") {
+        if (card && categoryId === "kit_participante" && itemId !== "apostila") {
           if (itemId) removedParticipantKitItems(card).add(itemId);
           removeExpenseRow(row);
           setStatus("Item do Kit participante removido.", "success");
