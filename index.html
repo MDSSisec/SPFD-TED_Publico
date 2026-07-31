@@ -764,6 +764,27 @@
       font-size: .76rem;
     }
 
+    td:last-child .expense-remove-action {
+      width: 32px;
+      height: 32px;
+      min-height: 32px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .expense-remove-action svg {
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+    }
+
+    .expense-remove-action:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .expense-remove-action:disabled:hover { background: #fff; }
+
     /* Distribuição proporcional das nove colunas das despesas dos cursos. */
     [data-course-expenses] th:nth-child(1),
     [data-course-expenses] td:nth-child(1) { width: 12%; }
@@ -938,6 +959,7 @@
       #assistance-table td:nth-child(9)::before { content: "Ações"; }
 
       td:last-child .btn { width: auto; }
+      td:last-child .expense-remove-action { width: 32px; }
     }
 
     @media (max-width: 620px) {
@@ -2531,7 +2553,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         ${tableCellInput("quantidade_itens", "number", rowId, { min: 1 })}
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
         ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
-        <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
+        <td>${removeExpenseButton()}</td>`;
 
       return tr;
     }
@@ -2550,8 +2572,21 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         ${tableCellInput("valor_unitario", "text", rowId, { currency: true })}
         ${tableCellInput("valor_total", "text", rowId, { readonly: true, value: "R$ 0,00" })}
         ${tableCellSelect("fonte_recurso", optionList(catalogs.fontesRecurso), rowId, "Fonte")}
-        <td><button class="btn btn-danger btn-sm" type="button" data-remove-row>Remover</button></td>`;
+        <td>${removeExpenseButton()}</td>`;
       return tr;
+    }
+
+    function removeExpenseButton() {
+      return `<button class="btn btn-danger btn-sm expense-remove-action" type="button"
+        data-remove-row aria-label="Remover item" title="Remover item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M3 6h18" />
+          <path d="M8 6V4h8v2" />
+          <path d="M19 6l-1 14H6L5 6" />
+          <path d="M10 11v5M14 11v5" />
+        </svg>
+      </button>`;
     }
 
     function stageItemCell(kind, rowId) {
