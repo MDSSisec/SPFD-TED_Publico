@@ -1540,7 +1540,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     <div class="dialog-header"><h2>Cadastrar item no catálogo</h2></div>
     <form id="catalog-item-form" novalidate>
       <div class="dialog-body">
-        <p class="section-description">O item ficará disponível imediatamente. Como a aplicação é estática, será baixado um <strong>catalogo.csv</strong> atualizado para substituir o arquivo do repositório.</p>
+        <p class="section-description">O item ficará disponível durante a sessão atual e será descartado ao recarregar ou fechar a página.</p>
         <div class="dialog-field">
           <label for="catalog-item-category">Categoria</label>
           <input id="catalog-item-category" type="text" readonly />
@@ -1560,7 +1560,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       </div>
       <div class="dialog-footer">
         <button type="button" class="btn btn-ghost" id="cancel-catalog-item">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Cadastrar e baixar catálogo</button>
+        <button type="submit" class="btn btn-primary">Cadastrar item</button>
       </div>
     </form>
   </dialog>
@@ -1611,7 +1611,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
 
     let catalogs = {};
     let catalogRows = [];
-    let catalogCsvText = "";
 
     /* =========================================================
        CATÁLOGO CARREGADO DO CSV
@@ -1690,16 +1689,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       });
     }
 
-    function serializeCatalogCsv(rows) {
-      const headers = ["categoria", "unidade", "tipo_despesa", "descricao_item", "obrigatorio"];
-      return [
-        headers.join(";"),
-        ...rows.map(row => headers.map(header =>
-          header === "obrigatorio" ? String(row[header] === true) : String(row[header] || "").trim()
-        ).join(";"))
-      ].join("\n");
-    }
-
     function mergeCatalogItems(rows) {
       const items = new Map();
       rows.forEach(row => {
@@ -1759,7 +1748,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       if (!response.ok) throw new Error(`Não foi possível carregar o catálogo (${response.status}).`);
       const sourceCsvText = await response.text();
       catalogRows = parseCatalogCsv(sourceCsvText);
-      catalogCsvText = serializeCatalogCsv(catalogRows);
       catalogs = buildCatalogsFromCsv(catalogRows);
     }
 
@@ -2943,18 +2931,6 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       });
     }
 
-    function downloadUpdatedCatalog() {
-      const blob = new Blob([catalogCsvText], { type: "text/csv;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const anchor = document.createElement("a");
-      anchor.href = url;
-      anchor.download = "catalogo.csv";
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-      URL.revokeObjectURL(url);
-    }
-
     function addCatalogItem(event) {
       event.preventDefault();
       clearCatalogItemErrors();
@@ -2999,15 +2975,13 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       catalogRows.push(catalogRow);
       category.itens.push(newItem);
       category.itens.sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
-      catalogCsvText = serializeCatalogCsv(catalogRows);
 
       refreshCourseCategoryItems(categoryId);
       const targetSelect = row.querySelector('[data-field="item_despesa"]');
       chooseComboboxOption(targetSelect.closest(".searchable-combobox"), newItem.id);
       catalogItemDialog.close();
       state.catalogTargetRow = null;
-      downloadUpdatedCatalog();
-      setStatus(`Item "${name}" cadastrado. Substitua o catalogo.csv pela versão baixada para persistir a alteração.`, "success");
+      setStatus(`Item "${name}" cadastrado para uso durante esta sessão.`, "success");
     }
 
     /* ======================================================================
