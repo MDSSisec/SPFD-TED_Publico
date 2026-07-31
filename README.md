@@ -6,17 +6,7 @@ O projeto usa apenas HTML, CSS e JavaScript, sem backend, gerenciador de pacotes
 
 ## Como executar
 
-Não há dependências para instalar nem comando de build. Como o catálogo e o modelo Excel são carregados com `fetch`, abra o projeto por meio de um servidor HTTP em vez de abrir o arquivo HTML diretamente pelo sistema de arquivos.
-
-Exemplo com Python:
-
-```bash
-python -m http.server 8000
-```
-
-Depois, acesse `http://localhost:8000`.
-
-No GitHub Pages basta publicar o conteúdo da raiz. O arquivo `.nojekyll` impede o processamento pelo Jekyll.
+Acessar [Link](https://mdssisec.github.io/SPFD-TED_Publico/)
 
 ## Estrutura de arquivos
 
