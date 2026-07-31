@@ -1579,6 +1579,13 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           </select>
           <small class="error-message" data-catalog-error="unit"></small>
         </div>
+        <div class="dialog-field">
+          <label class="required" for="catalog-item-type">Classificação da despesa</label>
+          <select id="catalog-item-type" required>
+            <option value="">Selecione</option>
+          </select>
+          <small class="error-message" data-catalog-error="type"></small>
+        </div>
       </div>
       <div class="dialog-footer">
         <button type="button" class="btn btn-ghost" id="cancel-catalog-item">Cancelar</button>
@@ -1643,6 +1650,12 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       kit_trabalho: { csvCategory: "kit_trabalho", label: "Kit Trabalho", csvType: "kit" },
       epi: { csvCategory: "epi", label: "EPI", csvType: "finalística" },
       insumos_gerais: { csvCategory: "insumo_gerais", label: "Insumos Gerais", csvType: "finalística" }
+    };
+    const stageCatalogConfig = {
+      stage11: { csvCategory: "stage11", label: "Planejamento e execução" },
+      stage12: { csvCategory: "stage12", label: "Estruturação e Equipamento" },
+      assistance: { csvCategory: "assistencia", label: "Assistência Técnica e Gerencial" },
+      event: { csvCategory: "event", label: "Evento de lançamento e encerramento" }
     };
 
     function splitCatalogValues(value) {
@@ -2590,7 +2603,9 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
     }
 
     function stageItemCell(kind, rowId) {
-      const itemCell = tableCellCombobox("item_despesa", catalogs[kind], rowId, "Item");
+      const itemCell = tableCellCombobox(
+        "item_despesa", catalogs[kind], rowId, "Item", "Selecione ou pesquise", false, true, true
+      );
       return itemCell.replace(
         "</td>",
         `<input type="hidden" data-field="tipo_despesa" /></td>`
@@ -2602,7 +2617,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       return `<td><select id="${id}" data-field="${field}" data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""}>${options}</select><small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
-    function tableCellCombobox(field, items, rowId, label, placeholder = "Selecione ou pesquise", disabled = false, allowItemCreation = false) {
+    function tableCellCombobox(field, items, rowId, label, placeholder = "Selecione ou pesquise", disabled = false, allowItemCreation = false, showItemCreation = false) {
       const id = `${rowId}_${field}`;
       const sourceId = `${id}_value`;
       const listId = `${id}_options`;
@@ -2613,7 +2628,7 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
           data-combobox-input data-required="true" aria-label="${escapeHtml(label)}" ${disabled ? "disabled" : ""} />
         <div id="${listId}" class="searchable-combobox-list" role="listbox" hidden></div>
         <select id="${sourceId}" class="searchable-combobox-source" data-field="${field}" tabindex="-1" aria-hidden="true" ${disabled ? "disabled" : ""}>${optionList(items, placeholder)}</select>
-      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary catalog-item-action" data-add-catalog-item aria-label="Cadastrar Item" title="Cadastrar Item" hidden>+</button>` : ""}</div><small class="error-message" data-error-for="${id}"></small></td>`;
+      </div>${allowItemCreation ? `<button type="button" class="btn btn-secondary catalog-item-action" data-add-catalog-item aria-label="Cadastrar Item" title="Cadastrar Item" ${showItemCreation ? "" : "hidden"}>+</button>` : ""}</div><small class="error-message" data-error-for="${id}"></small></td>`;
     }
 
     function renderComboboxOptions(wrapper, search = "") {
@@ -2837,15 +2852,55 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       return optionList(units);
     }
 
-    function openCatalogItemDialog(row) {
-      const categoryId = row.querySelector('[data-field="tipo_item_despesa"]')?.value;
+    function catalogExpenseTypeOptions(csvCategory) {
+      const types = [...new Set(catalogRows
+        .filter(row => row.categoria === csvCategory)
+        .map(row => row.tipo_despesa)
+        .filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, "pt-BR"));
+      return optionList(types, "Selecione");
+    }
+
+    function catalogItemContext(row) {
+      const stageKind = row?.dataset.stageKind;
+      if (stageKind) {
+        const config = stageCatalogConfig[stageKind];
+        return config ? {
+          scope: "stage",
+          key: stageKind,
+          config,
+          items: catalogs[stageKind]
+        } : null;
+      }
+
+      const categoryId = row?.querySelector('[data-field="tipo_item_despesa"]')?.value;
       const config = customCourseCategoryConfig[categoryId];
-      if (!config) return;
+      const category = catalogs.tiposItemCurso.find(item => item.id === categoryId);
+      return config && category ? {
+        scope: "course",
+        key: categoryId,
+        config,
+        items: category.itens
+      } : null;
+    }
+
+    function openCatalogItemDialog(row) {
+      const context = catalogItemContext(row);
+      if (!context) return;
       state.catalogTargetRow = row;
       catalogItemForm.reset();
       clearCatalogItemErrors();
-      document.getElementById("catalog-item-category").value = config.label;
+      document.getElementById("catalog-item-category").value = context.config.label;
       document.getElementById("catalog-item-unit").innerHTML = catalogUnitOptions();
+      const typeSelect = document.getElementById("catalog-item-type");
+      if (context.scope === "course") {
+        typeSelect.innerHTML = optionList([context.config.csvType]);
+        typeSelect.value = context.config.csvType;
+        typeSelect.disabled = true;
+      } else {
+        typeSelect.innerHTML = catalogExpenseTypeOptions(context.config.csvCategory);
+        typeSelect.disabled = false;
+      }
       catalogItemDialog.showModal();
       document.getElementById("catalog-item-name").focus();
     }
@@ -2966,19 +3021,31 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       });
     }
 
+    function refreshStageCatalogItems(kind) {
+      document.querySelectorAll(`#${kind}-table tbody tr`).forEach(row => {
+        const select = row.querySelector('[data-field="item_despesa"]');
+        const previousValue = select.value;
+        setComboboxOptions(select, catalogs[kind]);
+        if (catalogs[kind].some(item => item.id === previousValue)) {
+          select.value = previousValue;
+          syncComboboxDisplay(select);
+        }
+      });
+    }
+
     function addCatalogItem(event) {
       event.preventDefault();
       clearCatalogItemErrors();
 
       const row = state.catalogTargetRow;
-      const categoryId = row?.querySelector('[data-field="tipo_item_despesa"]')?.value;
-      const config = customCourseCategoryConfig[categoryId];
-      if (!row || !config) return closeCatalogItemDialog();
+      const context = catalogItemContext(row);
+      if (!row || !context) return closeCatalogItemDialog();
 
       const name = document.getElementById("catalog-item-name").value.trim();
       const unit = document.getElementById("catalog-item-unit").value.trim();
+      const expenseType = document.getElementById("catalog-item-type").value.trim();
       let valid = true;
-      [["name", name], ["unit", unit]].forEach(([field, value]) => {
+      [["name", name], ["unit", unit], ["type", expenseType]].forEach(([field, value]) => {
         if (!value) {
           setCatalogItemError(field, "Preencha este campo.");
           valid = false;
@@ -2988,9 +3055,8 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
         }
       });
 
-      const category = catalogs.tiposItemCurso.find(item => item.id === categoryId);
       const newItemId = catalogId(name);
-      if (name && category?.itens.some(item => item.id === newItemId)) {
+      if (name && context.items.some(item => item.id === newItemId)) {
         setCatalogItemError("name", "Este item já existe na categoria.");
         valid = false;
       }
@@ -3000,18 +3066,19 @@ Assistência Gerencial: (informar a temática relacionada à Assistência Gerenc
       }
 
       const catalogRow = {
-        categoria: config.csvCategory,
+        categoria: context.config.csvCategory,
         unidade: unit,
-        tipo_despesa: config.csvType,
+        tipo_despesa: expenseType,
         descricao_item: name,
         obrigatorio: false
       };
       const newItem = mergeCatalogItems([catalogRow])[0];
       catalogRows.push(catalogRow);
-      category.itens.push(newItem);
-      category.itens.sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
+      context.items.push(newItem);
+      context.items.sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
 
-      refreshCourseCategoryItems(categoryId);
+      if (context.scope === "course") refreshCourseCategoryItems(context.key);
+      else refreshStageCatalogItems(context.key);
       const targetSelect = row.querySelector('[data-field="item_despesa"]');
       chooseComboboxOption(targetSelect.closest(".searchable-combobox"), newItem.id);
       catalogItemDialog.close();
